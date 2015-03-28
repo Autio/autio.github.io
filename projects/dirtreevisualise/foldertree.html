@@ -50,7 +50,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-d3.json("Foldertree.json", function(error, flare) {
+d3.json("FolderTree.json", function(error, flare) {
 
   root = flare;
   root.x0 = height / 2;
