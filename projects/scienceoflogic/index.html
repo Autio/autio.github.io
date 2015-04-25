@@ -61,8 +61,8 @@ p#intro {
 	<th>
 	<div class="textArea" id="bookText" align="left">
 		
-		<object id="bookTextObject" data = "mainText.html" width = 800px height = 800px style = "float: relative; margin:10px;">
-		<embed src = "mainText.html" width = 800px height = 800px style = "float: right; margin:10px;">
+		<object id="bookTextObject" data = "maintext.html" width = 800px height = 800px style = "float: relative; margin:10px;">
+		<embed src = "maintext.html" width = 800px height = 800px style = "float: right; margin:10px;">
 		</embed></object>
 	
 	</div>
@@ -71,7 +71,7 @@ p#intro {
 	<tr>
 	<th>
 	<div id="footer" class="footer">
-		<p>P.A. 2015 | <a href="http://autio.github.io//">GitHub</a> | <a href="http://twitter.com/archbang85/">Twitter</a> |<br />Study Guide - an interactive visualisation of Hegel's Science of Logic<br />Code: D3.js based on the <a href="https://www.jasondavies.com/coffee-wheel/">Coffee Flavour Wheel</a> by J. Davies<br />Text: A.V. Miller's translation based on A. Blunden's <a href="https://www.marxists.org/reference/archive/hegel/works/hl/">transcription</a></p>
+		<p>P.A. 2015 | <a href="http://autio.github.io//">GitHub</a> | <a href="http://twitter.com/archbang85/">Twitter</a> |<br />An interactive visualisation of Hegel's Science of Logic<br />Code: D3.js based on the <a href="https://www.jasondavies.com/coffee-wheel/">Coffee Flavour Wheel</a> by J. Davies<br />Text: A.V. Miller's translation based on A. Blunden's <a href="https://www.marxists.org/reference/archive/hegel/works/hl/">transcription</a><br />Updated from my 2012 version. Feedback welcome.</p>
 
 	</div>
 	</th>
@@ -966,7 +966,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 	// go to url with ctrl click
 	if(event.ctrlKey)
 	{
-		newUrl = "mainText.html#" + d.url;
+		newUrl = "maintext.html#" + d.url;
 		var divEl = document.getElementById("bookText");
 		var objEl = document.getElementById("bookTextObject")
 		objEl.data = newUrl;
