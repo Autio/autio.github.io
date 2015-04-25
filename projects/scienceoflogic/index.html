@@ -61,8 +61,8 @@ p#intro {
 	<th>
 	<div class="textArea" id="bookText" align="left">
 		
-		<object id="bookTextObject" data = "maintext.html" width = 800px height = 800px style = "float: relative; margin:10px;">
-		<embed src = "maintext.html" width = 800px height = 800px style = "float: right; margin:10px;">
+		<object id="bookTextObject" data = "mainText.html" width = 800px height = 800px style = "float: relative; margin:10px;">
+		<embed src = "mainText.html" width = 800px height = 800px style = "float: right; margin:10px;">
 		</embed></object>
 	
 	</div>
@@ -966,7 +966,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 	// go to url with ctrl click
 	if(event.ctrlKey)
 	{
-		newUrl = "maintext.html#" + d.url;
+		newUrl = "mainText.html#" + d.url;
 		var divEl = document.getElementById("bookText");
 		var objEl = document.getElementById("bookTextObject")
 		objEl.data = newUrl;
