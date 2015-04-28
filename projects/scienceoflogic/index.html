@@ -59,7 +59,7 @@ p#intro {
 </style>
 <div>
     <h1 style = "margin:30px";> A Map of Hegel's Science of Logic </h1>
-	<h3 style = "margin:30px";>Click a segment to make it the central moment. Click the centre to return. Ctrl-click a segment to go to that part of the text.
+	<h3 style = "margin:30px";>Click a segment to make it the central moment. Click the centre to return. Ctrl-, Shift- or Double-click a segment to go to that part of the text.
 	</h3>
 </div>
 
@@ -754,6 +754,7 @@ readJson(JSON.stringify(jsonData), function(json) {
       .style("fill", colour)
 	  .attr("xlink:href", "url")
       .on("click", click);
+	//  .on("dblclick", click)
   
   var text = vis.selectAll("text").data(nodes);
     
@@ -822,6 +823,8 @@ readJson(JSON.stringify(jsonData), function(json) {
 
 
 .on("click", click)
+.on("dblclick", dblclick)
+
 .on('mouseover', mouseover)
 .on('mouseout', function(){
 	tooltip.transition()
@@ -836,6 +839,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 		.style('top',  h/2 + 155 + 'px')
 		.html("Preface")
 		.on("click", click)
+
 
   // Splits the names onto multiple lines
    
@@ -953,7 +957,16 @@ readJson(JSON.stringify(jsonData), function(json) {
 
 }  
 
-  
+  function dblclick(d)
+  {
+  		newUrl = "mainText.html#" + d.url;
+		var divEl = document.getElementById("bookText");
+		var objEl = document.getElementById("bookTextObject")
+		objEl.data = newUrl;
+		divEl.innerHTML = divEl.innerHTML;
+		console.log(d.url);
+		return;
+  }
   function click(d) {
 	// Navigate to url of text if depth exceeded
 	//if(d.depth >= 3){
@@ -975,7 +988,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 	
 	
 	// go to url with ctrl click
-	if(event.ctrlKey)
+	if(event.ctrlKey || event.shiftKey)
 	{
 		newUrl = "mainText.html#" + d.url;
 		var divEl = document.getElementById("bookText");
