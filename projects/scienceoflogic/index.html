@@ -759,10 +759,10 @@ readJson(JSON.stringify(jsonData), function(json) {
   
   var text = vis.selectAll("text").data(nodes);
     
-	
+  var depthDiff = 0;
 	
   var textEnter = text.enter().append("text")
-      .style("opacity", 1)
+      .style("fill-opacity", 1)
       .style("fill", function(d) {
         //return "#eee";
 		
@@ -817,9 +817,6 @@ readJson(JSON.stringify(jsonData), function(json) {
 	  return "rotate(" + rotate + ")translate(" + (y(d.y) + p) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
       }
 	  
-	  
-	  
-
 )
 
 
@@ -829,7 +826,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 .on('mouseover', mouseover)
 .on('mouseout', function(){
 	tooltip.transition()
-		.style('opacity', 0);
+		.style('fill-opacity', 0);
 });
 
 	  // Centre text - preface
@@ -866,7 +863,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 			  return d.depth ? d.name.split(" ")[1] || "" : "";  
 		  })
 
-		  .style("opacity", function(d) {
+		  .style("fill-opacity", function(d) {
 		   		  
 			  depthDiff = d.depth - currentDepth;
 			  if(depthDiff > 3)
@@ -878,7 +875,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 			  }
 		  
 		  });
-		  
+	
 	textEnter.append("tspan")
 		  .attr("x", 0)
 		  .attr("dy", "1.2em")
@@ -886,7 +883,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 			  return d.depth ? d.name.split(" ")[2] || "" : "";  
 		  })
 
-		  .style("opacity", function(d) {
+		  .style("fill-opacity", function(d) {
 		   		  
 			  depthDiff = d.depth - currentDepth;
 			  if(depthDiff > 3)
@@ -907,7 +904,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 			  return d.depth ? d.name.split(" ")[3] || "" : "";  
 		  })
 
-		  .style("opacity", function(d) {
+		  .style("fill-opacity", function(d) {
 		   		  
 			  depthDiff = d.depth - currentDepth;
 			  if(depthDiff > 3)
@@ -929,7 +926,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 			  return d.depth ? d.name.split(" ")[4] || "" : "";  
 		  })
 
-		  .style("opacity", function(d) {
+		  .style("fill-opacity", function(d) {
 		   		  
 			  depthDiff = d.depth - currentDepth;
 			  if(depthDiff > 3)
@@ -975,7 +972,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 
 	currentDepth = d.depth;
 	
-	console.log(currentDepth);
+	//console.log(currentDepth);
 	
 	// Update home button
 	if(currentDepth == 0)
@@ -989,7 +986,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 	
 	
 	// go to url with ctrl click
-	if(event.ctrlKey || event.shiftKey)
+	if(d3.event.ctrlKey || d3.event.shiftKey)
 	{
 		newUrl = "mainText.html#" + d.url;
 		var divEl = document.getElementById("bookText");
@@ -1075,7 +1072,7 @@ readJson(JSON.stringify(jsonData), function(json) {
           return "rotate(" + rotate + ")translate(" + (y(d.y) + p) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
         };
       })
-      .style("opacity", function(e) { 
+      .style("fill-opacity", function(e) { 
 	  	
 		return isParentOf(d, e) ? 1 : 1e-6; 
 	  
@@ -1085,7 +1082,7 @@ readJson(JSON.stringify(jsonData), function(json) {
       });
 	  
 	
-	d3.selectAll("tspan").style("opacity", function(d) {
+	d3.selectAll("tspan").style("fill-opacity", function(d) {
 		// Hiding lowest level texts apart from the top line when looking at things from the highest viewpoint
 		depthDiff = d.depth - currentDepth;
 		if (depthDiff > 3)
@@ -1096,7 +1093,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 			return 1;
 		}
 		} );
-	d3.selectAll("#header").style("opacity", 1);
+	d3.selectAll("#header").style("fill-opacity", 1);
 	
 	
   }
