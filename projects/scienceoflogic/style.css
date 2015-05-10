@@ -249,6 +249,29 @@ pre {
   margin: 1em 0;
 }
 
+.btn {
+  -webkit-border-radius: 14;
+  -moz-border-radius: 14;
+  border-radius: 14px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #57a5d9;
+  padding: 6px 12px 6px 12px;
+  border: solid #ccaaaa 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
 /*
  * Corrects font family set oddly in IE6, S4/5, Chrome
  * en.wikipedia.org/wiki/User:Davidgothberg/Test59
@@ -783,7 +806,7 @@ dt {
 div.tooltip {
 	background: darkslategray;
 	position: absolute;
-	padding: 0 10px;
+	padding: 0 8px;
 	opacity: 0;
 	border: 0px;      
 	font-size: 1.618em;

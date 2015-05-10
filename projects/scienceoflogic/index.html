@@ -66,33 +66,47 @@ p#intro {
 
 <div id ="mainArea" class="wrapper">
 
-<table class="tg" align="left">
-	<th>
-	<div style = "width:  900px; float: left; height: 900px; margin:20px;" id="vis"></div>
-	</th>
-	<th>
-	<div class="textArea" id="bookText" align="left">
 		
-		<object id="bookTextObject" data = "mainText.html" width = 800px height = 800px style = "float: relative; margin:10px;">
-		<embed src = "mainText.html" width = 800px height = 800px style = "float: right; margin:10px;">
-		</embed></object>
-	
-	</div>
-	</th>
+	<table class="tg" align="left">
+		<th>
+			<div style = "width:  900px; float: left; height: 900px; margin:2px;" id="vis"></div>
+		</th>
+		<th>
+			<div class="textArea" id="bookText" align="left"">
+				
+				<object id="bookTextObject" data = "mainText.html" width = 800px height = 800px style = "float: relative; margin:10px; display: block;">
+				<embed src = "mainText.html" width = 800px height = 800px style = "float: right; margin:10px;">
+				</embed></object>
+			
+			</div>
 
-	<tr>
-	<th>
-	<div id="footer" class="footer">
-		<p>P.A. 2015 | <a href="http://autio.github.io//">GitHub</a> | <a href="http://twitter.com/archbang85/">Twitter</a> |<br />An interactive visualisation of GWF Hegel's Science of Logic<br />Code: D3.js based on the <a href="https://www.jasondavies.com/coffee-wheel/">Coffee Flavour Wheel</a> by J. Davies<br />Text: A.V. Miller's translation based on A. Blunden's <a href="https://www.marxists.org/reference/archive/hegel/works/hl/">transcription</a><br /><a href="https://www.marxists.org/reference/archive/hegel/">Further resources on Hegel</a><br />Updated from my 2012 version. Feedback welcome.</p>
+		</th>
 
-	</div>
-	</th>
-	<th>
-	</th>
-	</tr>
-</table>
+		<tr>
+			<th>
+				<div id="footer" class="footer">
 
-	</div>
+					<p>P.A. 2015 | <a href="http://autio.github.io//">GitHub</a> | 
+					<a href="http://twitter.com/archbang85/">Twitter</a> |<br />An interactive visualisation of GWF Hegel's Science of Logic<br />
+					Code: D3.js based on the <a href="https://www.jasondavies.com/coffee-wheel/">Coffee Flavour Wheel</a> by J. Davies<br />
+					Text: A.V. Miller's translation based on A. Blunden's <a href="https://www.marxists.org/reference/archive/hegel/works/hl/">transcription</a>
+					<br /><a href="https://www.marxists.org/reference/archive/hegel/">Further resources on Hegel</a><br />Updated from my 2012 version. Feedback welcome.</p>
+
+				</div>
+			</th>
+
+	<!--	<th>
+			<div class="btn" id="hideButton" onclick="toggleText()" align="center" style = "position: relative; float: right; width: 80px; height: 20px;">
+				<p>Hide text</p>
+			</div>
+			
+		
+		</th>-->
+		</tr>
+	</table>
+
+
+</div>
 
 <script type="text/javascript">
 // Include D3 library
@@ -125,7 +139,7 @@ jsonData = [
 	'url': '0130',
 	'children': [
 		{ 
-			'name': '1.1.1 Determinate- ness',
+			'name': '1.1.1 Determinateness',
 			'url': '0130',
 			'children': [
 				{ 
@@ -686,10 +700,7 @@ jsonData = [
     
 
 	// TODO 
-	// comment box
-	// link to actual texts
-	// better sizing of texts
-	// Need to crawl and copy 
+	// comment box 
 
 
 // Main visualisation code
@@ -712,9 +723,6 @@ var tooltip = d3.select('body').append('div')
 	.attr('class','tooltip')
 
 
-
-	
-	
 // Bottom text	
 
 
@@ -722,6 +730,9 @@ var partition = d3.layout.partition()
     .sort(null)
     .value(function(d) { return 5.8 - d.depth; }); // why 5.8?
 
+	  
+
+	
 var arc = d3.svg.arc()
     .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
     .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
@@ -819,25 +830,33 @@ readJson(JSON.stringify(jsonData), function(json) {
 	  
 )
 
-
 .on("click", click)
 .on("dblclick", dblclick)
 
 .on('mouseover', mouseover)
 .on('mouseout', function(){
-	tooltip.transition()
-		.style('fill-opacity', 0);
+	
+tooltip.transition()
+	.duration(duration)
+	.style('opacity', 0)
+	.style('fill-opacity', 0);
+	
 });
 
-	  // Centre text - preface
+  	  // Centre text - preface
 	var home = d3.select('body').append('div')
+		
+	//textEnter.append("tspan")
 		.attr('class', 'home')
 		// Manual diretions
-		.style('left', w/2 + 5   + 'px')
-		.style('top',  h/2 + 175 + 'px')
+		//.attr("x",0)
+		//.attr("y",0)
+		
+		.style('position', 'absolute')
+		.style('left', w/2 - 10 +'px')
+		.style('top',  h/2 + 160 + 'px')
 		.html("Preface")
 		.on("click", click)
-
 
   // Splits the names onto multiple lines
    
@@ -860,6 +879,10 @@ readJson(JSON.stringify(jsonData), function(json) {
 		  .attr("x", 0)
 		  .attr("dy", "1.15em") // Height adjustment should depend on font-size
 		  .text(function(d) { 
+			  t = (d.depth ? d.name.split(" ")[1] || "" : "");
+	
+			  if (t == "Determinateness") {return ("Determi-");}
+		  
 			  return d.depth ? d.name.split(" ")[1] || "" : "";  
 		  })
 
@@ -880,6 +903,9 @@ readJson(JSON.stringify(jsonData), function(json) {
 		  .attr("x", 0)
 		  .attr("dy", "1.2em")
 		  .text(function(d) { 
+			  t = (d.depth ? d.name.split(" ")[1] || "" : "");
+	
+			  if (t == "Determinateness") {return ("nateness");}
 			  return d.depth ? d.name.split(" ")[2] || "" : "";  
 		  })
 
@@ -937,12 +963,16 @@ readJson(JSON.stringify(jsonData), function(json) {
 				return 1;
 			  }
 		  });
+		  
+		  
+
+
 
   function mouseover(d) 
 {
 	tooltip.transition()
 		.style('opacity', .9)
-
+		.style('fill-opacity', 0.9);
 	// position tooltip
 	
 	// place text in tooltip
@@ -950,8 +980,8 @@ readJson(JSON.stringify(jsonData), function(json) {
 		.style('left', (d3.event.pageX) + 35 + 'px')
 		.style('top', (d3.event.pageY) - 100 + 'px');
 		
-	d3.select(this)
-		.style('opacity', .9)
+//	d3.select(this)
+	//	.style('opacity', .9)
 
 }  
 
@@ -962,7 +992,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 		var objEl = document.getElementById("bookTextObject")
 		objEl.data = newUrl;
 		divEl.innerHTML = divEl.innerHTML;
-		console.log(d.url);
+		//console.log(d.url);
 		return;
   }
   function click(d) {
@@ -978,10 +1008,10 @@ readJson(JSON.stringify(jsonData), function(json) {
 	if(currentDepth == 0)
 	{
 		home.html("Preface")
-		.style('left', w/2 + 8   + 'px');
+		.style('left', w/2 - 10   + 'px');
 	} else {
 		home.html("Return")
-		.style('left', w/2 + 12   + 'px');
+		.style('left', w/2 - 10   + 'px');
 	}
 	
 	
@@ -993,7 +1023,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 		var objEl = document.getElementById("bookTextObject")
 		objEl.data = newUrl;
 		divEl.innerHTML = divEl.innerHTML;
-		console.log(d.url);
+		//console.log(d.url);
 		return;
 	}
   
@@ -1020,12 +1050,16 @@ readJson(JSON.stringify(jsonData), function(json) {
 			return "0.8em";
 		} 
 		else if (depthDiff > 1) {
-			return "0.92em";
+			return "1em";
 		} else {
  		
-			return "1.08em";
+			return "1.25em";
 			}
-		})        
+		})       
+
+
+
+		
       .attrTween("text-anchor", function(d) {
         return function() {
           return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
@@ -1098,6 +1132,8 @@ readJson(JSON.stringify(jsonData), function(json) {
 	
   }
   
+
+  
 });
 
 function isParentOf(p, c) {
@@ -1153,5 +1189,31 @@ function brightness(rgb) {
 </script>
 
 <script>
+/*
+	function toggleText()
+	{
+		var isOn;
+		if (document.getElementById('bookTextObject').style.display == "block") 
+		{
+			
+			// hide text and centre visualisation
+			document.getElementById('bookTextObject').style.display = "none";
+			document.getElementById('hideButton').textContent = "Show text";
+			
+	
+		} else {
+		
+			// show text and move visualisation to the left side
+			document.getElementById('bookTextObject').style.display = "block";
+			document.getElementById('hideButton').textContent = "Hide text";
+			
+			
+		}
+
+		
+	
+	
+	}
+*/
   if (top != self) top.location.replace(location);
 </script>
