@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+	
+	</head>
+	<body>
+	<script src="scripts/d3.min.js"></script>
+    <script src="scripts/topojson.js"></script>
+    <script src="scripts/datamaps.all.js"></script>
+	
+	<div id="map" style="position: relative; width: 1400px; height: 900px;"></div> 
+	
+	<script>
+		var map = new Datamap(
+		
+			{element: document.getElementById('map'),
+			
+			// Set size and positioning
+			setProjection: function(element) {
+				var projection = d3.geo.equirectangular()
+					.center([23, -3])
+					.rotate([-45, 0])
+					.scale(460)
+					.translate([element.offsetWidth / 2, element.offsetHeight / 2]);
+				var path = d3.geo.path()
+					.projection(projection);
+					
+					return {path: path, projection:projection};
+			},
+			
+			// Set colours
+			  fills: {
+				defaultFill: "#ABDDA4",
+				largePIMS: "#4D94FF",
+				upcomingPIMS: "#80E6FF",
+				
+			  },
+			  
+			  // Set details for countries
+			  data: {
+				'BGD': { fillKey: 'largePIMS' },
+				'MWI': { fillKey: 'largePIMS' },
+				'BFA': { fillKey: 'largePIMS' },
+				
+				'IND': { fillKey: 'upcomingPIMS' },
+				'MLI': { fillKey: 'upcomingPIMS' },
+			},
+			
+		    geographyConfig: {
+				dataUrl: "http://autio.github.io/projects/maps/PIMS/mapdata/PIMSmap.json"//null, //if not null, datamaps will fetch the map JSON (currently only supports topojson)
+				//hideAntarctica: true,
+				//borderWidth: 1,
+				//borderColor: '#FDFDFD',
+				popupTemplate: function(geography, data) { //this function should just return a string
+				  return '<div class="hoverinfo"><strong>' + geography.properties.name + ""+ '</strong></div>';
+				},
+				popupOnHover: true, //disable the popup while hovering
+				//highlightOnHover: true,
+				//highlightFillColor: '#FC8D59',
+				//highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
+				//highlightBorderWidth: 2
+			},	
+			}
+		
+		);
+		
+
+	</script>
+	
+	</body>
+	
+	
+</html>
+
