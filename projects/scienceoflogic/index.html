@@ -59,7 +59,7 @@ p#intro {
 </style>
 <div>
     <h1 style = "margin:30px";> A Map of Hegel's Science of Logic </h1>
-	<h3 style = "margin:30px";>Click a segment to make it the central moment. Click the centre to return. Ctrl-, Shift- or Double-click a segment to go to that part of the text.<br />Tested on a desktop for Chrome and IE. Currently working on implementing Firefox and mobile-compatible versions.
+	<h3 style = "margin:30px";>Click a segment to make it the central moment. Click the centre to return. Ctrl-, Shift- or Double-click a segment to go to that part of the text.<br />Tested on a desktop for Chrome, Firefox and IE.
 	</h3>
 
 </div>
@@ -790,7 +790,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 		depthDiff = d.depth - currentDepth;
 		
 		if (depthDiff > 3) {
-			return "0.66em";
+			return "0.76em";
 		}
 		else if (depthDiff > 2){
 			return "0.8em";
@@ -799,7 +799,7 @@ readJson(JSON.stringify(jsonData), function(json) {
 			return "1em";
 		} else {
  		
-			return "1.25em";
+			return "1.26em";
 			}
 		})               
       .attr("transform", function(d) {
@@ -851,7 +851,6 @@ tooltip.transition()
 		// Manual diretions
 		//.attr("x",0)
 		//.attr("y",0)
-		
 		.style('position', 'absolute')
 		.style('left', w/2 - 10 +'px')
 		.style('top',  h/2 + 160 + 'px')
@@ -877,7 +876,7 @@ tooltip.transition()
 		 
 	textEnter.append("tspan")
 		  .attr("x", 0)
-		  .attr("dy", "1.15em") // Height adjustment should depend on font-size
+		  .attr("dy", "1.35em") // Height adjustment should depend on font-size
 		  .text(function(d) { 
 			  t = (d.depth ? d.name.split(" ")[1] || "" : "");
 	
@@ -901,7 +900,7 @@ tooltip.transition()
 	
 	textEnter.append("tspan")
 		  .attr("x", 0)
-		  .attr("dy", "1.2em")
+		  .attr("dy", "1.22em")
 		  .text(function(d) { 
 			  t = (d.depth ? d.name.split(" ")[1] || "" : "");
 	
@@ -923,7 +922,7 @@ tooltip.transition()
 		  
 	textEnter.append("tspan")
 		  .attr("x", 0)
-		  .attr("dy", "1.2em")
+		  .attr("dy", "1.24em")
 		  .attr("id", "level3")
 		  //.attrTween("transform", 0.0)
 		  .text(function(d) { 
@@ -945,7 +944,7 @@ tooltip.transition()
 		  
 	textEnter.append("tspan")
 		  .attr("x", 0)
-		  .attr("dy", "1.2em")
+		  .attr("dy", "1.23em")
 		  .attr("id", "level3")
 		  //.attrTween("transform", 0.0)
 		  .text(function(d) { 
