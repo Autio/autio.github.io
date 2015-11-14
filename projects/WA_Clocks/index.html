@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+    .clock { margin: 7% auto; display: block; }
+</style>
+
+<div class="clocktable">
+	<div class="col1"></div>
+
+	<div class="col2"></div>
+	<div class="col3"></div>
+	<div class="col4"></div>
+	<div class="col5"></div>
+</div>
+
+<style>
+
+.clocktable
+{
+
+padding-left:20px;
+
+}
+.clock
+{
+ padding-top: 15px;
+ padding-left:5px;
+ padding-right:5px;
+}
+.col1
+{
+ display: inline-block;
+
+}
+.col2
+{
+ display: inline-block;
+}
+.col3
+{
+ display: inline-block;
+}
+.col4
+{
+ display: inline-block;
+}
+.col5
+{
+ display: inline-block;
+}
+
+#clockTick {
+  fill: lightsteelblue;
+  stroke: steelblue;
+}
+
+text.clocktext {
+
+	font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+	font-size: 16pt;
+
+}
+
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+	timeZoneInput = 
+		[
+			{key:"Bangladesh", value:6},{key:"Burkina Faso", value:0},{key:"Colorado", value:-7},{key:"Ethiopia", value:3},{key:"Ghana", value:0},{key:"India", value:5.5},{key:"Kenya", value:3},{key:"Lesotho", value:2},{key:"Liberia", value:0},{key:"Madagascar", value:3},{key:"Malawi", value:2},{key:"Mali", value:0},{key:"Melbourne", value:11},{key:"Mozambique", value:2},{key:"Nepal", value:5.75},{key:"New York", value:-5},{key:"Niger", value:1},{key:"Nigeria", value:1},{key:"Pakistan", value:5},{key:"Sierra Leone", value:0},{key:"South Africa", value:2},{key:"Swaziland", value:2},{key:"Sweden", value:1},{key:"Tanzania", value:3},{key:"Uganda", value:3},{key:"UK", value:0},{key:"Zambia", value:2}
+		]
+		
+	var timeZones = {};
+
+	for(var i = 0; i < timeZoneInput.length; i++)
+	{
+		timeZones[timeZoneInput[i].key] = timeZoneInput[i].value;
+	}
+			
+
+    makeClock = function(tZ, column) {
+
+        // Clock look-n-feel: customize at will!
+        var width = 145,
+            height = 145,
+            strokeWidth = 2,
+            clockFillColor = "none",
+            clockBorderColor = "#B7B7B7",
+            clockHandColor = "#7EB6FF",
+            clockCenterColor = "#0D4F8B",
+            transitionEnabled = 1,
+            radius = width / 2 - 15,
+            vis, clock, hourPosition, minutePosition, clockhand, hourPositionOffset,
+			hourIntervals = d3.range(12);
+			
+		var angle = d3.scale.ordinal().domain(hourIntervals).rangeBands([0, 2 * Math.PI]);
+		console.log(angle);
+		
+		
+		
+		
+		timeDifference = timeZones[tZ];
+        // Set up time
+        var now = new Date();
+		{
+        var data = [{
+            'unit': 'minutes',
+            'value': now.getMinutes()
+        }, {
+            'unit': 'hours',
+            'value': now.getHours() + timeDifference
+        }];   
+		}
+			
+
+        // Set up Scales        
+        // Map 60 minutes onto a radial 360 degree range.
+        var scaleMins = d3.scale.linear()
+            .domain([0, 59 + 59 / 60])
+            .range([0, 2 * Math.PI]);
+    
+        // Map 12 hours onto a radial 360 degree range.
+        var scaleHours = d3.scale.linear()
+            .domain([0, 11 + 59 / 60])
+            .range([0, 2 * Math.PI]);
+    
+        // Every hour, the minute hand rotates 360 degrees and the hour hand rotates 30 degrees.
+        // To get the final, accurate hour hand position, the linear movement of the minute hand
+        // is mapped to a 30 degree radial angle and the resulting angular offset
+        // is added to the hour hand position (in scaleHours above).
+        var scaleBetweenHours = d3.scale.linear()
+            .domain([0, 59 + 59 / 60])
+            .range([0, Math.PI / 6]);
+    
+        // Set up SVG
+        vis = d3.select("div.col" + column)
+            .append("svg:svg")
+            .attr("class", "clock")
+            .attr("width", width)
+            .attr("height", height);
+    
+        clock = vis.append("svg:g")
+            .attr("transform", "translate(" + radius + "," + radius + ")");
+    
+		// Add name
+		clock.append("svg:text")
+			.attr("class", "clocktext")
+			.attr("x", 0)
+			.attr("y", height/2 +5)
+			.text(tZ)
+			.attr("text-anchor", "middle");
+	
+
+        // Clock face
+        clock.append("svg:circle")
+            .attr("class", "clockface")
+            .attr("r", radius - strokeWidth)
+            .attr("fill", clockFillColor)
+            .attr("stroke", clockBorderColor)
+            .attr("stroke-width", strokeWidth * 2);
+    
+
+	
+	
+        // When animating, set 12 o’clock as the clockhand animation start position
+        minutePosition = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius((3 / 4) * radius)
+            .startAngle(0)
+            .endAngle(0);
+    
+        hourPosition = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius((1 / 2) * radius)
+            .startAngle(0)
+            .endAngle(0);
+    
+        // When not animating, set the clockhand positions based on time
+        minutePositionFinal = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius((2 / 3) * radius)
+            .startAngle(function (d) {
+                return scaleMins(+d.value);
+            })
+            .endAngle(function (d) {
+                return scaleMins(+d.value);
+            });
+    
+        hourPositionFinal = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius((1 / 2) * radius)
+            .startAngle(function (d) {
+                return (scaleHours(+d.value % 12) + scaleBetweenHours(hourPositionOffset));
+            })
+            .endAngle(function (d) {
+                return (scaleHours(+d.value % 12) + scaleBetweenHours(hourPositionOffset));
+            });
+			
+					// Add ticks for hours
+		clock.append("svg:svg")
+			.attr("id", "clockTick")
+			.attr("width", width)
+			.attr("height", height)
+			.append("svg:g")
+			.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+		
+		clock.selectAll("path")
+			.data(hourIntervals)
+			.enter().append("svg:path")
+			.attr("d", d3.svg.arc()
+			.innerRadius(height / 2 - 30)
+			.outerRadius(height / 2 - 21)
+			.startAngle(function(d) { return angle(d) - 0.05; })
+			.endAngle(function(d) { return angle(d) + angle.rangeBand() / 24; }));
+    
+        // Add clockhands to the clockface
+        clockhand = clock.selectAll(".clockhand")
+            .data(data)
+            .enter()
+                .append("svg:path")
+                .attr("class", "clockhand")
+                .attr("stroke", clockHandColor)
+                .attr("stroke-width", strokeWidth + 4)
+                .attr("stroke-linecap", "round")
+                .attr("stroke-linejoin", "round")
+                .attr("fill", "none");
+        
+        // Animate clockhands!    
+        if (transitionEnabled) {
+            clockhand.attr("d", function (d) {
+                if (d.unit === "minutes") {
+                    hourPositionOffset = +d.value;
+                    return minutePosition();
+                } else if (d.unit === "hours") {
+                    return hourPosition();
+                }
+            })
+            .transition()
+                .delay(333)
+                .duration(555)
+                .ease("elastic", 1, 4)
+                .attrTween("transform", tween);
+        } else {
+            clockhand.attr("d", function (d) {
+                if (d.unit === "minutes") {
+                    hourPositionOffset = +d.value;
+                    return minutePositionFinal(d);
+                } else if (d.unit === "hours") {
+                    return hourPositionFinal(d);
+                }
+            });
+        }
+    
+        function tween(d, i, a) {
+            if (d.unit === "minutes") {
+                return d3.interpolate("rotate(0)", "rotate(" + (scaleMins(+d.value) * (180 / Math.PI)) + ")");
+            } else if (d.unit === "hours") {
+                return d3.interpolate("rotate(0)", "rotate(" + ((scaleHours(+d.value % 12) + scaleBetweenHours(hourPositionOffset)) * (180 / Math.PI)) + ")");
+            }
+        }
+        
+        // Add center dial
+        return clock.append("svg:circle")
+            .attr("class", "centerdot")
+            .attr("r", strokeWidth + 2)
+            .attr("fill", "#fff")
+            .attr("stroke", clockCenterColor)
+            .attr("stroke-width", strokeWidth + 2);
+            
+
+    };
+	
+	makeClock("Ghana", 5);
+	makeClock("Madagascar", 5);
+	makeClock("Nepal", 5);
+	makeClock("Sierra Leone", 5);
+	makeClock("Zambia", 5);
+	
+	makeClock("Ethiopia", 4);
+	makeClock("Liberia", 4);
+	makeClock("Mozambique", 4);
+	makeClock("Pakistan", 4);
+	makeClock("Uganda", 4);
+	
+	makeClock("Colorado", 3);
+	makeClock("Lesotho", 3);
+	makeClock("Melbourne", 3);
+	makeClock("Nigeria", 3);
+	makeClock("Tanzania", 3);
+	
+	makeClock("Burkina Faso", 2);
+	makeClock("Kenya", 2);
+	makeClock("Mali", 2);
+	makeClock("Niger", 2);
+	makeClock("Swaziland", 2);
+	
+	makeClock("Bangladesh", 1);
+	makeClock("India", 1);
+	makeClock("Malawi", 1);
+	makeClock("New York", 1);
+	makeClock("South Africa", 1);
+
+</script>
