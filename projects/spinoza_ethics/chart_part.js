@@ -100,7 +100,7 @@ var tip = d3.tip()
 
 var explanation = d3.tip()
 .attr('class', 'd3-explanation')
-.offset([75,300])
+.offset([100,325])
 .style("font", "16px helvetica")
 .style("padding", "10px")
 .style("color", "#000")
