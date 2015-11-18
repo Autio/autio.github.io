@@ -7,27 +7,11 @@ function sleep(milliseconds) {
   }
 }
 
-function wordwrap( str, width, brk, cut ) {
- 
-    brk = brk || 'n';
-    width = width || 75;
-    cut = cut || false;
- 
-    if (!str) { return str; }
- 
-    var regex = '.{1,' +width+ '}(\s|$)' + (cut ? '|.{' +width+ '}|.+$' : '|\S+?(\s|$)');
- 
-    return str.match( RegExp(regex, 'g') ).join( brk );
- 
-}
-
 var width = 1600,
     height = 1800;
 
 var node_radius = 37;
-
 //var color = d3.scale.category20b();
-
 var color = d3.scale.ordinal()
             .domain([1,2,3,4,5])
             .range(["#E4B04A","#B9E3EF", "#EFC5B9", "#EFE0B9" ]);
@@ -110,8 +94,6 @@ var explanation = d3.tip()
 .style("text-align", "left")
 .style("background", "rgba(200, 200, 200, 0.85)")
 .style("max-width", "500px")
-//.attr("x", 200)
-//.attr("y", 300)
 .html(function (d) {
 if (d.contents) {return "<span>" + d.DisplayName + "</span><br><br>" + "<span>" + d.contents + "</span>";} else {return;} });
 
@@ -126,7 +108,6 @@ svg.call(explanation);
 //   .text("a simple tooltip");
 function show_things(d)
 {
-
  // tip.show(d);
   explanation.show(d);
  // explanation_box.style("visibility", "visible");
@@ -134,7 +115,6 @@ function show_things(d)
 
 function hide_things(d)
 {
- 
 //  tip.hide(d);
   explanation.hide(d);
 //    explanation_box.style("visibility", "hidden");
@@ -346,7 +326,7 @@ function getData() {
          "group": 1, "InDegree": "0",
          "OutDegree": "5",
          "tier_y": 1,
-         "tier_x": 7,
+         "tier_x": 8,
          "contents": "VIII. By eternity, I mean existence itself, in so far as it is conceived necessarily to follow solely from the definition of that which is eternal.   Explanation--Existence of this kind is conceived as an eternal truth, like the essence of a thing, and, therefore, cannot be explained by means of continuance or time, though continuance may be conceived without a beginning or end."
 
       },
