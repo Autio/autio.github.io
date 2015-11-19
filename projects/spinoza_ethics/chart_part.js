@@ -8,7 +8,7 @@ function sleep(milliseconds) {
 }
 
 var width = 1600,
-    height = 1800;
+    height = 1900;
 
 var node_radius = 37;
 //var color = d3.scale.category20b();
@@ -22,7 +22,7 @@ var force = d3.layout.force()
     .size([width, height]);
 	
 var tier_width = 90,
-    tier_height = 120;
+    tier_height = 125;
 
 // PINNING DOWN
 	var node_drag = d3.behavior.drag()
@@ -251,7 +251,7 @@ function getData() {
          "group": 1, 
          "InDegree": "0",
          "OutDegree": "3",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 1,
          "contents": "I. By that which is self-caused, I mean that of which the essence involves existence, or that of which the nature is only conceivable as existent."
 
@@ -262,7 +262,7 @@ function getData() {
          "ShortText": "Definition: Finite in its kind",
          "group": 1, "InDegree": "0",
          "OutDegree": "2",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 2,
          "contents": "II. A thing is called finite after its kind, when it can be limited by another thing of the same nature; for instance, a body is called finite because we always conceive another greater body. So, also, a thought is limited by another thought, but a body is not limited by thought, nor a thought by body."
 
@@ -273,7 +273,7 @@ function getData() {
          "ShortText": "Definition: Substance",
          "group": 1, "InDegree": "0",
          "OutDegree": "10",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 3,
          "contents": "III. By substance, I mean that which is in itself, and is conceived through itself: in other words, that of which a conception can be formed independently of any other conception." 
       },
@@ -283,7 +283,7 @@ function getData() {
          "ShortText": "Definition: Attribute",
          "group": 1, "InDegree": "0",
          "OutDegree": "6",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 4,
          "contents": "IV. By attribute, I mean that which the intellect perceives as constituting the essence of substance."
 
@@ -294,7 +294,7 @@ function getData() {
          "ShortText": "Definition: Mode",
          "group": 1, "InDegree": "0",
          "OutDegree": "10",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 5,
          "contents": "V. By mode, I mean the modifications of substance, or that which exists in, and is conceived through, something other than itself."
 
@@ -305,7 +305,7 @@ function getData() {
          "ShortText": "Definition: God",
          "group": 1, "InDegree": "0",
          "OutDegree": "11",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 6,
          "contents": "VI. By God, I mean a being absolutely infinite--that is, a substance consisting in infinite attributes, of which each expresses eternal and infinite essentiality.   Explanation--I say absolutely infinite, not infinite after its kind: for, of a thing infinite only after its kind, infinite attributes may be denied; but that which is absolutely infinite, contains in its essence whatever expresses reality, and involves no negation."
 
@@ -316,7 +316,7 @@ function getData() {
          "ShortText": "Definition: Free",
          "group": 1, "InDegree": "0",
          "OutDegree": "3",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 7,
          "contents": "VII. That thing is called free, which exists solely by the necessity of its own nature, and of which the action is determined by itself alone. On the other hand, that thing is necessary, or rather constrained, which is determined by something external to itself to a fixed and definite method of existence or action."       },
       {
@@ -325,7 +325,7 @@ function getData() {
          "ShortText": "Definition: Eternity",
          "group": 1, "InDegree": "0",
          "OutDegree": "5",
-         "tier_y": 1,
+         "tier_y": 0.5,
          "tier_x": 8,
          "contents": "VIII. By eternity, I mean existence itself, in so far as it is conceived necessarily to follow solely from the definition of that which is eternal.   Explanation--Existence of this kind is conceived as an eternal truth, like the essence of a thing, and, therefore, cannot be explained by means of continuance or time, though continuance may be conceived without a beginning or end."
 
@@ -337,7 +337,7 @@ function getData() {
          "group": 0, "InDegree": "0",
          "OutDegree": "8",
          "tier_y": 1,
-         "tier_x": 10,
+         "tier_x": 1.5,
          "contents": "I. Everything which exists, exists either in itself or in something else."
       },
       {
@@ -347,7 +347,7 @@ function getData() {
          "group": 0, "InDegree": "0",
          "OutDegree": "11",
          "tier_y": 1,
-         "tier_x": 11,
+         "tier_x": 2.5,
          "contents": "II. That which cannot be conceived through anything else must be conceived through itself."
       },
       {
@@ -357,7 +357,7 @@ function getData() {
          "group": 0, "InDegree": "0",
          "OutDegree": "2",
          "tier_y": 1,
-         "tier_x": 12,
+         "tier_x": 3.5,
          "contents":"III. From a given definite cause an effect necessarily follows; and, on the other hand, if no definite cause be granted, it is impossible that an effect can follow."
          },
       {
@@ -367,7 +367,7 @@ function getData() {
          "group": 0, "InDegree": "0",
          "OutDegree": "9",
          "tier_y": 1,
-         "tier_x": 13,
+         "tier_x": 4.5,
          "contents":"IV. The knowledge of an effect depends on and involves the knowledge of a cause."
       },
       {
@@ -377,7 +377,7 @@ function getData() {
          "group": 0, "InDegree": "0",
          "OutDegree": "1",
          "tier_y": 1,
-         "tier_x": 14,
+         "tier_x": 5.5,
          "contents": "V. Things which have nothing in common cannot be understood, the one by means of the other; the conception of one does not involve the conception of the other."
       },
       {
@@ -387,7 +387,7 @@ function getData() {
          "group": 0, "InDegree": "0",
          "OutDegree": "6",
          "tier_y": 1,
-         "tier_x": 15,
+         "tier_x": 6.5,
          "contents": "VI. A true idea must correspond with its ideate or object."
       },
       {
@@ -397,7 +397,7 @@ function getData() {
          "group": 0, "InDegree": "0",
          "OutDegree": "1",
          "tier_y": 1,
-         "tier_x": 16,
+         "tier_x": 7.5,
          "contents": "VII. If a thing can be conceived as non-existing, its essence does not involve existence."
       },
       {
