@@ -100,24 +100,14 @@ if (d.contents) {return "<span>" + d.DisplayName + "</span><br><br>" + "<span>" 
 svg.call(tip);
 svg.call(explanation);
 
-// var explanation_box = d3.select("body")
-//   .append("div")
-//   .style("position", "absolute")
-//   .style("z-index", "10")
-//   .style("visibility", "hidden")
-//   .text("a simple tooltip");
 function show_things(d)
 {
- // tip.show(d);
   explanation.show(d);
- // explanation_box.style("visibility", "visible");
 }
 
 function hide_things(d)
 {
-//  tip.hide(d);
   explanation.hide(d);
-//    explanation_box.style("visibility", "hidden");
 }
 
 graph.nodes.forEach(function(d) { nodeMap[d.name] = d; d.fix = true; }); // set all nodes to fixed at the start
@@ -192,6 +182,23 @@ var node = gnodes.append("circle")
     .on('mouseover', show_things)
     .on('mouseout', hide_things)
     .call(node_drag);
+
+d3.selection.prototype.dblTap = function (callback) {
+    var last = 0;
+    return this.each(function () {
+        d3.select(this).on("touchstart", function (e) {
+            if ((d3.event.timeStamp - last) < 500) {
+                console.log(this);
+                return callback(e);
+            }
+            last = d3.event.timeStamp;
+        });
+    });
+}
+
+d3.select("div").dblTap(function () {
+    alert("Double tap!");
+});
     //.on('dblclick', node_drag); //Added code
 
 //var titles = gnodes.append("title")
