@@ -10,6 +10,8 @@ function sleep(milliseconds) {
 var width = 1600,
     height = 1900;
 
+var chart_mode = 1;
+
 var node_radius = 37;
 //var color = d3.scale.category20b();
 var color = d3.scale.ordinal()
@@ -216,19 +218,39 @@ force.on("tick", function() {
 
 // Attach the lines
 // Do it based on tier data in the nodes
-link.attr("x1", function(d) { if(d.source.tier_x) { return d.source.tier_x * tier_width;} else {return d.source.x; }})
-    .attr("y1", function(d) { if(d.source.tier_y) { return d.source.tier_y * tier_height;} else {return d.source.y; }})
-    .attr("x2", function(d) { if(d.target.tier_x) { return d.target.tier_x * tier_width;} else {return d.target.x; }})
-    .attr("y2", function(d) { if(d.target.tier_y) { return d.target.tier_y * tier_height;} else {return d.target.y; }});
 
-// Set node position
-// Also based on data in the nodes
-node.attr("cx", function(d) { if(d.fix && d.tier_x) { return d.tier_x * tier_width;} else {return d.x; }})
-    .attr("cy", function(d) { if(d.fix && d.tier_y) { return d.tier_y * tier_height;} else {return d.y; }});
+if(chart_mode == 1)
+{
+    link.attr("x1", function(d) { if(d.source.tier_x) { return d.source.tier_x * tier_width;} else {return d.source.x; }})
+        .attr("y1", function(d) { if(d.source.tier_y) { return d.source.tier_y * tier_height;} else {return d.source.y; }})
+        .attr("x2", function(d) { if(d.target.tier_x) { return d.target.tier_x * tier_width;} else {return d.target.x; }})
+        .attr("y2", function(d) { if(d.target.tier_y) { return d.target.tier_y * tier_height;} else {return d.target.y; }});
 
-labels.attr("x", function(d) { if(d.fix && d.tier_x) { return d.tier_x * tier_width;} else {return d.x; }})
-      .attr("y", function(d) { if(d.fix && d.tier_y) { return d.tier_y * tier_height + 5;} else {return d.y + 5; }});
+    // Set node position
+    // Also based on data in the nodes
+    node.attr("cx", function(d) { if(d.fix && d.tier_x) { return d.tier_x * tier_width;} else {return d.x; }})
+        .attr("cy", function(d) { if(d.fix && d.tier_y) { return d.tier_y * tier_height;} else {return d.y; }});
 
+    labels.attr("x", function(d) { if(d.fix && d.tier_x) { return d.tier_x * tier_width;} else {return d.x; }})
+          .attr("y", function(d) { if(d.fix && d.tier_y) { return d.tier_y * tier_height + 5;} else {return d.y + 5; }});
+
+} else if (chart_mode == 2)
+{
+
+    link.attr("x1", function(d) { if(d.source.tier_x_2) { return d.source.tier_x_2 * tier_width;} else {return d.source.x; }})
+        .attr("y1", function(d) { if(d.source.tier_y_2) { return d.source.tier_y_2 * tier_height;} else {return d.source.y; }})
+        .attr("x2", function(d) { if(d.target.tier_x_2) { return d.target.tier_x_2 * tier_width;} else {return d.target.x; }})
+        .attr("y2", function(d) { if(d.target.tier_y_2) { return d.target.tier_y_2 * tier_height;} else {return d.target.y; }});
+
+    // Set node position
+    // Also based on data in the nodes
+    node.attr("cx", function(d) { if(d.fix && d.tier_x_2) { return d.tier_x_2 * tier_width;} else {return d.x; }})
+        .attr("cy", function(d) { if(d.fix && d.tier_y_2) { return d.tier_y_2 * tier_height;} else {return d.y; }});
+
+    labels.attr("x", function(d) { if(d.fix && d.tier_x_2) { return d.tier_x_2 * tier_width;} else {return d.x; }})
+          .attr("y", function(d) { if(d.fix && d.tier_y_2) { return d.tier_y_2 * tier_height + 5;} else {return d.y + 5; }});
+
+}
 
 // ARROWS
 gnodes.append("defs").selectAll("marker")
@@ -260,6 +282,8 @@ function getData() {
          "OutDegree": "3",
          "tier_y": 0.5,
          "tier_x": 1,
+         "tier_y_2": 1,
+         "tier_x_2": 1,
          "contents": "I. By that which is self-caused, I mean that of which the essence involves existence, or that of which the nature is only conceivable as existent."
 
       },
@@ -271,6 +295,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 0.5,
          "tier_x": 2,
+         "tier_y_2": 1,
+         "tier_x_2": 2,
          "contents": "II. A thing is called finite after its kind, when it can be limited by another thing of the same nature; for instance, a body is called finite because we always conceive another greater body. So, also, a thought is limited by another thought, but a body is not limited by thought, nor a thought by body."
 
       },
@@ -282,6 +308,8 @@ function getData() {
          "OutDegree": "10",
          "tier_y": 0.5,
          "tier_x": 3,
+         "tier_y_2": 1,
+         "tier_x_2": 3,
          "contents": "III. By substance, I mean that which is in itself, and is conceived through itself: in other words, that of which a conception can be formed independently of any other conception." 
       },
       {
@@ -292,6 +320,8 @@ function getData() {
          "OutDegree": "6",
          "tier_y": 0.5,
          "tier_x": 4,
+         "tier_y_2": 1,
+         "tier_x_2": 4,
          "contents": "IV. By attribute, I mean that which the intellect perceives as constituting the essence of substance."
 
       },
@@ -303,6 +333,8 @@ function getData() {
          "OutDegree": "10",
          "tier_y": 0.5,
          "tier_x": 5,
+         "tier_y_2": 1,
+         "tier_x_2": 5,
          "contents": "V. By mode, I mean the modifications of substance, or that which exists in, and is conceived through, something other than itself."
 
       },
@@ -314,6 +346,8 @@ function getData() {
          "OutDegree": "11",
          "tier_y": 0.5,
          "tier_x": 6,
+         "tier_y_2": 1,
+         "tier_x_2": 6,
          "contents": "VI. By God, I mean a being absolutely infinite--that is, a substance consisting in infinite attributes, of which each expresses eternal and infinite essentiality.   Explanation--I say absolutely infinite, not infinite after its kind: for, of a thing infinite only after its kind, infinite attributes may be denied; but that which is absolutely infinite, contains in its essence whatever expresses reality, and involves no negation."
 
       },
@@ -325,6 +359,8 @@ function getData() {
          "OutDegree": "3",
          "tier_y": 0.5,
          "tier_x": 7,
+         "tier_y_2": 1,
+         "tier_x_2": 7,
          "contents": "VII. That thing is called free, which exists solely by the necessity of its own nature, and of which the action is determined by itself alone. On the other hand, that thing is necessary, or rather constrained, which is determined by something external to itself to a fixed and definite method of existence or action."       },
       {
          "name": "1D08",
@@ -334,6 +370,8 @@ function getData() {
          "OutDegree": "5",
          "tier_y": 0.5,
          "tier_x": 8,
+         "tier_y_2": 1,
+         "tier_x_2": 8,
          "contents": "VIII. By eternity, I mean existence itself, in so far as it is conceived necessarily to follow solely from the definition of that which is eternal.   Explanation--Existence of this kind is conceived as an eternal truth, like the essence of a thing, and, therefore, cannot be explained by means of continuance or time, though continuance may be conceived without a beginning or end."
 
       },
