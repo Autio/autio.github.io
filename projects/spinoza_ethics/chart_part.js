@@ -178,7 +178,7 @@ var gnodes = svg.selectAll("g.gnode")
 
 var node = gnodes.append("circle")
     .attr("class", "node")
-    .attr("r", node_radius)
+    .attr("r", function(d) { if (d.name.length == 7) {return node_radius/3*2} else { return node_radius; }})
     .style("fill", function(d) { return color(d.group); })
 	  .on('dblclick', node_action)
     .on('mouseover', show_things)
@@ -210,7 +210,7 @@ d3.select("div").dblTap(function () {
 var labels = gnodes.append("text")
       //.attr("dx", "10")
     //  .attr("dy", "10em")
-      .text(function(d) { return d.name;})
+      .text(function(d) { if(d.name.length == 7) {var output = [d.name.slice(4)].join(''); return output; } else {return d.name;}}) // ADJuST
       .style("opacity", 1);
  //     .style("stroke", "black");
 
@@ -282,7 +282,7 @@ function getData() {
          "OutDegree": "3",
          "tier_y": 0.5,
          "tier_x": 1,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 1,
          "contents": "I. By that which is self-caused, I mean that of which the essence involves existence, or that of which the nature is only conceivable as existent."
 
@@ -295,7 +295,7 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 0.5,
          "tier_x": 2,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 2,
          "contents": "II. A thing is called finite after its kind, when it can be limited by another thing of the same nature; for instance, a body is called finite because we always conceive another greater body. So, also, a thought is limited by another thought, but a body is not limited by thought, nor a thought by body."
 
@@ -308,7 +308,7 @@ function getData() {
          "OutDegree": "10",
          "tier_y": 0.5,
          "tier_x": 3,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 3,
          "contents": "III. By substance, I mean that which is in itself, and is conceived through itself: in other words, that of which a conception can be formed independently of any other conception." 
       },
@@ -320,7 +320,7 @@ function getData() {
          "OutDegree": "6",
          "tier_y": 0.5,
          "tier_x": 4,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 4,
          "contents": "IV. By attribute, I mean that which the intellect perceives as constituting the essence of substance."
 
@@ -333,7 +333,7 @@ function getData() {
          "OutDegree": "10",
          "tier_y": 0.5,
          "tier_x": 5,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 5,
          "contents": "V. By mode, I mean the modifications of substance, or that which exists in, and is conceived through, something other than itself."
 
@@ -346,7 +346,7 @@ function getData() {
          "OutDegree": "11",
          "tier_y": 0.5,
          "tier_x": 6,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 6,
          "contents": "VI. By God, I mean a being absolutely infinite--that is, a substance consisting in infinite attributes, of which each expresses eternal and infinite essentiality.   Explanation--I say absolutely infinite, not infinite after its kind: for, of a thing infinite only after its kind, infinite attributes may be denied; but that which is absolutely infinite, contains in its essence whatever expresses reality, and involves no negation."
 
@@ -359,7 +359,7 @@ function getData() {
          "OutDegree": "3",
          "tier_y": 0.5,
          "tier_x": 7,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 7,
          "contents": "VII. That thing is called free, which exists solely by the necessity of its own nature, and of which the action is determined by itself alone. On the other hand, that thing is necessary, or rather constrained, which is determined by something external to itself to a fixed and definite method of existence or action."       },
       {
@@ -370,7 +370,7 @@ function getData() {
          "OutDegree": "5",
          "tier_y": 0.5,
          "tier_x": 8,
-         "tier_y_2": 1,
+         "tier_y_2": 0.5,
          "tier_x_2": 8,
          "contents": "VIII. By eternity, I mean existence itself, in so far as it is conceived necessarily to follow solely from the definition of that which is eternal.   Explanation--Existence of this kind is conceived as an eternal truth, like the essence of a thing, and, therefore, cannot be explained by means of continuance or time, though continuance may be conceived without a beginning or end."
 
@@ -383,6 +383,8 @@ function getData() {
          "OutDegree": "8",
          "tier_y": 1,
          "tier_x": 1.5,
+         "tier_y_2": 1,
+         "tier_x_2": 1.5,
          "contents": "I. Everything which exists, exists either in itself or in something else."
       },
       {
@@ -393,6 +395,8 @@ function getData() {
          "OutDegree": "11",
          "tier_y": 1,
          "tier_x": 2.5,
+         "tier_y_2": 1,
+         "tier_x_2": 2.5,
          "contents": "II. That which cannot be conceived through anything else must be conceived through itself."
       },
       {
@@ -403,6 +407,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 1,
          "tier_x": 3.5,
+         "tier_y_2": 1,
+         "tier_x_2": 3.5,
          "contents":"III. From a given definite cause an effect necessarily follows; and, on the other hand, if no definite cause be granted, it is impossible that an effect can follow."
          },
       {
@@ -413,6 +419,8 @@ function getData() {
          "OutDegree": "9",
          "tier_y": 1,
          "tier_x": 4.5,
+         "tier_y_2": 1,
+         "tier_x_2": 4.5,
          "contents":"IV. The knowledge of an effect depends on and involves the knowledge of a cause."
       },
       {
@@ -423,6 +431,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 1,
          "tier_x": 5.5,
+         "tier_y_2": 1,
+         "tier_x_2": 5.5,
          "contents": "V. Things which have nothing in common cannot be understood, the one by means of the other; the conception of one does not involve the conception of the other."
       },
       {
@@ -433,6 +443,8 @@ function getData() {
          "OutDegree": "6",
          "tier_y": 1,
          "tier_x": 6.5,
+         "tier_y_2": 1,
+         "tier_x_2": 6.5,
          "contents": "VI. A true idea must correspond with its ideate or object."
       },
       {
@@ -443,6 +455,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 1,
          "tier_x": 7.5,
+         "tier_y_2": 1,
+         "tier_x_2": 7.5,
          "contents": "VII. If a thing can be conceived as non-existing, its essence does not involve existence."
       },
       {
@@ -453,6 +467,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 2,
          "tier_x": 3,
+         "tier_y_2": 2,
+         "tier_x_2": 1.5,
          "contents":"Substance is by nature prior to its modifications. Proof.--This is clear from Deff. iii. and v."
       },
       {
@@ -463,6 +479,8 @@ function getData() {
          "OutDegree": "3",
          "tier_y": 2,
          "tier_x": 4,
+         "tier_y_2": 2,
+         "tier_x_2": 3.5,
          "contents": "Two substances, whose attributes are different, have nothing in common. Proof.--Also evident from Def. iii. For each must exist in itself, and be conceived through itself; in other words, the conception of one does not imply the conception of the other."
       },
       {
@@ -473,6 +491,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 2,
          "tier_x": 9,
+         "tier_y_2": 2,
+         "tier_x_2": 5.5,
          "contents": "Things which have nothing in common cannot be one the cause of the other. Proof.--If they have nothing in common, it follows that one cannot be apprehended by means of the other (Ax. v.), and, therefore, one cannot be the cause of the other (Ax. iv.). Q.E.D."
 
          },
@@ -484,6 +504,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 2,
          "tier_x": 7,
+         "tier_y_2": 2,
+         "tier_x_2": 7.5,
          "contents": "Two or more distinct things are distinguished one from the other, either by the difference of the attributes of the substances, or by the difference of their modifications.Proof.--Everything which exists, exists either in itself or in something else (Ax. i.),--that is (by Deff. iii. and v.), nothing is granted in addition to the understanding, except substance and its modifications. Nothing is, therefore, given besides the understanding, by which several things may be distinguished one from the other, except the substances, or, in other words (see Ax. iv.), their attributes and modifications. Q.E.D."  
        },
       {
@@ -494,6 +516,8 @@ function getData() {
          "OutDegree": "5",
          "tier_y": 3,
          "tier_x": 2,
+         "tier_y_2": 3,
+         "tier_x_2": 2.5,
          "contents": "There cannot exist in the universe two or more substances having the same nature or attribute. Proof.--If several distinct substances be granted, they must be distinguished one from the other, either by the difference of their attributes, or by the difference of their modifications (Prop. iv.). If only by the difference of their attributes, it will be granted that there cannot be more than one with an identical attribute. If by the difference of their modifications--as substance is naturally prior to its modifications (Prop. i.),--it follows that setting the modifications aside, and considering substance in itself, that is truly, (Deff. iii. and vi.), there cannot be conceived one substance different from another,--that is (by Prop. iv.), there cannot be granted several substances, but one substance only. Q.E.D."      },
       {
          "name": "1P06",
@@ -503,6 +527,8 @@ function getData() {
          "OutDegree": "3",
          "tier_y": 4,
          "tier_x": 3,
+         "tier_y_2": 3,
+         "tier_x_2": 4.5,
          "contents": "One substance cannot be produced by another substance. Proof.--It is impossible that there should be in the universe two substances with an identical attribute, i.e. which have anything common to them both (Prop. ii.), and, therefore (Prop. iii.), one cannot be the cause of the other, neither can one be produced by the other. Q.E.D."
       },
       {
@@ -513,6 +539,8 @@ function getData() {
          "OutDegree": "7",
          "tier_y": 5,
          "tier_x": 2,
+         "tier_y_2": 3,
+         "tier_x_2": 6.5,
          "contents": "Existence belongs to the nature of substances. Proof.--Substance cannot be produced by anything external (Corollary, Prop vi.), it must, therefore, be its own cause--thatis, its essence necessarily involves existence, or existence belongs to its nature."       
        },
       {
@@ -523,6 +551,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 6,
          "tier_x": 2,
+         "tier_y_2": 4,
+         "tier_x_2": 1.5,
          // NOTE TWO MISSING
          "contents": "Every substance is necessarily infinite. Proof.--There can only be one substance with an identical attribute, and existence follows from its nature (Prop. vii.); its nature, therefore, involves existence, either as finite or infinite. It does not exist as finite, for (by Def. ii.) it would then be limited by something else of the same kind, which would also necessarily exist (Prop. vii.); and there would be two substances with an identical attribute, which is absurd (Prop. v.). It therefore exists as infinite. Q.E.D. NOTE I.--As finite existence involves a partial negation, and infinite existence is the absolute affirmation of the given nature, it follows (solely from Prop. vii.) that every substance is necessarily infinite."       },
       {
@@ -533,6 +563,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 2,
          "tier_x": 5,
+         "tier_y_2": 4,
+         "tier_x_2": 3.5,
          "contents":"The more reality or being a thing has, the greater the number of its attributes (Def. iv.)."
       },
       {
@@ -543,6 +575,8 @@ function getData() {
          "OutDegree": "4",
          "tier_y": 2,
          "tier_x": 2,
+         "tier_y_2": 4,
+         "tier_x_2": 5.5,
          "contents": "Each particular attribute of the one substance must be conceived through itself. Proof.--An attribute is that which the intellect perceives of substance, as constituting its essence (Def. iv.), and, therefore, must be conceived through itself (Def. iii.).  Q.E.D."
       },
 
@@ -554,6 +588,8 @@ function getData() {
          "OutDegree": "8",
          "tier_y": 6,
          "tier_x": 4,
+         "tier_y_2": 4,
+         "tier_x_2": 7.5,
          "contents": "God, or substance, consisting of infinite attributes, of which each expresses eternal and infinite essentiality, necessarily exists."
       },
       {
@@ -564,6 +600,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 7,
          "tier_x": 1,
+         "tier_y_2": 5,
+         "tier_x_2": 2.5,
          "contents": "No attribute of substance can be conceived from which it would follow that substance can be divided. Proof.--The parts into which substance as thus conceived wouldbe divided either will retain the nature of substance, or they will not.  If the former, then (by Prop. viii.) each part will necessarily be infinite, and (by Prop. vi.) self--caused, and (by Prop. v.) will perforce consist of a different attribute, so that, in that case, several substances could be formed out of one substance, which (by Prop. vi.) is absurd.  Moreover, the parts (by Prop. ii.) would have nothing in common with their whole, and the whole (by Def. iv. and Prop. x.) could both exist and be conceived without its parts, which everyone will admit to be absurd.  If we adopt the second alternative--namely, that the parts will not retain the nature of substance--then, if the whole substance were divided into equal parts, it would lose the nature of substance, and would cease to exist, which (by Prop. vii.) is absurd." 
       },
       {
@@ -574,6 +612,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 7,
          "tier_x": 3,
+         "tier_y_2": 5,
+         "tier_x_2": 4.5,
          "contents": "Substance absolutely infinite is indivisible. Proof.--If it could be divided, the parts into which it was divided would either retain the nature of absolutely infinite substance, or they would not.  If the former, we should have several substances of the same nature, which (by Prop. v.) is absurd.  If the latter, then (by Prop. vii.) substance absolutely infinite could cease to exist, which (by Prop. xi.) is also absurd."     
 
 
@@ -587,6 +627,8 @@ function getData() {
          "OutDegree": "4",
          "tier_y": 7,
          "tier_x": 4,
+         "tier_y_2": 5,
+         "tier_x_2": 6.5,
          "contents": "Besides God no substance can be granted or conceived.  Proof.--As God is a being absolutely infinite, of whom no attribute that expresses the essence of substance can be denied (by Def. vi.), and he necessarily exists (by Prop. xi.); if any substance besides God were granted, it would have to be explained by some attribute of God, and thus two substances with the same attribute would exist, which (by Prop. v.) is absurd; therefore,besides God no substance can be granted, or, consequently, be conceived.  If it could be conceived, it would necessarily have to be conceived as existent; but this (by the first part of this proof) is absurd.  Therefore, besides God no substance can be granted or conceived." 
 
       },
@@ -598,6 +640,8 @@ function getData() {
          "OutDegree": "17",
          "tier_y": 8,
          "tier_x": 3,
+         "tier_y_2": 6,
+         "tier_x_2": 1.5,
          "contents": "Whatsoever is, is in God, and without God nothing can be, or be conceived. Proof.--Besides God, no substance is granted or can be conceived (by Prop. xiv.), that is (by Def. iii.) nothing which is in itself and is conceived through itself.  But modes (by Def. v.) can neither be, nor be conceived without substance; wherefore they can only be in the divine nature, and can onlythrough it be conceived.  But substances and modes form the sum total of existence (by Ax. i.), therefore, without God nothing can be, or be conceived.  Q.E.D."
       },
       {
@@ -608,6 +652,8 @@ function getData() {
          "OutDegree": "14",
          "tier_y": 2,
          "tier_x": 6,
+         "tier_y_2": 6,
+         "tier_x_2": 3.5,
          "contents": "From the necessity of the divine nature must follow an infinite number of things in infinite ways--that is, all things which can fall within the sphere of infinite intellect.Proof.--This proposition will be clear to everyone, who remembers that from the given definition of any thing the intellect infers several properties, which really necessarily follow therefrom (that is, from the actual essence of the thing defined); and it infers more properties in proportion as the definition of the thing expresses more reality, that is, in proportion as the essence of the thing defined involves more reality.  Now, as the divine nature has absolutely infinite attributes (by Def. vi.), of which each expresses infinite essence after its kind, it follows that from the necessity of its nature an infinite number of things (that is, everything which can fall within the sphere of an infinite intellect) must necessarily follow.  Q.E.D."      
        },
       {
@@ -618,6 +664,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 9,
          "tier_x": 5,
+         "tier_y_2": 6,
+         "tier_x_2": 7.5,
          "contents": "God acts solely by the laws of his own nature, and is not constrained by anyone. Proof.--We have just shown (in Prop. xvi.), that solely from the necessity of the divine nature, or, what is the same thing, solely from the laws of his nature, an infinite number of things absolutely follow in an infinite number of ways; and we proved (in Prop. xv.), that without God nothing can be nor be conceived but that all things are in God. Wherefore nothing can exist; outside himself, whereby he can be conditioned or constrained to act. Wherefore God acts solely by the laws of his own nature, and is not constrained by anyone. Q.E.D." 
        },
       {
@@ -628,6 +676,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 10,
          "tier_x": 5,
+         "tier_y_2": 6,
+         "tier_x_2": 9.5,
          "contents": "--It follows: 2. That God is the sole free cause. For God alone exists by the sole necessity of his nature (by Prop. xi. and Prop. xiv., Coroll. i.), and acts by the sole necessity of his own nature, wherefore God is (by Def. vii.) the sole free cause. Q.E.D."
        },
       {
@@ -638,6 +688,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 9,
          "tier_x": 3,
+         "tier_y_2": 7,
+         "tier_x_2": 2.5,
          "contents": "God is the indwelling and not the transient cause of all things. Proof.—All things which are, are in God, and must be conceived through God (by Prop. xv.), therefore (by Prop. xvi., Coroll. i.) God is the cause of those things which are in him. This is our first point. Further, besides God there can be no substance (by Prop. xiv.), that is nothing in itself external to God. This is our second point. God, therefore, is the indwelling and not the transient cause of all things. Q.E.D."
       },
       {
@@ -648,6 +700,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 7,
          "tier_x": 2,
+         "tier_y_2": 7,
+         "tier_x_2": 4.5,
          "contents": "God, and all the attributes of God, are eternal. Proof.—God (by Def. vi.) is substance, which (by Prop. xi.) necessarily exists, that is (by Prop. vii.) existence appertains to its nature, or (what is the same thing) follows from its definition; therefore, God is eternal (by Def. viii.). Further, by the attributes of God we must understand that which (by Def. iv.) expresses the essence of the divine substance—in other words, that which appertains to substance: that, I say, should be involved in the attributes of substance. Now eternity appertains to the nature of substance (as I have already shown in Prop. vii.); therefore, eternity must appertain to each of the attributes, and thus all are eternal. Q.E.D."
       },
       {
@@ -860,6 +914,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 5,
          "tier_x": 4,
+         "tier_y_2": 3,
+         "tier_x_2": 5.5,
          "contents": "Hence it follows that a substance cannot be produced by anything external to itself. For in the universe nothing is granted, save substances and their modifications (as appears from Ax. i. and Deff. iii. and v.). Now (by the last Prop.) substance cannot be produced by another substance, therefore it cannot be produced by anything external to itself. Q.E.D. This is shown still more readily by the absurdity of thecontradictory. For, if substance be produced by an external cause, the knowledge of it would depend on the knowledge of its cause (Ax. iv.), and (by Def. iii.) it would itself not be substance." 
       },
       {
@@ -870,6 +926,8 @@ function getData() {
          "OutDegree": "5",
          "tier_y": 8,
          "tier_x": 4,
+         "tier_y_2": 5,
+         "tier_x_2": 7.5,
          "contents": "Clearly, therefore: 1. God is one, that is (by Def. vi.) only one substance can be granted in the universe, and that substance is absolutely infinite, as we have already indicated (in the note to Prop. x.)."
       },
       {
@@ -880,6 +938,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 8,
          "tier_x": 5,
+         "tier_y_2": 5,
+         "tier_x_2": 8.5,
          "contents": "It follows: 2. That extension and thought are either attributes of God or (by Ax. i.) accidents (affectiones) of the attributes of God."
       },
       {
@@ -890,6 +950,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 3,
          "tier_x": 3,
+         "tier_y_2": 6,
+         "tier_x_2": 4.5,
          "contents":"Hence it follows, that God is the efficient cause of all that can fall within the sphere of an infinite intellect. "
       },
       {
@@ -900,6 +962,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 3,
          "tier_x": 4,
+         "tier_y_2": 6,
+         "tier_x_2": 5.5,
          "contents":"It also follows that God is a cause in himself, and not through an accident of his nature."
       },
       {
@@ -910,6 +974,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 3,
          "tier_x": 5,
+         "tier_y_2": 6,
+         "tier_x_2": 6.5,
          "contents": "It follows, thirdly, that God is the absolutely first cause."
       },
       {
@@ -920,6 +986,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 10,
          "tier_x": 4,
+         "tier_y_2": 6,
+         "tier_x_2": 8.5,
          "contents": "--It follows: 1. That there can be no cause which, either extrinsically or intrinsically, besides the perfection of his own nature, moves God to act."
       },
       {
