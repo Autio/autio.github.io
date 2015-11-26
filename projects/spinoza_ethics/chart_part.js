@@ -10,9 +10,9 @@ function sleep(milliseconds) {
 var width = 1600,
     height = 1900;
 
-var chart_mode = 1;
+var chart_mode = 2;
 
-var node_radius = 37;
+var node_radius = 25;
 //var color = d3.scale.category20b();
 var color = d3.scale.ordinal()
             .domain([1,2,3,4,5])
@@ -23,8 +23,8 @@ var force = d3.layout.force()
     .linkDistance(30)
     .size([width, height]);
 	
-var tier_width = 90,
-    tier_height = 125;
+var tier_width = 65,
+    tier_height = 65;
 
 // PINNING DOWN
 	var node_drag = d3.behavior.drag()
@@ -86,16 +86,16 @@ var tip = d3.tip()
 
 var explanation = d3.tip()
 .attr('class', 'd3-explanation')
-.offset(function(d) { 
-    if(d.tier_x < 7) {return [85,300];} else {return [85, -300];}})
-.style("font", "16px helvetica")
+.offset(function(d) { return [85, 300];})
+    //if(d.tier_x < 7) {return [85,300];} else {return [85, -300];}})
+.style("font", "14px helvetica")
 .style("padding", "14px")
 .style("color", "#000")
 .style("line-height", "1")
 .style("font-weight", "bold")
 .style("text-align", "left")
 .style("background", "rgba(200, 200, 200, 0.85)")
-.style("max-width", "500px")
+.style("max-width", "380px")
 .html(function (d) {
 if (d.contents) {return "<span>" + d.DisplayName + "</span><br><br>" + "<span>" + d.contents + "</span>";} else {return;} });
 
@@ -180,7 +180,8 @@ var node = gnodes.append("circle")
     .attr("class", "node")
     .attr("r", function(d) { if (d.name.length == 7) {return node_radius/3*2} else { return node_radius; }})
     .style("fill", function(d) { return color(d.group); })
-	  .on('dblclick', node_action)
+	.style("stroke", "black")
+	.on('dblclick', node_action)
     .on('mouseover', show_things)
     .on('mouseout', hide_things)
     .call(node_drag);
@@ -665,7 +666,7 @@ function getData() {
          "tier_y": 9,
          "tier_x": 5,
          "tier_y_2": 6,
-         "tier_x_2": 7.5,
+         "tier_x_2": 5.5,
          "contents": "God acts solely by the laws of his own nature, and is not constrained by anyone. Proof.--We have just shown (in Prop. xvi.), that solely from the necessity of the divine nature, or, what is the same thing, solely from the laws of his nature, an infinite number of things absolutely follow in an infinite number of ways; and we proved (in Prop. xv.), that without God nothing can be nor be conceived but that all things are in God. Wherefore nothing can exist; outside himself, whereby he can be conditioned or constrained to act. Wherefore God acts solely by the laws of his own nature, and is not constrained by anyone. Q.E.D." 
        },
       {
@@ -676,8 +677,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 10,
          "tier_x": 5,
-         "tier_y_2": 6,
-         "tier_x_2": 9.5,
+         "tier_y_2": 6.5,
+         "tier_x_2": 5.8,
          "contents": "--It follows: 2. That God is the sole free cause. For God alone exists by the sole necessity of his nature (by Prop. xi. and Prop. xiv., Coroll. i.), and acts by the sole necessity of his own nature, wherefore God is (by Def. vii.) the sole free cause. Q.E.D."
        },
       {
@@ -688,8 +689,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 9,
          "tier_x": 3,
-         "tier_y_2": 7,
-         "tier_x_2": 2.5,
+         "tier_y_2": 6,
+         "tier_x_2": 7.5,
          "contents": "God is the indwelling and not the transient cause of all things. Proof.—All things which are, are in God, and must be conceived through God (by Prop. xv.), therefore (by Prop. xvi., Coroll. i.) God is the cause of those things which are in him. This is our first point. Further, besides God there can be no substance (by Prop. xiv.), that is nothing in itself external to God. This is our second point. God, therefore, is the indwelling and not the transient cause of all things. Q.E.D."
       },
       {
@@ -701,7 +702,7 @@ function getData() {
          "tier_y": 7,
          "tier_x": 2,
          "tier_y_2": 7,
-         "tier_x_2": 4.5,
+         "tier_x_2": 2.5,
          "contents": "God, and all the attributes of God, are eternal. Proof.—God (by Def. vi.) is substance, which (by Prop. xi.) necessarily exists, that is (by Prop. vii.) existence appertains to its nature, or (what is the same thing) follows from its definition; therefore, God is eternal (by Def. viii.). Further, by the attributes of God we must understand that which (by Def. iv.) expresses the essence of the divine substance—in other words, that which appertains to substance: that, I say, should be involved in the attributes of substance. Now eternity appertains to the nature of substance (as I have already shown in Prop. vii.); therefore, eternity must appertain to each of the attributes, and thus all are eternal. Q.E.D."
       },
       {
@@ -712,6 +713,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 8,
          "tier_x": 1,
+		 "tier_y_2": 7,
+         "tier_x_2": 4.5,
          "contents":  "The existence of God and his essence are one and the same. Proof.—God (by the last Prop.) and all his attributes are eternal, that is (by Def. viii.) each of his attributes expresses existence. Therefore the same attributes of God which explain his eternal essence, explain at the same time his eternal existence—in other words, that which constitutes God's essence constitutes at the same time his existence. Wherefore God's existence and God's essence are one and the same. Q.E.D."
       },
       {
@@ -722,6 +725,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 9,
          "tier_x": 2,
+		 "tier_y_2": 7.5,
+         "tier_x_2": 4.8,
          "contents": "Secondly, it follows that God, and all the attributes of God, are unchangeable. For if they could be changed in respect to existence, they must also be able to be changed in respect to essence—that is, obviously, be changed from true to false, which is absurd."
       },
       {
@@ -732,6 +737,8 @@ function getData() {
          "OutDegree": "6",
          "tier_y": 10,
          "tier_x": 2,
+		 "tier_y_2": 7,
+         "tier_x_2": 6.5,
          "contents": "All things which follow from the absolute nature of any attribute of God must always exist and be infinite, or, in other words, are eternal and infinite through the said attribute.\n\nProof.—Conceive, if it be possible (supposing the proposition to be denied), that something in some attribute of God can follow from the absolute nature of the said attribute, and that at the same time it is finite, and has a conditioned existence or duration; for instance, the idea of God expressed in the attribute thought. Now thought, in so far as it is supposed to be an attribute of God, is necessarily (by Prop. xi.) in its nature infinite. But, in so far as it possesses the idea of God, it is supposed finite. It cannot, however, be conceived as finite, unless it be limited by thought (by Def. ii.); but it is not limited by thought itself, in so far as it has constituted the idea of God (for so far it is supposed to be finite); therefore, it is limited by thought, in so far as it has not constituted the idea of God, which nevertheless (by Prop. xi.) must necessarily exist. We have now granted, therefore, thought not constituting the idea of God, and, accordingly, the idea of God does not naturally follow from its nature in so far as it is absolute thought (for it is conceived as constituting, and also as not constituting, the idea of God), which is against our hypothesis. Wherefore, if the idea of God expressed in the attribute thought, or, indeed, anything else in any attribute of God (for we may take any example, as the proof is of universal application) follows from the necessity of the absolute nature of the said attribute, the said thing must necessarily be infinite, which was our first point. Furthermore, a thing which thus follows from the necessity of the nature of any attribute cannot have a limited duration. For if it can, suppose a thing, which follows from the necessity of the nature of some attribute, to exist in some attribute of God, for instance, the idea of God expressed in the attribute thought, and let it be supposed at some time not to have existed, or to be about not to exist. Now thought being an attribute of God, must necessarily exist unchanged (by Prop. xi., and Prop. xx., Coroll. ii.); and beyond the limits of the duration of the idea of God (supposing the latter at some time not to have existed, or not to be going to exist) thought would perforce have existed without the idea of God, which is contrary to our hypothesis, for we supposed that, thought being given, the idea of God necessarily flowed therefrom. Therefore the idea of God expressed in thought, or anything which necessarily follows from the absolute nature of some attribute of God, cannot have a limited duration, but through the said attribute is eternal, which is our second point. Bear in mind that the same proposition may be affirmed of anything, which in any attribute necessarily follows from God's absolute nature."
       },
 
@@ -743,6 +750,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 10,
          "tier_x": 1,
+		 "tier_y_2": 8,
+         "tier_x_2": 1.5,
          "contents": "Whatsoever follows from any attribute of God, in so far as it is modified by a modification, which exists necessarily and as infinite, through the said attribute, must also exist necessarily and as infinite. Proof.—The proof of this proposition is similar to that of the preceding one."
       },
       {
@@ -753,6 +762,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 11,
          "tier_x": 1,
+		 "tier_y_2": 8,
+         "tier_x_2": 3.5,
          "contents": "Every mode, which exists both necessarily and as infinite, must necessarily follow either from the absolute nature of some attribute of God, or from an attribute modified by a modification which exists necessarily, and as infinite. \nProof.—A mode exists in something else, through which it must be conceived (Def. v.), that is (Prop. xv.), it exists solely in God, and solely through God can be conceived. If therefore a mode is conceived as necessarily existing and infinite, it must necessarily be inferred or perceived through some attribute of God, in so far as such attribute is conceived as expressing the infinity and necessity of existence, in other words (Def. viii.) eternity; that is, in so far as it is considered absolutely. A mode, therefore, which necessarily exists as infinite, must follow from the absolute nature of some attribute of God, either immediately (Prop. xxi.) or through the means of some modification, which follows from the absolute nature of the said attribute; that is (by Prop. xxii.), which exists necessarily and as infinite."
       },
       {
@@ -763,6 +774,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 2,
          "tier_x": 1,
+		 "tier_y_2": 8,
+         "tier_x_2": 5.5,
          "contents": "The human mind does not involve an adequate knowledge of the parts composing the human body. Proof.--The parts composing the human body do not belong to the essence of that body, except in so far as they communicate their motions to one another in a certain fixed relation (Def. after Lemma iii.), not in so far as they can be regarded as individuals without relation to the human body.  The parts of the human body are highly complex individuals  (Post. i.), whose parts (Lemma iv.) can be separated from the human body without in any way destroying the nature and distinctive quality of the latter, and they can communicate their motions (Ax. i., after Lemma iii.) to other bodies in another relation; therefore (II. iii.)  the idea or knowledge of each part will be in God, inasmuch (II. ix.) as he is regarded as affected by another idea of a particular thing, which particular thing is prior in the order of nature to the aforesaid part (II. vii.).  We may affirm the same thing of each part of each individual composing the human body; therefore, the knowledge of each part composing the human body is in God, in so far as he is affected by very many ideas of things, and not in so far as he has the idea of the human body only, in other words, the idea which constitutes the nature of the human mind (II. xiii); therefore (II. xi. Coroll.), the human mind does not involve an adequate knowledge of the human body.  Q.E.D."
       },
       {
@@ -773,6 +786,8 @@ function getData() {
          "OutDegree": "3",
          "tier_y": 9,
          "tier_x": 4, 
+		 "tier_y_2": 8,
+         "tier_x_2": 7.5,
          "contents": "God is the efficient cause not only of the existence of things, but also of their essence. Proof.—If this be denied, then God is not the cause of the essence of things; and therefore the essence of things can (by Ax. iv.) be conceived without God. This (by Prop. xv.) is absurd. Therefore, God is the cause of the essence of things. Q.E.D. Note.—This proposition follows more clearly from Prop. xvi. For it is evident thereby that, given the divine nature, the essence of things must be inferred from it, no less than their existence—in a word, God must be called the cause of all things, in the same sense as he is called the cause of himself. This will be made still clearer by the following corollary."
       },
       {
@@ -783,6 +798,8 @@ function getData() {
          "OutDegree": "9",
          "tier_y": 10,
          "tier_x": 3,
+		 "tier_y_2": 8.5,
+         "tier_x_2": 7.5,
          "contents": "Individual things are nothing but modifications of the attributes of God, or modes by which the attributes of God are expressed in a fixed and definite manner. The proof appears from Prop. xv. and Def. v."
       },
       {
@@ -793,6 +810,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 11,
          "tier_x": 2,
+		 "tier_y_2": 9,
+         "tier_x_2": 2.5,
          "contents": "A thing which is conditioned to act in a particular manner, has necessarily been thus conditioned by God; and that which has not been conditioned by God cannot condition itself to act. Proof.—That by which things are said to be conditioned to act in a particular manner is necessarily something positive (this is obvious); therefore both of its essence and of its existence God by the necessity of his nature is the efficient cause (Props. xxv. and xvi.); this is our first point. Our second point is plainly to be inferred therefrom. For if a thing, which has not been conditioned by God, could condition itself, the first part of our proof would be false, and this, as we have shown is absurd."
       },
       {
@@ -803,6 +822,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 2,
          "tier_x": 8,
+		 "tier_y_2": 9,
+         "tier_x_2": 4.5,
          "contents": "The idea of each modification of the human body does not involve an adequate knowledge of the human body itself. Proof.--Every idea of a modification of the human body involves the nature of the human body, in so far as the human body is regarded as affected in a given manner (II. xvi.).  But, inasmuch as the human body is an individual which may be affected in many other ways, the idea of the said modification, &c. Q.E.D."
       },
       {
@@ -813,7 +834,9 @@ function getData() {
          "OutDegree": "7",
          "tier_y": 12,
          "tier_x": 2,
-         "contents": "Every individual thing, or everything which is finite and has a conditioned existence, cannot exist or be conditioned to act, unless it be conditioned for existence and action by a cause other than itself, which also is finite, and has a conditioned existence; and likewise this cause cannot in its turn exist, or be conditioned to act, unless it be conditioned for existence and action by another cause, which also is finite, and has a conditioned existence, and so on to infinity. Proof.—Whatsoever is conditioned to exist and act, has been thus conditioned by God (by Prop. xxvi. and Prop. xxiv., Coroll.). But that which is finite, and has a conditioned existence, cannot be produced by the absolute nature of any attribute of God; for whatsoever follows from the absolute nature of any attribute of God is infinite and eternal (by Prop. xxi.). It must, therefore, follow from some attribute of God, in so far as the said attribute is considered as in some way modified; for substance and modes make up the sum total of existence (by Ax. i. and Def. iii., v.), while modes are merely modifications of the attributes of God. But from God, or from any of his attributes, in so far as the latter is modified by a modification infinite and eternal, a conditioned thing cannot follow. Wherefore it must follow from, or be conditioned for, existence and action by God or one of his attributes, in so far as the latter are modified by some modification which is finite, and has a conditioned existence. This is our first point. Again, this cause or this modification (for the reason by which we established the first part of this proof) must in its turn be conditioned by another cause, which also is finite, and has a conditioned existence, and, again, this last by another (for the same reason); and so on (for the same reason) to infinity. Q.E.D"
+ 		 "tier_y_2": 9,
+         "tier_x_2": 6.5,
+		 "contents": "Every individual thing, or everything which is finite and has a conditioned existence, cannot exist or be conditioned to act, unless it be conditioned for existence and action by a cause other than itself, which also is finite, and has a conditioned existence; and likewise this cause cannot in its turn exist, or be conditioned to act, unless it be conditioned for existence and action by another cause, which also is finite, and has a conditioned existence, and so on to infinity. Proof.—Whatsoever is conditioned to exist and act, has been thus conditioned by God (by Prop. xxvi. and Prop. xxiv., Coroll.). But that which is finite, and has a conditioned existence, cannot be produced by the absolute nature of any attribute of God; for whatsoever follows from the absolute nature of any attribute of God is infinite and eternal (by Prop. xxi.). It must, therefore, follow from some attribute of God, in so far as the said attribute is considered as in some way modified; for substance and modes make up the sum total of existence (by Ax. i. and Def. iii., v.), while modes are merely modifications of the attributes of God. But from God, or from any of his attributes, in so far as the latter is modified by a modification infinite and eternal, a conditioned thing cannot follow. Wherefore it must follow from, or be conditioned for, existence and action by God or one of his attributes, in so far as the latter are modified by some modification which is finite, and has a conditioned existence. This is our first point. Again, this cause or this modification (for the reason by which we established the first part of this proof) must in its turn be conditioned by another cause, which also is finite, and has a conditioned existence, and, again, this last by another (for the same reason); and so on (for the same reason) to infinity. Q.E.D"
       },
       {
          "name": "1P29",
@@ -823,6 +846,8 @@ function getData() {
          "OutDegree": "6",
          "tier_y": 12,
          "tier_x": 4,
+		 "tier_y_2": 10,
+         "tier_x_2": 1.5,
          "contents": "Nothing in the universe is contingent, but all things are conditioned to exist and operate in a particular manner by the necessity of the divine nature. Proof.—Whatsoever is, is in God (Prop. xv.). But God cannot be called a thing contingent. For (by Prop. xi.) he exists necessarily, and not contingently. Further, the modes of the divine nature follow therefrom necessarily, and not contingently (Prop. xvi.); and they thus follow, whether we consider the divine nature absolutely, or whether we consider it as in any way conditioned to act (Prop. xxvii.). Further, God is not only the cause of these modes, in so far as they simply exist (by Prop. xxiv, Coroll.), but also in so far as they are considered as conditioned for operating in a particular manner (Prop. xxvi.). If they be not conditioned by God (Prop. xxvi.), it is impossible, and not contingent, that they should condition themselves; contrariwise, if they be conditioned by God, it is impossible, and not contingent, that they should render themselves unconditioned. Wherefore all things are conditioned by the necessity of the divine nature, not only to exist, but also to exist and operate in a particular manner, and there is nothing that is contingent. Q.E.D."
       },
 
@@ -834,6 +859,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 9,
          "tier_x": 6,
+		 "tier_y_2": 10,
+         "tier_x_2": 3.5,
          "contents": "Intellect, in function (actu) finite, or in function infinite, must comprehend the attributes of God and the modifications of God, and nothing else. Proof.—A true idea must agree with its object (Ax. vi.); in other words (obviously), that which is contained in the intellect in representation must necessarily be granted in nature. But in nature (by Prop. xiv., Coroll. i.) there is no substance save God, nor any modifications save those (Prop. xv.) which are in God, and cannot without God either be or be conceived. Therefore the intellect, in function finite, or in function infinite, must comprehend the attributes of God and the modifications of God, and nothing else. Q.E.D."
       },
       {
@@ -844,6 +871,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 9,
          "tier_x": 7,
+		 "tier_y_2": 10,
+         "tier_x_2": 5.5,
          "contents": "The intellect in function, whether finite or infinite, as will, desire, love, &c., should be referred to passive nature and not to active nature. Proof.—By the intellect we do not (obviously) mean absolute thought, but only a certain mode of thinking, differing from other modes, such as love, desire, &c., and therefore (Def. v.) requiring to be conceived through absolute thought. It must (by Prop. xv. and Def. vi.), through some attribute of God which expresses the eternal and infinite essence of thought, be so conceived, that without such attribute it could neither be nor be conceived. It must therefore be referred to nature passive rather than to nature active, as must also the other modes of thinking. Q.E.D."
       },
       {
@@ -854,6 +883,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 13,
          "tier_x": 2,
+		 "tier_y_2": 10,
+         "tier_x_2": 7.5,
          "contents": "Will cannot be called a free cause, but only a necessary cause. Proof.—Will is only a particular mode of thinking, like intellect; therefore (by Prop. xxviii.) no volition can exist, nor be conditioned to act, unless it be conditioned by some cause other than itself, which cause is conditioned by a third cause, and so on to infinity. But if will be supposed infinite, it must also be conditioned to exist and act by God, not by virtue of his being substance absolutely infinite, but by virtue of his possessing an attribute which expresses the infinite and eternal essence of thought (by Prop. xxiii.). Thus, however it be conceived, whether as finite or infinite, it requires a cause by which it should be conditioned to exist and act. Thus (Def. vii.) it cannot be called a free cause, but only a necessary or constrained cause. Q.E.D."
       },
       {
@@ -864,6 +895,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 14,
          "tier_x": 3,
+		 "tier_y_2": 10.5,
+         "tier_x_2": 7.8,
          "contents":"It follows, secondly, that will and intellect stand in the same relation to the nature of God as do motion, and rest, and absolutely all natural phenomena, which must be conditioned by God (Prop. xxix.) to exist and act in a particular manner. For will, like the rest, stands in need of a cause, by which it is conditioned to exist and act in a particular manner. And although, when will or intellect be granted, an infinite number of results may follow, yet God cannot on that account be said to act from freedom of the will, any more than the infinite number of results from motion and rest would justify us in saying that motion and rest act by free will. Wherefore will no more appertains to God than does anything else in nature, but stands in the same relation to him as motion, rest, and the like, which we have shown to follow from the necessity of the divine nature, and to be conditioned by it to exist and act in a particular manner."
       },
       {
@@ -874,6 +907,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 13,
          "tier_x": 3,
+		 "tier_y_2": 11,
+         "tier_x_2": 2.5,
          "contents":"Things could not have been brought into being by God in any manner or in any order different from that which has in fact obtained. Proof—All things necessarily follow from the nature of God (Prop. xvi.), and by the nature of God are conditioned to exist and act in a particular way (Prop. xxix.). If things, therefore, could have been of a different nature, or have been conditioned to act in a different way, so that the order of nature would have been different, God's nature would also have been able to be different from what it now is; and therefore (by Prop. xi.) that different nature also would have perforce existed, and consequently there would have been able to be two or more Gods. This (by Prop. xiv., Coroll. i.) is absurd. Therefore things could not have been brought into being by God in any other manner, &c. Q.E.D."
       },
       {
@@ -884,6 +919,8 @@ function getData() {
          "OutDegree": "4",
          "tier_y": 7,
          "tier_x": 5,
+		 "tier_y_2": 11,
+         "tier_x_2": 4.5,
          "contents": "God's power is identical with his essence. Proof.—From the sole necessity of the essence of God it follows that God is the cause of himself (Prop. xi.) and of all things (Prop. xvi. and Coroll.). Wherefore the power of God, by which he and all things are and act, is identical with his essence. Q.E.D."
       },
       {
@@ -894,6 +931,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 9,
          "tier_x": 6,
+		 "tier_y_2": 11,
+         "tier_x_2": 6.5,
          "contents": "Whatsoever we conceive to be in the power of God, necessarily exists. Proof.—Whatsoever is in God's power, must (by the last Prop.) be comprehended in his essence in such a manner, that it necessarily follows therefrom, and therefore necessarily exists. Q.E.D."
       },
       {
@@ -904,6 +943,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 11,
          "tier_x": 3,
+		 "tier_y_2": 12.5,
+         "tier_x_2": 4.5,
          "contents": "There is no cause from whose nature some effect does not follow. Proof.—Whatsoever exists expresses God's nature or essence in a given conditioned manner (by Prop. xxv., Coroll.); that is, (by Prop. xxxiv.), whatsoever exists, expresses in a given conditioned manner God's power, which is the cause of all things, therefore an effect must (by Prop. xvi.) necessarily follow. Q.E.D."
       },
       {
@@ -914,8 +955,8 @@ function getData() {
          "OutDegree": "1",
          "tier_y": 5,
          "tier_x": 4,
-         "tier_y_2": 3,
-         "tier_x_2": 5.5,
+         "tier_y_2": 3.5,
+         "tier_x_2": 4.5,
          "contents": "Hence it follows that a substance cannot be produced by anything external to itself. For in the universe nothing is granted, save substances and their modifications (as appears from Ax. i. and Deff. iii. and v.). Now (by the last Prop.) substance cannot be produced by another substance, therefore it cannot be produced by anything external to itself. Q.E.D. This is shown still more readily by the absurdity of thecontradictory. For, if substance be produced by an external cause, the knowledge of it would depend on the knowledge of its cause (Ax. iv.), and (by Def. iii.) it would itself not be substance." 
       },
       {
@@ -926,8 +967,8 @@ function getData() {
          "OutDegree": "5",
          "tier_y": 8,
          "tier_x": 4,
-         "tier_y_2": 5,
-         "tier_x_2": 7.5,
+         "tier_y_2": 5.5,
+         "tier_x_2": 6.2,
          "contents": "Clearly, therefore: 1. God is one, that is (by Def. vi.) only one substance can be granted in the universe, and that substance is absolutely infinite, as we have already indicated (in the note to Prop. x.)."
       },
       {
@@ -938,8 +979,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 8,
          "tier_x": 5,
-         "tier_y_2": 5,
-         "tier_x_2": 8.5,
+         "tier_y_2": 5.5,
+         "tier_x_2": 6.8,
          "contents": "It follows: 2. That extension and thought are either attributes of God or (by Ax. i.) accidents (affectiones) of the attributes of God."
       },
       {
@@ -950,8 +991,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 3,
          "tier_x": 3,
-         "tier_y_2": 6,
-         "tier_x_2": 4.5,
+         "tier_y_2": 6.5,
+         "tier_x_2": 3.2,
          "contents":"Hence it follows, that God is the efficient cause of all that can fall within the sphere of an infinite intellect. "
       },
       {
@@ -962,8 +1003,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 3,
          "tier_x": 4,
-         "tier_y_2": 6,
-         "tier_x_2": 5.5,
+         "tier_y_2": 6.5,
+         "tier_x_2": 3.8,
          "contents":"It also follows that God is a cause in himself, and not through an accident of his nature."
       },
       {
@@ -974,8 +1015,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 3,
          "tier_x": 5,
-         "tier_y_2": 6,
-         "tier_x_2": 6.5,
+         "tier_y_2": 7,
+         "tier_x_2": 3.5,
          "contents": "It follows, thirdly, that God is the absolutely first cause."
       },
       {
@@ -986,8 +1027,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 10,
          "tier_x": 4,
-         "tier_y_2": 6,
-         "tier_x_2": 8.5,
+         "tier_y_2": 6.5,
+         "tier_x_2": 5.2,
          "contents": "--It follows: 1. That there can be no cause which, either extrinsically or intrinsically, besides the perfection of his own nature, moves God to act."
       },
       {
@@ -998,6 +1039,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 9,
          "tier_x": 1,
+		 "tier_y_2": 7.5,
+         "tier_x_2": 4.2,
          "contents": "Hence it follows that God's existence, like his essence, is an eternal truth."
       },
       {
@@ -1008,6 +1051,8 @@ function getData() {
          "OutDegree": "2",
          "tier_y": 3,
          "tier_x": 1,
+		 "tier_y_2": 8.5,
+         "tier_x_2": 5.5,
          "contents": "Hence it follows that God is not only the cause of things coming into existence, but also of their continuing in existence, that is, in scholastic phraseology, God is cause of the being of things (essendi rerum). For whether things exist, or do not exist, whenever we contemplate their essence, we see that it involves neither existence nor duration; consequently, it cannot be the cause of either the one or the other. God must be the sole cause, inasmuch as to him alone does existence appertain. (Prop. xiv. Coroll. i.) Q.E.D."
       },
       {
@@ -1018,6 +1063,8 @@ function getData() {
          "OutDegree": "0",
          "tier_y": 14,
          "tier_x": 1,
+         "tier_y_2": 10.5,
+         "tier_x_2": 7.2,
          "contents": "Hence it follows, first, that God does not act according to freedom of the will."
       },
      
