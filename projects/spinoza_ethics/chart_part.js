@@ -186,7 +186,7 @@ var node = gnodes.append("circle")
     .on('mouseout', hide_things)
     .call(node_drag);
 
-d3.selection.prototype.dblTap = function (callback) {
+/*d3.selection.prototype.dblTap = function (callback) {
     var last = 0;
     return this.each(function () {
         d3.select(this).on("touchstart", function (e) {
@@ -197,11 +197,11 @@ d3.selection.prototype.dblTap = function (callback) {
             last = d3.event.timeStamp;
         });
     });
-}
+}*/
 
-d3.select("div").dblTap(function () {
-    alert("Double tap!");
-});
+//d3.select("div").dblTap(function () {
+//    alert("Double tap!");
+//});
     //.on('dblclick', node_drag); //Added code
 
 //var titles = gnodes.append("title")
