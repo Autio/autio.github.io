@@ -8,7 +8,7 @@ function sleep(milliseconds) {
 }
 
 var width = 1600,
-    height = 1900;
+    height = 1000;
 
 var chart_mode = 2;
 
@@ -217,15 +217,27 @@ var labels = gnodes.append("text")
 
 force.on("tick", function() {
 
+
+
+    // Checkbox functionality
+
+    var val = d3.select('input[name="group-stack"]:checked').node().value;
+    if (val == "friedman") {
+        chart_mode = 1;
+
+    } else if (val == "plain") {
+        chart_mode = 2;
+    }
+
 // Attach the lines
 // Do it based on tier data in the nodes
 
 if(chart_mode == 1)
 {
     link.attr("x1", function(d) { if(d.source.tier_x) { return d.source.tier_x * tier_width;} else {return d.source.x; }})
-        .attr("y1", function(d) { if(d.source.tier_y) { return d.source.tier_y * tier_height;} else {return d.source.y; }})
-        .attr("x2", function(d) { if(d.target.tier_x) { return d.target.tier_x * tier_width;} else {return d.target.x; }})
-        .attr("y2", function(d) { if(d.target.tier_y) { return d.target.tier_y * tier_height;} else {return d.target.y; }});
+        .attr("y1", function (d) { if (d.source.tier_y) { return d.source.tier_y * tier_height; } else { return d.source.y; } })
+        .attr("x2", function (d) { if (d.target.tier_x) { return d.target.tier_x * tier_width; } else { return d.target.x; } })
+        .attr("y2", function (d) { if (d.target.tier_y) { return d.target.tier_y * tier_height; } else { return d.target.y; } });
 
     // Set node position
     // Also based on data in the nodes
@@ -253,6 +265,8 @@ if(chart_mode == 1)
 
 }
 
+
+
 // ARROWS
 gnodes.append("defs").selectAll("marker")
     .data(["suit", "licensing", "resolved"])
@@ -269,6 +283,10 @@ gnodes.append("defs").selectAll("marker")
     .style("stroke", "#4679BD")
     .style("opacity", "0.6");
 });
+
+
+
+
 
 function getData() {
 

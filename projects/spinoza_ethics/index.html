@@ -38,6 +38,10 @@ font: 16px helvetica;
 {
 text-anchor: middle;
 }
+	
+form{
+font: 16px helvetica;
+}
 
 d3-tip {
     line-height: 1;
@@ -74,7 +78,11 @@ d3-explanation {
 
 <div>
 	<div class="top-header"><h1>Graphing the logical connections in Spinoza's Ethics - Part I<br></h1><h2>Double-click to highlight neighbours of a node.</h2></div>
-	<div class="main_vis" id="main_vis"> </div>
+    <form>
+        <input type="radio" name="group-stack" value="plain" >Plain Ordering<br>
+        <input type="radio" name="group-stack" value="friedman" checked>Friedman Ordering
+    </form>
+    <div class="main_vis" id="main_vis"> </div>
 </div>
 
 <script src="chart_part.js">
