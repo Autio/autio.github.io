@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta property="og:description" content=""/>
+	<link rel="icon" type="image/x-icon" href="favicon.ico"></link>
+	<link rel="stylesheet" href="css/wwmap.css"></link>
+	<link rel="stylesheet" href="css/d3.slider.css"></link>
+	<!--[if gte IE 9]><!-->
+	<script src="js/d3.v3.min.js"></script>
+	<script src="js/topojson.v1.min.js"></script>
+	<script src="js/queue.v1.min.js"></script>
+	<script src="js/d3.slider.min.js"></script>
+	<script src="js/format.20110630-1100.min.js"></script>
+	<!--<![endif]-->
+	<script src="js/wwmap.js"></script>
+</head>
+<body>
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KTB5LZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTB5LZ');</script> -->
+
+<noscript>
+	<h1>India sanitation map</h1>
+	<p>This map shows the progress on various sanitation indicators within Indian states and districts.</p>
+	<p>This page requires javascript to be enabled for the interactive part to work,
+	but below is an image of how it would appear if you did enable javascript.</p>
+	<img alt="India Sanitation Map" src="images/fallback.png"></img>
+</noscript>
+
+<h1 id="fallback-title" class="fallback">India sanitation map</h1>
+<p id="fallback-text" class="fallback">
+Your browser does not support the features needed to view this map properly - you could use any recent version of <a href="https://www.google.com/chrome/" target="_top">Chrome</a>, <a href="https://www.mozilla.org/firefox/" target="_top">Firefox</a>, Opera or Safari, or Internet Explorer version 9 or greater.
+</p>
+
+<div id="wrapperdiv" class="wrapper indicator1">
+	<div class="social-share">
+			<h2>share <a id="twitter-search-link" title="follow India Sanitation Map on twitter using #indiasanitationmap hashtag" href="https://twitter.com/#indiasanitationmap" target="_top"> #IndiaSanitationMap</a></h2>
+			<ul class="ss-share">
+				<li class="ss-share-item">
+					<a class="ss-share-link ico-facebook" target="_blank" title="Share on Facebook"></a>
+				</li>
+				<li class="ss-share-item">
+					<a class="ss-share-link ico-twitter" target="_blank" title="Share on Twitter"></a>
+				</li>
+				<li class="ss-share-item">
+					<a class="ss-share-link ico-google" target="_blank" title="Share on Google+"></a>
+				</li>
+				<li class="ss-share-item">
+					<a class="ss-share-link ico-linkedin" target="_blank" title="Share on LinkedIn"></a>
+				</li>
+				<li class="ss-share-item">
+					<a class="ss-share-link ico-embed" target="_blank" title="Embed this map in your site"></a>
+				</li>
+			</ul>
+			<div class="embed-example">
+				You can embed this map in your own site by adding the following HTML to your page:
+				<pre>&lt;iframe src="indiasanitationmap.s3-website-eu-west-1.amazonaws.com/?level=states#" width="1100" height="1000"&gt;&lt;/iframe&gt;</pre>
+			</div>
+		</div>
+	<section class="mainmap">
+		<section class="map-info">
+				<h1 id="map-info-title"> 
+					<span class="big indicator1"> Sanitation<strong> 2001-2019</strong><br />&nbsp;</span>
+				</h1>	
+		
+				<p class="instructions"><br>Drag the slider to change the year and click on a state to see more information.</p>
+		
+		<section class="year-slider-section">
+			<div id="year-slider"></div>
+		</section>
+		
+		<div id="reset-button">Reset timeline</div>
+
+			</section>
+				<div id="select-source">
+					<a href="#" id="select-indicator2-source" class="button source current-source">Open defecation %</a>
+					<a href="#" id="select-indicator1-source" class="button source">Open defecation density</a>
+					<!--<a href="#" id="select-indicator3-source" class="button source">Third Indicator</a>-->
+				</div>
+		<div id="map">
+			<div id="level-button">State / District</div>
+			<div class="tooltip">
+				<span class="tooltip-year"></span><br />
+				<span class="tooltip-country"></span><br />
+				<span class="tooltip-percent"></span>
+			</div>
+		</div>
+		
+	</section>
+	<aside class="info">
+		<div id="country-info-advice"></div>
+		<div id="country-info"><div id="country-info-source">Source </div></div>
+
+	<!--	<div id="country-targets">
+			<!--<h2 class="targets-title">Sanitation progress to 2019</h2>
+			<p class="targets-subtitle"></p>
+			<div class="targets-section currently">
+				<p class="targets-section-title">currently</p>
+				<p class="targets-number">
+					<span class="targets-number-digits"></span>
+					<span class="targets-number-unit"></span>
+				</p>
+				<div class="targets-people"></div>
+				<p class="targets-detail"></p>
+			</div>
+			<div class="targets-section for-target">
+				<p class="targets-section-title">for targets</p>
+				<p class="targets-number">
+					<span class="targets-number-digits"></span>
+					<span class="targets-number-unit"></span>
+				</p>
+				<div class="targets-people"></div>
+				<p class="targets-detail">extra people per year needed to reach 2019 target</p>
+			</div>
+			<p class="targets-percent">That is just <span class="targets-percent-digits"></span>% of the population</p>
+			<div id="targets-key">
+				<div id="targets-key-person"></div>
+				<div id="targets-key-text"></div>
+			</div>
+		</div>-->
+				
+		<!--Data table for further indicators -->
+		<div id = "table1-container"> 
+			<div id = "table1-info-year">2015</div>
+		<div id="table1-header"><h2>Rural baseline data</h2></div>
+		<table id="table1" border = "1">
+		<tr>
+			<th id="table1-unwanted-cell"></th>
+			<th id="table1-header1">% without toilets</th>
+			<th>SBA target</th>
+			<th>Cost<br/>(Lakh Rs)</th>
+
+		</tr>
+		<tr>
+			<td id="r1c1">Households</td>
+			<td id="r1c2">-</td>
+			<td id="r1c3"></td>
+			<td id="r1c4"></td>
+
+		</tr>
+		<tr>
+			<td id="r2c1">Schools</td>
+			<td id="r2c2"></td>
+			<td id="r2c3"></td>
+			<td id="r2c4"></td>
+
+		</tr>
+		<tr>
+			<td id="r3c1">Anganwadi</td>
+			<td id="r3c2"></td>
+			<td id="r3c3"></td>
+			<td id="r3c4"></td>
+
+		</tr>
+		<tr>
+			<td id="r4c1">Community toilets</td>
+			<td id="r4c2">-</td>
+			<td id="r4c3"></td>
+			<td id="r4c4"></td>
+
+		</tr>
+		<tr id="table1-bottom-row">
+			<td id="r5c1">Total</td>
+			<td id="r5c2">-</td>
+			<td id="r5c3">-</td>
+			<td id="r5c4"></td>
+
+		</tr>
+			
+		</table>
+		
+		<div id = "table1-source">Source: <a href="http://tsc.nic.in/BLS2012/Home.aspx" target="_top">MDWS Baseline 2012-13</a></div>
+		
+		
+		</div>
+	</aside>
+	<footer class="map-footer">
+		<section>
+				<div id="map-legend" class="legend">
+					<g>
+					<div id="map-legend-svg"></div>
+					</g>
+					<div id="map-legend-text">
+						<div id="lowerBound" class="zero-percent"><span id="dabra" class="legend-number">0</span> <span class="legend-percent">%</span></div>
+					<!--	<div id="lowermiddleBound" class="25-percent">25</div>
+						<div id="uppermiddleBound" class="75-percent">75</div>	-->					
+						<div id="upperBound" class="hundred-percent"><span class="legend-number">100</span> <span class="legend-percent">%</span></div>
+						<div id="map-legend-label" class="legend-text"></div>
+					</div>
+				</div>
+	
+		</section>
+	
+			<div class="map-description">
+				<h3 id="description-title">About this map</h3>
+			
+				<p id="description-about">
+				This map shows where Indian states and districts are with respect to sanitation indicators.
+				</p>
+				<p id="description-more-info">
+				<a href="http://www.wateraid.org/get-involved/campaigns/africa-water-week#/about-our-interactive-map" target="_top">Find out more about how we calculated these figures.</a>
+				</p>
+			</div>
+		</footer>
+	<footer class="main-footer">
+		<div class="logos">
+			<a href="http://www.wateraid.org/" target="_top"><img src="images/wateraid.png" width="150" height="31" alt="WaterAid"></a>
+			<a href="http://www.washwatch.org/" target="_top"><img src="images/washwatch.png" width="74" height="44" alt="WashWatch"></a>
+			<a href="http://www.riceinstitute.org" target="_top"><img src="images/rice.png" width="41" height="44" alt="Rice"></a>
+		</div>
+		<div class="made-by">
+			<span id="map-by">map by</span> <a href="mailto:petriautio@wateraid.org" target="_top" class="Aptivate">petriautio@wateraid.org</a> <span id="based on"> based on the platform by </a> <a href="http://www.aptivate.org/" target="_top" class="Aptivate">Aptivate</a> 
+		</div>
+	</footer>
+</div>
+
+<script>
+wwMap.init({
+	minYear: 2001,
+	thisYear: 2015,
+	maxYear: 2019,
+	initialSource: 'indicator2',
+	initialCountry: 'IN.AVG',
+	yearsOnGraph: [2001, 2015, 2019],
+	mapurl_topojson_states: 'data/state_map.json',
+	dataurl_states: 'data/india_states_data.json',	
+	mapurl_topojson_districts: 'data/india_districts_map.json',//'data/india_districts_map.json',
+	dataurl_districts: 'data/india_districts_data.json',	
+	
+	// Generalising for n amount of indicators
+<!-- 	indicator1ColorRange: [
+//		"#15b598", "#4db181",
+//		"#86c26f", "#d3cc4f", "#f2c83d",
+//		"#ebb01f", "#eb941f", "#eb7e1f", 
+//		"#da670f", "#d45500", "#800000"
+//		 ], -->
+		 
+	// Twice the amount of colours
+	indicator2ColorRange: [
+		"#15b598", "#4db181", "#6ABA78", "#86c26f", "#ADC75F", 
+		"#d3cc4f", "#E3CA46", "#f2c83d", "#EFBC2E", "#ebb01f", 
+		"#EBA21F", "#eb941f", "#EB891F", "#eb7e1f", "#E37317",
+		"#da670f", "#D75E08", "#d45500", "#AA2B00", "#951600",
+		"#800000",
+		 ],	
+	indicator1ColorRange: [
+		"#15b598", "#4db181", "#6ABA78", "#86c26f", "#ADC75F", 
+		"#d3cc4f", "#E3CA46", "#f2c83d", "#EFBC2E", "#ebb01f", 
+		"#EBA21F", "#eb941f", "#EB891F", "#eb7e1f", "#E37317",
+		"#da670f", "#D75E08", "#d45500", "#AA2B00", "#951600",
+		"#800000",
+		 ],	
+	
+
+	indicator3ColorRange: [
+
+		"#800000", "#d45500", "#da670f",
+		"#eb7e1f","#eb941f","#ebb01f",  
+		"#f2c83d", "#f2e63d", "#d3cc4f", 
+		"#86c26f", "#4db181",
+	],
+	
+	
+	//	"#d41500", "#bb1200", "#d45500", "#da670f", "#eb7e1f", "#eb941f",
+	//	"#ebb01f", "#f2c83d", "#f7dd87", "#d3cc4f", "#86c26f",
+	//	],
+	// Reversed colours
+		//	["#800000", "#d45500", "#da670f",
+		//	"#eb7e1f","#eb941f","#ebb01f",  
+		//	"#f2c83d",  "#d3cc4f", 
+		//	"#86c26f", "#4db181","#15b598",
+		//	],#4db181"
+		
+		
+	// old indicator1Domain: [0, 1, 40, 60, 80, 100, 150, 200, 250, 500],
+	// old indicator1ExtColorDomain: [0, 1, 40, 60, 80, 100, 150, 200, 250, 500],
+	// Note that the program determines whether to use percentages in colouring the map based on whether the unit contains % or "percent" in the text
+	indicator1Domain:[0,25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,425,450,500],
+	indicator1ExtColorDomain:[0,25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,425,450,500],
+	indicator1Unit: " Open defecation per square km",
+	indicator1OptimalValue: "low",
+	
+	//indicator2Domain:[10, 20, 30, 40, 50, 60, 70, 80, 90, 101],
+	//indicator2ExtColorDomain:[101, 90, 80, 70, 60, 50, 40, 30, 20, 10],
+	//80, 85, 90, 95, 101],
+	// domain with double the frequency 
+	indicator2Domain:[5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 101],
+	indicator2ExtColorDomain:[5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 101],
+	indicator2Unit:" %",
+	indicator2OptimalValue: "low",
+
+	indicator3Domain:[10, 20, 30, 40, 50, 60, 70, 80, 90, 101],
+	indicator3ExtColorDomain:[10, 20, 30, 40, 50, 60, 70, 80, 90, 101],
+	indicator3Unit:"",
+	indicator3OptimalValue: "high",
+	
+	// Initial setting, determines how graphs work
+	usePercentages: true,
+			
+	// Second target year in graph
+	targetYear2: 2019,	
+	noDataColor: "#eee",
+	
+	lineGraphAspectRatio: 0.6,
+	lineGraphMargin: 5,
+	twitterHashTagWater: "IndiaSanitationMap",
+	twitterHashTagSanitation: "IndiaSanitationMap",
+	personFullHeight: 25
+});
+
+</script>
+</body>
+</html>
