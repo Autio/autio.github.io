@@ -36,9 +36,10 @@ p#intro {
 jsonData = [
 
 
-  
 {
-
+ "name": "Idea",
+ "children": [
+  {
    "name": "Logic",
    "description" : "",
    "children": [
@@ -47,57 +48,16 @@ jsonData = [
      "children": [
       {"name": "Quality", "size":"",
 	  "children": [
-	   {"name": "Being", 
-	   "children": [
 	   {"name": "Being"},
-	   {"name": "Nothing"},
-	   {"name": "Becoming"}
-	   ]
-	   },
-	   {"name": "Determinate Being",
-	   "children": [
-	   {"name": "Quality"},
-	   {"name": "Limit", 
-	   "children": [
-	   {"name": "The Finite"},
-	   {"name": "Alteration"},	   
-	   {"name": "The Spurious Infinite"}	   
-	   ]
-	   },
-	   {"name": "The True Infinite"}
-	   ] 
-	   },
-	   {"name": "Being-for-self", 
-	   "children":[
-	   {"name": "The One"},
-	   {"name": "The Many"},	   
-	   {"name": "Repulsion and Attraction"}	
-	   ]
-	   }
-	  ]},
+	   {"name": "Determinate Being" },
+	   {"name": "Being-for-self"}
+	   ]},
 	  
       {"name": "Quantity", "size":"", 
 	  "children":[
-	  {"name": "Pure Quantity", "children":[
-	   {"name": "Pure Quantity"},
-	   {"name": "Continuous and Discrete Magnitude"},
-	   {"name": "Limitation of Quantity"}
-	  ]
-	  },
-	  {"name": "Quantum",
-	  "children":[
-	   {"name": "Quantum"},
-	   {"name": "Sum and Unity"},
-	   {"name": "Number"}
-	  ]
-	  },
-	  {"name": "Degree",
-	  "children":[
-	   {"name": "Degree"},
-	   {"name": "The Quantitative Infinite Progress"},
-	   {"name": "The Quantitative Ratio"}
-	  ]
-	  }	  
+		{"name": "Pure Quantity"},
+		{"name": "Quantum"},
+		{"name": "Degree"}	  
 	  ]
 	  },
       {"name": "Measure", "size":"",
@@ -115,28 +75,9 @@ jsonData = [
       {"name": "Essence",
 	   "description" : "Essence as Ground of Existence",
 	   "children": [
-	   {"name": "The Categories of Reflection",
-	   	"children": [
-			{"name": "Identity"},
-			{"name": "Difference",
-		     "children": [
-			 {"name": "Variety"},
-			 {"name": "Likeness and Unlikeness"},
-			 {"name": "Contrariety (Positive and Negative)"}
-			]
-			},
-			{"name": "The Ground"}
-		]
-	   },
-	   
-	   {"name": "Existence"},
-	   
-	   {"name": "The Thing",
-	   	"children": [
-		{"name": "The Thing and its Properties"},
-		{"name": "The Thing and Matters"},
-		{"name": "Matter and Form"}		
-		]}
+		{"name": "The Categories of Reflection"},
+        {"name": "Existence"},   
+	    {"name": "The Thing"}
 	   ]
 	  },
 	  
@@ -604,6 +545,8 @@ jsonData = [
 	   ]
   }
   
+ ]
+}
 
 
 ]
@@ -639,8 +582,8 @@ var arc = d3.svg.arc()
   callback(text ? JSON.parse(text) : null);
 }
 
-d3.json("flare_trimmed.json", function(error, json) {
-//readJson(JSON.stringify(jsonData), function(json) {
+//d3.json("flare_trimmed.json", function(error, json) {
+readJson(JSON.stringify(jsonData), function(json) {
 
   var nodes = partition.nodes({children: json});
   var path = vis.selectAll("path").data(nodes);
