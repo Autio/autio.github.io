@@ -1,0 +1,100 @@
+How to deploy a list of Project Statements to a web-based list:
+
+PC -> Data Warehouse -> Excel -> HTML file -> website
+
+Why:
+Project Statements are stored as HTML-tagged templates on Project Center
+These do not come out well into the custom reports in PC when we want a
+list of them. When outputting a list of them only the first section of the
+template comes through. A better way to display the statements would be a
+web-page where the templates are expandable. 
+
+To get the full data we use the .bak file export
+which contains all tables of PC data. The Project Table however doesn't
+itself contain all the information we want in the output report so some querying
+is needed. This view onto the data can be then used to populate an Excel file
+which a user can then check. The data should be cleaned of any un-edited project
+statement templates, i.e. templates that have not been filled in with actual
+project statements. Copy the data from the Excel file into a new file, name it
+ProjectStatements.xlsx.
+
+Then the Python script ProjectStatementsExcelToHTML.py should be run in the same
+directory as the Excel file which should be named ProjectStatements.xlsx.
+This takes the data from the file (ignoring the header row)
+and maps it to:
+
+Country - Programme - Project - Contact - Taget funding - Project Statement
+
+If the project statement is in an unexpected location of the hierarchy such as
+a sub-project, some of the location information may be blank.
+
+The resulting text needs to be copied into an HTML page such as the template
+below in to the location: // COPY TEXT OUTPUT FROM PYTHON TO HERE //
+
+Note: The Excel step could be skipped if you are able to filter the table in
+the data warehouse and clean it up and then adjust the Python script to output
+HTML directly from the DW table
+
+Example report here: http://autio.github.io/projects/projectstatements/
+--------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h2
+{
+font-family:arial;
+}
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
+</head>
+<body>
+
+<h2>WaterAid Project Statements - 21/04/2017</h2>
+<p style="font-family:arial">Click on the buttons to open the collapsible content.</p>
+
+// COPY TEXT OUTPUT FROM PYTHON TO HERE //
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
