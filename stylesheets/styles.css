@@ -2,7 +2,7 @@
 
 body {
   padding:50px;
-  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:16px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
 }
@@ -16,7 +16,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size:36px;
+  font-size:42px;
 }
 
 h2 {
@@ -251,5 +251,179 @@ footer {
 
 .spacer {
     margin-top:30px;
+}
+
+:root {
+  --mainColor: #56A2D6;
+}
+
+a {
+  background:
+     linear-gradient(
+       to bottom, var(--mainColor) 0%,
+       var(--mainColor) 100%
+     );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+  color: #000;
+  text-decoration: none;
+  transition: background-size .4s;
+}
+
+a:hover {
+  background-size: 4px 50px;
+  color: #fff;
+}
+
+.post-tag {
+  color: #3E6D8E;
+  background-color: #E0EAF1;
+  border-bottom: 1px solid #3E6D8E;
+  border-right: 1px solid #7F9FB6;
+  padding: 3px 4px 3px 4px;
+  margin: 2px 2px 2px 0;
+  text-decoration: none;
+  font-size: 90%;
+  line-height: 2.4;
+  white-space: nowrap;
+}
+
+a.post-tag:hover {
+  background-color: #3E6D8E;
+  color: #E0EAF1;
+  border-bottom: 1px solid #37607D;
+  border-right: 1px solid #37607D;
+  text-decoration: none;
+}
+
+a.plain {
+  color:#39c;
+  font-weight:400;
+  text-decoration:none;
+}
+a.plain:hover{
+  color:#39c;
+  font-weight:400;
+  text-decoration:none; 
+}
+
+.s-tag {
+  display: inline-flex;
+  align-content: center;
+  justify-content: center;
+  min-width: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.84615385;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-color: transparent;
+  background-color: #e1ecf4;
+  color: #39739d;
+}
+
+.mr2 {
+  margin-right: 2px !important;
+}
+
+
+/*---------------*/
+/***** Bubba *****/
+/*---------------*/
+
+figure.effect-bubba {
+	background: #9e5406;
+}
+
+figure.effect-bubba img {
+	opacity: 0.7;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+}
+
+figure.effect-bubba:hover img {
+	opacity: 0.4;
+}
+
+figure.effect-bubba figcaption::before,
+figure.effect-bubba figcaption::after {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	left: 10px;
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-bubba figcaption::before {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+figure.effect-bubba figcaption::after {
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
+	-webkit-transform: scale(1,0);
+	transform: scale(1,0);
+}
+
+figure.effect-bubba h2 {
+	padding-top: 30%;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,-20px,0);
+	transform: translate3d(0,-20px,0);
+}
+
+figure.effect-bubba p {
+	padding: 20px 2.5em;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,20px,0);
+	transform: translate3d(0,20px,0);
+}
+
+figure.effect-bubba:hover figcaption::before,
+figure.effect-bubba:hover figcaption::after {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+figure.effect-bubba:hover h2,
+figure.effect-bubba:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+/*---------------*/
+/***** Chico *****/
+/*---------------*/
+
+figure.effect-chico img {
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(12);
+	transform: scale(1);
+}
+
+figure.effect-chico:hover img {
+	opacity: 0.5;
+	-webkit-transform: scale(0.92);
+	transform: scale(0.92);
 }
 
