@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mWater AI Roadmap - Interactive Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phase-band {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 33.33%;
+            z-index: 1;
+        }
+
+        .phase-band-1 {
+            left: 0;
+            background: linear-gradient(180deg, rgba(227, 242, 253, 0.4) 0%, rgba(187, 222, 251, 0.3) 100%);
+        }
+
+        .phase-band-2 {
+            left: 33.33%;
+            background: linear-gradient(180deg, rgba(232, 245, 233, 0.4) 0%, rgba(200, 230, 201, 0.3) 100%);
+        }
+
+        .phase-band-3 {
+            left: 66.66%;
+            background: linear-gradient(180deg, rgba(255, 243, 224, 0.4) 0%, rgba(255, 224, 178, 0.3) 100%);
+        }
+
+        .phase-header {
+            position: absolute;
+            top: 2%;
+            width: 30%;
+            text-align: center;
+            z-index: 5;
+            padding: 15px 10px;
+        }
+
+        .phase-header-1 {
+            left: 1.67%;
+        }
+
+        .phase-header-2 {
+            left: 35%;
+        }
+
+        .phase-header-3 {
+            left: 68.33%;
+        }
+
+        .phase-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .phase-title-1 {
+            color: #1976d2;
+        }
+
+        .phase-title-2 {
+            color: #388e3c;
+        }
+
+        .phase-title-3 {
+            color: #f57c00;
+        }
+
+        .phase-timeline {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .phase-tagline {
+            font-size: 15px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .phase-impact {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            text-align: center;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .mwater-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 11px;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            color: #1976d2;
+            font-size: 15px;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .roadmap-item {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            padding: 8px 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            width: 280px;
+            height: auto;
+            min-height: 50px;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .roadmap-item:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.2);
+            border-color: #1976d2;
+            z-index: 150;
+            padding: 12px 18px;
+        }
+
+        .roadmap-item.phase-1 {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-color: #1976d2;
+        }
+
+        .roadmap-item.phase-2 {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            border-color: #388e3c;
+        }
+
+        .roadmap-item.phase-3 {
+            background: linear-gradient(135deg, #fff3e0, #ffcc02);
+            border-color: #f57c00;
+        }
+
+        .roadmap-item.completed {
+            background: linear-gradient(135deg, #e8f5e8, #a5d6a7);
+            border-color: #4caf50;
+        }
+
+        .roadmap-item.in-progress {
+            background: linear-gradient(135deg, #fff9e6, #ffd54f);
+            border-color: #ffa000;
+        }
+
+        .item-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: #333;
+            transition: margin 0.4s ease;
+        }
+
+        .roadmap-item:hover .item-title {
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.4s ease;
+        }
+
+        .roadmap-item:hover .item-description {
+            white-space: normal;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .item-status {
+            display: none;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .roadmap-item:hover .item-status {
+            display: inline-block;
+        }
+
+        .status-completed {
+            background: #4caf50;
+            color: white;
+        }
+
+        .status-in-progress {
+            background: #ffa000;
+            color: white;
+        }
+
+        .status-foundation {
+            background: #1976d2;
+            color: white;
+        }
+
+        .status-expansion {
+            background: #388e3c;
+            color: white;
+        }
+
+        .status-transformation {
+            background: #f57c00;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .impact-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .impact-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+
+        .impact-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .timeline {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .timeline-text {
+            font-size: 14px;
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            max-width: 300px;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        .tooltip-impact {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-item {
+                max-width: 250px;
+                min-width: 180px;
+                padding: 12px 15px;
+            }
+            
+            .mwater-logo {
+                width: 100px;
+                height: 70px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .modal-content {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Phase Background Bands -->
+        <div class="phase-band phase-band-1"></div>
+        <div class="phase-band phase-band-2"></div>
+        <div class="phase-band phase-band-3"></div>
+
+        <!-- Phase Headers -->
+        <div class="phase-header phase-header-1">
+            <div class="phase-title phase-title-1">Phase 1: Foundation</div>
+            <div class="phase-timeline">0–6 months</div>
+            <div class="phase-tagline">Low risk, high ROI, builds trust & adoption</div>
+            <div class="phase-impact">Faster onboarding, significant cost savings, and higher-quality data for hundreds of thousands of users</div>
+        </div>
+
+        <div class="phase-header phase-header-2">
+            <div class="phase-title phase-title-2">Phase 2: Expansion</div>
+            <div class="phase-timeline">6–18 months</div>
+            <div class="phase-tagline">More complex, domain-aware, human-in-the-loop systems</div>
+            <div class="phase-impact">Democratized access to advanced analytics and efficient operational scaling</div>
+        </div>
+
+        <div class="phase-header phase-header-3">
+            <div class="phase-title phase-title-3">Phase 3: Transformation</div>
+            <div class="phase-timeline">18+ months</div>
+            <div class="phase-tagline">Advanced, predictive, autonomous "AI co-pilot" era</div>
+            <div class="phase-impact">Proactive planning, millions in investments optimized, accountable WASH at scale</div>
+        </div>
+
+        <!-- mWater Logo at Center -->
+        <div class="logo-container">
+            <div class="mwater-logo">
+                <img src="brand.png" alt="mWater" class="logo-img">
+            </div>
+            <div class="subtitle">AI Roadmap</div>
+            <div class="tagline">Professionalizing WASH at a Global Scale</div>
+        </div>
+        
+        <!-- Tooltip for hover -->
+        <div class="tooltip" id="tooltip">
+            <div id="tooltip-content"></div>
+        </div>
+
+        <!-- Roadmap Items - Three Column Layout -->
+        
+        <!-- LEFT COLUMN - PHASE 1: FOUNDATION (0-6 months) -->
+        <div class="roadmap-item completed" style="top: 24%; left: 16.67%; transform: translateX(-50%);" data-item="survey-translation">
+            <div class="item-status status-completed">✓ COMPLETED</div>
+            <div class="item-title">Survey Translation</div>
+            <div class="item-description">AI-powered translation of surveys</div>
+        </div>
+
+        <div class="roadmap-item completed" style="top: 32%; left: 16.67%; transform: translateX(-50%);" data-item="dashboard-translation">
+            <div class="item-status status-completed">✓ COMPLETED</div>
+            <div class="item-title">Dashboard Translation</div>
+            <div class="item-description">Automated dashboard translations</div>
+        </div>
+
+        <div class="roadmap-item in-progress" style="top: 40%; left: 16.67%; transform: translateX(-50%);" data-item="integrations">
+            <div class="item-status status-in-progress">⚡ IN PROGRESS</div>
+            <div class="item-title">Smart Integrations</div>
+            <div class="item-description">AI-powered data imports</div>
+        </div>
+
+        <div class="roadmap-item phase-1" style="top: 48%; left: 16.67%; transform: translateX(-50%);" data-item="survey-design">
+            <div class="item-status status-foundation">Phase 1</div>
+            <div class="item-title">Survey Design</div>
+            <div class="item-description">Prompt-based survey creation</div>
+        </div>
+
+        <div class="roadmap-item phase-1" style="top: 56%; left: 16.67%; transform: translateX(-50%);" data-item="data-integrity">
+            <div class="item-status status-foundation">Phase 1</div>
+            <div class="item-title">Data Integrity</div>
+            <div class="item-description">AI validates against evidence</div>
+        </div>
+
+        <div class="roadmap-item phase-1" style="top: 64%; left: 16.67%; transform: translateX(-50%);" data-item="supervision">
+            <div class="item-status status-foundation">Phase 1</div>
+            <div class="item-title">Data Supervision</div>
+            <div class="item-description">Flag odd patterns in data</div>
+        </div>
+
+        <div class="roadmap-item phase-1" style="top: 72%; left: 16.67%; transform: translateX(-50%);" data-item="guidance">
+            <div class="item-status status-foundation">Phase 1</div>
+            <div class="item-title">In-Field Guidance</div>
+            <div class="item-description">On-device assistant</div>
+        </div>
+
+        <div class="roadmap-item phase-1" style="top: 80%; left: 16.67%; transform: translateX(-50%);" data-item="usage-analytics">
+            <div class="item-status status-foundation">Phase 1</div>
+            <div class="item-title">Usage Analytics</div>
+            <div class="item-description">Safe AI insights</div>
+        </div>
+
+        <!-- CENTER COLUMN - PHASE 2: EXPANSION (6-18 months) -->
+        <div class="roadmap-item phase-2" style="top: 24%; left: 50%; transform: translateX(-50%);" data-item="dashboard-creation">
+            <div class="item-status status-expansion">Phase 2</div>
+            <div class="item-title">Dashboard Creation</div>
+            <div class="item-description">Generate from prompts</div>
+        </div>
+
+        <div class="roadmap-item phase-2" style="top: 32%; left: 50%; transform: translateX(-50%);" data-item="data-analysis">
+            <div class="item-status status-expansion">Phase 2</div>
+            <div class="item-title">AI Data Analysis</div>
+            <div class="item-description">Insights & narratives</div>
+        </div>
+
+        <div class="roadmap-item phase-2" style="top: 60%; left: 50%; transform: translateX(-50%);" data-item="gis-support">
+            <div class="item-status status-expansion">Phase 2</div>
+            <div class="item-title">GIS Support</div>
+            <div class="item-description">AI geospatial analysis</div>
+        </div>
+
+        <div class="roadmap-item phase-2" style="top: 68%; left: 50%; transform: translateX(-50%);" data-item="smart-alerts">
+            <div class="item-status status-expansion">Phase 2</div>
+            <div class="item-title">Smart Alerts</div>
+            <div class="item-description">Proactive notifications</div>
+        </div>
+
+        <div class="roadmap-item phase-2" style="top: 76%; left: 50%; transform: translateX(-50%);" data-item="workflows">
+            <div class="item-status status-expansion">Phase 2</div>
+            <div class="item-title">Smart Workflows</div>
+            <div class="item-description">Automated responses</div>
+        </div>
+
+        <!-- RIGHT COLUMN - PHASE 3: TRANSFORMATION (18+ months) -->
+        <div class="roadmap-item phase-3" style="top: 24%; left: 83.33%; transform: translateX(-50%);" data-item="predictions">
+            <div class="item-status status-transformation">Phase 3</div>
+            <div class="item-title">Predictive Planning</div>
+            <div class="item-description">Forecasts & predictions</div>
+        </div>
+
+        <div class="roadmap-item phase-3" style="top: 32%; left: 83.33%; transform: translateX(-50%);" data-item="modeling-integration">
+            <div class="item-status status-transformation">Phase 3</div>
+            <div class="item-title">Modeling Integration</div>
+            <div class="item-description">EPANET, WEAP, MODFLOW</div>
+        </div>
+
+        <div class="roadmap-item phase-3" style="top: 40%; left: 83.33%; transform: translateX(-50%);" data-item="agentic-ai">
+            <div class="item-status status-transformation">Phase 3</div>
+            <div class="item-title">Agentic AI</div>
+            <div class="item-description">AI co-pilot for WASH</div>
+        </div>
+    </div>
+
+    <!-- Modal for detailed information -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-title" id="modal-title"></div>
+            <div class="modal-description" id="modal-description"></div>
+            <div class="timeline" id="timeline">
+                <div class="timeline-text" id="timeline-text"></div>
+            </div>
+            <div class="impact-section">
+                <div class="impact-title">Expected Impact</div>
+                <div class="impact-text" id="impact-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const roadmapData = {
+            'survey-translation': {
+                title: 'Survey Translation',
+                description: 'AI-powered translation system that automatically translates surveys into multiple languages, ensuring consistency and accuracy across global deployments. This feature has been successfully deployed and is already serving hundreds of thousands of users worldwide.',
+                timeline: 'Completed - Currently Live',
+                impact: 'Immediate cost savings of 60-80% on translation services, faster deployment in new regions, and improved data quality through consistent terminology. Estimated annual savings: $500K-1M for large organizations.'
+            },
+            'dashboard-translation': {
+                title: 'Dashboard Translation',
+                description: 'Automated translation of dashboards, charts, and visualizations into local languages. This system maintains data integrity while providing culturally appropriate visualizations for different regions.',
+                timeline: 'Completed - Currently Live',
+                impact: 'Democratized access to analytics for non-English speaking users, increased user engagement by 40-60%, and reduced training costs. Enables local stakeholders to make data-driven decisions without language barriers.'
+            },
+            'survey-design': {
+                title: 'AI-Powered Survey Design',
+                description: 'Revolutionary prompt-based survey creation system that uses AI to recommend indicators, patterns, and best practices. Users can describe their needs in natural language and receive optimized survey structures.',
+                timeline: 'Phase 1 - 0-6 months',
+                impact: '50-70% reduction in survey design time, higher quality surveys through AI recommendations, and faster onboarding of new users. Expected to increase survey completion rates by 25-35%.'
+            },
+            'data-integrity': {
+                title: 'Data Integrity Checks',
+                description: 'Advanced AI system that compares field data against photos, GPS coordinates, and historical patterns to identify inconsistencies, errors, or potential fraud in data collection.',
+                timeline: 'Phase 1 - 0-6 months',
+                impact: 'Significant improvement in data quality (estimated 30-50% reduction in errors), better accountability in field operations, and increased confidence in data for decision-making. Critical for maintaining trust in WASH programs.'
+            },
+            'supervision': {
+                title: 'Data Collection Supervision',
+                description: 'AI-powered monitoring system that flags unusual patterns in data collection, such as unusually fast enumerators, inconsistent location data, or suspicious data entry patterns.',
+                timeline: 'Phase 1 - 0-6 months',
+                impact: 'Improved data quality and field worker accountability, reduced need for manual supervision, and early detection of data collection issues. Estimated 20-30% improvement in data reliability.'
+            },
+            'integrations': {
+                title: 'Smart Data Integrations',
+                description: 'AI-assisted system that automatically parses and maps data from external sources, sensors, and other platforms. Reduces the technical complexity of data integration for non-technical users.',
+                timeline: 'Phase 1 - 0-6 months',
+                impact: 'Democratized data onboarding, 80% reduction in integration time, and increased data accessibility. Enables smaller organizations to leverage advanced data integration capabilities.'
+            },
+            'dashboard-creation': {
+                title: 'Prompt-to-Dashboard Creation',
+                description: 'Revolutionary system that generates interactive dashboards and widgets from natural language prompts. Users can describe their analytical needs and receive fully functional dashboards.',
+                timeline: 'Phase 2 - 6-18 months',
+                impact: 'Democratized analytics access, 90% reduction in dashboard creation time, and increased data literacy among users. Expected to increase dashboard usage by 200-300%.'
+            },
+            'data-analysis': {
+                title: 'AI-Driven Data Analysis',
+                description: 'Advanced AI system that automatically analyzes data patterns and generates insights, narratives, and recommendations. Provides contextual understanding of WASH data trends and anomalies.',
+                timeline: 'Phase 2 - 6-18 months',
+                impact: 'Faster, deeper analysis capabilities, reduced need for data science expertise, and improved decision-making speed. Expected to reduce analysis time by 70-85% while improving insight quality.'
+            },
+            'smart-alerts': {
+                title: 'Smart Alerts & Notifications',
+                description: 'Intelligent alert system that proactively monitors WASH operations and sends context-aware notifications about critical events, anomalies, maintenance needs, and opportunities for intervention. Uses machine learning to reduce alert fatigue by prioritizing truly important events.',
+                timeline: 'Phase 2 - 6-18 months',
+                impact: 'Proactive issue detection and faster response times, reduced system downtime, and improved operational efficiency. Expected 40-60% reduction in emergency situations through early warning, and 70% reduction in alert fatigue through intelligent prioritization.'
+            },
+            'gis-support': {
+                title: 'AI-Assisted GIS Analysis',
+                description: 'Intelligent geospatial analysis system that helps users perform complex spatial analysis without requiring GIS expertise. Automatically identifies spatial patterns and relationships.',
+                timeline: 'Phase 2 - 6-18 months',
+                impact: 'More accessible complex spatial analyses, improved planning capabilities, and better understanding of geographic factors in WASH operations. Enables evidence-based spatial decision making.'
+            },
+            'workflows': {
+                title: 'Smart Workflow Management',
+                description: 'AI-powered system that suggests optimal workflow types, automates routine tasks, and provides intelligent responses to common operational scenarios.',
+                timeline: 'Phase 2 - 6-18 months',
+                impact: 'Greater operational efficiency, reduced manual work, and improved response times. Expected 40-60% improvement in operational efficiency and 50% reduction in routine task time.'
+            },
+            'predictions': {
+                title: 'Predictive Planning & Forecasting',
+                description: 'Advanced predictive modeling system that forecasts water demand, maintenance needs, and system performance. Integrates meteorological data, usage patterns, and infrastructure conditions.',
+                timeline: 'Phase 3 - 18+ months',
+                impact: 'Proactive planning capabilities, optimized investment decisions, and reduced system failures. Expected to optimize millions in infrastructure investments and reduce maintenance costs by 30-50%.'
+            },
+            'modeling-integration': {
+                title: 'Automated Modeling Integration',
+                description: 'AI-powered integration with advanced water resource management models including EPANET (piped water network analysis), WEAP (Water Evaluation and Allocation Planning), MODFLOW (groundwater modeling), and other specialized tools. AI automatically configures model parameters from mWater data and interprets results for non-technical users.',
+                timeline: 'Phase 3 - 18+ months',
+                impact: 'Democratized access to PhD-level water modeling capabilities, optimized infrastructure investments worth millions, improved long-term planning and operational efficiency. Enables evidence-based decisions on network design, groundwater management, and resource allocation without requiring specialized expertise.'
+            },
+            'agentic-ai': {
+                title: 'Agentic AI for WASH Operations',
+                description: 'Domain-aware AI agent that can autonomously perform WASH operations tasks within defined guardrails. Acts as a true AI co-pilot for water and sanitation management.',
+                timeline: 'Phase 3 - 18+ months',
+                impact: 'Revolutionary operational capabilities, autonomous problem-solving, and scalable WASH management. Potential to transform how water systems are managed globally, with accountable AI-driven operations.'
+            },
+            'guidance': {
+                title: 'In-Field Guidance System',
+                description: 'On-device AI assistant that provides real-time guidance, troubleshooting, and best practices to field workers. Available offline and in local languages.',
+                timeline: 'Phase 1 - 0-6 months',
+                impact: 'Fewer barriers to entry, improved field worker performance, and reduced training costs. Expected 30-40% reduction in support requests and improved data quality.'
+            },
+            'usage-analytics': {
+                title: 'Usage Analytics & Insights',
+                description: 'Safe AI system that analyzes anonymized user activity to provide insights on trends, usage patterns, and system performance. Helps optimize the platform based on real user behavior.',
+                timeline: 'Phase 1 - 0-6 months',
+                impact: 'More responsive platform development, data-driven feature prioritization, and improved user experience. Enables continuous improvement based on actual usage patterns.'
+            }
+        };
+
+        function showModal(itemId) {
+            const data = roadmapData[itemId];
+            if (data) {
+                document.getElementById('modal-title').textContent = data.title;
+                document.getElementById('modal-description').textContent = data.description;
+                document.getElementById('timeline-text').textContent = data.timeline;
+                document.getElementById('impact-text').textContent = data.impact;
+                document.getElementById('modal').style.display = 'flex';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        const tooltip = document.getElementById('tooltip');
+        const tooltipContent = document.getElementById('tooltip-content');
+        
+        // Track expanded cards and their original transforms
+        let expandedCard = null;
+        const originalTransforms = new Map();
+
+        // Helper to get all cards in the same column
+        function getColumnCards(item) {
+            const itemRect = item.getBoundingClientRect();
+            const itemLeft = parseFloat(item.style.left);
+            
+            return Array.from(document.querySelectorAll('.roadmap-item')).filter(card => {
+                const cardLeft = parseFloat(card.style.left);
+                return Math.abs(cardLeft - itemLeft) < 5; // Same column (within 5% difference)
+            }).sort((a, b) => {
+                const aTop = parseFloat(a.style.top) || 0;
+                const bTop = parseFloat(b.style.top) || 0;
+                const aBottom = a.style.bottom ? -parseFloat(a.style.bottom) : aTop;
+                const bBottom = b.style.bottom ? -parseFloat(b.style.bottom) : bTop;
+                return (aTop || aBottom) - (bTop || bBottom);
+            });
+        }
+
+        // Add event listeners to all roadmap items
+        document.querySelectorAll('.roadmap-item').forEach(item => {
+            // Store original transform
+            originalTransforms.set(item, item.style.transform || '');
+            
+            item.addEventListener('click', () => {
+                const itemId = item.getAttribute('data-item');
+                showModal(itemId);
+            });
+
+            // Show tooltip and shift cards on hover
+            item.addEventListener('mouseenter', (e) => {
+                const itemId = item.getAttribute('data-item');
+                const data = roadmapData[itemId];
+                
+                // Mark as expanded
+                expandedCard = item;
+                
+                // Get cards in same column
+                const columnCards = getColumnCards(item);
+                const itemIndex = columnCards.indexOf(item);
+                
+                // Shift cards below down by 50px
+                columnCards.forEach((card, idx) => {
+                    if (idx > itemIndex) {
+                        const original = originalTransforms.get(card);
+                        card.style.transition = 'transform 0.3s ease';
+                        // Add translateY to the existing transform
+                        if (original.includes('translateX')) {
+                            card.style.transform = original + ' translateY(50px)';
+                        } else {
+                            card.style.transform = 'translateY(50px)';
+                        }
+                    }
+                });
+                
+                if (data) {
+                    const impactPreview = data.impact.substring(0, 150) + '...';
+                    tooltipContent.innerHTML = `
+                        <strong>${data.title}</strong><br>
+                        ${data.description.substring(0, 120)}...<br>
+                        <div class="tooltip-impact">
+                            💡 ${impactPreview}
+                        </div>
+                    `;
+                    
+                    // Position tooltip near the item
+                    const rect = item.getBoundingClientRect();
+                    const tooltipRect = tooltip.getBoundingClientRect();
+                    
+                    // Try to position to the right, but flip if near edge
+                    let left = rect.right + 15;
+                    let top = rect.top;
+                    
+                    if (left + 300 > window.innerWidth) {
+                        left = rect.left - 315; // Position to the left
+                    }
+                    
+                    // Keep within vertical bounds
+                    if (top + 200 > window.innerHeight) {
+                        top = window.innerHeight - 220;
+                    }
+                    
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                    tooltip.classList.add('show');
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('show');
+                
+                // Reset card positions
+                if (expandedCard === item) {
+                    const columnCards = getColumnCards(item);
+                    columnCards.forEach(card => {
+                        card.style.transform = originalTransforms.get(card);
+                    });
+                    expandedCard = null;
+                }
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
