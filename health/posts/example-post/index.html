@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Your Blog - Health</title>
+    <meta name="description" content="An introduction to this gwern.net-inspired blog">
+    <meta name="author" content="Petri Autio">
+    <link rel="stylesheet" href="/styles/main.css">
+    
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-meta">
+                    <a href="/" class="skip-link">Skip to main content</a>
+                    <div class="site-links">
+                        <a href="/">Site</a>
+                        <a href="/about">Me</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/links">Links</a>
+                    </div>
+                </div>
+                <h1 class="site-title">Health</h1>
+                <p class="site-subtitle">Notes on weathering cancer</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Welcome to Your Blog</h1>
+        <div class="post-meta">
+            <time datetime="Fri Oct 03 2025 02:00:00 GMT+0200 (Central European Summer Time)">October 3, 2025</time>
+            
+            <span class="separator">·</span>
+            <span class="categories">
+                
+            
+            <span class="separator">·</span>
+            <span class="reading-time">2 min read</span>
+            
+        </div>
+    </header>
+
+    
+    <nav class="table-of-contents">
+        <h2>Contents</h2>
+        {<ul><li><a href="#features">Features</a></li><ul><li><a href="#clean-academic-typography">Clean, Academic Typography</a></li><li><a href="#dark-mode">Dark Mode</a></li><li><a href="#reader-mode">Reader Mode</a></li><li><a href="#search">Search</a></li><li><a href="#configurable-theming">Configurable Theming</a></li></ul><li><a href="#writing-content">Writing Content</a></li><li><a href="#building-your-site">Building Your Site</a></li><li><a href="#code-examples">Code Examples</a></li><li><a href="#lists-and-organization">Lists and Organization</a></li><li><a href="#blockquotes">Blockquotes</a></li><li><a href="#links-and-references">Links and References</a></li><li><a href="#next-steps">Next Steps</a></li></ul>}
+    </nav>
+    
+
+    <div class="post-content">
+        {<p>This is your first blog post. The blog system is designed to capture the essence of gwern.net while giving you full control over theming and content.</p>
+<h2>Features</h2>
+<p>This blog includes several key features inspired by gwern.net:</p>
+<h3>Clean, Academic Typography</h3>
+<p>The design prioritizes readability with:</p>
+<ul>
+<li>Serif fonts for body text (Georgia)</li>
+<li>Generous line height (1.6)</li>
+<li>Maximum width for optimal reading (900px)</li>
+<li>Thoughtful spacing and hierarchy</li>
+</ul>
+<h3>Dark Mode</h3>
+<p>Toggle between light and dark themes using the feature bar in the bottom-right corner. Your preference is saved automatically.</p>
+<h3>Reader Mode</h3>
+<p>For distraction-free reading, enable reader mode to hide navigation, metadata, and other UI elements.</p>
+<h3>Search</h3>
+<p>Full-text search across all your posts. Press the search button or use keyboard shortcuts to quickly find content.</p>
+<h3>Configurable Theming</h3>
+<p>Edit <code>config.yaml</code> to customize:</p>
+<ul>
+<li>Colors (both light and dark modes)</li>
+<li>Fonts (body, headings, monospace)</li>
+<li>Typography settings</li>
+<li>Navigation structure</li>
+</ul>
+<h2>Writing Content</h2>
+<p>Create new posts in the <code>content/posts/</code> directory using Markdown. Each post should have frontmatter with:</p>
+<pre><code class="language-yaml">---
+title: &quot;Your Post Title&quot;
+date: YYYY-MM-DD
+categories: [&quot;Category&quot;]
+tags: [&quot;tag1&quot;, &quot;tag2&quot;]
+description: &quot;Brief description&quot;
+---
+</code></pre>
+<p>Then write your content in Markdown below the frontmatter.</p>
+<h2>Building Your Site</h2>
+<p>Run <code>npm run build</code> to generate the static site in the <code>public/</code> directory. For development with live reload, use <code>npm run dev</code>.</p>
+<h2>Code Examples</h2>
+<p>Inline code looks like <code>this</code>, while code blocks are formatted nicely:</p>
+<pre><code class="language-javascript">function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+</code></pre>
+<h2>Lists and Organization</h2>
+<p>The blog supports:</p>
+<ol>
+<li>Numbered lists</li>
+<li>Bullet lists</li>
+<li>Nested structures</li>
+<li>Multiple levels</li>
+</ol>
+<ul>
+<li>Essays<ul>
+<li>Long-form content</li>
+<li>Research articles</li>
+</ul>
+</li>
+<li>Blog posts<ul>
+<li>Short updates</li>
+<li>Quick thoughts</li>
+</ul>
+</li>
+<li>Documentation<ul>
+<li>How-to guides</li>
+<li>References</li>
+</ul>
+</li>
+</ul>
+<h2>Blockquotes</h2>
+<blockquote>
+<p>This is a blockquote. Use it for highlighting important text, quotes from other sources, or callouts.</p>
+<p>They support multiple paragraphs too.</p>
+</blockquote>
+<h2>Links and References</h2>
+<p>External links open in new tabs automatically. Internal links scroll smoothly. All visited links show a distinct color, like on gwern.net.</p>
+<h2>Next Steps</h2>
+<ol>
+<li>Edit <code>config.yaml</code> to personalize your site</li>
+<li>Customize colors to match your preferences</li>
+<li>Write your own posts in <code>content/posts/</code></li>
+<li>Run <code>npm run build</code> to generate your site</li>
+<li>Deploy to GitHub Pages or any static host</li>
+</ol>
+<p>Happy writing!</p>
+}
+    </div>
+
+    
+    <footer class="post-footer">
+        <div class="tags">
+            <span class="tags-label">Tags:</span>
+            
+</article>
+
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Petri Autio. Built with passion for long-form content.</p>
+        </div>
+    </footer>
+
+    <!-- Feature toggles -->
+    <div class="feature-bar" id="feature-bar">
+        <button id="dark-mode-toggle" class="feature-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <span class="icon">◐</span>
+        </button>
+        <button id="reader-mode-toggle" class="feature-btn" title="Toggle reader mode" aria-label="Toggle reader mode">
+            <span class="icon">◱</span>
+        </button>
+        <button id="search-toggle" class="feature-btn" title="Search" aria-label="Toggle search">
+            <span class="icon">🔍</span>
+        </button>
+        <button id="help-toggle" class="feature-btn" title="Help" aria-label="Toggle help">
+            <span class="icon">?</span>
+        </button>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - {{siteTitle}}</title>
+    <meta name="description" content="{{description}}">
+    <meta name="author" content="{{author}}">
+    <link rel="stylesheet" href="/styles/main.css">
+    {{customStyles}}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-meta">
+                    <a href="/" class="skip-link">Skip to main content</a>
+                    <div class="site-links">
+                        <a href="/">Site</a>
+                        <a href="/about">Me</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/links">Links</a>
+                    </div>
+                </div>
+                <h1 class="site-title">{{siteTitle}}</h1>
+                <p class="site-subtitle">{{siteSubtitle}}</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            {{content}}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {{year}} {{author}}. Built with passion for long-form content.</p>
+        </div>
+    </footer>
+
+    <!-- Feature toggles -->
+    <div class="feature-bar" id="feature-bar">
+        <button id="dark-mode-toggle" class="feature-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <span class="icon">◐</span>
+        </button>
+        <button id="reader-mode-toggle" class="feature-btn" title="Toggle reader mode" aria-label="Toggle reader mode">
+            <span class="icon">◱</span>
+        </button>
+        <button id="search-toggle" class="feature-btn" title="Search" aria-label="Toggle search">
+            <span class="icon">🔍</span>
+        </button>
+        <button id="help-toggle" class="feature-btn" title="Help" aria-label="Toggle help">
+            <span class="icon">?</span>
+        </button>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+# Site Configuration
+site:
+  title: "Your Name"
+  subtitle: "Essays & Research"
+  description: "I write about X, Y, & Z. Navigation and feature information."
+  url: "https://yourdomain.com"
+  author: "Your Name"
+
+# Theme Configuration - Customize your colors here!
+theme:
+  # Light mode colors
+  light:
+    background: "#ffffff"
+    text: "#000000"
+    text-secondary: "#666666"
+    link: "#0000ee"
+    link-visited: "#551a8b"
+    link-hover: "#0000ff"
+    border: "#cccccc"
+    code-background: "#f5f5f5"
+    blockquote-border: "#dddddd"
+    accent: "#0066cc"
+  
+  # Dark mode colors
+  dark:
+    background: "#1a1a1a"
+    text: "#e0e0e0"
+    text-secondary: "#999999"
+    link: "#6699ff"
+    link-visited: "#9999ff"
+    link-hover: "#99ccff"
+    border: "#444444"
+    code-background: "#2d2d2d"
+    blockquote-border: "#555555"
+    accent: "#3399ff"
+  
+  # Typography
+  fonts:
+    body: "Georgia, 'Times New Roman', serif"
+    headings: "Georgia, 'Times New Roman', serif"
+    mono: "'Consolas', 'Monaco', 'Courier New', monospace"
+  
+  # Sizes
+  font-size: "18px"
+  line-height: "1.6"
+  max-width: "900px"
+
+# Navigation sections
+navigation:
+  - name: "Essays"
+    categories:
+      - "AI"
+      - "Psychology"
+      - "Philosophy"
+      - "Technology"
+  - name: "Blog"
+    path: "/blog"
+  - name: "About"
+    path: "/about"
+
+# Feature toggles
+features:
+  dark_mode: true
+  reader_mode: true
+  search: true
+  table_of_contents: true
+  sidenotes: true
+

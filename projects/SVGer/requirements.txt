@@ -1,0 +1,14 @@
+opencv-python>=4.8.0
+numpy<2.0,>=1.24.0
+trimesh>=4.0.0
+lxml>=4.9.0
+svgpathtools>=1.6.0
+svg.path>=6.0
+shapely>=2.0.0
+rtree>=1.0.0
+mapbox-earcut>=1.0.0
+
+# Note: potrace must be installed separately:
+# macOS: brew install potrace
+# Ubuntu: sudo apt-get install potrace
+# Windows: Download from http://potrace.sourceforge.net/

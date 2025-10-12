@@ -1,0 +1,23 @@
+{
+  "name": "gwern-style-blog",
+  "version": "1.0.0",
+  "description": "A gwern.net-inspired static blog with configurable theming",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node serve.js",
+    "dev": "node serve.js --watch"
+  },
+  "keywords": ["blog", "static-site", "gwern"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^11.0.0",
+    "js-yaml": "^4.1.0",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3"
+  }
+}
+

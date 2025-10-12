@@ -1,0 +1,63 @@
+# Site Configuration
+site:
+  title: "Health"
+  subtitle: "Notes on weathering cancer"
+  description: "Personal reflections on health, illness, and recovery."
+  url: "https://autio.github.io/health"
+  author: "Petri Autio"
+
+# Theme Configuration - Minimalist health theme
+theme:
+  # Light mode colors - clean and medical
+  light:
+    background: "#ffffff"
+    text: "#2c3e50"
+    text-secondary: "#7f8c8d"
+    link: "#3498db"
+    link-visited: "#8e44ad"
+    link-hover: "#2980b9"
+    border: "#ecf0f1"
+    code-background: "#f8f9fa"
+    blockquote-border: "#bdc3c7"
+    accent: "#e74c3c"
+  
+  # Dark mode colors - gentle on the eyes
+  dark:
+    background: "#1a1a1a"
+    text: "#ecf0f1"
+    text-secondary: "#95a5a6"
+    link: "#5dade2"
+    link-visited: "#bb8fce"
+    link-hover: "#85c1e9"
+    border: "#34495e"
+    code-background: "#2c3e50"
+    blockquote-border: "#566573"
+    accent: "#e74c3c"
+  
+  # Typography - clean and readable
+  fonts:
+    body: "'Inter', 'Helvetica Neue', Arial, sans-serif"
+    headings: "'Inter', 'Helvetica Neue', Arial, sans-serif"
+    mono: "'JetBrains Mono', 'Consolas', 'Monaco', monospace"
+  
+  # Sizes - comfortable reading
+  font-size: "16px"
+  line-height: "1.7"
+  max-width: "800px"
+
+# Navigation sections - minimal
+navigation:
+  - name: "Health"
+    categories:
+      - "Cancer"
+      - "Recovery"
+      - "Wellness"
+      - "Reflections"
+
+# Feature toggles - minimal features
+features:
+  dark_mode: true
+  reader_mode: true
+  search: false
+  table_of_contents: true
+  sidenotes: false

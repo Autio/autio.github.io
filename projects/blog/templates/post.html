@@ -1,0 +1,43 @@
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">{{title}}</h1>
+        <div class="post-meta">
+            {{#date}}<time datetime="{{isoDate}}">{{date}}</time>{{/date}}
+            {{#categories}}
+            <span class="separator">·</span>
+            <span class="categories">
+                {{#categories}}
+                <a href="/category/{{slug}}" class="category">{{name}}</a>
+                {{/categories}}
+            </span>
+            {{/categories}}
+            {{#readingTime}}
+            <span class="separator">·</span>
+            <span class="reading-time">{{readingTime}} min read</span>
+            {{/readingTime}}
+        </div>
+    </header>
+
+    {{#toc}}
+    <nav class="table-of-contents">
+        <h2>Contents</h2>
+        {{{toc}}}
+    </nav>
+    {{/toc}}
+
+    <div class="post-content">
+        {{{content}}}
+    </div>
+
+    {{#tags}}
+    <footer class="post-footer">
+        <div class="tags">
+            <span class="tags-label">Tags:</span>
+            {{#tags}}
+            <a href="/tag/{{slug}}" class="tag">{{name}}</a>
+            {{/tags}}
+        </div>
+    </footer>
+    {{/tags}}
+</article>
+

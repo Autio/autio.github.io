@@ -1,0 +1,19 @@
+<article class="home">
+    <section class="intro">
+        <p>{{siteDescription}}</p>
+    </section>
+
+    <div class="content-grid">
+        {{#sections}}
+        <section class="content-section">
+            <h2>{{name}}</h2>
+            <ul class="post-list">
+                {{#posts}}
+                <li><a href="{{url}}">{{title}}</a></li>
+                {{/posts}}
+            </ul>
+        </section>
+        {{/sections}}
+    </div>
+</article>
+
