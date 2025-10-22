@@ -367,6 +367,79 @@ blockquote p:last-child {
   font-size: 0.9rem;
 }
 
+/* Wikipedia Tooltips */
+.wikipedia-tooltip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted var(--link);
+  color: var(--link);
+}
+
+.wikipedia-tooltip:hover {
+  color: var(--link-hover);
+}
+
+.tooltip-content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 300px;
+  max-width: 400px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tooltip-content.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--bg);
+}
+
+.tooltip-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.tooltip-text {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.tooltip-link {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.tooltip-link:hover {
+  text-decoration: underline;
+}
+
+.tooltip-loading {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
 /* Feature Bar */
 .feature-bar {
   position: fixed;

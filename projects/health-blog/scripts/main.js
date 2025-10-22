@@ -282,5 +282,127 @@ Features:
     });
   }
 
+  // Wikipedia Tooltips
+  class WikipediaTooltip {
+    constructor() {
+      this.cache = new Map();
+      this.activeTooltip = null;
+      this.init();
+    }
+
+    init() {
+      // Process all elements with data-wikipedia attribute
+      this.processElements();
+      
+      // Listen for clicks to close tooltips
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.wikipedia-tooltip')) {
+          this.hideTooltip();
+        }
+      });
+    }
+
+    processElements() {
+      const elements = document.querySelectorAll('[data-wikipedia]');
+      elements.forEach(element => {
+        element.classList.add('wikipedia-tooltip');
+        element.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.showTooltip(element);
+        });
+      });
+    }
+
+    async showTooltip(element) {
+      const term = element.getAttribute('data-wikipedia');
+      if (!term) return;
+
+      // Hide any existing tooltip
+      this.hideTooltip();
+
+      // Create tooltip element
+      const tooltip = document.createElement('div');
+      tooltip.className = 'tooltip-content';
+      tooltip.innerHTML = '<div class="tooltip-loading">Loading...</div>';
+      
+      element.appendChild(tooltip);
+      this.activeTooltip = tooltip;
+
+      // Show loading state
+      setTimeout(() => tooltip.classList.add('show'), 10);
+
+      try {
+        const data = await this.fetchWikipediaData(term);
+        this.updateTooltipContent(tooltip, data, term);
+      } catch (error) {
+        console.error('Failed to fetch Wikipedia data:', error);
+        tooltip.innerHTML = '<div class="tooltip-loading">Failed to load data</div>';
+      }
+    }
+
+    hideTooltip() {
+      if (this.activeTooltip) {
+        this.activeTooltip.classList.remove('show');
+        setTimeout(() => {
+          if (this.activeTooltip && this.activeTooltip.parentNode) {
+            this.activeTooltip.parentNode.removeChild(this.activeTooltip);
+          }
+          this.activeTooltip = null;
+        }, 200);
+      }
+    }
+
+    async fetchWikipediaData(term) {
+      // Check cache first
+      if (this.cache.has(term)) {
+        return this.cache.get(term);
+      }
+
+      try {
+        // Use Wikipedia API
+        const response = await fetch(
+          `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(term)}`
+        );
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        
+        // Cache the result
+        this.cache.set(term, data);
+        
+        return data;
+      } catch (error) {
+        console.error('Wikipedia API error:', error);
+        throw error;
+      }
+    }
+
+    updateTooltipContent(tooltip, data, term) {
+      const title = data.title || term;
+      const extract = data.extract || 'No summary available.';
+      const url = data.content_urls?.desktop?.page || `https://en.wikipedia.org/wiki/${encodeURIComponent(term)}`;
+
+      tooltip.innerHTML = `
+        <div class="tooltip-title">${title}</div>
+        <div class="tooltip-text">${extract}</div>
+        <a href="${url}" target="_blank" rel="noopener noreferrer" class="tooltip-link">
+          Read more on Wikipedia →
+        </a>
+      `;
+    }
+  }
+
+  // Initialize Wikipedia tooltips when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      new WikipediaTooltip();
+    });
+  } else {
+    new WikipediaTooltip();
+  }
+
 })();
 

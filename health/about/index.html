@@ -6,132 +6,102 @@
     <title>About - Health</title>
     <meta name="description" content="About this health blog">
     <meta name="author" content="Petri Autio">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: #000;
-            color: #fff;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        header {
-            margin-bottom: 60px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 20px;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            color: #888;
-            font-size: 1.1em;
-            font-weight: 300;
-        }
-        
-        nav {
-            margin-top: 20px;
-        }
-        
-        nav a {
-            color: #888;
-            text-decoration: none;
-            margin-right: 20px;
-            font-size: 14px;
-        }
-        
-        nav a:hover {
-            color: #fff;
-        }
-        
-        .content h2 {
-            font-size: 1.5em;
-            font-weight: 300;
-            margin: 40px 0 20px 0;
-            color: #fff;
-        }
-        
-        .content h2:first-child {
-            margin-top: 0;
-        }
-        
-        .content p {
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        
-        .content ul {
-            margin: 20px 0;
-            padding-left: 20px;
-        }
-        
-        .content li {
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-        
-        footer {
-            margin-top: 80px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/main.css">
+    
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Health</h1>
-            <p class="subtitle">Notes on weathering cancer</p>
-            <nav>
-                <a href="/health">Home</a>
-                <a href="/health/about">About</a>
-            </nav>
-        </header>
-
-        <main>
-            <div class="content">
-                <h2>About</h2>
-                <p>Personal notes on health and recovery.</p>
-
-                <h2>Purpose</h2>
-                <p>Documenting experiences with cancer treatment and recovery.</p>
-
-                <h2>Disclaimer</h2>
-                <p>Personal reflections only. Not medical advice.</p>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-meta">
+                    <a href="/" class="skip-link">Skip to main content</a>
+                    <div class="site-links">
+                        <a href="/">Site</a>
+                        <a href="/about">Me</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/links">Links</a>
+                    </div>
+                </div>
+                <h1 class="site-title">Health</h1>
+                <p class="site-subtitle">Notes on weathering cancer</p>
             </div>
-        </main>
+        </div>
+    </header>
 
-        <footer>
-            <p>&copy; 2025 PM Autio</p>
-        </footer>
+    <main class="main-content">
+        <div class="container">
+            <article class="post">
+    <header class="post-header">
+        <h1 class="post-title">About</h1>
+        <div class="post-meta">
+            
+            
+            </span>
+            {{/categories}}
+            
+        </div>
+    </header>
+
+    
+
+    <div class="post-content">
+        {<h1>About</h1>
+<p>This is a personal blog about health, illness, and recovery. It contains reflections on navigating cancer diagnosis and treatment, written from personal experience.</p>
+<h2>Purpose</h2>
+<p>These writings are meant to:</p>
+<ul>
+<li>Share personal experiences with health challenges</li>
+<li>Provide comfort to others facing similar situations</li>
+<li>Document the journey of recovery and healing</li>
+<li>Explore the intersection of illness and meaning</li>
+</ul>
+<h2>Disclaimer</h2>
+<p>This blog contains personal reflections and should not be considered medical advice. Always consult with qualified healthcare professionals for medical decisions and treatment options.</p>
+<h2>Contact</h2>
+<p>For questions or to share your own experiences, please reach out through the main site.</p>
+}
     </div>
+
+    
+        </div>
+    </footer>
+    {{/tags}}
+</article>
+
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Petri Autio. Built with passion for long-form content.</p>
+        </div>
+    </footer>
+
+    <!-- Feature toggles -->
+    <div class="feature-bar" id="feature-bar">
+        <button id="dark-mode-toggle" class="feature-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+            <span class="icon">◐</span>
+        </button>
+        <button id="reader-mode-toggle" class="feature-btn" title="Toggle reader mode" aria-label="Toggle reader mode">
+            <span class="icon">◱</span>
+        </button>
+        <button id="search-toggle" class="feature-btn" title="Search" aria-label="Toggle search">
+            <span class="icon">🔍</span>
+        </button>
+        <button id="help-toggle" class="feature-btn" title="Help" aria-label="Toggle help">
+            <span class="icon">?</span>
+        </button>
+    </div>
+
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+    <script src="/scripts/main.js"></script>
 </body>
 </html>
+
