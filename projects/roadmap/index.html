@@ -25,6 +25,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding-top: 180px;
         }
 
         .phase-band {
@@ -52,7 +53,7 @@
 
         .phase-header {
             position: absolute;
-            top: 2%;
+            top: 15%;
             width: 30%;
             text-align: center;
             z-index: 5;
@@ -110,16 +111,18 @@
         }
 
         .logo-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
             z-index: 100;
             text-align: center;
             background: white;
-            padding: 15px 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+            padding: 20px 25px;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .mwater-logo {
@@ -423,7 +426,7 @@
             <div class="phase-impact">Proactive planning, millions in investments optimized, accountable WASH at scale</div>
         </div>
 
-        <!-- mWater Logo at Center -->
+        <!-- mWater Header -->
         <div class="logo-container">
             <div class="mwater-logo">
                 <img src="brand.png" alt="mWater" class="logo-img">
@@ -440,102 +443,108 @@
         <!-- Roadmap Items - Three Column Layout -->
         
         <!-- LEFT COLUMN - PHASE 1: FOUNDATION (0-6 months) -->
-        <div class="roadmap-item completed" style="top: 24%; left: 16.67%; transform: translateX(-50%);" data-item="survey-translation">
+        <div class="roadmap-item completed" style="top: 35%; left: 16.67%; transform: translateX(-50%);" data-item="survey-translation">
             <div class="item-status status-completed">✓ COMPLETED</div>
             <div class="item-title">Survey Translation</div>
             <div class="item-description">AI-powered translation of surveys</div>
         </div>
 
-        <div class="roadmap-item completed" style="top: 32%; left: 16.67%; transform: translateX(-50%);" data-item="dashboard-translation">
+        <div class="roadmap-item completed" style="top: 43%; left: 16.67%; transform: translateX(-50%);" data-item="dashboard-translation">
             <div class="item-status status-completed">✓ COMPLETED</div>
             <div class="item-title">Dashboard Translation</div>
             <div class="item-description">Automated dashboard translations</div>
         </div>
 
-        <div class="roadmap-item in-progress" style="top: 40%; left: 16.67%; transform: translateX(-50%);" data-item="integrations">
+        <div class="roadmap-item in-progress" style="top: 51%; left: 16.67%; transform: translateX(-50%);" data-item="integrations">
             <div class="item-status status-in-progress">⚡ IN PROGRESS</div>
             <div class="item-title">Smart Integrations</div>
             <div class="item-description">AI-powered data imports</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 48%; left: 16.67%; transform: translateX(-50%);" data-item="survey-design">
+        <div class="roadmap-item phase-1" style="top: 59%; left: 16.67%; transform: translateX(-50%);" data-item="survey-design">
             <div class="item-status status-foundation">Phase 1</div>
             <div class="item-title">Survey Design</div>
             <div class="item-description">Prompt-based survey creation</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 56%; left: 16.67%; transform: translateX(-50%);" data-item="data-integrity">
+        <div class="roadmap-item phase-1" style="top: 67%; left: 16.67%; transform: translateX(-50%);" data-item="data-integrity">
             <div class="item-status status-foundation">Phase 1</div>
             <div class="item-title">Data Integrity</div>
             <div class="item-description">AI validates against evidence</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 64%; left: 16.67%; transform: translateX(-50%);" data-item="supervision">
+        <div class="roadmap-item phase-1" style="top: 75%; left: 16.67%; transform: translateX(-50%);" data-item="supervision">
             <div class="item-status status-foundation">Phase 1</div>
             <div class="item-title">Data Supervision</div>
             <div class="item-description">Flag odd patterns in data</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 72%; left: 16.67%; transform: translateX(-50%);" data-item="guidance">
+        <div class="roadmap-item phase-1" style="top: 83%; left: 16.67%; transform: translateX(-50%);" data-item="guidance">
             <div class="item-status status-foundation">Phase 1</div>
             <div class="item-title">In-Field Guidance</div>
             <div class="item-description">On-device assistant</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 80%; left: 16.67%; transform: translateX(-50%);" data-item="usage-analytics">
+        <div class="roadmap-item phase-1" style="top: 91%; left: 16.67%; transform: translateX(-50%);" data-item="usage-analytics">
             <div class="item-status status-foundation">Phase 1</div>
             <div class="item-title">Usage Analytics</div>
             <div class="item-description">Safe AI insights</div>
         </div>
 
         <!-- CENTER COLUMN - PHASE 2: EXPANSION (6-18 months) -->
-        <div class="roadmap-item phase-2" style="top: 24%; left: 50%; transform: translateX(-50%);" data-item="dashboard-creation">
+        <div class="roadmap-item phase-2" style="top: 35%; left: 50%; transform: translateX(-50%);" data-item="dashboard-creation">
             <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">Dashboard Creation</div>
             <div class="item-description">Generate from prompts</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 32%; left: 50%; transform: translateX(-50%);" data-item="data-analysis">
+        <div class="roadmap-item phase-2" style="top: 43%; left: 50%; transform: translateX(-50%);" data-item="data-analysis">
             <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">AI Data Analysis</div>
             <div class="item-description">Insights & narratives</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 60%; left: 50%; transform: translateX(-50%);" data-item="gis-support">
+        <div class="roadmap-item phase-2" style="top: 51%; left: 50%; transform: translateX(-50%);" data-item="gis-support">
             <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">GIS Support</div>
             <div class="item-description">AI geospatial analysis</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 68%; left: 50%; transform: translateX(-50%);" data-item="smart-alerts">
+        <div class="roadmap-item phase-2" style="top: 59%; left: 50%; transform: translateX(-50%);" data-item="smart-alerts">
             <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">Smart Alerts</div>
             <div class="item-description">Proactive notifications</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 76%; left: 50%; transform: translateX(-50%);" data-item="workflows">
+        <div class="roadmap-item phase-2" style="top: 67%; left: 50%; transform: translateX(-50%);" data-item="workflows">
             <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">Smart Workflows</div>
             <div class="item-description">Automated responses</div>
         </div>
 
         <!-- RIGHT COLUMN - PHASE 3: TRANSFORMATION (18+ months) -->
-        <div class="roadmap-item phase-3" style="top: 24%; left: 83.33%; transform: translateX(-50%);" data-item="predictions">
+        <div class="roadmap-item phase-3" style="top: 35%; left: 83.33%; transform: translateX(-50%);" data-item="predictions">
             <div class="item-status status-transformation">Phase 3</div>
             <div class="item-title">Predictive Planning</div>
             <div class="item-description">Forecasts & predictions</div>
         </div>
 
-        <div class="roadmap-item phase-3" style="top: 32%; left: 83.33%; transform: translateX(-50%);" data-item="modeling-integration">
+        <div class="roadmap-item phase-3" style="top: 43%; left: 83.33%; transform: translateX(-50%);" data-item="modeling-integration">
             <div class="item-status status-transformation">Phase 3</div>
             <div class="item-title">Modeling Integration</div>
             <div class="item-description">EPANET, WEAP, MODFLOW</div>
         </div>
 
-        <div class="roadmap-item phase-3" style="top: 40%; left: 83.33%; transform: translateX(-50%);" data-item="agentic-ai">
+        <div class="roadmap-item phase-3" style="top: 51%; left: 83.33%; transform: translateX(-50%);" data-item="agentic-ai">
             <div class="item-status status-transformation">Phase 3</div>
             <div class="item-title">Agentic AI</div>
             <div class="item-description">AI co-pilot for WASH</div>
+        </div>
+
+        <div class="roadmap-item phase-3" style="top: 59%; left: 83.33%; transform: translateX(-50%);" data-item="network-intelligence">
+            <div class="item-status status-transformation">Phase 3</div>
+            <div class="item-title">Network Intelligence Loop</div>
+            <div class="item-description">AI inside the network</div>
         </div>
     </div>
 
@@ -652,6 +661,12 @@
                 description: 'Safe AI system that analyzes anonymized user activity to provide insights on trends, usage patterns, and system performance. Helps optimize the platform based on real user behavior.',
                 timeline: 'Phase 1 - 0-6 months',
                 impact: 'Helps mWater evolve based on actual user needs rather than assumptions. Identifies features that drive data collection success, surfaces common pain points, and guides development priorities toward capabilities that matter most for WASH practitioners. Ensures the platform stays relevant and effective for diverse global use cases from community monitoring to national systems.'
+            },
+            'network-intelligence': {
+                title: 'Network Intelligence Loop',
+                description: '🧠 Core Concept: AI Inside the Network (not outside it). This revolutionary system aggregates anonymized usage patterns to surface "meta-insights" for all users. Features smart suggestions like "Other municipalities like yours improved coverage 30% by monitoring X" and continuous learning where each new deployment trains the network, making the network itself the brain. Creates a collective intelligence effect where every new user literally makes the system smarter for everyone else.',
+                timeline: 'Phase 3 - 12+ months',
+                impact: 'Transforms mWater from a data collection platform into a self-improving intelligence network. Municipalities benefit from anonymized insights from similar organizations worldwide, accelerating best practice adoption. Each deployment contributes to a growing knowledge base that improves recommendations for all users. Creates network effects where the platform becomes more valuable with each new organization that joins, enabling rapid scaling of WASH expertise across diverse contexts.'
             }
         };
 
