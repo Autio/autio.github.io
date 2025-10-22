@@ -175,6 +175,27 @@
             color: #888;
             font-style: italic;
         }
+
+        /* Pre-cached link indicators */
+        .link-cached {
+            position: relative;
+        }
+
+        .link-cached::after {
+            content: '⚡';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 10px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Different icons for different site types */
+        .link-cached[data-type="wikipedia"]::after { content: '📚'; }
+        .link-cached[data-type="pubmed"]::after { content: '🔬'; }
+        .link-cached[data-type="github"]::after { content: '💻'; }
+        .link-cached[data-type="generic"]::after { content: '🔗'; }
         
         @media (max-width: 768px) {
             .container {
@@ -252,30 +273,52 @@
                     <li>Create a supplement protocol with a view towards validated, peer-reviewed effects especially to protect your immune system function.</li>
                     <li>Advocate for yourself to ensure the latest science is available for your specific diagnosis. If feasible, ask for an extended genetic panel of your tumour sample. Look for immunotherapeutic options, and latest trials. Your oncologist needs to worry about many different types of cancer. You only need to worry about one very specific diagnosis.</li>
                     <li>If possible, find someone who can do advocacy on your behalf if dealing with the cancer makes it difficult to do so yourself.</li>
-                    <li>Explore whether there are effective repurposed medications that can help weaken or eliminate cancer cells with minimal or manageable side effects. For example: Artemisinin, LDN, Fenbendazole</li>
+                    <li>Explore whether there are effective repurposed medications that can help weaken or eliminate cancer cells with minimal or manageable side effects. For example: <a href="https://en.wikipedia.org/wiki/Artemisinin">Artemisinin</a>, <a href="https://en.wikipedia.org/wiki/Low-dose_naltrexone">LDN</a>, <a href="https://en.wikipedia.org/wiki/Fenbendazole">Fenbendazole</a>.</li>
                     <li>Maintain a social life and seek out the methods that work for you to keep a hopeful mindset.</li>
                 </ul>
             </div>
         </article>
         
         <article class="post">
+            <div class="post-content">
+                <article class="post">
+                    <div class="post-meta">
+                        October 12, 2025
+                    </div>
+                    
+                    <div class="post-content">
+                        <h2>Immunotherapy and Self-Advocacy</h2>
+
+                        <p>Patented double-loaded dendritic cell immune therapy took my stage IIIc / 4 diagnosis (there was one lesion in my liver that disappeared) to no sign of disease. This was provided by <a href="https://immunocine.com/">Immunocine</a> which, in 2024, provided treatment to about 90 selected patients with very different kinds of tumours with an objective response rate of over 90%. The method uses the body's own dendritic immune cells and a sample from the tumour and trains the immune cells to identify the cancer as a threat such that the body is able to marshal its own defences to eliminate cancer cells. The treatment has had remarkable success on various types of cancer and is being fast-tracked through the FDA (<a href="https://www.onclive.com/view/fda-grants-fast-track-designation-to-doc1021-for-glioblastoma">FDA fast track designation</a>).</p>
+                        
+                        <p>The ideal counterpart to this therapy is the checkpoint inhibitor Pembrolizumab (Keytruda), which hinders the ability of cancer cells to hide from the immune system.</p>
+                        
+                        <p>Cancer treatment structurally places the patient into a very passive role. We do things, your job is to receive it. There is a lot of stress involved in facing pain and death. However, having the capacity to advocate for yourself has been critical in my case, and I've seen it be so in other cases. In my case, once I had a recurrence after surgery, I started forcefully researching the current state of the art for my own diagnosis and expanded my reading to supplementation, diet, and repurposed medication. As a result of this, I discovered <a href="https://immunocine.com/">Immunocine</a>, as well as was able to request an extended genetic panel from my oncologist after having talked to a leading cancer researcher to hear their advice. This genetic panel yielded a re-diagnosis of my tumour from being classified as micro-satellite stable to partially micro-satellite instability high (MSI-H). This opened the way for me to get the medication.</p>
+                        
+                        <p>Without self-advocacy and support of this sort, I would not have gone for the immune therapy that eliminated all current measurable traces of my cancer and might be dead instead.</p>
+                    </div>
+                </article>
+        </article>
+
+        <article class="post">
             <div class="post-meta">
                 October 12, 2025
             </div>
             
             <div class="post-content">
-                <h2>Diet and Cancer: Fasting, Ketosis, and Metabolic Approaches</h2>
-                
-                <p>A plant-heavy diet, combined with therapeutic ketosis, and especially periods of fasting, carries very many benefits, and I would without hesitation work to adopt these if I had to go through any cancer process again, as long as cachexia is not an active and prominent risk.</p>
+                <h2>Diet: A Powerful Tool in Cancer Treatment</h2>
 
-                <p>Fasting significantly boosts immune function and puts strain on cancer cells. Moreover, water fasting (putting the body into a state of starvation) before and during chemo significantly reduced my chemo side effects (kept my hair, as people always ask, etc). This starvation state protects healthy cells as they then tend to pass new substances, like chemo, elsewhere into the body that might need it more. Cancer cells are always hungry, so absorb even more of the poison. Further, not having to deal with digestion liberates a substantial portion of the immune system to do other things, such as fight cancer. It upregulates autophagy which repairs and recycles the body, and also swiftly takes away the building blocks left over by dying cancer cells so they cannot be used by remaining cancer cells in their growth process.</p>
-                
-                <p>A ketogenic diet has been established to have <a href="https://pubmed.ncbi.nlm.nih.gov/39365252/">anti-cancer effects in numerous types of cancer.</a> Eliminating sugar is a good but not sufficient step to hurt cancer. Glucose is the favourite, though not only, fuel of cancer cells. Many people report adopting a protocol of dietary and supplementation interventions has yielded strong positive results. The general line of thinking seems to be that if you block sufficiently many metabolic pathways for your specific type of cancer, then the cells inevitably weaken and either die or are beatable by your immune system, ferroptosis, etc. See: <a href="https://www.amazon.com.mx/How-Starve-Cancer-Then-Ferroptosis/dp/1666632228">Starving cancer</a>.</p>
+                <p>Through my cancer journey, I've discovered that diet can be a powerful complementary tool in treatment. I've found three key dietary approaches particularly beneficial: plant-based eating, therapeutic ketosis, and strategic fasting. If I had to go through cancer treatment again, I would absolutely incorporate these approaches (assuming cachexia isn't a major risk).</p>
+
+                <h3>The Power of Fasting</h3>
+                <p>Fasting has been transformative in my treatment journey. It significantly enhances immune function while putting stress on cancer cells. During my chemotherapy, I practiced water fasting before and during treatments, which notably reduced side effects. Yes, I even kept my hair, which everyone asks about! The science behind this is fascinating: when we fast, healthy cells enter a protective state where they become selective about absorbing substances like chemotherapy. Meanwhile, cancer cells, which are perpetually hungry, tend to absorb more of the treatment. Additionally, fasting frees up immune resources normally dedicated to digestion and triggers autophagy - the body's natural recycling and repair process.</p>
+
+                <h3>Ketogenic Diet and Cancer</h3>
+                <p>Research has shown that a ketogenic diet can have <a href="https://pubmed.ncbi.nlm.nih.gov/39365252/">significant anti-cancer effects across various cancer types</a>. While eliminating sugar is important - as glucose is cancer's preferred fuel - it's just one piece of the puzzle. The key seems to be blocking multiple metabolic pathways that cancer cells rely on, ultimately weakening them until they either die naturally or become vulnerable to the immune system or treatments like ferroptosis.</p>
+
+                <p>I've found that combining these dietary interventions with other treatments has been particularly effective. For those interested in learning more about metabolic approaches to cancer treatment, I recommend reading <a href="https://www.amazon.com/How-Starve-Cancer-Starving-Yourself/dp/0951951742">"How to Starve Cancer"</a>, which provides a comprehensive look at these strategies.</p>
             </div>
         </article>
-
-        <!-- Article on Immunotherapy-->
-
 
         <!-- Article on Supplements-->
 
@@ -299,18 +342,95 @@
 
                 <p>All of these elements have been beneficial in my case, but particularly maintaining a strong immune system which enabled immunotherapy to function more effectively.</p>
 
-                <p>Navigating the world of supplements is challenging. There are many bad incentives to sell products that are ineffective or potentially harmful. Additionally, gold-standard scientific research with double-blind trials is difficult to conduct for supplement combinations, even when the causal pathways seem justified. Testing multiple supplement combinations requires exponentially more complex and resource-intensive trials, while offering limited profit potential.</p>
+                <p>Navigating the world of supplements is challenging. There are many bad incentives to sell products that are ineffective or potentially harmful. Additionally, <a href="https://pastebin.com/SNbz9tav">gold-standard scientific research with double-blind trials is difficult to conduct for supplement combinations</a>, even when the causal pathways seem justified. Testing multiple supplement combinations requires exponentially more complex and resource-intensive trials, while offering limited profit potential.</p>
 
                 <p>My approach has been to understand the proposed biological mechanisms for each supplement and weigh them against known or potential side effects. I've documented my personal protocol in this <a href="https://docs.google.com/spreadsheets/d/1mDufvgsIgyqvITsHKYhTxZaRsy1CLTLPGt_-hUCMWyU/edit?usp=sharing">spreadsheet</a>. You can find many other protocols <a href="https://www.facebook.com/groups/697546077022478">shared by others</a> who have overcome difficult prognoses. I strongly recommend studying the background of any supplement you consider taking, or validating them with a holistic nurse. I've found <a href="https://healnavigator.com/">Heal Navigator</a> invaluable for this guidance.</p>
 
                 <p>Based on my research and experience, I would strongly recommend three supplements in particular:</p>
                 <ul>
-                    <li>Liposomal vitamin C</li>
-                    <li>Vitamin D</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Vitamin_C">Liposomal vitamin C</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Vitamin_D">Vitamin D</a></li>
                     <li><a href="https://en.wikipedia.org/wiki/Melatonin">Melatonin</a></li>
                 </ul>
 
                 <p>I haven't found substantial evidence of significant adverse effects for any of these. Regarding melatonin specifically, I know people who regularly take 500 times the standard daily dose. There's an important correlation between <a href="https://mikaelin.substack.com/p/thymic-regeneration">melatonin and thymus function</a>, with the thymus being critical for T-cell function and immune response.</p>
+            </div>
+        </article>
+        <!-- Article on Protocol in Depth -->
+        <article class="post">
+            <div class="post-meta">
+                October 15, 2025
+            </div>
+            
+            <div class="post-content">
+                <h2>Protocol In Depth: A Comprehensive Look</h2>
+
+                <p>Unpacking <a href="https://docs.google.com/spreadsheets/d/1mDufvgsIgyqvITsHKYhTxZaRsy1CLTLPGt_-hUCMWyU/edit?usp=sharing">the protocol</a> I used in 2023-2024.</p>
+
+                <h3>Targeting Cancer Cell Vulnerabilities</h3>
+
+                <p>A significant part of my protocol focuses on supplements believed to interfere with cancer cell metabolism and proliferation. <a href="https://www.sciencedirect.com/science/article/pii/S1043661823001731">Berberine</a>, for instance, is thought to affect glucose metabolism for anticancer purposes and may interrupt the glutamine pathway to cancer cells. Research suggests it can <a href="https://www.ingentaconnect.com/content/wk/ancad/2020/00000031/00000002/art00006">inhibit breast carcinoma proliferation and metastasis</a>. Similarly, the active compound in <a href="https://www.sciencedirect.com/science/article/pii/S0975947616300389">Black Cumin Seed</a>, thymoquinone, is believed to induce apoptosis (programmed cell death) and inhibit cancer cell proliferation. It may also offer <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3252704/">chemo-protection and enhancement</a> while supporting the immune system.</p>
+
+                <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7178200/">Curcumin</a>, the active component of turmeric, is another powerful supplement in my regimen, with studies indicating it has pro-apoptotic and anti-proliferative effects, particularly in colorectal cancer. I also include <a href="https://journals.lww.com/ajg/fulltext/2022/06000/green_tea_extract_to_prevent_colorectal_adenomas,.18.aspx">Green Tea Extract</a>, rich in the polyphenol EGCG, which may have anti-proliferative and anti-migration effects on colorectal cancer cells by blocking the glutamine fuel pathway. The supplement <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4964527/">DIM</a> (Diindolylmethane) is included for its potential to act as a suppressive agent in colorectal cancer, influencing proliferation, migration, and invasion through multiple signaling pathways.</p>
+
+                <p>A noteworthy addition has been <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7458798/">Fenbendazole</a>, an anthelmintic drug that has gained attention for its potential anti-cancer properties. It is thought to destabilize microtubules and disrupt glucose metabolism in cancer cells, leading to their death. <a href="https://www.frontiersin.org/articles/10.3389/fphar.2021.828856/full">Artemisinin</a>, another supplement with huge anticancer potential, is believed to work through at least six different anti-cancer pathways, most prominently ferroptosis.</p>
+
+                <h3>Harnessing the Power of Nature's Anti-Inflammatories</h3>
+
+                <p>Inflammation is a key driver of cancer progression, so a portion of my protocol is dedicated to natural anti-inflammatory agents. <a href="https://cancerci.biomedcentral.com/articles/10.1186/s12935-022-02798-2">Pycnogenol</a>, an extract from pine bark, is included for its anti-inflammatory, immune-supporting, and anti-tumor properties, often combined with berberine. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7868613/">Loratadine</a>, commonly known as Claritin, is an antihistamine that can act as a potent anti-inflammatory agent, potentially disrupting the microenvironment of colorectal tumors. Furthermore, a daily <a href="https://www.cancer.gov/about-cancer/causes-prevention/research/aspirin-cancer-risk">Low-Dose Aspirin</a> is part of my regimen, as it may <a href="https://academic.oup.com/oncolo/article/29/1/e1/7207782">improve survival, and prevent recurrence and metastasis</a> by making it more difficult for cancer cells to clump together and attach to new sites.</p>
+
+                <h3>Fortifying the Immune System</h3>
+
+                <p>A robust immune system is crucial when undergoing cancer treatment. To this end, I have incorporated several immune-boosting supplements. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7370547/">Melatonin</a>, taken at bedtime, not only improves sleep but also provides an immunity boost by <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4301735/">increasing T-cell production</a>. The thymus gland, a key player in immune function, is most active at night, correlating with high melatonin levels. Higher doses of melatonin appear to be safe and may have <a href="https://www.breastcancer.org/managing-life/diet-nutrition/dietary-supplements/known/melatonin">cancer-slowing effects</a>. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378874120335923">Ashwagandha</a> is included primarily for its stress-relieving and immune-boosting properties, although some evidence suggests it has anticancer effects. <a href="https://pubmed.ncbi.nlm.nih.gov/32243990/">Astragalus</a> is another herb I take to potentially reduce the side effects of chemotherapy and enhance its efficacy.</p>
+
+                <p>Medicinal mushrooms are a cornerstone of my immune support strategy. <a href="https://www.mesothelioma.com/treatment/alternative/beta-glucan/">Beta Glucans</a>, found in mushrooms like Reishi and Maitake, are believed to <a href="https://ovarianresearch.biomedcentral.com/articles/10.1186/s13048-020-00626-7">inhibit tumor growth and metastasis</a> while activating immune cells such as macrophages and dendritic cells. <a href="https://pubmed.ncbi.nlm.nih.gov/35692861/">Reishi</a>, in particular, may help suppress inflammation and carcinogenesis regulated by NF-κB. <a href="https://cancerci.biomedcentral.com/articles/10.1186/s12935-022-02798-2">Maitake</a> is also thought to suppress tumor growth, prevent metastasis, and boost Natural Killer (NK) cell activity.</p>
+
+                <h3>Managing Treatment Side Effects and Supporting Overall Health</h3>
+
+                <p>To manage the side effects of conventional treatments and support my overall health, I've included several key supplements. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5924730/">Alpha-Lipoic Acid</a> is taken to reduce chemotherapy-induced neuropathy, thanks to its potent antioxidant properties and ability to regulate blood sugar, and research suggests it <a href="https://pubmed.ncbi.nlm.nih.gov/36615676/">decreases cancer cell viability and proliferation in breast cancer</a>. <a href="https://pubmed.ncbi.nlm.nih.gov/37424457/">Ginger</a> has been invaluable in protecting against nausea and vomiting, a common side effect of chemotherapy. Studies also suggest it can <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4369959/">inhibit the growth and proliferation of cancer cells</a>. <a href="https://www.sciencedaily.com/releases/2019/06/190604101634.htm">Vitamin D3</a> is another crucial component, as maintaining an ideal blood stream level is believed to be beneficial, and it's considered one of the <a href="https://www.healthline.com/health/cancer/what-are-the-best-vitamins-to-take-during-chemotherapy">best vitamins to take during chemotherapy</a>.</p>
+
+                <p>To protect my liver, which metabolizes many of these supplements, I take <a href="https://www.sciencedaily.com/releases/2015/04/150420144350.htm#:~:text=">Milk Thistle</a>. Beyond its liver-protective qualities, milk thistle extract has been found to inhibit the growth of colorectal cancer stem cells. I also supplement with Magnesium for its potential to protect against nephrotoxicity. Iron is included to help prevent low blood counts.</p>
+
+                <h3>Additional Supportive Measures</h3>
+
+                <p>My protocol also includes several other supplements. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6893732/">Modified Citrus Pectin (MCP)</a> has shown anti-metastatic qualities in various cancers by mediating cancer cell adhesion. <a href="https://www.sciencedaily.com/releases/2021/06/210611110802.htm">Omega-3</a> fatty acids are included to potentially reduce cancer metastasis. <a href="https://www.nature.com/articles/s41598-023-39279-z">Resveratrol</a> is combined with Quercetin and Curcumin for a potentially synergistic effect. <a href="https://www.frontiersin.org/articles/10.3389/fmed.2022.939424/full">Ginseng</a> has been shown in some studies to have anti-cancer effects and may also help combat cancer-related fatigue.</p>
+
+                <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10968813/">Low-Dose Naltrexone (LDN)</a> is another component with high anti-cancer potential. I also incorporate <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7249593/">Baking Soda</a> to potentially counteract the acidic microenvironment of tumors. <a href="https://pubmed.ncbi.nlm.nih.gov/35960375/">CBD oil</a> is used for its potential to inhibit invasion and metastasis in colorectal cancer cells and for stress reduction. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4599191/">Garcinia Cambogia</a> is included for its broad-spectrum anti-microbial activity and potential to induce apoptosis in colorectal cancer cells. <a href="https://link.springer.com/article/10.1007/s00394-023-03166-0">Garlic</a> is used for its pro-apoptotic, <a href="https://www.sciencedirect.com/science/article/abs/pii/S1043661821004217">proliferation inhibition</a>, and immune-supporting properties. Finally, a daily <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7807261/">Probiotic supplement</a> is included to support gut health, which is integral to overall immunity.</p>
+
+                <h3>A Final Note</h3>
+
+                <p>This comprehensive protocol is what I have personally found to be a valuable and supportive component of my cancer treatment journey. It is a dynamic and evolving regimen, always discussed and reviewed with my medical team. It is my hope that by sharing this information, I can offer a starting point for others to research and discuss with their own healthcare providers. Remember, every individual and every cancer is unique, and what works for one person may not be suitable for another. The most important step is to remain an active and informed participant in your own care, working in partnership with your medical team to create the best possible treatment plan for you.</p>
+            </div>
+        </article>
+        <article class="post">
+            <div class="post-meta">
+                October 16, 2025
+            </div>
+            
+            <div class="post-content">
+                <h2>The Promise of Dendritic Cell Therapy: A Personalized Approach to Fighting Cancer</h2>
+
+                <p>As I explore cutting-edge cancer treatments, I've become particularly fascinated by dendritic cell therapy - an innovative immunotherapy approach that harnesses our body's own immune system to fight cancer. Let me share what I've learned about this promising treatment.</p>
+
+                <h3>Understanding the Basics</h3>
+
+                <p>At its core, dendritic cell therapy works by training our immune system's "sentinel" cells - dendritic cells - to recognize and fight cancer. These remarkable cells, <a href="https://www.rockefeller.edu/hospital-centennial/discovering-dendritic-cells/">first discovered in 1973</a>, serve as the commanders of our immune response, directing T-cells to target specific threats in our body.</p>
+
+                <h3>How the Treatment Works</h3>
+
+                <p>The process is elegantly personalized: doctors collect a patient's white blood cells and isolate the dendritic cells. These cells are then "educated" in the lab using material from the patient's own tumor - essentially creating a custom cancer vaccine. Some advanced approaches, like those used by <a href="https://immunocine.com/">Immunocine</a>, use both tumor mRNA and proteins to train these cells, potentially creating a stronger immune response.</p>
+
+                <p>Once the dendritic cells have been trained, they're returned to the patient's body where they travel to lymph nodes and activate T-cells to mount a targeted attack against cancer cells. What's particularly exciting is that this can create lasting "immune memory," potentially helping prevent cancer recurrence.</p>
+
+                <h3>Why It's So Promising</h3>
+
+                <p>Unlike traditional treatments that can damage healthy cells, dendritic cell therapy is precisely targeted. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7727390/">Research has shown it to be remarkably safe</a>, with fewer side effects than conventional treatments. The FDA approved the first dendritic cell vaccine (Sipuleucel-T) for prostate cancer in 2010, and since then, thousands of clinical trials have explored its potential for various cancers.</p>
+
+                <h3>Looking to the Future</h3>
+
+                <p>The field continues to evolve, with researchers exploring combinations with other immunotherapies and developing more effective training methods. <a href="https://www.mdpi.com/1422-0067/25/14/7509">Recent studies</a> suggest that combining dendritic cell therapy with other treatments might enhance its effectiveness even further.</p>
+
+                <p>As someone navigating cancer treatment, I find the precision and personalization of dendritic cell therapy particularly compelling. While it's not yet widely available for all cancer types, the growing body of research and clinical success stories suggest it could become an increasingly important tool in our fight against cancer.</p>
             </div>
         </article>
             </main>
@@ -321,23 +441,163 @@
     </div>
 
     <script>
-        // Beautiful Wikipedia tooltips with content
+        // Beautiful link previews with content
         document.addEventListener('DOMContentLoaded', function() {
-            const wikiLinks = document.querySelectorAll('a[href*="wikipedia.org"]');
+            const allLinks = document.querySelectorAll('a[href^="http"]');
             let tooltip = null;
             let cache = new Map();
 
-            wikiLinks.forEach(link => {
+            // Pre-cache all links on page load
+            function preloadLinkData() {
+                console.log(`Preloading ${allLinks.length} external links...`);
+                
+                allLinks.forEach(async (link) => {
+                    const url = link.href;
+                    const domain = new URL(url).hostname;
+                    
+                    if (!cache.has(url)) {
+                        try {
+                            let data = null;
+                            
+                            // Different handlers for different sites
+                            if (domain.includes('wikipedia.org')) {
+                                data = await fetchWikipediaData(url);
+                            } else if (domain.includes('pubmed.ncbi.nlm.nih.gov')) {
+                                data = await fetchPubMedData(url);
+                            } else if (domain.includes('github.com')) {
+                                data = await fetchGitHubData(url);
+                            } else {
+                                data = await fetchGenericData(url);
+                            }
+                            
+                            if (data) {
+                                cache.set(url, data);
+                                link.classList.add('link-cached');
+                                link.setAttribute('data-type', data.type);
+                                console.log(`✓ Cached: ${domain} - ${data.title}`);
+                            }
+                        } catch (error) {
+                            console.log(`✗ Failed: ${domain}`);
+                        }
+                    } else {
+                        // Already cached
+                        link.classList.add('link-cached');
+                    }
+                });
+            }
+
+            // Fetch Wikipedia data
+            async function fetchWikipediaData(url) {
+                const pageTitle = url.split('/').pop().replace(/_/g, ' ');
+                const response = await fetch(
+                    `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(pageTitle)}`
+                );
+                if (response.ok) {
+                    const data = await response.json();
+                    return {
+                        title: data.title,
+                        description: data.extract,
+                        type: 'wikipedia'
+                    };
+                }
+                return null;
+            }
+
+            // Fetch PubMed data
+            async function fetchPubMedData(url) {
+                const pmcId = url.match(/pmc\/(\d+)/)?.[1];
+                const pmid = url.match(/pubmed\/(\d+)/)?.[1];
+                
+                if (pmcId) {
+                    const response = await fetch(`https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=${pmcId}`);
+                    // Parse XML response for paper details
+                    return {
+                        title: 'PubMed Paper',
+                        description: 'Medical research paper',
+                        type: 'pubmed'
+                    };
+                }
+                return null;
+            }
+
+            // Fetch GitHub data
+            async function fetchGitHubData(url) {
+                const path = url.replace('https://github.com/', '');
+                const [owner, repo] = path.split('/');
+                
+                if (owner && repo) {
+                    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        return {
+                            title: data.name,
+                            description: data.description || 'GitHub repository',
+                            type: 'github',
+                            stars: data.stargazers_count
+                        };
+                    }
+                }
+                return null;
+            }
+
+            // Fetch generic website data (Open Graph)
+            async function fetchGenericData(url) {
+                try {
+                    // Use a CORS proxy for generic sites
+                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+                    const response = await fetch(proxyUrl);
+                    
+                    if (response.ok) {
+                        const html = await response.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        
+                        const title = doc.querySelector('meta[property="og:title"]')?.content ||
+                                    doc.querySelector('title')?.textContent ||
+                                    'Website';
+                        
+                        const description = doc.querySelector('meta[property="og:description"]')?.content ||
+                                         doc.querySelector('meta[name="description"]')?.content ||
+                                         'No description available';
+                        
+                        return {
+                            title: title,
+                            description: description,
+                            type: 'generic'
+                        };
+                    }
+                } catch (error) {
+                    // Fallback: return basic info
+                    return {
+                        title: new URL(url).hostname,
+                        description: 'External link',
+                        type: 'generic'
+                    };
+                }
+                return null;
+            }
+
+            // Start preloading immediately
+            preloadLinkData();
+
+            allLinks.forEach(link => {
                 link.addEventListener('mouseenter', function(e) {
                     if (tooltip) tooltip.remove();
                     
                     const url = this.href;
-                    const pageTitle = url.split('/').pop().replace(/_/g, ' ');
+                    const cachedData = cache.get(url);
                     
                     // Create tooltip
                     tooltip = document.createElement('div');
                     tooltip.className = 'wiki-tooltip';
-                    tooltip.innerHTML = '<div class="wiki-tooltip-loading">Loading...</div>';
+                    
+                    if (cachedData) {
+                        // Show cached data immediately
+                        updateTooltipContent(tooltip, cachedData);
+                    } else {
+                        // Show loading
+                        tooltip.innerHTML = '<div class="wiki-tooltip-loading">Loading...</div>';
+                    }
                     
                     document.body.appendChild(tooltip);
                     
@@ -364,8 +624,14 @@
                         tooltip.classList.add('show');
                     }, 10);
                     
-                    // Fetch Wikipedia content
-                    fetchWikipediaContent(pageTitle, tooltip);
+                    // If not cached, try to fetch data
+                    if (!cachedData) {
+                        const domain = new URL(url).hostname;
+                        if (domain.includes('wikipedia.org')) {
+                            const pageTitle = url.split('/').pop().replace(/_/g, ' ');
+                            fetchWikipediaContent(pageTitle, tooltip);
+                        }
+                    }
                 });
 
                 link.addEventListener('mouseleave', function() {
@@ -381,42 +647,24 @@
                 });
             });
 
-            async function fetchWikipediaContent(title, tooltipElement) {
-                // Check cache first
-                if (cache.has(title)) {
-                    updateTooltipContent(tooltipElement, cache.get(title));
-                    return;
-                }
-
-                try {
-                    const response = await fetch(
-                        `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
-                    );
-                    
-                    if (!response.ok) {
-                        throw new Error('Page not found');
-                    }
-
-                    const data = await response.json();
-                    cache.set(title, data);
-                    updateTooltipContent(tooltipElement, data);
-                    
-                } catch (error) {
-                    tooltipElement.innerHTML = '<div class="wiki-tooltip-loading">Failed to load</div>';
-                }
-            }
-
             function updateTooltipContent(tooltipElement, data) {
-                const title = data.title || 'Wikipedia';
-                const extract = data.extract || 'No summary available.';
+                const title = data.title || 'Link';
+                const description = data.description || 'No description available.';
                 
-                // Truncate extract if too long
-                const shortExtract = extract.length > 200 ? extract.substring(0, 200) + '...' : extract;
+                // Truncate description if too long
+                const shortDescription = description.length > 200 ? description.substring(0, 200) + '...' : description;
                 
-                tooltipElement.innerHTML = `
+                let content = `
                     <div class="wiki-tooltip-title">${title}</div>
-                    <div class="wiki-tooltip-text">${shortExtract}</div>
+                    <div class="wiki-tooltip-text">${shortDescription}</div>
                 `;
+                
+                // Add special info for different types
+                if (data.type === 'github' && data.stars) {
+                    content += `<div class="wiki-tooltip-text" style="font-size: 11px; color: #888;">⭐ ${data.stars} stars</div>`;
+                }
+                
+                tooltipElement.innerHTML = content;
             }
         });
     </script>

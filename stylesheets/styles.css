@@ -264,6 +264,173 @@ footer {
   }
 }
 
+/* Mobile-specific improvements */
+@media screen and (max-width: 768px) {
+  /* Improve header layout for mobile */
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  header h1 {
+    font-size: 32px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  header p.view {
+    margin: 8px 0;
+  }
+  
+  header p.view a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px;
+    background: #56A2D6;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  header p.view a:hover {
+    background: #4a8bc2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(86, 162, 214, 0.3);
+  }
+  
+  /* Improve project cards for mobile */
+  .spacer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .spacer h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .spacer p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  /* Improve image containers */
+  figure.effect-chico {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  figure.effect-chico:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  figure.effect-chico img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Improve section spacing */
+  section {
+    padding: 20px 0;
+  }
+  
+  /* Better container spacing */
+  .container {
+    padding: 0 10px;
+  }
+  
+  /* Improve row spacing */
+  .row {
+    margin: 0 -5px;
+  }
+  
+  .col-xs-12, .col-sm-6, .col-md-4 {
+    padding: 0 5px;
+    margin-bottom: 25px;
+  }
+  
+  /* Improve "View More Projects" link */
+  .view a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #56A2D6, #4a8bc2);
+    color: white;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(86, 162, 214, 0.3);
+  }
+  
+  .view a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(86, 162, 214, 0.4);
+    background: linear-gradient(135deg, #4a8bc2, #3d7ba8);
+  }
+  
+  /* Improve HR styling */
+  hr {
+    margin: 30px 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #e5e5e5, transparent);
+    border: none;
+  }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 28px;
+  }
+  
+  header p.view a {
+    padding: 6px 12px;
+    font-size: 13px;
+    margin: 3px;
+  }
+  
+  .spacer h4 {
+    font-size: 16px;
+  }
+  
+  .spacer p {
+    font-size: 13px;
+  }
+  
+  .view a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 5px;
+  }
+  
+  .col-xs-12, .col-sm-6, .col-md-4 {
+    padding: 0 3px;
+    margin-bottom: 20px;
+  }
+}
+
 @media print {
   body {
     padding:0.4in;
