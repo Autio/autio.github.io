@@ -266,6 +266,28 @@ footer {
 
 /* Mobile-specific improvements */
 @media screen and (max-width: 768px) {
+  /* Fix the main layout issues first */
+  .wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0 15px;
+  }
+  
+  header, section, footer {
+    float: none;
+    position: static;
+    width: 100%;
+    margin-left: 0;
+    max-width: none;
+  }
+  
+  section {
+    border: none;
+    padding: 20px 0;
+    margin: 0;
+    width: 100%;
+  }
+  
   /* Improve header layout for mobile */
   header {
     text-align: center;
@@ -303,10 +325,35 @@ footer {
     box-shadow: 0 4px 12px rgba(86, 162, 214, 0.3);
   }
   
+  /* Center the main content container */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Center the rows and columns */
+  .row {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .col-xs-12, .col-sm-6, .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
   /* Improve project cards for mobile */
   .spacer {
     margin-top: 20px;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .spacer h4 {
@@ -321,15 +368,20 @@ footer {
     line-height: 1.6;
     color: #666;
     margin-bottom: 15px;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   /* Improve image containers */
   figure.effect-chico {
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
   }
   
   figure.effect-chico:hover {
@@ -343,27 +395,12 @@ footer {
     border-radius: 8px;
   }
   
-  /* Improve section spacing */
-  section {
-    padding: 20px 0;
+  /* Center the "View More Projects" link */
+  .view {
+    text-align: center;
+    margin: 30px 0;
   }
   
-  /* Better container spacing */
-  .container {
-    padding: 0 10px;
-  }
-  
-  /* Improve row spacing */
-  .row {
-    margin: 0 -5px;
-  }
-  
-  .col-xs-12, .col-sm-6, .col-md-4 {
-    padding: 0 5px;
-    margin-bottom: 25px;
-  }
-  
-  /* Improve "View More Projects" link */
   .view a {
     display: inline-block;
     padding: 12px 24px;
@@ -385,10 +422,11 @@ footer {
   
   /* Improve HR styling */
   hr {
-    margin: 30px 0;
+    margin: 30px auto;
     height: 2px;
     background: linear-gradient(to right, transparent, #e5e5e5, transparent);
     border: none;
+    max-width: 200px;
   }
 }
 
