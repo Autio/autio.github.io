@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APINA Capital Investment Letter - Week of January 06 - January 13, 2026</title>
+    <style>
+        /* APINA Capital Investment Letter Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Sections */
+.section {
+    padding: 40px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+}
+
+.buy-section {
+    border-bottom-color: #10b981;
+}
+
+.sell-section {
+    border-bottom-color: #ef4444;
+}
+
+.hold-section {
+    border-bottom-color: #f59e0b;
+}
+
+.community-section {
+    border-bottom-color: #6366f1;
+}
+
+.section-description {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+
+/* Insights Grid */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+/* Insight Cards */
+.insight-card {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 5px solid #667eea;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.insight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.buy-card {
+    border-left-color: #10b981;
+    background: #f0fdf4;
+}
+
+.sell-card {
+    border-left-color: #ef4444;
+    background: #fef2f2;
+}
+
+.hold-card {
+    border-left-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.ticker {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-buy {
+    background: #10b981;
+    color: white;
+}
+
+.badge-sell {
+    background: #ef4444;
+    color: white;
+}
+
+.badge-hold {
+    background: #f59e0b;
+    color: white;
+}
+
+.badge-confidence-high {
+    background: #3b82f6;
+    color: white;
+}
+
+.badge-confidence-medium {
+    background: #8b5cf6;
+    color: white;
+}
+
+.badge-confidence-low {
+    background: #6b7280;
+    color: white;
+}
+
+.company-name {
+    font-size: 1.1em;
+    color: #374151;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.price-target {
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.timeframe {
+    color: #6b7280;
+    font-size: 0.9em;
+}
+
+.key-points, .risks {
+    margin: 12px 0;
+}
+
+.key-points strong, .risks strong {
+    color: #1f2937;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.key-points ul, .risks ul {
+    list-style-position: inside;
+    padding-left: 8px;
+}
+
+.key-points li {
+    color: #374151;
+    margin: 4px 0;
+    padding-left: 4px;
+}
+
+.risks li {
+    color: #dc2626;
+    margin: 4px 0;
+    padding-left: 4px;
+}
+
+.quote {
+    background: white;
+    border-left: 3px solid #667eea;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-style: italic;
+    color: #4b5563;
+    border-radius: 4px;
+}
+
+.source {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.9em;
+    color: #6b7280;
+}
+
+.source a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.source a:hover {
+    text-decoration: underline;
+}
+
+/* Comments */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment-card {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #6366f1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.insight-score {
+    background: #fef3c7;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.like-count {
+    color: #6b7280;
+    font-size: 0.85em;
+}
+
+.comment-text {
+    color: #374151;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.comment-insight {
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 0.95em;
+}
+
+.comment-insight strong {
+    color: #6366f1;
+}
+
+.comment-source {
+    padding-top: 8px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.comment-source a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.comment-source a:hover {
+    text-decoration: underline;
+}
+
+/* Statistics */
+.statistics-section {
+    background: #f9fafb;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #e5e7eb;
+}
+
+.buy-stat {
+    border-color: #10b981;
+}
+
+.sell-stat {
+    border-color: #ef4444;
+}
+
+.hold-stat {
+    border-color: #f59e0b;
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.footer {
+    background: #f9fafb;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.disclaimer {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: #991b1b;
+    line-height: 1.7;
+}
+
+.copyright {
+    color: #6b7280;
+    font-size: 0.85em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 8px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+    }
+
+    .section {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    .insight-card, .comment-card {
+        page-break-inside: avoid;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">APINA Capital Investment Letter</h1>
+            <p class="subtitle">Week of January 06 - January 13, 2026</p>
+            <p class="date">Generated on January 13, 2026</p>
+        </header>
+
+        <!-- Top Opportunities (BUY) -->
+        
+        <section class="section">
+            <h2 class="section-title buy-section">📈 Top Investment Opportunities</h2>
+            <div class="insights-grid">
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">CVX</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Chevron Corporation</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $206.00
+                        <span class="timeframe">(12 months)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Only major U.S. oil company currently operating in Venezuela, positioned to dominate as U.S. forces re-opening of Venezuelan oil infrastructure</li>
+                            
+                            <li>Already producing ~17% of Venezuela's entire output with established relationships, assets, and institutional knowledge</li>
+                            
+                            <li>First-mover advantage on what could be the biggest oil reconstruction project in history</li>
+                            
+                            <li>Guyana offshore production ramp with Exxon provides diversification, targeting over 10% annual free cash flow growth through 2030</li>
+                            
+                            <li>Q4 earnings on January 30th expected to provide clarity on Venezuela licensing and Hess acquisition</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Venezuela's infrastructure is decimated, requiring years of rebuilding - this is a long-term play</li>
+                            
+                            <li>Oil prices are volatile</li>
+                            
+                            <li>Political situation in Venezuela may not stabilize as expected</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "If you believe American companies are going to redevelop Venezuela's oil resources, and I think that's a pretty safe bet given what just happened, well, the CVX is the most direct way to play it. Full stop."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=QRor0yzIgy8" target="_blank">5 Stocks To BUY HEAVY In January 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">SLV</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">iShares Silver Trust</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $100.00
+                        <span class="timeframe">(12-24 months)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Silver market running structural deficit of 160-200 million ounces annually - consuming more than mining output</li>
+                            
+                            <li>Critical industrial demand: solar panels, EVs, military equipment, AI data center hardware - silver is best conductor of electricity</li>
+                            
+                            <li>Added to U.S. critical minerals list in 2025, signaling strategic importance</li>
+                            
+                            <li>Gold-silver ratio narrowed from 104:1 to 64:1, with bull targets ranging from $100-$175 per ounce (currently $60-70)</li>
+                            
+                            <li>Dollar destruction theme provides massive tailwind - $38 trillion U.S. debt, Fed cutting rates, hard assets benefiting</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>When Fed reverses course and hikes rates, hard assets will cool off</li>
+                            
+                            <li>Short-term volatility possible despite long-term bullish thesis</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "If you believe the dollar is being systematically devalued, which I do, and if you believe industrial demand for silver is structural, which I do, then SLV is a way to play both themes simultaneously."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=QRor0yzIgy8" target="_blank">5 Stocks To BUY HEAVY In January 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">VST</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Vistra Corp</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $759.00
+                        <span class="timeframe">(2031)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Largest corporate-backed nuclear uprate deal in US history with Meta - 20-year PPA covering 2,609 megawatts from three nuclear plants</li>
+                            
+                            <li>41,000+ megawatts of generation capacity approaching 50,000 megawatts post-Cogentrix acquisition</li>
+                            
+                            <li>2026 adjusted EBITDA guidance of $7.2 billion represents 20%+ growth year-over-year</li>
+                            
+                            <li>Nuclear fleet of 6,400+ megawatts provides 24/7 baseload power that AI data centers desperately need</li>
+                            
+                            <li>Multiple catalysts: Meta deal revenue ramping late 2026-2034, Cogentrix closing mid-late 2026, potential deals with Microsoft, Google, Amazon</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Political scrutiny on data center power deals</li>
+                            
+                            <li>High beta - trades like a growth stock, not a sleepy utility, meaning higher volatility in both directions</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Meta just signed a 20-year deal with Vistra for 2,609 megawatts from three nuclear plants. This is the largest corporate-backed nuclear uprate deal in US history."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=i2QCx8U0r8k" target="_blank">This 1 Stock Has CRAZY Potential In 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">PLTR</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Palantir Technologies Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $453.00
+                        <span class="timeframe">(2031)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Analyst believes Palantir will surpass a trillion dollar market cap by 2031</li>
+                            
+                            <li>Long track record of successful calls on this stock dating back to $7.28 per share</li>
+                            
+                            <li>Bull case $453, base case $292, bear case $142 - all scenarios show upside</li>
+                            
+                            <li>Described as 'one of our most famous picks of all time'</li>
+                            
+                            <li>Bear market would present best opportunity to accumulate shares</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Upside not as extreme as when stock was at $7, $15, $20, or $30</li>
+                            
+                            <li>Most conservative price targets analyst has made on Palantir due to realized gains</li>
+                            
+                            <li>Bear case scenario of mismanagement could see stock fall to $142</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "I do believe that Palantir will surpass a trillion dollars a share by 2031. That would motivate the stock to a price scenario of $453 a share."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=i2QCx8U0r8k" target="_blank">This 1 Stock Has CRAZY Potential In 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">APLD</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Applied Digital Corporation</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $181.00
+                        <span class="timeframe">(2031)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Up approximately 577% since April 2025 recommendation at $4.53 per share</li>
+                            
+                            <li>Locked up 1+ gigawatt of power in North Dakota before competitors recognized electricity as the AI bottleneck</li>
+                            
+                            <li>US needs 75-134 gigawatts of data center capacity by 2030 vs only 25 gigawatts in 2024 - massive supply gap</li>
+                            
+                            <li>Multiple facilities ramping: Polaris Forge 1 (100MW Q4 2025, 150MW mid-2026), Polaris Forge 2 ($3B, 280MW campus)</li>
+                            
+                            <li>Third hyperscaler deal in advanced negotiations with $100M financing facility from Macquarie to support it</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Returns unlikely to match last year's 577% performance</li>
+                            
+                            <li>Longer timeline to earn valuation - looking at 2031 for full thesis to play out</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "The US data centers need about 76 gigawatts. We only have 15 gigawatts. So that is a massive gap where APLD makes money."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=i2QCx8U0r8k" target="_blank">This 1 Stock Has CRAZY Potential In 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">MU</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Micron Technology Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $545.00
+                        <span class="timeframe">(2031)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Up approximately 224% since June 2025 video, following successful $105 strike call options recommendation</li>
+                            
+                            <li>Revenue growth outpacing stock price appreciation means still getting more value per dollar invested</li>
+                            
+                            <li>AI infrastructure play benefiting from massive CAPEX spending by hyperscalers</li>
+                            
+                            <li>Bull case of $545, base case of $380, bear case of $190 by end of FY2031</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Upside not as extreme as previous years given substantial gains already realized</li>
+                            
+                            <li>Analyst recommends caution and not going 'guns blazing' at current levels</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Just because something has run massively, doesn't mean that it's overvalued or that it's not still a good buy. For me, if a stock is up 100% year-over-year and their revenue is up 500%, well, it probably means that stock is not a bad buy."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=i2QCx8U0r8k" target="_blank">This 1 Stock Has CRAZY Potential In 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">NVDA</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">NVIDIA Corporation</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $199.00
+                        <span class="timeframe">(12 months)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Dominates data center GPU market with 80-90% market share and Blackwell/Rubin technology pipeline</li>
+                            
+                            <li>Best-in-class financial metrics: 110% ROIC, 49% cash flow to sales ratio, 45% CAGR over past decade</li>
+                            
+                            <li>Trading at cheapest valuation among peers at 27x forward P/E despite superior performance</li>
+                            
+                            <li>Potential 20-30% additional upside if $50 billion China H200 chip orders are approved</li>
+                            
+                            <li>Expected to capture majority of $400+ billion in hyperscaler CapEx spending in 2026</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>110% ROIC is not sustainable long-term as competition increases</li>
+                            
+                            <li>Major customers (Amazon, Microsoft, Alphabet, Meta) actively seeking to diversify away from Nvidia</li>
+                            
+                            <li>China sales dependent on both US and Chinese government approvals</li>
+                            
+                            <li>AMD and Broadcom gaining market share in data center segment</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "So, this decision is a relatively easy one for me. It points to Nvidia as being the best of these three AI stocks to buy for 2026 and beyond. I might be biased, I own Nvidia stock myself. I bought Nvidia shares at around $93, but even at the current market price, I would be interested in adding more to my Nvidia position."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=ouCRQVWaGaY" target="_blank">I’m Putting My Money into ONE: Nvidia, AMD, or Broadcom?</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">NFLX</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Netflix Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $1,030.00
+                        <span class="timeframe">(intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Best-in-class streaming company that pioneered and maintains industry leadership</li>
+                            
+                            <li>Undervalued at $91 vs intrinsic value of $103 (post-Warner Bros Discovery acquisition)</li>
+                            
+                            <li>International operations provide geographic diversification</li>
+                            
+                            <li>Proven excellence in both content distribution and content creation</li>
+                            
+                            <li>Secular tailwind from 60 million US cable/satellite subscribers still to convert to streaming</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Warner Brothers Discovery acquisition increases leverage and risk</li>
+                            
+                            <li>Change in business model due to honoring legacy operations from acquisition</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Netflix has proven itself as the best streaming company, not just in terms of content distribution, but also in content creation. It's created many hits that consumers love and it's generating hundreds of millions of streaming subscribers that continue increasing."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">AMZN</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Amazon.com Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $270.00
+                        <span class="timeframe">(intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Currently undervalued at $232 vs intrinsic value of $270 per share</li>
+                            
+                            <li>Largest retailer in the world by trailing 12-month revenue with international diversification</li>
+                            
+                            <li>Hundreds of billions invested in fulfillment, logistics, and cloud computing create massive competitive moat</li>
+                            
+                            <li>Leader in both retail e-commerce and cloud computing (AWS)</li>
+                            
+                            <li>Strong position to withstand tariff headwinds relative to competitors</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Investor concerns about hundreds of billions in AI development spending</li>
+                            
+                            <li>Uncertainty around tariff and trade barrier impacts on business operations</li>
+                            
+                            <li>Less competitive advantage in cloud services compared to retail operations</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Amazon is actually undervalued. It's not just reasonably valued, but it's undervalued. I calculated an intrinsic value per share for Amazon at $270 per share and the current market price is $232 per share."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">V</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Visa Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $486.00
+                        <span class="timeframe">(intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Significantly undervalued at $355 vs intrinsic value of $486 - lowest valuation analyst has ever seen</li>
+                            
+                            <li>One of the most profitable companies in the world</li>
+                            
+                            <li>Provides portfolio diversification - benefits from transactions at Costco, Amazon, and other retailers</li>
+                            
+                            <li>Even if disrupted by stablecoins/blockchain, other portfolio holdings would benefit from lower transaction fees</li>
+                            
+                            <li>Dominant position in payment processing network</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Increasing risks of disruption from stablecoins and blockchain technology</li>
+                            
+                            <li>Regulatory pressure threatening dominant market position</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Including Visa in a portfolio like this where you want to buy and hold forever is a no-brainer and it's also coming at a ridiculously cheap valuation. I've never seen Visa stock trade as low of a valuation it's trading for as it is right now."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">KTOS</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Kratos Defense & Security Solutions</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Leader in attritable warfare with XQ-58 Valkyrie drone - expendable autonomous systems designed as 'loyal wingman' for manned fighters</li>
+                            
+                            <li>U.S. Marine Corps designated Valkyrie as official 'Program of Record' - means recurring federal budget funding year after year</li>
+                            
+                            <li>Defense Rocket Systems business showing 116.6% organic revenue growth in Q2</li>
+                            
+                            <li>Pentagon's Replicator Initiative aims to deploy 1,000+ autonomous systems to counter China - Kratos first to market</li>
+                            
+                            <li>Management guiding 15-20% organic growth in 2026 and 18-23% in 2027</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Stock already up ~190% in 2025, market cap now around $13 billion</li>
+                            
+                            <li>Defense contracts can face delays and budget reshuffling</li>
+                            
+                            <li>Timing in defense industry is notoriously unpredictable</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "A 'Program of Record' means recurring federal budget funding. It's not a one-off contract. It's not a pilot program. It's a line item in the defense budget that gets funded year after year after year."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=QRor0yzIgy8" target="_blank">5 Stocks To BUY HEAVY In January 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">SMR</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">NuScale Power Corporation</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Only company in U.S. with NRC-approved small modular reactor design - decade-long approval process creates significant competitive moat</li>
+                            
+                            <li>TVA/ENTRA1 deal for up to 6 gigawatts of SMR capacity - could be largest SMR deployment in U.S. history</li>
+                            
+                            <li>ENTRA1 positioned to receive up to $25 billion in investment capital under U.S.-Japan Framework Agreement</li>
+                            
+                            <li>Perfect solution for AI data center power needs - scalable, factory-built modules ranging 308-924 megawatts</li>
+                            
+                            <li>Current administration supportive of nuclear buildout for AI competitiveness</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Most risky and speculative stock on the list</li>
+                            
+                            <li>Nuclear projects historically face massive cost overruns and timeline delays</li>
+                            
+                            <li>Deals may take longer to materialize than expected</li>
+                            
+                            <li>Potential regulatory issues along the way</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "NuScale is the only company in the U.S. with an NRC-approved small modular reactor design. The NRC is the Nuclear Regulatory Commission. And it is one of the slowest moving regulatory commissions on planet Earth. The entire process of design to approval took over a decade. That is quite the competitive moat."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=QRor0yzIgy8" target="_blank">5 Stocks To BUY HEAVY In January 2026</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">BTC-USD</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Bitcoin</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Bitcoin has extremely low correlation with other asset classes, making it valuable for portfolio diversification</li>
+                            
+                            <li>Asset allocators have a 'fiduciary duty' to consider Bitcoin for portfolio diversification due to low correlations</li>
+                            
+                            <li>Adding low-correlated assets like Bitcoin can improve return per unit of risk</li>
+                            
+                            <li>Bitcoin is considered 'digital gold' and may benefit from similar safe-haven dynamics</li>
+                            
+                            <li>Correlation with S&P 500 is only 0.3, with gold near zero, providing unique diversification benefits</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Four-year cycle concern is prevalent in the market</li>
+                            
+                            <li>Bitcoin to gold ratio has broken below previous higher lows, potentially signaling cycle weakness</li>
+                            
+                            <li>If gold is in 'irrational exuberance' territory, Bitcoin as digital gold may face similar headwinds</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Asset allocators have a fiduciary duty to look at Bitcoin and other crypto assets for portfolio diversification because the lower the correlation, the higher when adding one of these low correlated assets to the others, adding means return per unit of risk probably will go up."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ARK Invest -
+                        <a href="https://youtube.com/watch?v=-RH8u_v17HM" target="_blank">Mortgage Rates And Falling Oil Prices | ITK With Cathie Wood</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">META</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Meta Platforms Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $867.00
+                        <span class="timeframe">(12-24 months)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Strong revenue growth with 28% CAGR over the past decade, growing from $17.9B in 2015 to $165B in trailing 12 months</li>
+                            
+                            <li>Exceptional profitability with return on invested capital exceeding 40% and operating cash flow to sales ratio of 55-56%</li>
+                            
+                            <li>Continued user growth with 3.54 billion daily active people, adding 110 million accounts between March and September 2025</li>
+                            
+                            <li>Advertising business showing dual growth drivers: 14% increase in ads shown worldwide AND 13% increase in price per advertisement</li>
+                            
+                            <li>Attractive valuation at forward P/E of 22 despite double-digit revenue growth and industry-leading profitability metrics</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Heavy AI investment spending may weigh on free cash flow in 2026-2027, creating investor concern about capital allocation</li>
+                            
+                            <li>Investors remain traumatized from the Metaverse investment failure, questioning whether AI spending could repeat that outcome</li>
+                            
+                            <li>Hardware consumer electronics ambitions (competing with Apple) have small probability of success given Apple's dominant position</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "You'll rarely find a company that's generating revenue growth in the double digits, approaching 20%. Increasing profitability, returns on invested capital that are multiples of the company's weighted average cost of capital. Earnings per share growth in the double digits. Operating cash flow to sales ratio among the best in the world at over 50% approaching 60%. You'll rarely find a, in fact, I don't think you can find another business like that that's trading at valuations this cheap."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=lvjXitnx4cM" target="_blank">My Top-Ranked Stock to Buy in 2026!</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">XLI</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Industrial Select Sector SPDR Fund</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Benefits from US manufacturing reshoring trend</li>
+                            
+                            <li>Trump administration tariffs and tax incentives driving domestic production</li>
+                            
+                            <li>US needs to build domestic supply chain for critical minerals</li>
+                            
+                            <li>Industrial sector positioned to benefit from reduced China dependence</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Tariff policies could change or be ineffective</li>
+                            
+                            <li>Manufacturing reshoring is a long-term process with uncertain timeline</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "We know that the Trump administration has been working actively through tariffs and tax incentives to get businesses to do more manufacturing here in the United States."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Minority Mindset -
+                        <a href="https://youtube.com/watch?v=oer1QpBbHQI" target="_blank">China Just Weaponized Silver — The U.S. Economy Pays The Price</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">PAVE</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Global X U.S. Infrastructure Development ETF</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Exposure to US industrial development companies</li>
+                            
+                            <li>Benefits from domestic manufacturing buildout</li>
+                            
+                            <li>Aligned with policy push to reduce dependence on China</li>
+                            
+                            <li>Infrastructure needed to support reshoring efforts</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Policy-dependent thesis</li>
+                            
+                            <li>Infrastructure spending could face budget constraints</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "PAVE is an ETF that gives you exposure to industrial development companies here in the United States, which would also go hand in hand with building more of this manufacturing here in the United States."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Minority Mindset -
+                        <a href="https://youtube.com/watch?v=oer1QpBbHQI" target="_blank">China Just Weaponized Silver — The U.S. Economy Pays The Price</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">EWW</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">iShares MSCI Mexico ETF</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Mexico is the world's largest silver producer</li>
+                            
+                            <li>As China tightens silver exports, buyers will look to alternative suppliers</li>
+                            
+                            <li>Geographic diversification away from China-controlled supply</li>
+                            
+                            <li>Direct beneficiary of silver supply chain restructuring</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Country-specific political and economic risks</li>
+                            
+                            <li>Currency fluctuation exposure</li>
+                            
+                            <li>Dependent on sustained high silver prices</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "China tightens the spigot, buyers look elsewhere. Mexico is the world's largest silver producer."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=arqjQ0H0Yb8" target="_blank">China Just Weaponized Silver - ACT NOW!</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">PSLV</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Sprott Physical Silver Trust</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Provides exposure to allocated physical silver metal</li>
+                            
+                            <li>Benefits from same supply/demand dynamics driving silver prices higher</li>
+                            
+                            <li>Alternative to SLV for investors wanting physical metal backing</li>
+                            
+                            <li>China's strategic material classification of silver creates supply squeeze</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Same risks as broader silver market - Fed rate hikes could reverse trend</li>
+                            
+                            <li>Silver already experienced significant price appreciation</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "PSLV is another option focused on allocated physical metal."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> ZipTrader -
+                        <a href="https://youtube.com/watch?v=arqjQ0H0Yb8" target="_blank">China Just Weaponized Silver - ACT NOW!</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">SLVR</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Silver ETF (Alternative)</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Alternative ETF for paper silver exposure mentioned alongside SLV</li>
+                            
+                            <li>Benefits from same supply/demand dynamics driving silver prices</li>
+                            
+                            <li>Provides exposure without owning physical silver</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Paper silver doesn't provide physical ownership</li>
+                            
+                            <li>Subject to same downside risk if silver prices correct</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "SLV, SLVR. These are two different ETFs that can give you exposure to paper silver."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Minority Mindset -
+                        <a href="https://youtube.com/watch?v=oer1QpBbHQI" target="_blank">China Just Weaponized Silver — The U.S. Economy Pays The Price</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">SIL</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Global X Silver Miners ETF</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Provides leveraged exposure to silver through mining companies</li>
+                            
+                            <li>Benefits from higher silver prices through mining profit margins</li>
+                            
+                            <li>US policy changes to boost domestic silver production could benefit miners</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Mining companies have operational risks beyond silver price</li>
+                            
+                            <li>More volatile than direct silver exposure</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "You can also invest in silver miners, things like SIL, SLVP. SIL is an ETF that's going to give you exposure to the Global X Silver Miners ETF"
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Minority Mindset -
+                        <a href="https://youtube.com/watch?v=oer1QpBbHQI" target="_blank">China Just Weaponized Silver — The U.S. Economy Pays The Price</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">SLVP</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">iShares MSCI Global Silver and Metals Miners ETF</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>iShares ETF providing exposure to global silver miners</li>
+                            
+                            <li>Diversified across multiple silver mining companies globally</li>
+                            
+                            <li>Benefits from structural increase in silver demand</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Global exposure includes geopolitical risks</li>
+                            
+                            <li>Mining sector volatility</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "SLVP is an ETF created by iShares that's giving you exposure to global silver miners."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Minority Mindset -
+                        <a href="https://youtube.com/watch?v=oer1QpBbHQI" target="_blank">China Just Weaponized Silver — The U.S. Economy Pays The Price</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">QQQ</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Invesco QQQ Trust (Nasdaq 100 ETF)</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Dollar-cost averaging into QQQ from the March 2000 peak through today yielded 14.5% annualized returns despite the 80% crash</li>
+                            
+                            <li>Demonstrates the power of disciplined, consistent investing through market cycles</li>
+                            
+                            <li>Low-cost ETF approach removes emotional guesswork from investing</li>
+                            
+                            <li>Presenter strongly advocates for dollar-cost averaging into low-cost ETFs as foundation for most investors</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Nasdaq fell 80% from 2000 peak and took 14 years to reach new highs</li>
+                            
+                            <li>Current market valuations are at historically high levels (Shiller PE at 40x, second highest ever)</li>
+                            
+                            <li>Requires emotional discipline to continue buying during severe downturns</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "If you bought QQQ, the Nasdaq 100 at the peak in March of 2000, it ended up falling 80+% percent. But if you dollar-cost averaged starting on that very peak day of March 10, 2000 till today, you made over 14.5% annualized returns."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Everything Money -
+                        <a href="https://youtube.com/watch?v=p3zxjA6-7CE" target="_blank">Right Now, This Is Your Best Chance to Become a Stock Market Millionaire!</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        <!-- Stocks to Avoid (SELL) -->
+        
+        <section class="section">
+            <h2 class="section-title sell-section">📉 Stocks to Avoid</h2>
+            <div class="insights-grid">
+                
+                <div class="insight-card sell-card">
+                    <div class="insight-header">
+                        <span class="ticker">CRWV</span>
+                        <span class="badge badge-sell">SELL</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">CoreWeave</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Concerns:</strong>
+                        <ul>
+                            
+                            <li>Operates a platform for AI and GPU as a service</li>
+                            
+                            <li>Has robust growth outlook</li>
+                            
+                            <li>Building its own data center network</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "It does not own its own data centers. To me, that leaves it vulnerable to expansion and disruption. It is, in fact, a customer of some of these other companies... they have a late comer disadvantage and they will be struggling this year I think to gain share while these other companies are going to be outperforming."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> MarketBeat -
+                        <a href="https://youtube.com/watch?v=DzrU0jR5yXY" target="_blank">AI Data Center Demand Just Surged 250%: 5 Stocks Set to Climb</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        <!-- Hold Recommendations -->
+        
+
+        <!-- Community Insights -->
+        
+
+        <!-- Statistics -->
+        <section class="section statistics-section">
+            <h2 class="section-title">📊 Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">43</div>
+                    <div class="stat-label">Videos Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">Channels Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">81</div>
+                    <div class="stat-label">Tickers Mentioned</div>
+                </div>
+                <div class="stat-card buy-stat">
+                    <div class="stat-value">77</div>
+                    <div class="stat-label">BUY Recommendations</div>
+                </div>
+                <div class="stat-card sell-stat">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">SELL Recommendations</div>
+                </div>
+                <div class="stat-card hold-stat">
+                    <div class="stat-value">11</div>
+                    <div class="stat-label">HOLD Recommendations</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="disclaimer">
+                <strong>⚠️ Disclaimer:</strong> This newsletter contains AI-generated insights extracted from YouTube videos.
+                The recommendations and analysis presented here are for informational purposes only and should not be
+                considered as financial advice. Always conduct your own research and consult with qualified financial
+                advisors before making investment decisions. Past performance does not guarantee future results.
+            </p>
+            <p class="copyright">
+                APINA Capital Investment Letter | Period: January 06, 2026 - January 13, 2026
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
