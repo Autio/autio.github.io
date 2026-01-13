@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APINA Capital Investment Letter - Week of January 06 - January 13, 2026</title>
+    <style>
+        /* APINA Capital Investment Letter Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Sections */
+.section {
+    padding: 40px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+}
+
+.buy-section {
+    border-bottom-color: #10b981;
+}
+
+.sell-section {
+    border-bottom-color: #ef4444;
+}
+
+.hold-section {
+    border-bottom-color: #f59e0b;
+}
+
+.community-section {
+    border-bottom-color: #6366f1;
+}
+
+.section-description {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.05em;
+}
+
+/* Insights Grid */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+/* Insight Cards */
+.insight-card {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 5px solid #667eea;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.insight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.buy-card {
+    border-left-color: #10b981;
+    background: #f0fdf4;
+}
+
+.sell-card {
+    border-left-color: #ef4444;
+    background: #fef2f2;
+}
+
+.hold-card {
+    border-left-color: #f59e0b;
+    background: #fffbeb;
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.ticker {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-buy {
+    background: #10b981;
+    color: white;
+}
+
+.badge-sell {
+    background: #ef4444;
+    color: white;
+}
+
+.badge-hold {
+    background: #f59e0b;
+    color: white;
+}
+
+.badge-confidence-high {
+    background: #3b82f6;
+    color: white;
+}
+
+.badge-confidence-medium {
+    background: #8b5cf6;
+    color: white;
+}
+
+.badge-confidence-low {
+    background: #6b7280;
+    color: white;
+}
+
+.company-name {
+    font-size: 1.1em;
+    color: #374151;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.price-target {
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.timeframe {
+    color: #6b7280;
+    font-size: 0.9em;
+}
+
+.key-points, .risks {
+    margin: 12px 0;
+}
+
+.key-points strong, .risks strong {
+    color: #1f2937;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.key-points ul, .risks ul {
+    list-style-position: inside;
+    padding-left: 8px;
+}
+
+.key-points li {
+    color: #374151;
+    margin: 4px 0;
+    padding-left: 4px;
+}
+
+.risks li {
+    color: #dc2626;
+    margin: 4px 0;
+    padding-left: 4px;
+}
+
+.quote {
+    background: white;
+    border-left: 3px solid #667eea;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-style: italic;
+    color: #4b5563;
+    border-radius: 4px;
+}
+
+.source {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.9em;
+    color: #6b7280;
+}
+
+.source a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.source a:hover {
+    text-decoration: underline;
+}
+
+/* Comments */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment-card {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid #6366f1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.insight-score {
+    background: #fef3c7;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.like-count {
+    color: #6b7280;
+    font-size: 0.85em;
+}
+
+.comment-text {
+    color: #374151;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.comment-insight {
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 0.95em;
+}
+
+.comment-insight strong {
+    color: #6366f1;
+}
+
+.comment-source {
+    padding-top: 8px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.comment-source a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.comment-source a:hover {
+    text-decoration: underline;
+}
+
+/* Statistics */
+.statistics-section {
+    background: #f9fafb;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #e5e7eb;
+}
+
+.buy-stat {
+    border-color: #10b981;
+}
+
+.sell-stat {
+    border-color: #ef4444;
+}
+
+.hold-stat {
+    border-color: #f59e0b;
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.footer {
+    background: #f9fafb;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.disclaimer {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    color: #991b1b;
+    line-height: 1.7;
+}
+
+.copyright {
+    color: #6b7280;
+    font-size: 0.85em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 8px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+    }
+
+    .section {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    .insight-card, .comment-card {
+        page-break-inside: avoid;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">APINA Capital Investment Letter</h1>
+            <p class="subtitle">Week of January 06 - January 13, 2026</p>
+            <p class="date">Generated on January 13, 2026</p>
+        </header>
+
+        <!-- Top Opportunities (BUY) -->
+        
+        <section class="section">
+            <h2 class="section-title buy-section">📈 Top Investment Opportunities</h2>
+            <div class="insights-grid">
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">NVDA</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">NVIDIA Corporation</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $199.00
+                        <span class="timeframe">(12 months)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Dominant 80-90% market share in data center GPUs optimized for AI</li>
+                            
+                            <li>Best-in-class financial metrics: 110% ROIC, 49% cash flow to sales ratio, 45% CAGR over past decade</li>
+                            
+                            <li>Trading at cheapest valuation among peers with forward P/E of 27</li>
+                            
+                            <li>Potential 20-30% additional upside if $50 billion China orders are approved</li>
+                            
+                            <li>Strong competitive advantages with Blackwell and upcoming Ruben technology</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>110% ROIC is not sustainable long-term as competition increases</li>
+                            
+                            <li>AMD and Broadcom gaining market share as hyperscalers diversify suppliers</li>
+                            
+                            <li>Dependency on China approval for $50 billion in H200 chip orders</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "So this decision is a relatively easy one for me. It points to Nvidia as being the best of these three AI stocks to buy for 2026 and beyond. I might be biased, I own Nvidia stock myself. I bought Nvidia shares at around $93. But even at the current market price, I would be interested in adding more to my Nvidia position."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=ouCRQVWaGaY" target="_blank">I’m Putting My Money into ONE: Nvidia, AMD, or Broadcom?</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">AMZN</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Amazon.com Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $270.00
+                        <span class="timeframe">(intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Currently undervalued at $232 vs intrinsic value of $270 per share</li>
+                            
+                            <li>Largest retailer in the world by trailing 12-month revenue</li>
+                            
+                            <li>Hundreds of billions invested in fulfillment, logistics, and cloud computing create massive competitive moat</li>
+                            
+                            <li>Diversified operations across retail, cloud computing (AWS), and streaming</li>
+                            
+                            <li>Strong position to withstand tariff headwinds relative to competitors</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Investor concerns about hundreds of billions in AI development spending</li>
+                            
+                            <li>Uncertainty around tariff and trade barrier impacts on operations</li>
+                            
+                            <li>Less competitive advantage in cloud services compared to retail</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Amazon is actually undervalued. It's not just reasonably valued, but it's undervalued. I calculated an intrinsic value per share for Amazon at $270 per share and the current market price is $232 per share."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">V</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Visa Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $486.00
+                        <span class="timeframe">(intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Trading at lowest valuation ever seen - intrinsic value $486 vs market price $355</li>
+                            
+                            <li>One of the most profitable companies in the world</li>
+                            
+                            <li>Provides portfolio diversification - benefits from transactions at Costco, Amazon, etc.</li>
+                            
+                            <li>Even if disrupted by stablecoins/blockchain, other portfolio holdings would benefit from lower transaction fees</li>
+                            
+                            <li>Dominant position in payment processing network</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Increasing risks of disruption from stablecoins and blockchain technology</li>
+                            
+                            <li>Regulatory pressure threatening dominant market position</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "I've never seen Visa stock trade as low of a valuation it's trading for as it is right now. The intrinsic value per share I calculated is $486, the current market price is $355."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">META</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Meta Platforms Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $867.00
+                        <span class="timeframe">(12-24 months)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Strong revenue growth with 28% CAGR over the past decade, growing from $17.9B in 2015 to $165B trailing twelve months</li>
+                            
+                            <li>Exceptional profitability with return on invested capital exceeding 40% and operating cash flow to sales ratio of 55-56%</li>
+                            
+                            <li>Massive user base of 3.54 billion daily active people with continued growth (adding 50-60 million users per quarter)</li>
+                            
+                            <li>Dual revenue growth driver: both ad impressions (+14% YoY) and price per ad (+13% YoY) are increasing simultaneously</li>
+                            
+                            <li>Trading at attractive forward P/E of 22x despite double-digit revenue and EPS growth, representing significant undervaluation vs. intrinsic value of $867/share</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Heavy AI infrastructure spending may weigh on free cash flow in 2026-2027, creating investor concern</li>
+                            
+                            <li>Investor trauma from previous metaverse investment pivot creates skepticism about current AI spending strategy</li>
+                            
+                            <li>Hardware/consumer electronics ambitions face low probability of success against Apple's dominant position</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "You'll rarely find a company that's generating revenue growth in the double digits, approaching 20%. Increasing profitability, returns on invested capital that are multiples of the company's weighted average cost of capital, earnings per share growth in the double digits, operating cash flow to sales ratio among the best in the world at over 50%, approaching 60%. You'll rarely find a, in fact, I don't think you can find another business like that that's trading at valuations this cheap."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=lvjXitnx4cM" target="_blank">My Top-Ranked Stock to Buy in 2026!</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">MU</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Micron Technology</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $263.00
+                        <span class="timeframe">(Fair value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>HBM memory technology is completely sold out for 2026 with prices increasing</li>
+                            
+                            <li>Management forecasting double-digit demand growth for memory and storage over next 2-4 years</li>
+                            
+                            <li>Excellent cash flow to sales ratio at 47% and improving</li>
+                            
+                            <li>ROIC has recovered strongly from -12% to 14.8% and trending upward</li>
+                            
+                            <li>Trades at remarkably low forward P/E of 7.6 - cheapest of the four companies analyzed</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Semiconductor industry is cyclical - current boom conditions may not persist</li>
+                            
+                            <li>Currently trading at $285 vs fair value estimate of $263 (slightly above intrinsic value)</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "So if I had to pick only one of these semiconductor manufacturing companies for 2026, I would say the best one to buy in 2026 would be Micron. Micron would be my choice for the best stock, best of these to buy for 2026."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=Mf_KBqVHUFM" target="_blank">The Only Semiconductor Stock You Need for 2026 (TSMC, Intel, ASML, or Micron?)</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">NFLX</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Netflix Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $1,030.00
+                        <span class="timeframe">(intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Best-in-class streaming company that pioneered and maintains industry leadership</li>
+                            
+                            <li>International operations provide geographic diversification</li>
+                            
+                            <li>Warner Brothers Discovery acquisition increased intrinsic value to $1030 from $930</li>
+                            
+                            <li>60 million US households still on cable/satellite represent continued growth runway</li>
+                            
+                            <li>Proven excellence in both content distribution and content creation</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Warner Brothers acquisition increases leverage and risk</li>
+                            
+                            <li>Change in business model due to honoring legacy operations from acquisition</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Netflix has proven itself as the best streaming company, not just in terms of content distribution, but also in content creation. It's created many hits that consumers love and it's generating hundreds of millions of streaming subscribers."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">HD</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">The Home Depot Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $316.00
+                        <span class="timeframe">(intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Leading home improvement retailer in the world with sustainable competitive advantage</li>
+                            
+                            <li>Protected from Amazon disruption due to immediate need for products and bulky item delivery challenges</li>
+                            
+                            <li>Strong position with professional contractors in addition to consumers</li>
+                            
+                            <li>Home improvement is an eternal business - homes will always need maintenance</li>
+                            
+                            <li>Trading at reasonable valuation with intrinsic value of $316 vs market price of $345</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Currently trading slightly above intrinsic value estimate</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "The home improvement business is going to be around for millennia, right? People are going to live in homes forever and those homes are going to need maintenance, need updates, things are going to break, you're going to need to fix those things."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">TSM</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Taiwan Semiconductor Manufacturing Company</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $257.00
+                        <span class="timeframe">(Fair value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Described as 'the best manufacturing company in the world' in terms of financial performance and competitive advantages</li>
+                            
+                            <li>Best-in-class cash flow to sales ratio at 60%</li>
+                            
+                            <li>Strong ROIC at 33.4% - excellent capital allocation</li>
+                            
+                            <li>Primary manufacturing partner for Nvidia, AMD, and Apple</li>
+                            
+                            <li>Conservative approach to capacity expansion protects against cyclical downturns</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Geopolitical risk from China threatening Taiwan</li>
+                            
+                            <li>Profit margins under pressure from geographic diversification - gross margin expected to decline ~500 basis points (58% to 53%)</li>
+                            
+                            <li>Currently trading at $304 vs fair value of $257 - slightly overvalued</li>
+                            
+                            <li>Arizona facility production has lower margins than Taiwan operations</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Taiwan Semiconductor Manufacturing Company is the best manufacturing company in the world in terms of performance, financial performance, critically important metric, competitive advantages, etc. Just not thinking about valuation. Just looking at business performance, TSMC I would argue is the best manufacturing company in the world. Bar none."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=Mf_KBqVHUFM" target="_blank">The Only Semiconductor Stock You Need for 2026 (TSMC, Intel, ASML, or Micron?)</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">NVO</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Novo Nordisk</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $85.00
+                        <span class="timeframe">(12 months)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>First-to-market FDA approval for oral weight loss pill (semaglutide) in the US, providing significant competitive advantage over Eli Lilly</li>
+                            
+                            <li>Massive addressable market of 100+ million Americans with obesity, representing multi-hundred billion dollar opportunity</li>
+                            
+                            <li>Affordable pricing at ~$150/month ($5/day) for starting dose, lower than expected, which should drive broad adoption</li>
+                            
+                            <li>Strong distribution network already in place through 70,000+ US pharmacies including CVS, Costco, and telehealth providers</li>
+                            
+                            <li>Projected free cash flow growth from $5.8B (2025) to $13.1B (2026) to $25B+ by 2031</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Eli Lilly expected to launch competing oral weight loss pill by mid-2026, ending first-mover advantage</li>
+                            
+                            <li>Side effects causing patient dropout during trials (~14% vs 17% weight loss when accounting for dropouts)</li>
+                            
+                            <li>Profitability metrics for oral pill not yet disclosed by company</li>
+                            
+                            <li>Uncertain relationship with Hims & Hers due to compounded version competition</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "For Novo Nordisk, I calculated its fair value to be worth $85 per share. The stock price has increased and it's up to $56 per share... even at $56, you can see it's considerably undervalued compared to the intrinsic value per share I calculated for Novo at $85. So even though it's increased a little bit in recent days and recent weeks, I think there's still considerable upside here for Novo Nordisk stock."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=32O7sONeQ1M" target="_blank">Novo Nordisk: The $149 Pill That Changes Everything (Buy Now?)</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">COST</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Costco Wholesale Corporation</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Widely recognized as the best retailer in the world with decades of competitive advantage building</li>
+                            
+                            <li>90%+ membership retention ratio demonstrates exceptional customer loyalty</li>
+                            
+                            <li>Currently trading near 52-week low at $875, closest to intrinsic value in years</li>
+                            
+                            <li>Recurring membership fee model provides stable, predictable profit stream</li>
+                            
+                            <li>Strong operations in supply chain management, purchasing, and store growth</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Never trades at a cheap valuation - currently above calculated intrinsic value of $677</li>
+                            
+                            <li>Stock always commands a premium, limiting upside potential</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Costco is one of those companies that I've never seen trade at a cheap valuation. It's never traded at a cheap valuation in the seven or eight years I've been following this company. That's because it's widely recognized by stock market investors as the best retailer in the world."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">PG</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Procter & Gamble Co.</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Trading at a cheap valuation according to the analyst</li>
+                            
+                            <li>Exceptional competitive advantages in marketing, advertising, and promotion built over decades</li>
+                            
+                            <li>Economies of scale across global brands allow lower advertising costs than competitors</li>
+                            
+                            <li>Strong capabilities in logistics, fulfillment, manufacturing, and distributor relationships</li>
+                            
+                            <li>Proven acquisition strategy to identify and improve new brands in various categories</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Consumers regularly pay above average prices for Procter & Gamble's branded products compared to store brand products that are available in similar categories that Procter & Gamble operates at lower prices."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">DIS</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">The Walt Disney Company</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>100-year track record with expectation of another 100 years of operations</li>
+                            
+                            <li>Generational customer loyalty - families return across multiple generations</li>
+                            
+                            <li>Strongest intellectual property in theme parks with seemingly unlimited pricing power</li>
+                            
+                            <li>Streaming service arguably second place in streaming wars with aggressive investment since 2019-2020</li>
+                            
+                            <li>International operations provide geographic diversification</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Disney's been around for roughly 100 years and I expect it will be around for another 100 years. Mainly due to the consumer loyalty, the consumer brand, the history with consumers, the way people, you know, generations of people go to its theme parks."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=WCvPma2p4UI" target="_blank">My "Forever" Portfolio: 7 Stocks to Buy and Hold Forever</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">GOOGL</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Alphabet Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $385.00
+                        <span class="timeframe">(End of 2026)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Stock was up over 60% in 2025, demonstrating strong momentum and validating the analyst's long-held bullish thesis</li>
+                            
+                            <li>Google Cloud experiencing accelerating revenue growth with $49 billion sequential increase in backlog, indicating strong enterprise AI demand</li>
+                            
+                            <li>Demand for AI infrastructure (TPUs, GPUs, Gemini 2.5) exceeds supply, creating pricing power and growth runway</li>
+                            
+                            <li>Capital expenditure increasing significantly ($91-93B in 2025, expected well above $100B in 2026) to capture AI opportunity</li>
+                            
+                            <li>Forward PE multiple expansion from ~20 to ~30 as market recognizes AI as beneficial rather than detrimental to the business</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Heavy capital expenditure will continue to pressure profit margins through the investment period</li>
+                            
+                            <li>Previous investor concern that AI/LLMs could cannibalize Google's core search business (though analyst believes this has been disproven)</li>
+                            
+                            <li>Valuation multiple expansion may not continue if AI monetization disappoints expectations</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "I think there's considerable upside in this business, and I think the stock price could end the year somewhere between $370 per share and $400 per share... And given the current market price of $315, I see considerable upside here for Alphabet stock."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=1JdG1JQRul0" target="_blank">Wall Street Laughed at My Google Price Target. Look at it Now.</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">ADBE</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Adobe Inc.</h3>
+
+                    
+                    <div class="price-target">
+                        <strong>Target:</strong> $414.00
+                        <span class="timeframe">(not specified - intrinsic value estimate)</span>
+                    </div>
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Stock is trading at historically cheap valuation with forward P/E of just 14, the lowest in many years</li>
+                            
+                            <li>DCF analysis suggests significant undervaluation at $331 vs intrinsic value of $414 (25% upside)</li>
+                            
+                            <li>AI strategy showing traction with 3x quarter-over-quarter increase in generative AI credit consumption</li>
+                            
+                            <li>Strong user growth with total monthly active users up 15% YoY and creative freemium users surpassing 70 million (35% YoY growth)</li>
+                            
+                            <li>Historically excellent returns on invested capital improving from 17% to 36%</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>Revenue growth has slowed significantly from historical 16.8% CAGR to approximately 10%</li>
+                            
+                            <li>Returns on invested capital likely to decrease as AI computing costs are significantly higher than traditional methods</li>
+                            
+                            <li>Rising competition threatening Adobe's cash flow generation</li>
+                            
+                            <li>Investor skepticism about company's ability to keep pace with AI innovation and faster-moving rivals</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "When I measure Adobe stock using my discounted cash flow valuation model, it shows that it's significantly undervalued at $331 per share compared to the intrinsic value of over $414, I calculated for this growth stock. So this does make Adobe stock a buying opportunity on this recent crash."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=esxRZNa1ykw" target="_blank">Is Adobe an Undervalued Stock to Buy? | #adbe #adobe #adobestock #stocks #trading #ai #stockmarket</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card buy-card">
+                    <div class="insight-header">
+                        <span class="ticker">AVGO</span>
+                        <span class="badge badge-buy">BUY</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Broadcom Inc.</h3>
+
+                    
+
+                    
+                    <div class="key-points">
+                        <strong>Key Points:</strong>
+                        <ul>
+                            
+                            <li>Gaining market share in the ASIC (Application Specific Integrated Circuits) category</li>
+                            
+                            <li>Strategic partnership with OpenAI for custom AI chips</li>
+                            
+                            <li>Partnership with Alphabet for TPUs (Tensor Processing Units)</li>
+                            
+                            <li>Benefits from diversification trend as companies seek alternatives to NVIDIA</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <div class="risks">
+                        <strong>Risks:</strong>
+                        <ul>
+                            
+                            <li>NVIDIA's dominant market position limits addressable market</li>
+                            
+                            <li>ASIC market is smaller than general-purpose GPU market</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "And Broadcom is also gaining market share in the ASIC category, in the Application Specific Integrated Circuits. Companies like OpenAI partnering with Broadcom for these ASICs and also Alphabet partnering with Broadcom for these ASICs."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=a6mP9RzY1kA" target="_blank">Is Your Portfolio Funding an AI Bubble?</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        <!-- Stocks to Avoid (SELL) -->
+        
+        <section class="section">
+            <h2 class="section-title sell-section">📉 Stocks to Avoid</h2>
+            <div class="insights-grid">
+                
+                <div class="insight-card sell-card">
+                    <div class="insight-header">
+                        <span class="ticker">TSLA</span>
+                        <span class="badge badge-sell">SELL</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Tesla Inc.</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Concerns:</strong>
+                        <ul>
+                            
+                            <li>Nvidia's new open reasoning VLA model for autonomous driving democratizes the technology, eroding Tesla's data advantage built over billions of miles</li>
+                            
+                            <li>Only 12% of Tesla car buyers are purchasing the FSD technology, indicating weak consumer demand</li>
+                            
+                            <li>Tesla trades at a forward P/E of 225 vs Nvidia's 27 - approximately 10x more expensive despite generating zero AI/autonomous driving revenue</li>
+                            
+                            <li>Tesla's autonomous driving is still in testing with only a few dozen cars in geo-fenced areas in a couple of US cities</li>
+                            
+                            <li>Historical pattern of over-promises and under-deliveries: $25K car delivered at $37K, Cybertruck promised at $40K delivered at $70K, FSD promised since 2016 still not broadly available</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Tesla's trading at a forward PE of 225. That's almost 10 times as expensive as Nvidia, which is trading at a forward PE of 27. Nvidia is already generating over $100 billion annually in AI revenue. Tesla still remains to be seen when or if this company will generate revenue from artificial intelligence."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=IIZM4P4iqIo" target="_blank">Nvidia Just Killed Tesla Stock.</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card sell-card">
+                    <div class="insight-header">
+                        <span class="ticker">CHGG</span>
+                        <span class="badge badge-sell">SELL</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Chegg Inc.</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Concerns:</strong>
+                        <ul>
+                            
+                            <li>Business model severely disrupted by ChatGPT and large language models</li>
+                            
+                            <li>Stock down approximately 90% since analyst warned investors in 2023</li>
+                            
+                            <li>Free AI alternatives now provide better service than Chegg's $15-20/month subscription</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    
+                    <blockquote class="quote">
+                        "Chegg stock, I warned investors uh since 2023 to avoid Chegg stock and I think it's down something like 90% because of how Chat GPT and large language models disrupted its whole business model."
+                    </blockquote>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=ReMf-EDRiAU" target="_blank">Nvidia’s New Chip is 5x Faster. It’s Over</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        <!-- Hold Recommendations -->
+        
+        <section class="section">
+            <h2 class="section-title hold-section">⏸️ Hold Recommendations</h2>
+            <div class="insights-grid">
+                
+                <div class="insight-card hold-card">
+                    <div class="insight-header">
+                        <span class="ticker">AVGO</span>
+                        <span class="badge badge-hold">HOLD</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Broadcom Inc.</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Rationale:</strong>
+                        <ul>
+                            
+                            <li>Gaining market share in ASIC category with partnerships from OpenAI and Alphabet (TPUs)</li>
+                            
+                            <li>Strong track record of successful acquisitions and finding synergies</li>
+                            
+                            <li>ROIC expected to recover to 20% over next 12-36 months as VMware acquisition benefits materialize</li>
+                            
+                            <li>Fairly valued to slightly undervalued at current price of $348 vs intrinsic value of $375</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=ouCRQVWaGaY" target="_blank">I’m Putting My Money into ONE: Nvidia, AMD, or Broadcom?</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card hold-card">
+                    <div class="insight-header">
+                        <span class="ticker">ASML</span>
+                        <span class="badge badge-hold">HOLD</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">ASML Holding</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Rationale:</strong>
+                        <ul>
+                            
+                            <li>Best-in-class ROIC at 54.1% - up from 13% in 2016</li>
+                            
+                            <li>Only company that can produce high-end EUV manufacturing machines</li>
+                            
+                            <li>Strong pricing power due to extremely limited competition on highest-end products</li>
+                            
+                            <li>Best compounded annual growth rate of 21% among the four companies</li>
+                            
+                            <li>Vital supplier to Intel, Micron, and TSMC</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=Mf_KBqVHUFM" target="_blank">The Only Semiconductor Stock You Need for 2026 (TSMC, Intel, ASML, or Micron?)</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card hold-card">
+                    <div class="insight-header">
+                        <span class="ticker">TSM</span>
+                        <span class="badge badge-hold">HOLD</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Taiwan Semiconductor Manufacturing Company</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Rationale:</strong>
+                        <ul>
+                            
+                            <li>Best manufacturing company in the world with exceptional profitability - ROIC at historic high of 33.4% and cash flow from operations to sales ratio of 59.7%</li>
+                            
+                            <li>Revenue has exploded from $70B in 2023 to $119B trailing 12-months due to AI-driven demand surge</li>
+                            
+                            <li>Consistently beats guidance - Q3 actual performance exceeded high end of guidance on revenue, gross margin, and operating margin</li>
+                            
+                            <li>Irreplaceable position as manufacturing partner for Nvidia, AMD, Apple, Broadcom, Qualcomm - benefits regardless of which chip designer wins market share</li>
+                            
+                            <li>Management guiding Q4 2025 revenue of $32.2-33.4B with 60% gross margin and 50% operating margin</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=UPBfi1zr5-o" target="_blank">TSMC vs. The Market: The "AI Bubble" Reality Check.</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card hold-card">
+                    <div class="insight-header">
+                        <span class="ticker">MU</span>
+                        <span class="badge badge-hold">HOLD</span>
+                        <span class="badge badge-confidence-high">
+                            HIGH
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Micron Technology</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Rationale:</strong>
+                        <ul>
+                            
+                            <li>Revenue growth from $12.4B (2016) to $37.4B (trailing 12 months)</li>
+                            
+                            <li>Analyst previously recommended as great investment opportunity in 2024-2025</li>
+                            
+                            <li>Stock price 'absolutely soared' in 2025</li>
+                            
+                            <li>Currently trading at fair value based on DCF model</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=llHLUMs3Yvo" target="_blank">TSMC, Intel, ASML, or Micron? (3 Must Go, 1 Must Stay).</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card hold-card">
+                    <div class="insight-header">
+                        <span class="ticker">NFLX</span>
+                        <span class="badge badge-hold">HOLD</span>
+                        <span class="badge badge-confidence-medium">
+                            MEDIUM
+                        </span>
+                    </div>
+
+                    <h3 class="company-name">Netflix Inc.</h3>
+
+                    
+                    <div class="key-points">
+                        <strong>Rationale:</strong>
+                        <ul>
+                            
+                            <li>Netflix's overall business value estimated to be 10% higher post-acquisition</li>
+                            
+                            <li>Acquisition is viewed as consumer-friendly due to Netflix's immediate content availability model vs theatrical windows</li>
+                            
+                            <li>Strategic acquisition of Warner Brothers content library and assets (excluding Global Networks division)</li>
+                            
+                            <li>Management confident in regulatory approval due to consumer-friendly nature of the deal</li>
+                            
+                        </ul>
+                    </div>
+                    
+
+                    <div class="source">
+                        <strong>Source:</strong> Parkev Tatevosian, CFA -
+                        <a href="https://youtube.com/watch?v=c4ByXqFe3Nk" target="_blank">Should Investors Buy Netflix Stock After Netflix Acquires Warner Bros? | #nflx #netflixstock #stocks</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+
+        <!-- Community Insights -->
+        
+
+        <!-- Statistics -->
+        <section class="section statistics-section">
+            <h2 class="section-title">📊 Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">22</div>
+                    <div class="stat-label">Videos Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1</div>
+                    <div class="stat-label">Channels Covered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">21</div>
+                    <div class="stat-label">Tickers Mentioned</div>
+                </div>
+                <div class="stat-card buy-stat">
+                    <div class="stat-value">30</div>
+                    <div class="stat-label">BUY Recommendations</div>
+                </div>
+                <div class="stat-card sell-stat">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">SELL Recommendations</div>
+                </div>
+                <div class="stat-card hold-stat">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">HOLD Recommendations</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="disclaimer">
+                <strong>⚠️ Disclaimer:</strong> This newsletter contains AI-generated insights extracted from YouTube videos.
+                The recommendations and analysis presented here are for informational purposes only and should not be
+                considered as financial advice. Always conduct your own research and consult with qualified financial
+                advisors before making investment decisions. Past performance does not guarantee future results.
+            </p>
+            <p class="copyright">
+                APINA Capital Investment Letter | Period: January 06, 2026 - January 13, 2026
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
