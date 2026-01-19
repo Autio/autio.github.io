@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wittenberg 1348 - City Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
+            color: #e8d7c3;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #8b6f47;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #c4b5a0;
+            font-size: 1.1em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .controls {
+            background: rgba(30, 20, 10, 0.6);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #8b6f47;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .control-group {
+            margin-bottom: 25px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .control-group input[type="range"] {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .control-group .value-display {
+            text-align: right;
+            color: #c4b5a0;
+            font-size: 0.9em;
+        }
+
+        .control-group select {
+            width: 100%;
+            padding: 8px;
+            background: #2c1810;
+            color: #e8d7c3;
+            border: 1px solid #8b6f47;
+            border-radius: 4px;
+            font-family: 'Georgia', serif;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #8b6f47;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        button:hover {
+            background: #a0835a;
+        }
+
+        .results {
+            background: rgba(30, 20, 10, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #8b6f47;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #8b6f47;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            border-bottom: 2px solid #8b6f47;
+            padding-bottom: 8px;
+        }
+
+        .section h3 {
+            color: #c4a05a;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            background: rgba(20, 10, 5, 0.4);
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 3px solid #8b6f47;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: #a89677;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.3em;
+            color: #e8d7c3;
+            font-weight: bold;
+        }
+
+        .narrative {
+            background: rgba(20, 10, 5, 0.5);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #d4af37;
+            margin-top: 15px;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .faction-list, .economic-list {
+            margin-top: 15px;
+        }
+
+        .faction-item, .economic-item {
+            background: rgba(20, 10, 5, 0.4);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            border-left: 3px solid #8b6f47;
+        }
+
+        .faction-name, .economic-name {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .faction-power, .economic-value {
+            color: #c4a05a;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .faction-description, .economic-description {
+            color: #c4b5a0;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .warning {
+            background: rgba(139, 0, 0, 0.2);
+            border-left-color: #8b0000;
+        }
+
+        .opportunity {
+            background: rgba(0, 100, 0, 0.2);
+            border-left-color: #006400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wittenberg 1348</h1>
+            <p class="subtitle">A Medieval City Simulator for the Age of Plague</p>
+        </header>
+
+        <div class="main-content">
+            <div class="controls">
+                <h2 style="color: #d4af37; margin-bottom: 20px;">Simulation Parameters</h2>
+
+                <div class="control-group">
+                    <label for="population">Base Population</label>
+                    <input type="range" id="population" min="2000" max="10000" step="500" value="5000">
+                    <div class="value-display"><span id="population-value">5000</span> souls</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="plague-severity">Plague Severity</label>
+                    <input type="range" id="plague-severity" min="0" max="100" step="5" value="25">
+                    <div class="value-display"><span id="plague-severity-value">25</span>% mortality</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="economic-health">Economic Health</label>
+                    <input type="range" id="economic-health" min="0" max="100" step="5" value="60">
+                    <div class="value-display"><span id="economic-health-value">60</span>%</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="prince-power">Prince's Authority</label>
+                    <input type="range" id="prince-power" min="0" max="100" step="5" value="70">
+                    <div class="value-display"><span id="prince-power-value">70</span>%</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="social-unrest">Social Unrest</label>
+                    <input type="range" id="social-unrest" min="0" max="100" step="5" value="40">
+                    <div class="value-display"><span id="social-unrest-value">40</span>%</div>
+                </div>
+
+                <div class="control-group">
+                    <label for="season">Season</label>
+                    <select id="season">
+                        <option value="spring">Spring (Trade Routes Opening)</option>
+                        <option value="summer" selected>Summer (Peak Trade)</option>
+                        <option value="autumn">Autumn (Harvest Time)</option>
+                        <option value="winter">Winter (Limited Movement)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="language">Language / Kieli</label>
+                    <select id="language" onchange="changeLanguage()">
+                        <option value="en" selected>English</option>
+                        <option value="fi">Suomi</option>
+                    </select>
+                </div>
+
+                <button onclick="runSimulation()">Generate City State</button>
+            </div>
+
+            <div class="results" id="results">
+                <div style="text-align: center; color: #a89677; padding: 50px;">
+                    <p style="font-size: 1.2em;">Adjust the parameters and click "Generate City State" to begin the simulation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLanguage = 'en';
+
+        const translations = {
+            en: {
+                title: "Wittenberg 1348",
+                subtitle: "A Medieval City Simulator for the Age of Plague",
+                paramTitle: "Simulation Parameters",
+                basePopulation: "Base Population",
+                souls: "souls",
+                plagueSeverity: "Plague Severity",
+                mortality: "mortality",
+                economicHealth: "Economic Health",
+                princeAuthority: "Prince's Authority",
+                socialUnrest: "Social Unrest",
+                season: "Season",
+                seasons: {
+                    spring: "Spring (Trade Routes Opening)",
+                    summer: "Summer (Peak Trade)",
+                    autumn: "Autumn (Harvest Time)",
+                    winter: "Winter (Limited Movement)"
+                },
+                generateButton: "Generate City State",
+                initialMessage: "Adjust the parameters and click \"Generate City State\" to begin the simulation.",
+
+                // Section headers
+                cityOverview: "City Overview",
+                demographics: "Demographics",
+                factionsTitle: "Factions & Power Structures",
+                economicForces: "Economic Forces",
+                stateOfCity: "The State of Wittenberg",
+
+                // Stats
+                currentPopulation: "Current Population",
+                deathToll: "Death Toll",
+                cityCondition: "City Condition",
+                conditions: {
+                    stable: "Stable",
+                    troubled: "Troubled",
+                    dire: "Dire",
+                    catastrophic: "Catastrophic"
+                },
+
+                // Demographics
+                populationByOccupation: "Population by Occupation",
+                wealthDistribution: "Wealth Distribution",
+                occupations: {
+                    clergy: "Clergy",
+                    nobility: "Nobility & Officials",
+                    merchants: "Merchants",
+                    craftsmen: "Craftsmen",
+                    laborers: "Laborers",
+                    farmers: "Farmers",
+                    beggars: "Beggars & Vagrants",
+                    jews: "Jewish Community"
+                },
+                wealthLevels: {
+                    wealthy: "Wealthy (Merchants, Nobles)",
+                    comfortable: "Comfortable (Master Craftsmen)",
+                    struggling: "Struggling (Journeymen, Laborers)",
+                    destitute: "Destitute (Beggars, Refugees)"
+                },
+
+                // Factions
+                power: "Power",
+                motivation: "Motivation",
+
+                // Economy
+                index: "Index",
+
+                // Seasonal notes
+                seasonalNotes: {
+                    spring: "The Elbe thaws and merchant barges return. Hope mingles with anxiety.",
+                    summer: "River trade is at its peak. The market square bustles—or would, if not for fear.",
+                    autumn: "Harvest completed. Granaries fill, but how many mouths remain to feed?",
+                    winter: "Ice grips the Elbe. The city turns inward, and whispers grow louder in closed spaces."
+                },
+
+                // Faction names
+                factionNames: {
+                    court: "The Prince's Court",
+                    church: "The Church of St. Mary",
+                    merchants: "The Merchant Guild",
+                    jews: "The Jewish Quarter",
+                    craftsmen: "The Craftsmen's Guilds"
+                },
+
+                // Faction motivations
+                factionMotivations: {
+                    order: "Maintain order and collect taxes",
+                    spiritual: "Spiritual guidance and institutional survival",
+                    trade: "Protect trade interests and profit",
+                    survival: "Survival and protection from violence",
+                    monopoly: "Protect their monopolies and maintain standards"
+                },
+
+                // Economic factors
+                economicNames: {
+                    trade: "Elbe River Trade",
+                    debt: "Debt Burden",
+                    labor: "Labor Scarcity",
+                    land: "Land Values"
+                },
+
+                // Faction descriptions
+                factionDescriptions: {
+                    courtHigh: "The prince's authority remains strong. His guards patrol the streets, and his decrees are obeyed. Tax collection continues efficiently.",
+                    courtMed: "The prince's power is waning. Enforcement is sporadic, and some districts grow bold in their disobedience.",
+                    courtLow: "The prince's authority is nearly broken. Guards are deserting, and the city teeters on the edge of chaos.",
+                    churchHigh: "Sermons grow darker. Priests speak of divine wrath and the need for penance. Some whisper that scapegoats must be found.",
+                    churchMed: "The church offers comfort to the fearful, but attendance is declining. Donations have slowed.",
+                    churchLow: "The church maintains its rituals. Mass is well-attended, and the clergy's influence remains steady.",
+                    merchantsHigh: "Trade flourishes. The guild hall echoes with negotiations. Merchants like Herr Oetker maneuver for advantage.",
+                    merchantsMed: "Trade has slowed. Many merchants face debts they cannot pay. Desperation breeds ruthlessness.",
+                    merchantsLow: "The guild is fracturing. Some merchants have fled or died. Those who remain fight over scraps.",
+                    jewsHigh: "The Jewish community lives in terror. Accusations of well-poisoning spread through taverns. The prince's protection is uncertain.",
+                    jewsMed: "Tension grows. Jewish moneylenders are still protected by the prince, but the mood in the streets is darkening.",
+                    jewsLow: "The Jewish community lives cautiously but without immediate threat. Their loans finance much of the city's commerce.",
+                    craftsmenHigh: "Labor shortages have empowered surviving craftsmen. They demand higher wages and better conditions.",
+                    craftsmenLow: "The guilds maintain strict control over their trades. Apprentices must serve their years, and standards are enforced."
+                },
+
+                // Economic descriptions
+                economicDescriptions: {
+                    tradeHigh: "Barges arrive regularly from Leipzig and Hamburg. Cloth, salt, and grain flow through Wittenberg's docks.",
+                    tradeMed: "Trade continues but has slowed. Some routes are avoided due to plague reports from downstream cities.",
+                    tradeLow: "The river is nearly empty of traffic. Only the desperate or foolhardy venture to plague-stricken ports.",
+                    debtHigh: "Debt notes are coming due, but debtors cannot pay. Creditors grow desperate—or vulnerable.",
+                    debtMed: "Many merchants carry significant debts, primarily to Jewish moneylenders. Interest mounts steadily.",
+                    debtLow: "Credit flows freely. Debts are manageable, and lenders are confident of repayment.",
+                    laborHigh: "Workers demand twice what they earned before the plague. Landowners rage, but they have no choice.",
+                    laborMed: "Labor is becoming scarce. Wages are rising slowly, and workers are bolder in their demands.",
+                    laborLow: "Labor is abundant. Workers compete for positions, and wages remain low.",
+                    landHigh: "Empty houses and vacant plots multiply. Properties can be acquired for a fraction of their former price.",
+                    landMed: "Some properties are being abandoned. Prices have softened but not collapsed.",
+                    landLow: "Property values remain stable. Inheritance is orderly, and markets function normally."
+                },
+
+                // Narrative templates
+                narrative: {
+                    opening: (pop) => `The summer of 1348 finds Wittenberg at a crossroads. The city of ${pop.toLocaleString()} souls clings to the banks of the Elbe, its wooden walls and stone church tower visible for miles across the Saxon plain.`,
+                    plague: {
+                        catastrophic: (dead) => `Death has come to Wittenberg. ${dead.toLocaleString()} souls have perished—over half the population. Cart wheels creak through streets as corpses are hauled to mass graves beyond the walls. The stench of lime and decay hangs over everything.`,
+                        severe: (dead) => `The plague gnaws at Wittenberg's edges. ${dead.toLocaleString()} have died so far. Fear spreads faster than sickness. Churches overflow with penitents, and every cough draws suspicious stares.`,
+                        moderate: (dead) => `Rumors of plague drift up the Elbe from Leipzig and Magdeburg. So far, Wittenberg has lost only ${dead.toLocaleString()} souls. But no one believes the city will be spared.`,
+                        minimal: () => `The plague remains a distant nightmare. Tales from other cities seem unreal in Wittenberg's orderly streets. But merchants who travel speak of empty cities and unmarked graves.`
+                    },
+                    oetker: {
+                        desperate: `For men like Herr Oetker, this is the moment they've been waiting for—or dreading. His debts to Jewish moneylenders weigh heavily. But he hears the sermons, watches the mob's mood. If the prince's protection wavers, if a scapegoat is needed... debt notes can burn as easily as synagogues.`,
+                        precarious: `Herr Oetker's position is precarious. Trade has slowed, and his creditors press for payment. He attends church, makes pious donations, and watches carefully which way the wind blows.`,
+                        prosperous: `Herr Oetker's ventures prosper. His warehouse by the river holds goods from Hamburg and Leipzig. His debts are manageable, his reputation growing. The plague is a distant concern.`
+                    },
+                    social: {
+                        chaos: `Order frays. The prince's guards are spread thin, and riots have erupted in the market square. Accusations fly: Jews poisoning wells, foreigners bringing disease, the wealthy hoarding grain. Mobs form easily and disperse slowly.`,
+                        tense: `The mood in taverns and market stalls grows ugly. People seek explanations for their suffering—and someone to blame. The prince's authority is tested daily.`,
+                        uneasy: `Tension simmers beneath the surface. Most citizens go about their business, but gatherings are tense, and preachers draw large, uneasy crowds.`
+                    },
+                    opportunities: {
+                        emptyProperties: "Empty properties await new owners",
+                        laborShortages: "Labor shortages empower survivors",
+                        desperateSellers: "Desperate sellers offer goods at pennies on the mark",
+                        chaosAdvantage: "Chaos provides cover for those willing to seize advantage",
+                        violentDebtForgiveness: "Debt forgiveness may come through violence rather than negotiation"
+                    },
+                    opportunitiesIntro: (opps) => `For the ruthless and opportunistic, the times offer grim possibilities: ${opps}.`,
+                    closing: `In Wittenberg's narrow streets, where ambition meets desperation and old prejudices wait for their moment, men like Herr Oetker stand poised between ruin and fortune. The plague will pass eventually—but who will still be standing when it does?`
+                }
+            },
+            fi: {
+                title: "Wittenberg 1348",
+                subtitle: "Keskiaikainen kaupunkisimulaattori ruton aikakaudelle",
+                paramTitle: "Simulaatioparametrit",
+                basePopulation: "Perusväestö",
+                souls: "sielua",
+                plagueSeverity: "Ruton vakavuus",
+                mortality: "kuolleisuus",
+                economicHealth: "Taloudellinen tilanne",
+                princeAuthority: "Prinssin auktoriteetti",
+                socialUnrest: "Sosiaalinen levottomuus",
+                season: "Vuodenaika",
+                seasons: {
+                    spring: "Kevät (Kauppareitit avautuvat)",
+                    summer: "Kesä (Kaupan huippukausi)",
+                    autumn: "Syksy (Sadonkorjuuaika)",
+                    winter: "Talvi (Rajoitettu liikkuvuus)"
+                },
+                generateButton: "Luo kaupungin tila",
+                initialMessage: "Säädä parametrit ja napsauta \"Luo kaupungin tila\" aloittaaksesi simulaation.",
+
+                // Section headers
+                cityOverview: "Kaupungin yleiskatsaus",
+                demographics: "Väestötiedot",
+                factionsTitle: "Ryhmittymät ja valtarakenteet",
+                economicForces: "Taloudelliset voimat",
+                stateOfCity: "Wittenbergin tila",
+
+                // Stats
+                currentPopulation: "Nykyinen väestö",
+                deathToll: "Kuolonuhrien määrä",
+                cityCondition: "Kaupungin tila",
+                conditions: {
+                    stable: "Vakaa",
+                    troubled: "Levaton",
+                    dire: "Vakava",
+                    catastrophic: "Katastrofaalinen"
+                },
+
+                // Demographics
+                populationByOccupation: "Väestö ammatin mukaan",
+                wealthDistribution: "Varallisuuden jakautuminen",
+                occupations: {
+                    clergy: "Papisto",
+                    nobility: "Aateliset ja virkamiehet",
+                    merchants: "Kauppiaat",
+                    craftsmen: "Käsityöläiset",
+                    laborers: "Työläiset",
+                    farmers: "Maanviljelijät",
+                    beggars: "Kerjäläiset ja kulkurit",
+                    jews: "Juutalainen yhteisö"
+                },
+                wealthLevels: {
+                    wealthy: "Varakkaat (kauppiaat, aateliset)",
+                    comfortable: "Hyväosaiset (mestarikäsityöläiset)",
+                    struggling: "Kamppailevat (kisällit, työläiset)",
+                    destitute: "Köyhät (kerjäläiset, pakolaiset)"
+                },
+
+                // Factions
+                power: "Valta",
+                motivation: "Motivaatio",
+
+                // Economy
+                index: "Indeksi",
+
+                // Seasonal notes
+                seasonalNotes: {
+                    spring: "Elbe sulaa ja kauppiaslaivat palaavat. Toivo sekoittuu ahdistukseen.",
+                    summer: "Jokikauppa on huipussaan. Tori kuhisee—tai kuhisisi, ellei pelko vaivaisi.",
+                    autumn: "Sato korjattu. Viljavarastot täyttyvät, mutta kuinka monta suuta jää ruokittavaksi?",
+                    winter: "Jää puristaa Elbeä. Kaupunki kääntyy sisäänpäin, ja kuiskaukset kasvavat suljetuissa tiloissa."
+                },
+
+                // Faction names
+                factionNames: {
+                    court: "Prinssin hovi",
+                    church: "Pyhän Marian kirkko",
+                    merchants: "Kauppiaiden kilta",
+                    jews: "Juutalainen kaupunginosa",
+                    craftsmen: "Käsityöläisten killat"
+                },
+
+                // Faction motivations
+                factionMotivations: {
+                    order: "Järjestyksen ylläpito ja verojen kerääminen",
+                    spiritual: "Hengellinen ohjaus ja instituution selviytyminen",
+                    trade: "Kaupan etujen ja voittojen suojelu",
+                    survival: "Selviytyminen ja suojelu väkivallalta",
+                    monopoly: "Monopolien suojelu ja standardien ylläpito"
+                },
+
+                // Economic factors
+                economicNames: {
+                    trade: "Elbe-joen kauppa",
+                    debt: "Velkataakka",
+                    labor: "Työvoimapula",
+                    land: "Maa-arvot"
+                },
+
+                // Faction descriptions
+                factionDescriptions: {
+                    courtHigh: "Prinssin auktoriteetti pysyy vahvana. Hänen vartijansa partioivat kaduilla, ja hänen asetuksiaan noudatetaan. Veronkanto jatkuu tehokkaasti.",
+                    courtMed: "Prinssin valta hiipuu. Valvonta on satunnaista, ja jotkut kaupunginosat rohkenevat tottelemattomuuteen.",
+                    courtLow: "Prinssin auktoriteetti on lähes murtunut. Vartijat katoavat, ja kaupunki horjuu kaaoksen partaalla.",
+                    churchHigh: "Saarnot muuttuvat synkemmiksi. Papit puhuvat jumalallisesta vihasta ja katumuksen tarpeesta. Jotkut kuiskaavat, että syntipukit on löydettävä.",
+                    churchMed: "Kirkko tarjoaa lohtua pelokkaalle, mutta osallistuminen vähenee. Lahjoitukset ovat hidastuneet.",
+                    churchLow: "Kirkko ylläpitää rituaalejaan. Messuissa käydään hyvin, ja papiston vaikutusvalta pysyy vakaana.",
+                    merchantsHigh: "Kauppa kukoistaa. Kiltahalli kaikuu neuvotteluista. Kauppiaat kuten Herr Oetker manööveeraavat edun saamiseksi.",
+                    merchantsMed: "Kauppa on hidastunut. Monet kauppiaat kohtaavat velkoja, joita he eivät voi maksaa. Epätoivo synnyttää häikäilemättömyyttä.",
+                    merchantsLow: "Kilta hajoaa. Jotkut kauppiaat ovat paenneet tai kuolleet. Ne jotka jäävät, taistelevat jäänteistä.",
+                    jewsHigh: "Juutalainen yhteisö elää kauhussa. Syytökset kaivojen myrkyttämisestä leviävät tavernoissa. Prinssin suojelu on epävarmaa.",
+                    jewsMed: "Jännite kasvaa. Juutalaisia koronkiskojia suojelee edelleen prinssi, mutta tunnelma kaduilla synkkenee.",
+                    jewsLow: "Juutalainen yhteisö elää varovaisesti mutta ilman välitöntä uhkaa. Heidän lainansa rahoittavat suuren osan kaupungin kauppaa.",
+                    craftsmenHigh: "Työvoimapula on vahvistanut selviytyneitä käsityöläisiä. He vaativat korkeampia palkkoja ja parempia olosuhteita.",
+                    craftsmenLow: "Killat ylläpitävät tiukkaa kontrollia ammateistaan. Oppipoikien on palveltava vuosiaan, ja standardeja valvotaan."
+                },
+
+                // Economic descriptions
+                economicDescriptions: {
+                    tradeHigh: "Proomut saapuvat säännöllisesti Leipzigistä ja Hampurista. Kangasta, suolaa ja viljaa virtaa Wittenbergin laiturien kautta.",
+                    tradeMed: "Kauppa jatkuu, mutta on hidastunut. Joitakin reittejä vältetään ruttoilmoitusten vuoksi alavirran kaupungeista.",
+                    tradeLow: "Joki on lähes tyhjä liikenteestä. Vain epätoivoiset tai holtittomat uskaltautuvat ruttoisiin satamiin.",
+                    debtHigh: "Velkakirjat erääntyvät, mutta velalliset eivät voi maksaa. Velkojat käyvät epätoivoisiksi—tai haavoittuviksi.",
+                    debtMed: "Monet kauppiaat kantavat merkittäviä velkoja, pääasiassa juutalaisille koronkiskojille. Korot kasvavat tasaisesti.",
+                    debtLow: "Luotto virtaa vapaasti. Velat ovat hallittavissa, ja lainanantajat ovat varmoja takaisinmaksusta.",
+                    laborHigh: "Työläiset vaativat kaksinkertaista palkkaa verrattuna ennen ruttoa. Maanomistajat raivostuvat, mutta heillä ei ole vaihtoehtoa.",
+                    laborMed: "Työvoimasta on tulossa niukkaa. Palkat nousevat hitaasti, ja työläiset ovat rohkeampia vaatimuksissaan.",
+                    laborLow: "Työvoimaa on runsaasti. Työläiset kilpailevat paikoista, ja palkat pysyvät alhaisina.",
+                    landHigh: "Tyhjät talot ja autiot tontit lisääntyvät. Kiinteistöjä voi hankkia murto-osalla entisestä hinnasta.",
+                    landMed: "Joitakin kiinteistöjä hylätään. Hinnat ovat pehmentyneet, mutta eivät romahtaneet.",
+                    landLow: "Kiinteistöjen arvot pysyvät vakaina. Perintö on säännöllistä, ja markkinat toimivat normaalisti."
+                },
+
+                // Narrative templates
+                narrative: {
+                    opening: (pop) => `Kesä 1348 kohtaa Wittenbergin risteyksessä. Kaupunki, jossa asuu ${pop.toLocaleString()} sielua, tarttuu kiinni Elben rannoille, sen puiset muurit ja kivinen kirkkotorni näkyvät kilometrien päähän Saksin tasangolla.`,
+                    plague: {
+                        catastrophic: (dead) => `Kuolema on saapunut Wittenbergiin. ${dead.toLocaleString()} sielua on menehtynyt—yli puolet väestöstä. Kärryjen pyörät narskuvat kaduilla, kun ruumiita kuljetetaan joukkohautoihin muurien ulkopuolelle. Kalkin ja mädän haju roikkuu kaiken yllä.`,
+                        severe: (dead) => `Rutto kalvaa Wittenbergin reunoja. ${dead.toLocaleString()} on kuollut toistaiseksi. Pelko leviää nopeammin kuin sairaus. Kirkot pursuavat katuvia, ja jokainen yskäisy herättää epäluuloisia katseita.`,
+                        moderate: (dead) => `Huhut rutosta ajelehtivat Elbeä ylös Leipzigistä ja Magdeburgista. Toistaiseksi Wittenberg on menettänyt vain ${dead.toLocaleString()} sielua. Mutta kukaan ei usko, että kaupunki säästyy.`,
+                        minimal: () => `Rutto pysyy kaukaisena painajaisena. Tarinat muista kaupungeista tuntuvat epätodelliselta Wittenbergin säännöllisillä kaduilla. Mutta matkustavat kauppiaat puhuvat tyhjistä kaupungeista ja merkitsemättömistä haudoista.`
+                    },
+                    oetker: {
+                        desperate: `Miehille kuten Herr Oetker, tämä on hetki, jota he ovat odottaneet—tai pelänneet. Hänen velkansa juutalaisille koronkiskoille painavat raskaasti. Mutta hän kuuntelee saarnoja, tarkkailee väkijoukon tunnelmaa. Jos prinssin suojelu horjuu, jos syntipukki tarvitaan... velkakirjat voivat palaa yhtä helposti kuin synagogat.`,
+                        precarious: `Herr Oetkerin asema on epävarma. Kauppa on hidastunut, ja hänen velkojansa painostavat maksua. Hän käy kirkossa, tekee hurskaita lahjoituksia ja tarkkailee huolellisesti, mihin suuntaan tuuli puhaltaa.`,
+                        prosperous: `Herr Oetkerin yritykset kukoistavat. Hänen varastonsa joen varrella pitää sisällään tavaroita Hampurista ja Leipzigistä. Hänen velkansa ovat hallittavissa, hänen maineensa kasvaa. Rutto on kaukainen huolenaihe.`
+                    },
+                    social: {
+                        chaos: `Järjestys hajoaa. Prinssin vartijat ovat levinneet ohuiksi, ja mellakoita on puhjennut torilla. Syytökset lentävät: juutalaiset myrkyttävät kaivoja, ulkomaalaiset tuovat tautia, varakkaat hamstraavat viljaa. Väkijoukot muodostuvat helposti ja hajaantuvat hitaasti.`,
+                        tense: `Tunnelma tavernoissa ja torikojuissa muuttuu rumaksi. Ihmiset etsivät selityksiä kärsimyksilleen—ja jotakuta syytettäväksi. Prinssin auktoriteettia koetellaan päivittäin.`,
+                        uneasy: `Jännite kytee pinnan alla. Useimmat kansalaiset hoitavat asioitaan, mutta kokoukset ovat jännittyneitä, ja saarnaajat vetävät suuria, levottomia väkijoukkoja.`
+                    },
+                    opportunities: {
+                        emptyProperties: "Tyhjät kiinteistöt odottavat uusia omistajia",
+                        laborShortages: "Työvoimapula vahvistaa selviytyjiä",
+                        desperateSellers: "Epätoivoiset myyjät tarjoavat tavaroita penneillä markalta",
+                        chaosAdvantage: "Kaaos tarjoaa suojan niille, jotka ovat valmiita tarttumaan etuun",
+                        violentDebtForgiveness: "Velkojen anteeksianto voi tulla väkivallan kautta neuvottelujen sijaan"
+                    },
+                    opportunitiesIntro: (opps) => `Häikäilemättömille ja opportunistisille, ajat tarjoavat synkkiä mahdollisuuksia: ${opps}.`,
+                    closing: `Wittenbergin kapeilla kaduilla, missä kunnianhimo kohtaa epätoivon ja vanhat ennakkoluulot odottavat hetkeään, miehet kuten Herr Oetker seisovat tasapainossa tuhon ja onnen välillä. Rutto tulee lopulta ohi—mutta kuka on yhä pystyssä sen tapahtuessa?`
+                }
+            }
+        };
+
+        // Update value displays
+        document.querySelectorAll('input[type="range"]').forEach(input => {
+            input.addEventListener('input', function() {
+                const valueSpan = document.getElementById(this.id + '-value');
+                valueSpan.textContent = this.value;
+            });
+        });
+
+        function changeLanguage() {
+            currentLanguage = document.getElementById('language').value;
+            updateUILanguage();
+        }
+
+        function updateUILanguage() {
+            const t = translations[currentLanguage];
+
+            // Update header
+            document.querySelector('h1').textContent = t.title;
+            document.querySelector('.subtitle').textContent = t.subtitle;
+
+            // Update control labels
+            document.querySelector('label[for="population"]').textContent = t.basePopulation;
+            document.querySelector('label[for="plague-severity"]').textContent = t.plagueSeverity;
+            document.querySelector('label[for="economic-health"]').textContent = t.economicHealth;
+            document.querySelector('label[for="prince-power"]').textContent = t.princeAuthority;
+            document.querySelector('label[for="social-unrest"]').textContent = t.socialUnrest;
+            document.querySelector('label[for="season"]').textContent = t.season;
+
+            // Update season options
+            const seasonSelect = document.getElementById('season');
+            seasonSelect.options[0].text = t.seasons.spring;
+            seasonSelect.options[1].text = t.seasons.summer;
+            seasonSelect.options[2].text = t.seasons.autumn;
+            seasonSelect.options[3].text = t.seasons.winter;
+
+            // Update button
+            document.querySelector('button[onclick="runSimulation()"]').textContent = t.generateButton;
+
+            // Update controls title
+            const controlsTitle = document.querySelector('.controls h2');
+            if (controlsTitle) controlsTitle.textContent = t.paramTitle;
+
+            // Update initial message if present
+            const resultsDiv = document.getElementById('results');
+            if (resultsDiv.textContent.includes('Adjust the parameters') || resultsDiv.textContent.includes('Säädä parametrit')) {
+                resultsDiv.innerHTML = `<div style="text-align: center; color: #a89677; padding: 50px;">
+                    <p style="font-size: 1.2em;">${t.initialMessage}</p>
+                </div>`;
+            }
+        }
+
+        function runSimulation() {
+            const params = {
+                basePopulation: parseInt(document.getElementById('population').value),
+                plagueSeverity: parseInt(document.getElementById('plague-severity').value),
+                economicHealth: parseInt(document.getElementById('economic-health').value),
+                princePower: parseInt(document.getElementById('prince-power').value),
+                socialUnrest: parseInt(document.getElementById('social-unrest').value),
+                season: document.getElementById('season').value
+            };
+
+            const simulation = new CitySimulation(params);
+            const results = simulation.generate();
+            displayResults(results);
+        }
+
+        class CitySimulation {
+            constructor(params) {
+                this.params = params;
+                this.currentPopulation = Math.floor(params.basePopulation * (1 - params.plagueSeverity / 100));
+                this.deadFromPlague = params.basePopulation - this.currentPopulation;
+            }
+
+            generate() {
+                return {
+                    overview: this.generateOverview(),
+                    demographics: this.generateDemographics(),
+                    factions: this.generateFactions(),
+                    economy: this.generateEconomy(),
+                    narrativeData: this.generateNarrativeData()
+                };
+            }
+
+            generateOverview() {
+                const { basePopulation, plagueSeverity, economicHealth } = this.params;
+
+                let condition = 'stable';
+                if (plagueSeverity > 50) condition = 'catastrophic';
+                else if (plagueSeverity > 30) condition = 'dire';
+                else if (plagueSeverity > 15) condition = 'troubled';
+
+                return {
+                    totalPopulation: this.currentPopulation,
+                    deathToll: this.deadFromPlague,
+                    condition: condition,
+                    season: this.params.season
+                };
+            }
+
+            generateDemographics() {
+                const pop = this.currentPopulation;
+                const plagueMod = 1 - (this.params.plagueSeverity / 150);
+
+                // Occupation breakdown
+                const occupations = {
+                    clergy: Math.floor(pop * 0.05 * (1 + this.params.plagueSeverity / 200)),
+                    nobility: Math.floor(pop * 0.02),
+                    merchants: Math.floor(pop * 0.08 * plagueMod),
+                    craftsmen: Math.floor(pop * 0.25 * plagueMod),
+                    laborers: Math.floor(pop * 0.35 * plagueMod),
+                    farmers: Math.floor(pop * 0.20 * plagueMod),
+                    beggars: Math.floor(pop * 0.03 * (1 + this.params.plagueSeverity / 100)),
+                    jews: Math.floor(pop * 0.02 * (1 - this.params.socialUnrest / 200))
+                };
+
+                // Wealth distribution
+                const wealth = {
+                    wealthy: Math.floor(pop * 0.05),
+                    comfortable: Math.floor(pop * 0.15 * (this.params.economicHealth / 100)),
+                    struggling: Math.floor(pop * 0.50),
+                    destitute: Math.floor(pop * 0.30)
+                };
+
+                return { occupations, wealth };
+            }
+
+            generateFactions() {
+                const { princePower, socialUnrest, plagueSeverity, economicHealth } = this.params;
+
+                const factions = [];
+
+                // Prince's Court
+                const courtPower = princePower * (1 - socialUnrest / 200);
+                let courtDesc = courtPower > 60 ? 'courtHigh' : courtPower > 30 ? 'courtMed' : 'courtLow';
+                factions.push({
+                    nameKey: "court",
+                    power: Math.floor(courtPower),
+                    motivationKey: "order",
+                    descriptionKey: courtDesc,
+                    type: "default"
+                });
+
+                // The Church
+                const churchPower = 60 + (plagueSeverity / 2) - (socialUnrest / 3);
+                let churchDesc = plagueSeverity > 40 ? 'churchHigh' : plagueSeverity > 20 ? 'churchMed' : 'churchLow';
+                factions.push({
+                    nameKey: "church",
+                    power: Math.floor(churchPower),
+                    motivationKey: "spiritual",
+                    descriptionKey: churchDesc,
+                    type: "default"
+                });
+
+                // Merchant Guild
+                const merchantPower = (economicHealth * 0.7) - (plagueSeverity / 2);
+                let merchantDesc = economicHealth > 60 ? 'merchantsHigh' : economicHealth > 30 ? 'merchantsMed' : 'merchantsLow';
+                factions.push({
+                    nameKey: "merchants",
+                    power: Math.floor(Math.max(20, merchantPower)),
+                    motivationKey: "trade",
+                    descriptionKey: merchantDesc,
+                    type: "default"
+                });
+
+                // Jewish Community
+                const jewishThreat = socialUnrest + (plagueSeverity / 2) - princePower;
+                const jewishPower = Math.max(5, princePower / 3 - jewishThreat / 2);
+                let jewsDesc = jewishThreat > 70 ? 'jewsHigh' : jewishThreat > 40 ? 'jewsMed' : 'jewsLow';
+                factions.push({
+                    nameKey: "jews",
+                    power: Math.floor(jewishPower),
+                    motivationKey: "survival",
+                    descriptionKey: jewsDesc,
+                    type: jewishThreat > 70 ? "warning" : "default"
+                });
+
+                // Guilds (Craftsmen)
+                const guildPower = 45 - (plagueSeverity / 3) + (socialUnrest / 4);
+                let craftsmenDesc = plagueSeverity > 40 ? 'craftsmenHigh' : 'craftsmenLow';
+                factions.push({
+                    nameKey: "craftsmen",
+                    power: Math.floor(guildPower),
+                    motivationKey: "monopoly",
+                    descriptionKey: craftsmenDesc,
+                    type: plagueSeverity > 40 ? "opportunity" : "default"
+                });
+
+                return factions.sort((a, b) => b.power - a.power);
+            }
+
+            generateEconomy() {
+                const { economicHealth, plagueSeverity, season } = this.params;
+
+                const factors = [];
+
+                // Trade routes
+                let tradeStatus = economicHealth - (plagueSeverity / 2);
+                let seasonMod = season === 'summer' ? 20 : season === 'winter' ? -30 : 0;
+                tradeStatus += seasonMod;
+                let tradeDesc = tradeStatus > 70 ? 'tradeHigh' : tradeStatus > 40 ? 'tradeMed' : 'tradeLow';
+
+                factors.push({
+                    nameKey: "trade",
+                    value: Math.floor(Math.max(0, tradeStatus)),
+                    descriptionKey: tradeDesc,
+                    type: "default"
+                });
+
+                // Debt crisis
+                const debtPressure = 100 - economicHealth + plagueSeverity;
+                let debtDesc = debtPressure > 70 ? 'debtHigh' : debtPressure > 40 ? 'debtMed' : 'debtLow';
+                factors.push({
+                    nameKey: "debt",
+                    value: Math.floor(debtPressure),
+                    descriptionKey: debtDesc,
+                    type: debtPressure > 70 ? "opportunity" : "default"
+                });
+
+                // Labor market
+                const laborValue = Math.min(100, 50 + (plagueSeverity * 0.8));
+                let laborDesc = laborValue > 70 ? 'laborHigh' : laborValue > 50 ? 'laborMed' : 'laborLow';
+                factors.push({
+                    nameKey: "labor",
+                    value: Math.floor(laborValue),
+                    descriptionKey: laborDesc,
+                    type: laborValue > 70 ? "opportunity" : "default"
+                });
+
+                // Land values
+                const landValue = Math.max(20, 80 - (plagueSeverity * 1.2));
+                let landDesc = landValue < 40 ? 'landHigh' : landValue < 60 ? 'landMed' : 'landLow';
+                factors.push({
+                    nameKey: "land",
+                    value: Math.floor(landValue),
+                    descriptionKey: landDesc,
+                    type: landValue < 40 ? "opportunity" : "default"
+                });
+
+                return factors;
+            }
+
+            generateNarrativeData() {
+                const { plagueSeverity, socialUnrest, economicHealth, princePower } = this.params;
+
+                // Return data that can be used with translation templates
+                const data = {
+                    currentPopulation: this.currentPopulation,
+                    deadFromPlague: this.deadFromPlague,
+                    plagueLevel: plagueSeverity > 50 ? 'catastrophic' : plagueSeverity > 25 ? 'severe' : plagueSeverity > 10 ? 'moderate' : 'minimal',
+                    oetkerSituation: economicHealth < 40 && socialUnrest > 50 ? 'desperate' : economicHealth < 50 ? 'precarious' : 'prosperous',
+                    socialLevel: socialUnrest > 70 && princePower < 40 ? 'chaos' : socialUnrest > 50 ? 'tense' : socialUnrest > 30 ? 'uneasy' : 'calm',
+                    opportunities: []
+                };
+
+                if (plagueSeverity > 40) {
+                    data.opportunities.push('emptyProperties', 'laborShortages');
+                }
+                if (economicHealth < 40) {
+                    data.opportunities.push('desperateSellers');
+                }
+                if (socialUnrest > 60 && princePower < 50) {
+                    data.opportunities.push('chaosAdvantage');
+                }
+                if (plagueSeverity > 30 && socialUnrest > 50) {
+                    data.opportunities.push('violentDebtForgiveness');
+                }
+
+                return data;
+            }
+        }
+
+        function displayResults(results) {
+            const resultsDiv = document.getElementById('results');
+            const t = translations[currentLanguage];
+
+            let html = '';
+
+            // Overview section
+            html += `
+                <div class="section">
+                    <h2>${t.cityOverview}</h2>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">${t.currentPopulation}</div>
+                            <div class="stat-value">${results.overview.totalPopulation.toLocaleString()}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">${t.deathToll}</div>
+                            <div class="stat-value">${results.overview.deathToll.toLocaleString()}</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">${t.cityCondition}</div>
+                            <div class="stat-value" style="text-transform: capitalize;">${t.conditions[results.overview.condition]}</div>
+                        </div>
+                    </div>
+                    <div class="narrative" style="margin-top: 15px; font-style: italic;">
+                        ${t.seasonalNotes[results.overview.season]}
+                    </div>
+                </div>
+            `;
+
+            // Demographics section
+            html += `
+                <div class="section">
+                    <h2>${t.demographics}</h2>
+
+                    <h3>${t.populationByOccupation}</h3>
+                    <div class="stat-grid">
+            `;
+
+            for (let [key, value] of Object.entries(results.demographics.occupations)) {
+                html += `
+                    <div class="stat-item">
+                        <div class="stat-label">${t.occupations[key]}</div>
+                        <div class="stat-value">${value.toLocaleString()}</div>
+                    </div>
+                `;
+            }
+
+            html += `
+                    </div>
+
+                    <h3>${t.wealthDistribution}</h3>
+                    <div class="stat-grid">
+            `;
+
+            for (let [key, value] of Object.entries(results.demographics.wealth)) {
+                html += `
+                    <div class="stat-item">
+                        <div class="stat-label">${t.wealthLevels[key]}</div>
+                        <div class="stat-value">${value.toLocaleString()}</div>
+                    </div>
+                `;
+            }
+
+            html += `
+                    </div>
+                </div>
+            `;
+
+            // Factions section
+            html += `
+                <div class="section">
+                    <h2>${t.factionsTitle}</h2>
+                    <div class="faction-list">
+            `;
+
+            results.factions.forEach(faction => {
+                html += `
+                    <div class="faction-item ${faction.type}">
+                        <div class="faction-name">${t.factionNames[faction.nameKey]}</div>
+                        <div class="faction-power">${t.power}: ${faction.power}/100 | ${t.motivation}: ${t.factionMotivations[faction.motivationKey]}</div>
+                        <div class="faction-description">${t.factionDescriptions[faction.descriptionKey]}</div>
+                    </div>
+                `;
+            });
+
+            html += `
+                    </div>
+                </div>
+            `;
+
+            // Economy section
+            html += `
+                <div class="section">
+                    <h2>${t.economicForces}</h2>
+                    <div class="economic-list">
+            `;
+
+            results.economy.forEach(factor => {
+                html += `
+                    <div class="economic-item ${factor.type}">
+                        <div class="economic-name">${t.economicNames[factor.nameKey]}</div>
+                        <div class="economic-value">${t.index}: ${factor.value}/100</div>
+                        <div class="economic-description">${t.economicDescriptions[factor.descriptionKey]}</div>
+                    </div>
+                `;
+            });
+
+            html += `
+                    </div>
+                </div>
+            `;
+
+            // Narrative section
+            const narrative = generateNarrative(results.narrativeData, t);
+            html += `
+                <div class="section">
+                    <h2>${t.stateOfCity}</h2>
+                    <div class="narrative">
+                        ${narrative.map(p => `<p style="margin-bottom: 15px;">${p}</p>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            resultsDiv.innerHTML = html;
+        }
+
+        function generateNarrative(data, t) {
+            const narrative = [];
+
+            // Opening
+            narrative.push(t.narrative.opening(data.currentPopulation));
+
+            // Plague situation
+            if (data.plagueLevel === 'minimal') {
+                narrative.push(t.narrative.plague.minimal());
+            } else {
+                narrative.push(t.narrative.plague[data.plagueLevel](data.deadFromPlague));
+            }
+
+            // Herr Oetker's situation
+            narrative.push(t.narrative.oetker[data.oetkerSituation]);
+
+            // Social dynamics
+            if (data.socialLevel !== 'calm') {
+                narrative.push(t.narrative.social[data.socialLevel]);
+            }
+
+            // Opportunities
+            if (data.opportunities.length > 0) {
+                const oppTexts = data.opportunities.map(opp => t.narrative.opportunities[opp]);
+                narrative.push(t.narrative.opportunitiesIntro(oppTexts.join('; ')));
+            }
+
+            // Closing
+            narrative.push(t.narrative.closing);
+
+            return narrative;
+        }
+    </script>
+</body>
+</html>
