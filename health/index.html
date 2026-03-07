@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes on weathering cancer - Health</title>
     <meta name="description" content="Personal reflections on navigating cancer diagnosis and treatment">
-    <meta name="author" content="PM Autio">
+    <meta name="author" content="Petri Mikael Autio">
     <style>
         * {
             margin: 0;
@@ -128,6 +128,43 @@
             font-size: 14px;
         }
 
+        .page-stats {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .like-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: 1px solid #444;
+            border-radius: 20px;
+            padding: 6px 14px;
+            color: #888;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .like-btn:hover {
+            border-color: #e25555;
+            color: #e25555;
+        }
+
+        .like-btn.liked {
+            border-color: #e25555;
+            color: #e25555;
+        }
+
+        .visit-count {
+            color: #555;
+        }
+
         /* Beautiful Wikipedia Tooltips */
         .wiki-tooltip {
             position: absolute;
@@ -217,6 +254,12 @@
                 <a href="/health">Home</a>
                 <a href="/">About</a>
             </nav>
+            <div class="page-stats">
+                <button class="like-btn" id="likeBtn" onclick="toggleLike()">
+                    <span id="likeIcon">&#9825;</span> <span id="likeCount">0</span>
+                </button>
+                <span class="visit-count"><span id="visitCount">0</span> visits</span>
+            </div>
         </header>
         <article class="post">
             <div class="post-meta">
@@ -443,7 +486,7 @@
             </main>
 
         <footer>
-            <p>&copy; 2025 PM Autio</p>
+            <p>&copy; 2025 Petri Mikael Autio</p>
         </footer>
     </div>
 
@@ -674,6 +717,44 @@
                 tooltipElement.innerHTML = content;
             }
         });
+    </script>
+
+    <script>
+    // Like and visit tracking using localStorage
+    (function() {
+        var KEY_LIKES = 'health_blog_likes';
+        var KEY_LIKED = 'health_blog_user_liked';
+        var KEY_VISITS = 'health_blog_visits';
+
+        var likes = parseInt(localStorage.getItem(KEY_LIKES) || '0', 10);
+        var visits = parseInt(localStorage.getItem(KEY_VISITS) || '0', 10);
+        var userLiked = localStorage.getItem(KEY_LIKED) === 'true';
+
+        // Increment visits on each page load (deduplicated per session)
+        if (!sessionStorage.getItem('health_blog_counted')) {
+            visits++;
+            localStorage.setItem(KEY_VISITS, visits);
+            sessionStorage.setItem('health_blog_counted', 'true');
+        }
+
+        document.getElementById('likeCount').textContent = likes;
+        document.getElementById('visitCount').textContent = visits;
+
+        if (userLiked) {
+            document.getElementById('likeBtn').classList.add('liked');
+            document.getElementById('likeIcon').innerHTML = '&#9829;';
+        }
+
+        window.toggleLike = function() {
+            userLiked = !userLiked;
+            likes += userLiked ? 1 : -1;
+            localStorage.setItem(KEY_LIKES, likes);
+            localStorage.setItem(KEY_LIKED, userLiked);
+            document.getElementById('likeCount').textContent = likes;
+            document.getElementById('likeBtn').classList.toggle('liked', userLiked);
+            document.getElementById('likeIcon').innerHTML = userLiked ? '&#9829;' : '&#9825;';
+        };
+    })();
     </script>
 </body>
 </html>
