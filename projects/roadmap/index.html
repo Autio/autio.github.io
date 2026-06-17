@@ -18,14 +18,45 @@
             overflow-x: hidden;
         }
 
-        .container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
+        .roadmap-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 220px;
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(25, 118, 210, 0.18);
+            backdrop-filter: blur(6px);
+            padding: 0 14px;
+            text-align: center;
+        }
+
+        .roadmap-header-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1565c0;
+            letter-spacing: 0.2px;
+        }
+
+        .roadmap-header-subtitle {
+            font-size: 12px;
+            font-weight: 500;
+            color: #5f6b73;
+            margin-left: 10px;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: calc(100vh + 120px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 130px;
         }
 
         .phase-band {
@@ -110,61 +141,6 @@
             line-height: 1.5;
         }
 
-        .logo-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            z-index: 100;
-            text-align: center;
-            background: white;
-            padding: 25px 25px;
-            border-radius: 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .mwater-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 8px;
-        }
-
-        .logo-img {
-            height: 45px;
-            width: auto;
-        }
-
-        .roadmap-thumbnail {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 8px auto;
-        }
-
-        .thumbnail-img {
-            height: 80px;
-            width: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .tagline {
-            color: #666;
-            font-size: 11px;
-            margin-top: 6px;
-            font-weight: 400;
-        }
-
-        .subtitle {
-            color: #1976d2;
-            font-size: 15px;
-            margin-top: 6px;
-            font-weight: 600;
-        }
-
         .roadmap-item {
             position: absolute;
             background: white;
@@ -207,6 +183,17 @@
         .roadmap-item.completed {
             background: linear-gradient(135deg, #e8f5e8, #a5d6a7);
             border-color: #4caf50;
+        }
+
+        .roadmap-item.mcp-enabled {
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3), 0 0 24px rgba(76, 175, 80, 0.45);
+            animation: mcpGlow 2.4s ease-in-out infinite;
+        }
+
+        @keyframes mcpGlow {
+            0% { box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.25), 0 0 14px rgba(76, 175, 80, 0.3); }
+            50% { box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.45), 0 0 28px rgba(76, 175, 80, 0.55); }
+            100% { box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.25), 0 0 14px rgba(76, 175, 80, 0.3); }
         }
 
         .roadmap-item.in-progress {
@@ -260,6 +247,11 @@
             color: white;
         }
 
+        .status-mcp {
+            background: #c69200;
+            color: white;
+        }
+
         .status-in-progress {
             background: #ffa000;
             color: white;
@@ -278,6 +270,11 @@
         .status-transformation {
             background: #f57c00;
             color: white;
+        }
+
+        .roadmap-item.phase-2-pending {
+            background: linear-gradient(135deg, #fff8e1, #ffe082);
+            border-color: #ffb300;
         }
 
         .modal {
@@ -388,20 +385,46 @@
             color: #ffd700;
         }
 
+        .roadmap-footer {
+            width: 100%;
+            text-align: center;
+            color: #67737c;
+            font-size: 12px;
+            padding: 12px 10px 18px;
+            letter-spacing: 0.2px;
+        }
+
+        .roadmap-footer a {
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .roadmap-footer a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
+            .roadmap-header {
+                height: auto;
+                min-height: 52px;
+                flex-direction: column;
+                gap: 2px;
+                padding: 8px 10px;
+            }
+
+            .roadmap-header-subtitle {
+                margin-left: 0;
+            }
+
+            .container {
+                padding-top: 142px;
+            }
+
             .roadmap-item {
                 max-width: 250px;
                 min-width: 180px;
                 padding: 12px 15px;
-            }
-            
-            .mwater-logo {
-                width: 100px;
-                height: 70px;
-            }
-            
-            .logo-text {
-                font-size: 20px;
             }
             
             .modal-content {
@@ -412,6 +435,10 @@
     </style>
 </head>
 <body>
+    <header class="roadmap-header">
+        <span class="roadmap-header-title">mWater AI Product Roadmap</span>
+        <span class="roadmap-header-subtitle">Shipped capabilities and next priorities</span>
+    </header>
     <div class="container">
         <!-- Phase Background Bands -->
         <div class="phase-band phase-band-1"></div>
@@ -440,18 +467,6 @@
             <div class="phase-impact">Proactive planning, millions in investments optimized, accountable WASH at scale</div>
         </div>
 
-        <!-- mWater Header -->
-        <div class="logo-container">
-            <div class="mwater-logo">
-                <img src="brand.png" alt="mWater" class="logo-img">
-            </div>
-            <div class="roadmap-thumbnail">
-                <img src="mWater_Roadmap.PNG" alt="AI Roadmap" class="thumbnail-img">
-            </div>
-            <div class="subtitle">AI Leadership for a Global Platform</div>
-            <div class="tagline">Thought Leadership in AI Deployment & WASH Innovation</div>
-        </div>
-        
         <!-- Tooltip for hover -->
         <div class="tooltip" id="tooltip">
             <div id="tooltip-content"></div>
@@ -460,80 +475,86 @@
         <!-- Roadmap Items - Three Column Layout -->
         
         <!-- LEFT COLUMN - PHASE 1: FOUNDATION (0-6 months) -->
-        <div class="roadmap-item completed" style="top: 35%; left: 16.67%; transform: translateX(-50%);" data-item="survey-translation">
+        <div class="roadmap-item completed mcp-enabled" style="top: 33%; left: 16.67%; transform: translateX(-50%);" data-item="live-chat-docs">
+            <div class="item-status status-mcp">✓ MCP ENABLED</div>
+            <div class="item-title">Live Chat with Documentation</div>
+            <div class="item-description">Documentation-aware assistant is live</div>
+        </div>
+
+        <div class="roadmap-item completed" style="top: 40%; left: 16.67%; transform: translateX(-50%);" data-item="survey-translation">
             <div class="item-status status-completed">✓ COMPLETED</div>
             <div class="item-title">Survey Translation</div>
             <div class="item-description">AI-powered translation of surveys</div>
         </div>
 
-        <div class="roadmap-item completed" style="top: 43%; left: 16.67%; transform: translateX(-50%);" data-item="dashboard-translation">
+        <div class="roadmap-item completed" style="top: 47%; left: 16.67%; transform: translateX(-50%);" data-item="dashboard-translation">
             <div class="item-status status-completed">✓ COMPLETED</div>
             <div class="item-title">Dashboard Translation</div>
             <div class="item-description">Automated dashboard translations</div>
         </div>
 
-        <div class="roadmap-item in-progress" style="top: 51%; left: 16.67%; transform: translateX(-50%);" data-item="integrations">
-            <div class="item-status status-in-progress">⚡ IN PROGRESS</div>
+        <div class="roadmap-item completed mcp-enabled" style="top: 54%; left: 16.67%; transform: translateX(-50%);" data-item="integrations">
+            <div class="item-status status-completed">✓ COMPLETED</div>
             <div class="item-title">Smart Integrations</div>
-            <div class="item-description">AI-powered data imports</div>
+            <div class="item-description"><a href="https://portal.mwater.co/#/integrations" target="_blank" rel="noopener">portal.mwater.co/#/integrations</a></div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 59%; left: 16.67%; transform: translateX(-50%);" data-item="survey-design">
-            <div class="item-status status-foundation">Phase 1</div>
+        <div class="roadmap-item phase-1" style="top: 61%; left: 16.67%; transform: translateX(-50%);" data-item="survey-design">
+            <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">Survey Design</div>
             <div class="item-description">Prompt-based survey creation</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 67%; left: 16.67%; transform: translateX(-50%);" data-item="data-integrity">
-            <div class="item-status status-foundation">Phase 1</div>
+        <div class="roadmap-item completed mcp-enabled" style="top: 68%; left: 16.67%; transform: translateX(-50%);" data-item="data-integrity">
+            <div class="item-status status-mcp">✓ MCP ENABLED</div>
             <div class="item-title">Data Integrity</div>
             <div class="item-description">AI validates against evidence</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 75%; left: 16.67%; transform: translateX(-50%);" data-item="supervision">
-            <div class="item-status status-foundation">Phase 1</div>
+        <div class="roadmap-item completed mcp-enabled" style="top: 75%; left: 16.67%; transform: translateX(-50%);" data-item="supervision">
+            <div class="item-status status-mcp">✓ MCP ENABLED</div>
             <div class="item-title">Data Supervision</div>
             <div class="item-description">Flag odd patterns in data</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 83%; left: 16.67%; transform: translateX(-50%);" data-item="guidance">
+        <div class="roadmap-item phase-1" style="top: 82%; left: 16.67%; transform: translateX(-50%);" data-item="guidance">
             <div class="item-status status-foundation">Phase 1</div>
             <div class="item-title">In-Field Guidance</div>
             <div class="item-description">On-device assistant</div>
         </div>
 
-        <div class="roadmap-item phase-1" style="top: 91%; left: 16.67%; transform: translateX(-50%);" data-item="usage-analytics">
+        <div class="roadmap-item phase-2-pending" style="top: 70%; left: 50%; transform: translateX(-50%);" data-item="usage-analytics">
             <div class="item-status status-foundation">Phase 1</div>
             <div class="item-title">Usage Analytics</div>
             <div class="item-description">Safe AI insights</div>
         </div>
 
         <!-- CENTER COLUMN - PHASE 2: EXPANSION (6-18 months) -->
-        <div class="roadmap-item phase-2" style="top: 35%; left: 50%; transform: translateX(-50%);" data-item="dashboard-creation">
-            <div class="item-status status-expansion">Phase 2</div>
+        <div class="roadmap-item completed mcp-enabled" style="top: 35%; left: 50%; transform: translateX(-50%);" data-item="dashboard-creation">
+            <div class="item-status status-completed">✓ COMPLETED</div>
             <div class="item-title">Dashboard Creation</div>
             <div class="item-description">Generate from prompts</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 43%; left: 50%; transform: translateX(-50%);" data-item="data-analysis">
-            <div class="item-status status-expansion">Phase 2</div>
+        <div class="roadmap-item completed mcp-enabled" style="top: 42%; left: 50%; transform: translateX(-50%);" data-item="data-analysis">
+            <div class="item-status status-mcp">✓ MCP ENABLED</div>
             <div class="item-title">AI Data Analysis</div>
             <div class="item-description">Insights & narratives</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 51%; left: 50%; transform: translateX(-50%);" data-item="gis-support">
-            <div class="item-status status-expansion">Phase 2</div>
+        <div class="roadmap-item completed mcp-enabled" style="top: 49%; left: 50%; transform: translateX(-50%);" data-item="gis-support">
+            <div class="item-status status-completed">✓ COMPLETED</div>
             <div class="item-title">GIS Support</div>
             <div class="item-description">AI geospatial analysis</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 59%; left: 50%; transform: translateX(-50%);" data-item="smart-alerts">
+        <div class="roadmap-item phase-2-pending" style="top: 56%; left: 50%; transform: translateX(-50%);" data-item="smart-alerts">
             <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">Smart Alerts</div>
             <div class="item-description">Proactive notifications</div>
         </div>
 
-        <div class="roadmap-item phase-2" style="top: 67%; left: 50%; transform: translateX(-50%);" data-item="workflows">
+        <div class="roadmap-item phase-2-pending" style="top: 63%; left: 50%; transform: translateX(-50%);" data-item="workflows">
             <div class="item-status status-expansion">Phase 2</div>
             <div class="item-title">Smart Workflows</div>
             <div class="item-description">Automated responses</div>
@@ -546,24 +567,25 @@
             <div class="item-description">Forecasts & predictions</div>
         </div>
 
-        <div class="roadmap-item phase-3" style="top: 43%; left: 83.33%; transform: translateX(-50%);" data-item="modeling-integration">
+        <div class="roadmap-item phase-3" style="top: 42%; left: 83.33%; transform: translateX(-50%);" data-item="modeling-integration">
             <div class="item-status status-transformation">Phase 3</div>
             <div class="item-title">Modeling Integration</div>
             <div class="item-description">EPANET, WEAP, MODFLOW</div>
         </div>
 
-        <div class="roadmap-item phase-3" style="top: 51%; left: 83.33%; transform: translateX(-50%);" data-item="agentic-ai">
-            <div class="item-status status-transformation">Phase 3</div>
+        <div class="roadmap-item completed mcp-enabled" style="top: 49%; left: 83.33%; transform: translateX(-50%);" data-item="agentic-ai">
+            <div class="item-status status-mcp">✓ MCP ENABLED</div>
             <div class="item-title">Agentic AI</div>
             <div class="item-description">AI co-pilot for WASH</div>
         </div>
 
-        <div class="roadmap-item phase-3" style="top: 59%; left: 83.33%; transform: translateX(-50%);" data-item="network-intelligence">
+        <div class="roadmap-item phase-3" style="top: 56%; left: 83.33%; transform: translateX(-50%);" data-item="network-intelligence">
             <div class="item-status status-transformation">Phase 3</div>
             <div class="item-title">Network Intelligence Loop</div>
             <div class="item-description">AI inside the network</div>
         </div>
     </div>
+    <footer class="roadmap-footer">Roadmap leadership: <a href="https://www.linkedin.com/in/petriautio/" target="_blank" rel="noopener">Petri Autio</a></footer>
 
     <!-- Modal for detailed information -->
     <div class="modal" id="modal">
@@ -589,6 +611,12 @@
                 timeline: 'Completed - Currently Live',
                 impact: 'Eliminates translation bottlenecks that previously delayed survey deployment by weeks or months. Enables rapid multi-country rollouts and consistent terminology across regions, particularly valuable for emergency response and large-scale government programs where speed of deployment directly impacts service delivery.'
             },
+            'live-chat-docs': {
+                title: 'Live Chat with Documentation',
+                description: 'Conversational assistant connected to platform documentation and implementation guidance. Teams can ask natural-language questions and get grounded, contextual answers in real time.',
+                timeline: 'Completed - MCP Enabled',
+                impact: 'Greatly reduces lookup time for field and support teams by making institutional know-how instantly accessible. Speeds onboarding, improves decision quality in operations, and keeps guidance consistent across global deployments.'
+            },
             'dashboard-translation': {
                 title: 'Dashboard Translation',
                 description: 'Automated translation of dashboards, charts, and visualizations into local languages. This system maintains data integrity while providing culturally appropriate visualizations for different regions.',
@@ -604,31 +632,31 @@
             'data-integrity': {
                 title: 'Data Integrity Checks',
                 description: 'Advanced AI system that compares field data against photos, GPS coordinates, and historical patterns to identify inconsistencies, errors, or potential fraud in data collection.',
-                timeline: 'Phase 1 - 0-6 months',
+                timeline: 'Completed - MCP Enabled',
                 impact: 'Strengthens confidence in WASH databases used for planning and investment decisions. Particularly valuable for large-scale infrastructure tracking (like Malawi\'s 120,000+ water point database) where data quality directly affects emergency response effectiveness and maintenance prioritization. Helps identify data entry errors before they propagate through systems.'
             },
             'supervision': {
                 title: 'Data Collection Supervision',
                 description: 'AI-powered monitoring system that flags unusual patterns in data collection, such as unusually fast enumerators, inconsistent location data, or suspicious data entry patterns.',
-                timeline: 'Phase 1 - 0-6 months',
+                timeline: 'Completed - MCP Enabled',
                 impact: 'Enables supervisors to focus on meaningful quality issues rather than manual checking. Important for organizations managing field teams across dispersed geographies where physical supervision is costly and time-consuming. Helps maintain survey quality during rapid scale-up or emergency response when supervision resources are stretched.'
             },
             'integrations': {
                 title: 'Smart Data Integrations',
                 description: 'AI-assisted system that automatically parses and maps data from external sources, sensors, and other platforms. Reduces the technical complexity of data integration for non-technical users.',
-                timeline: 'Phase 1 - 0-6 months',
-                impact: 'Allows utilities and government systems to consolidate data from legacy systems, sensor networks, and partner organizations without requiring technical consultants. Enables integration of IoT sensor data, laboratory results, and financial data to create unified WASH information systems. Particularly valuable for building comprehensive national WASH databases.'
+                timeline: 'Completed - Live at portal.mwater.co/#/integrations',
+                impact: 'Allows utilities and government systems to consolidate data from legacy systems, sensor networks, and partner organizations without requiring technical consultants. Enables integration of IoT sensor data, laboratory results, and financial data to create unified WASH information systems. Live entry point: portal.mwater.co/#/integrations.'
             },
             'dashboard-creation': {
                 title: 'Prompt-to-Dashboard Creation',
                 description: 'Revolutionary system that generates interactive dashboards and widgets from natural language prompts. Users can describe their analytical needs and receive fully functional dashboards.',
-                timeline: 'Phase 2 - 6-12 months',
+                timeline: 'Completed - Currently Live',
                 impact: 'Empowers program managers and field coordinators to create monitoring dashboards without waiting for technical staff. Accelerates the feedback loop between data collection and decision-making. Enables rapid creation of emergency response dashboards, transparency portals for communities and funders, and custom views for different stakeholder needs.'
             },
             'data-analysis': {
                 title: 'AI-Driven Data Analysis',
                 description: 'Advanced AI system that automatically analyzes data patterns and generates insights, narratives, and recommendations. Provides contextual understanding of WASH data trends and anomalies.',
-                timeline: 'Phase 2 - 6-12 months',
+                timeline: 'Completed - MCP Enabled',
                 impact: 'Surfaces patterns that inform strategic decisions: identifying clusters of non-functional water points for targeted rehabilitation, detecting seasonal trends affecting water quality, or highlighting equity gaps in service delivery. Helps organizations move from data collection to data use - generating evidence for funding proposals, policy advocacy, and program adjustments.'
             },
             'smart-alerts': {
@@ -640,7 +668,7 @@
             'gis-support': {
                 title: 'AI-Assisted GIS Analysis',
                 description: 'Intelligent geospatial analysis system that helps users perform complex spatial analysis without requiring GIS expertise. Automatically identifies spatial patterns and relationships.',
-                timeline: 'Phase 2 - 6-12 months',
+                timeline: 'Completed - Via Dashboard Widget AI',
                 impact: 'Enables users to answer spatial questions naturally: "Where are underserved areas?", "Which water points are within 500m of this contamination source?", "Show me optimal locations for new boreholes". Particularly valuable for infrastructure planning, service area analysis, and understanding environmental risk factors without requiring dedicated GIS specialists.'
             },
             'workflows': {
@@ -664,7 +692,7 @@
             'agentic-ai': {
                 title: 'Agentic AI for WASH Operations',
                 description: 'Domain-aware AI agent that can autonomously perform WASH operations tasks within defined guardrails. Acts as a true AI co-pilot for water and sanitation management.',
-                timeline: 'Phase 3 - 12+ months',
+                timeline: 'Completed - MCP Enabled',
                 impact: 'Creates a knowledgeable WASH assistant that understands organizational context, data, and standard operating procedures. Could autonomously draft reports, prepare monitoring frameworks for new projects, synthesize data across sites to answer strategic questions, or recommend data collection approaches based on proven patterns. Extends the capacity of WASH professionals rather than replacing human judgment on critical decisions.'
             },
             'guidance': {
