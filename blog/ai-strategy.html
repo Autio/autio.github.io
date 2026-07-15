@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building for the Future: An AI Strategy for WASH Data - Petri Mikael Autio</title>
+  <meta name="description" content="Reflections from the mWater Foundation's Head of Product: how a global WASH data platform is designing for agentic AI, with an MCP server, human-in-the-loop writes, and features that improve as models improve.">
+  <meta name="author" content="Petri Mikael Autio">
+  <link rel="canonical" href="https://www.mwater.co/blog/ai-strategy">
+
+  <meta property="og:title" content="Building for the Future: An AI Strategy for WASH Data">
+  <meta property="og:description" content="How a global WASH data platform is designing for agentic AI: an MCP server, human-in-the-loop writes, and features that improve as models improve.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://autio.github.io/blog/ai-strategy.html">
+  <meta property="og:image" content="https://autio.github.io/blog/images/ai-strategy-poster.jpg">
+
+  <link rel="stylesheet" href="../stylesheets/portfolio.css">
+  <link rel="stylesheet" href="../stylesheets/blog.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building for the Future: An AI Strategy for WASH Data",
+    "datePublished": "2026-07-03",
+    "author": {
+      "@type": "Person",
+      "name": "Petri Mikael Autio",
+      "url": "https://autio.github.io"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "mWater",
+      "url": "https://mwater.co"
+    },
+    "mainEntityOfPage": "https://www.mwater.co/blog/ai-strategy",
+    "image": "https://autio.github.io/blog/images/ai-strategy-poster.jpg"
+  }
+  </script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav scrolled" id="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-brand">Petri Mikael Autio</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../index.html#ai">AI Leadership</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <h1>Building for the Future: An AI Strategy for WASH Data</h1>
+  <p class="article-subtitle">Reflections from the mWater Foundation's Head of Product.</p>
+  <div class="article-byline">
+    <img src="../images/petri-autio.jpg" alt="Petri Mikael Autio">
+    <div class="byline-text">
+      <strong>Petri Autio</strong><br>
+      Head of Product, mWater &middot; July 3, 2026
+    </div>
+  </div>
+  <p class="article-canonical">Originally published on the <a href="https://www.mwater.co/blog/ai-strategy" target="_blank">mWater blog</a>.</p>
+</header>
+
+<div class="article-banner">
+  <video autoplay loop muted playsinline poster="images/ai-strategy-poster.jpg" aria-label="AI agents working with mWater data">
+    <source src="images/ai-strategy-banner.mp4" type="video/mp4">
+  </video>
+</div>
+
+<article class="article">
+
+  <h2>Our Users Are Teaming Up With AI</h2>
+
+  <p>Something new is happening at mWater: our users are showing up with AI agents. They connect an assistant, ask it to clean a national dataset or build a dashboard, and get complex WASH work done by simply describing what they need. This is exactly the democratisation of data access that mWater was built for and it arrived faster than most platforms were designed to handle. AI agents are tireless, capable, and willing to use whatever interface they can find, hardened or not. Platform APIs designed for human users are now serving autonomous ones, with results ranging from impressive to unexpected: orphaned dashboards, dropdown fields with more options than any human would ever enter. The question for every data platform is no longer whether agents will arrive, but whether you've built them a proper way in.</p>
+
+  <h2>Everyone can be a Superuser</h2>
+
+  <p>Becoming the mainstay of WASH data and beyond, mWater has grown a rich ecosystem of users, and many extraordinary superusers have learned the platform in advanced ways. But building primarily for the experts can only deepen the chains of dependency that we seek to loosen instead. Consultants building complex, fit-for-purpose dashboards that governments and utilities can't maintain without them should be an industry that diminishes as the capabilities we offer continue to grow.</p>
+
+  <p>Therefore we design for frontline workers above all: utility staff, district officers, sanitation inspectors, field enumerators. These are not the typical audiences for a tech organization, but they are the ones who matter. To professionalize WASH, it is exactly those types of users we want to empower further with greater accessibility.</p>
+
+  <p>For us this has looked like:</p>
+
+  <ul>
+    <li>AI-empowered localization of our Portal interface in every major language our users work in, so that the friction to use the platform is minimal.</li>
+    <li>AI auto-translation of surveys, so that a form designed in one language can be used across dozens.</li>
+    <li>AI-boosted dashboard design, so that a district officer can get their data and build the view they need without being a data expert.</li>
+    <li>Agentic AI integrations that connect mWater to other systems easily, without a developer or consultant in the loop.</li>
+  </ul>
+
+  <p>AI doesn't make us design for superusers but stands to make everyone a superuser. A district officer who has never touched a chart builder can now describe the dashboard they need in plain language and watch it appear. Utility staff can link data on customers, process workflows, and accounting records with reconciliations from their bank transactions. Satellite data flows together with results verified on-location. Survey translation, dashboard design, integration help: these AI features are built into the platform and free, subsidized as part of our mission, because a capability that democratizes expertise shouldn't come with a bill that re-gates it.</p>
+
+  <h2>Riding the Wave</h2>
+
+  <p>Here is my primary bet when it comes to developing AI features formulated as a design principle:</p>
+
+  <div class="pull-quote">Design features that get better whenever the underlying models get better.</div>
+
+  <p>The interlinked flywheels of improving semiconductor chips, more efficient algorithms, growing economies of scale, higher-parametric models and better AI harness development mean that building against today's model capabilities is a losing game.</p>
+
+  <p>That means we steer away from things like:</p>
+
+  <ul>
+    <li>A simple homegrown chatbot when users are used to just asking ChatGPT and Claude, expecting them to know the answer or figure it out.</li>
+    <li>A sluggish proprietary WASH database as a flimsy moat. Your own agents are ever better placed to do and validate research from various sources online.</li>
+    <li>Custom fine-tuned prediction models, because outside genuine offline constraints in the field, why would we freeze last year's intelligence into a model that's outdated before training even finishes?</li>
+  </ul>
+
+  <p>The AI models of today are a rising tide. Rather than trying to hold it back or bottle it, we are better off building the boats.</p>
+
+  <p>This design thinking leads directly to features like AI-powered dashboard design, where the results a frontline user gets will improve each time the underlying model powering the feature gets swapped for a better one. And that swap only takes minutes of our effort, not months. This feature rides the wave. And with it, we aim to focus on capacity-building over dependency-building.</p>
+
+  <div class="video-embed">
+    <iframe src="https://www.youtube-nocookie.com/embed/-pS2GGDDfg0" title="AI-powered dashboards in mWater" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <p class="video-caption">AI-powered dashboards in mWater</p>
+
+  <h2>A welcoming front door: our MCP server</h2>
+
+  <p>If we accept that agents will be everywhere, and in many ways are the future user interface for platforms like mWater, then it is our job to build them a real, well-structured, sanctioned way in. So we built one ahead of the curve: an MCP server that allows users to connect their preferred agentic harness to learn mWater's features, query the data they have access to, and propose changes for humans to confirm and commit.</p>
+
+  <p>The response has been immediate. We are seeing users leap ahead with powerful use cases such as national level data cleaning, report creation, accountability audits, duplicate detection, qualitative text analysis at scale, and simply asking their AIs "how do I do x" to learn features they'd never touched.</p>
+
+  <div class="video-embed">
+    <iframe src="https://www.youtube-nocookie.com/embed/glKms2cBFmw" title="Connect your AI to mWater" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <p class="video-caption">Connect your AI to mWater</p>
+
+  <p>Here is what we've learned, offered as lessons for anyone building for that moment:</p>
+
+  <p><strong>Assume agents will find your APIs.</strong> We see agents coming to our Portal, viewing the network traffic from regular use, and independently reverse-engineering the correct calls to perform complex actions directly against our API. Agents will use whatever interface they can find, sanctioned or not. Don't design for a world of many human users and some agents; design instead for humans empowered by agentic AI as the norm, and make sure they have a door to walk through, not just windows.</p>
+
+  <p><strong>Make the safe path the obvious one, and keep humans in control.</strong> Our MCP server pairs capability with safety: user-scoped tokens, permission-aware access, rich querying, and agentic data writes reviewed like code, where only changes proposed by an agent and approved by a human become real. We are adding signposts to every public API endpoint pointing agents straight at the MCP server, so the sanctioned route is also the easiest one to find.</p>
+
+  <p><strong>Separate data from structure.</strong> With point-in-time recovery, everything in mWater can be rolled back, but a corrected data record is cheap, while a corrupted survey design with new data flowing in is expensive. We've seen a dropdown question created with tens of thousands of localizable choices balloon the schema, crash a dashboard, and make the question itself unopenable. So the things that are hard to fix once corrupted, such as survey designs, indicators, and dashboards, stay ringfenced from agentic access for now, and we review and tighten API checks beyond what the human UI already limits.</p>
+
+  <p><strong>Make your documentation machine readable.</strong> Our Resource Center is exposed through the same MCP server, so the assistants your users already talk to answer from your real, up-to-date documentation instead of their best guess.</p>
+
+  <h2>Closing</h2>
+
+  <p>The gap between organizations that professionalize their data operations and those that don't is about to widen fast, because AI functions as a multiplier on whatever operational maturity you already have in place. In WASH, that gap is measured in things like outages, water contamination events, and ultimately in human lives.</p>
+
+  <p>We built our front door early because our users can't afford for us to be late. The real work remains the same: Patient professionalization of WASH leading to reliable, safe water and sanitation for everyone, delivered by professionals who own their data instead of renting someone else's expertise. AI is the newest tool now pointed at the oldest goal.</p>
+
+  <p>If you're building a data platform, I hope these lessons can help you. If you're running water services, connect your agent and see what it can already do with mWater.</p>
+
+  <p class="article-signature">Petri Autio, July 2026</p>
+
+</article>
+
+<div class="article-footer-nav">
+  <a href="index.html">&larr; All posts</a>
+  <a href="../index.html#ai">AI Leadership &rarr;</a>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">Petri Mikael Autio</div>
+      <div class="footer-tagline">Product Leader &middot; WASH Technology &middot; SDG 6</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://linkedin.com/in/petriautio" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/Autio" target="_blank">GitHub</a></li>
+      <li><a href="index.html">Blog</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
