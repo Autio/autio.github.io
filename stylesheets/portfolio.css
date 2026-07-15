@@ -955,3 +955,43 @@ body {
     margin-left: 60px;
   }
 }
+
+/* Impact strip */
+.impact-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 64px;
+}
+
+.impact-item {
+  border-left: 3px solid var(--blue-600);
+  padding-left: 20px;
+}
+
+.impact-item .impact-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-800);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.impact-item p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .impact-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .impact-strip {
+    grid-template-columns: 1fr;
+  }
+}
