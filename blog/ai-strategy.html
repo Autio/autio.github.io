@@ -172,5 +172,12 @@
   </div>
 </footer>
 
+<script>
+const vio = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.play().catch(() => {}); } else { e.target.pause(); }
+}), { threshold: 0.2 });
+document.querySelectorAll('video[autoplay]').forEach(v => vio.observe(v));
+</script>
+
 </body>
 </html>

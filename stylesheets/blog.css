@@ -213,6 +213,26 @@
   color: var(--blue-800);
 }
 
+.article figure {
+  margin: 2.2em 0;
+}
+
+.article figure img,
+.article figure video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(12, 25, 41, 0.12);
+  display: block;
+}
+
+.article figcaption {
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  text-align: center;
+  margin-top: 12px;
+}
+
 .article .video-embed {
   position: relative;
   padding-bottom: 56.25%;
