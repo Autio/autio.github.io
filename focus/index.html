@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ignition — a prosthetic frontal lobe</title>
+<meta name="description" content="A single-purpose tool for ADHD task initiation. Dump, pick one thing, shrink it, launch a visible timer.">
+<style>
+  :root {
+    --bg: #0e1014;
+    --surface: #161a21;
+    --surface2: #1d232c;
+    --text: #e8e6e1;
+    --dim: #9a958c;
+    --faint: #5c5850;
+    --accent: #ff5c38;
+    --accent-soft: #ff5c3822;
+    --good: #5fd08a;
+    --line: #262c36;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+
+  .wrap { max-width: 660px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- header ---------- */
+  header { padding: 56px 0 8px; }
+  .kicker {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(30px, 6vw, 42px);
+    font-weight: 750; letter-spacing: -0.02em; line-height: 1.1;
+    margin: 10px 0 14px;
+  }
+  .honest {
+    color: var(--dim); font-size: 16.5px; max-width: 56ch;
+  }
+  .honest strong { color: var(--text); font-weight: 600; }
+
+  /* ---------- stats bar ---------- */
+  .stats {
+    display: flex; gap: 10px; margin: 26px 0 0;
+  }
+  .stat {
+    flex: 1; background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 12px 16px;
+  }
+  .stat b { font-size: 22px; font-weight: 700; display: block; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--faint); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* ---------- flow card ---------- */
+  .flow {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 18px; padding: 30px 28px 28px; margin: 28px 0 12px;
+    min-height: 340px; position: relative;
+  }
+  .steps { display: flex; gap: 6px; margin-bottom: 24px; }
+  .steps i {
+    height: 4px; flex: 1; border-radius: 2px; background: var(--surface2);
+    transition: background 0.3s;
+  }
+  .steps i.on { background: var(--accent); }
+
+  .stage { display: none; }
+  .stage.active { display: block; animation: rise 0.25s ease; }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .stage h2 { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .stage .why { color: var(--dim); font-size: 14.5px; margin-bottom: 18px; max-width: 52ch; }
+
+  textarea, input[type="text"] {
+    width: 100%; background: var(--bg); color: var(--text);
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 13px 15px; font: inherit; font-size: 16px;
+    outline: none; transition: border-color 0.15s;
+  }
+  textarea:focus, input:focus { border-color: var(--accent); }
+  textarea { min-height: 150px; resize: vertical; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff; border: none; cursor: pointer;
+    font: inherit; font-size: 15.5px; font-weight: 650;
+    padding: 12px 22px; border-radius: 10px; margin-top: 16px;
+    transition: transform 0.1s, filter 0.15s;
+  }
+  .btn:hover { filter: brightness(1.1); }
+  .btn:active { transform: scale(0.97); }
+  .btn.ghost {
+    background: transparent; color: var(--dim); border: 1px solid var(--line);
+    font-weight: 500;
+  }
+  .btn.ghost:hover { color: var(--text); border-color: var(--faint); }
+  .btnrow { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .hint { color: var(--faint); font-size: 13px; margin-top: 10px; }
+  kbd {
+    background: var(--surface2); border: 1px solid var(--line); border-bottom-width: 2px;
+    border-radius: 5px; padding: 1px 6px; font-size: 12px; font-family: inherit;
+  }
+
+  /* pick list */
+  .picklist { display: flex; flex-direction: column; gap: 8px; }
+  .picklist button {
+    text-align: left; background: var(--bg); color: var(--text);
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 15px; font: inherit; font-size: 15.5px; cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .picklist button:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+  .chosen {
+    background: var(--accent-soft); border: 1px solid var(--accent);
+    border-radius: 10px; padding: 10px 15px; font-size: 15px;
+    margin-bottom: 16px; color: var(--text);
+  }
+  .chosen small { display: block; color: var(--accent); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 2px; }
+
+  .durs { display: flex; gap: 8px; margin-top: 16px; }
+  .durs button {
+    flex: 1; background: var(--bg); border: 1px solid var(--line); color: var(--dim);
+    padding: 10px 0; border-radius: 10px; font: inherit; font-size: 15px; cursor: pointer;
+    font-variant-numeric: tabular-nums;
+  }
+  .durs button.sel { border-color: var(--accent); color: var(--text); background: var(--accent-soft); }
+
+  /* ---------- timer ---------- */
+  .timerbox { text-align: center; }
+  .disc { margin: 6px auto 4px; display: block; }
+  .clock {
+    font-size: 46px; font-weight: 750; font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .task-label { color: var(--dim); font-size: 15px; margin-top: 8px; }
+  .task-label b { color: var(--text); font-weight: 600; }
+  .contract {
+    margin: 14px auto 0; max-width: 46ch; color: var(--faint); font-size: 13.5px;
+    font-style: italic;
+  }
+
+  /* done */
+  .done-icon { font-size: 44px; }
+  .stage#stDone { text-align: center; }
+  .stage#stDone h2 { margin-top: 8px; }
+  .stage#stDone .btnrow { justify-content: center; }
+
+  /* ---------- science ---------- */
+  .science { margin: 48px 0 20px; }
+  .science > h3 {
+    font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--faint); font-weight: 650; margin-bottom: 16px;
+  }
+  details {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--surface); margin-bottom: 10px; overflow: hidden;
+  }
+  summary {
+    cursor: pointer; padding: 15px 18px; font-weight: 620; font-size: 15.5px;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--faint); font-size: 19px; font-weight: 400; }
+  details[open] summary::after { content: "–"; }
+  details .body { padding: 0 18px 16px; color: var(--dim); font-size: 14.5px; }
+  details .body p { margin-bottom: 10px; }
+  details .body cite {
+    display: block; font-style: normal; font-size: 12.5px; color: var(--faint);
+    border-left: 2px solid var(--line); padding-left: 10px; margin-top: 8px;
+  }
+
+  .heavy {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 20px; margin: 28px 0; background: linear-gradient(180deg, var(--surface), transparent);
+    color: var(--dim); font-size: 14.5px;
+  }
+  .heavy b { color: var(--text); }
+
+  footer {
+    padding: 30px 0 60px; color: var(--faint); font-size: 13px;
+    border-top: 1px solid var(--line); margin-top: 40px;
+  }
+
+  @media (max-width: 520px) {
+    .flow { padding: 22px 18px; }
+    .clock { font-size: 38px; }
+    .stats { flex-direction: row; }
+    .stat { padding: 10px 12px; }
+    .stat b { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Ignition</div>
+    <h1>Nothing on the internet cures ADHD.<br>This page knows that.</h1>
+    <p class="honest">
+      ADHD is a <strong>performance</strong> problem, not a knowledge problem — you already know what to do.
+      The deficit lives at the moment of doing. So this page doesn't explain anything.
+      It lends you a prefrontal cortex for the next 25 minutes: it holds your working memory,
+      externalizes time, and shrinks the task until starting is trivial. That's the whole trick.
+      Mechanisms and citations at the bottom, because you'll want to check.
+    </p>
+    <div class="stats">
+      <div class="stat"><b id="sToday">0</b><span>sprints today</span></div>
+      <div class="stat"><b id="sStreak">0</b><span>day streak</span></div>
+      <div class="stat"><b id="sTotal">0</b><span>all time</span></div>
+    </div>
+  </header>
+
+  <div class="flow">
+    <div class="steps">
+      <i id="dot0" class="on"></i><i id="dot1"></i><i id="dot2"></i><i id="dot3"></i>
+    </div>
+
+    <!-- STAGE 1: DUMP -->
+    <section class="stage active" id="stDump">
+      <h2>1 — Dump</h2>
+      <p class="why">Everything gnawing at you, one item per line. Not to organize it — to get it out of working memory, which is currently your scarcest resource.</p>
+      <textarea id="dumpBox" placeholder="tax form&#10;reply to Anna&#10;fix the build&#10;book dentist&#10;…" autofocus></textarea>
+      <div class="btnrow">
+        <button class="btn" onclick="toPick()">That's everything → <kbd>Ctrl+Enter</kbd></button>
+      </div>
+    </section>
+
+    <!-- STAGE 2: PICK -->
+    <section class="stage" id="stPick">
+      <h2>2 — Pick one</h2>
+      <p class="why">Exactly one. The rest is safely written down — it will not be forgotten, so your brain can release it. Prioritizing "correctly" matters far less than picking at all.</p>
+      <div class="picklist" id="pickList"></div>
+      <div class="btnrow">
+        <button class="btn ghost" onclick="show(0)">← back</button>
+      </div>
+    </section>
+
+    <!-- STAGE 3: SHRINK -->
+    <section class="stage" id="stShrink">
+      <h2>3 — Shrink it</h2>
+      <div class="chosen"><small>Your one thing</small><span id="chosenTask"></span></div>
+      <p class="why">The bottleneck is ignition, not execution. Name the <em>first physical action</em> — so small it's almost insulting. "Open the tax portal." "Put shoes on." If it takes more than 2 minutes, it's not the first action.</p>
+      <input type="text" id="firstAction" placeholder="The stupidly small first action…">
+      <p class="hint">This becomes an if-then contract: <em>“When the timer starts, I will ___.”</em> If-then plans roughly double follow-through in controlled studies — including in ADHD samples.</p>
+      <div class="durs" id="durs">
+        <button data-m="5">5 min</button>
+        <button data-m="10">10 min</button>
+        <button data-m="25" class="sel">25 min</button>
+        <button data-m="45">45 min</button>
+      </div>
+      <div class="btnrow">
+        <button class="btn" onclick="launch()">Start the timer → <kbd>Enter</kbd></button>
+        <button class="btn ghost" onclick="show(1)">← back</button>
+      </div>
+    </section>
+
+    <!-- STAGE 4: RUN -->
+    <section class="stage timerbox" id="stRun">
+      <svg class="disc" id="discSvg" width="230" height="230" viewBox="0 0 230 230">
+        <circle cx="115" cy="115" r="106" fill="none" stroke="var(--surface2)" stroke-width="2"/>
+        <path id="pie" fill="var(--accent)" opacity="0.9"></path>
+        <circle cx="115" cy="115" r="106" fill="none" stroke="var(--line)" stroke-width="1"/>
+      </svg>
+      <div class="clock" id="clock">25:00</div>
+      <p class="task-label">Doing: <b id="runTask"></b></p>
+      <p class="contract" id="runContract"></p>
+      <div class="btnrow" style="justify-content:center">
+        <button class="btn ghost" onclick="stuck()">Stuck? Shrink again</button>
+        <button class="btn ghost" onclick="abandon()">Abandon</button>
+      </div>
+    </section>
+
+    <!-- STAGE 5: DONE -->
+    <section class="stage" id="stDone">
+      <div class="done-icon">✓</div>
+      <h2 id="doneMsg">Sprint complete.</h2>
+      <p class="why" style="margin:6px auto 18px; text-align:center;">
+        That counted, whatever happened during it. Starting was the hard part and you did it.
+        Move your body for 5 minutes — a walk beats a phone — then decide.
+      </p>
+      <div class="btnrow">
+        <button class="btn" onclick="goAgain()">Same task, another round</button>
+        <button class="btn ghost" onclick="backToPick()">Pick a new task</button>
+        <button class="btn ghost" onclick="resetAll()">Done for now</button>
+      </div>
+    </section>
+  </div>
+
+  <p class="hint" style="text-align:center; margin-bottom: 8px;">
+    No account. Nothing leaves this page — your list and streak live in this browser only.
+  </p>
+
+  <div class="heavy">
+    <b>The honest hierarchy:</b> the three interventions with the largest effect sizes for ADHD are
+    <b>medication</b> (properly titrated, stimulants first-line), <b>sleep</b>, and <b>aerobic exercise</b>.
+    This page is scaffolding — it works at the point of performance, but it sits on top of those, not instead of them.
+    If you're diagnosed and unmedicated by choice, fine; if it's by inertia, that's a task for the dump box.
+  </div>
+
+  <section class="science">
+    <h3>Why each step works — the actual evidence</h3>
+
+    <details>
+      <summary>Dump — offloading working memory</summary>
+      <div class="body">
+        <p>Barkley's model frames ADHD as a deficit of self-directed executive functions — including nonverbal working memory. The corollary is his most-quoted clinical rule: <em>externalize everything</em>. Information held in the world (a list on a screen) doesn't decay the way information held in an ADHD working memory does. Writing unresolved tasks down also measurably reduces their intrusiveness (unfinished tasks otherwise keep pinging attention — the Zeigarnik effect).</p>
+        <cite>Barkley, R. A. (1997). Behavioral inhibition, sustained attention, and executive functions. <em>Psychological Bulletin</em>, 121(1). · Masicampo & Baumeister (2011), <em>JPSP</em> — writing plans for unfulfilled goals eliminates their interference with other tasks.</cite>
+      </div>
+    </details>
+
+    <details>
+      <summary>Pick one — choice paralysis is an initiation tax</summary>
+      <div class="body">
+        <p>ADHD impairs prioritization far more than execution, and every open option keeps competing for attention. Committing to a single item converts an open-ended decision problem (expensive for a weak central executive) into a closed motor problem (cheap). The pick doesn't need to be optimal — task <em>initiation rate</em>, not selection quality, is what predicts output in ADHD samples.</p>
+        <cite>See executive-function accounts of ADHD decision-making, e.g., Willcutt et al. (2005), <em>Biological Psychiatry</em> — meta-analysis of EF deficits.</cite>
+      </div>
+    </details>
+
+    <details>
+      <summary>Shrink + if-then — implementation intentions</summary>
+      <div class="body">
+        <p>The single best-replicated behavioral trick in this page. An implementation intention ("when situation X, I will do Y") delegates initiation from effortful deliberation to automatic cue-response — precisely the handoff an ADHD brain needs. Gollwitzer & Sheeran's meta-analysis across 94 studies found d ≈ 0.65 on goal attainment; Gawrilow & Gollwitzer showed the effect holds in children with ADHD, where if-then plans normalized response inhibition to control levels.</p>
+        <cite>Gollwitzer & Sheeran (2006), <em>Advances in Experimental Social Psychology</em>, 38. · Gawrilow & Gollwitzer (2008), <em>Cognitive Therapy and Research</em>, 32.</cite>
+      </div>
+    </details>
+
+    <details>
+      <summary>The shrinking disc — externalizing time</summary>
+      <div class="body">
+        <p>Time blindness is not a metaphor: ADHD reliably impairs time reproduction and estimation (deficits scale with interval length). A number on a clock is symbolic; a red area physically disappearing is perceptual. Perceptual time doesn't need working memory to track. This is why the analog Time-Timer design became a de facto standard in ADHD clinical practice.</p>
+        <cite>Barkley, Edwards, Laneri, Fletcher & Metevia (2001), <em>Journal of Abnormal Child Psychology</em> — time reproduction deficits in ADHD. · Toplak, Dockstader & Tannock (2006), <em>Journal of Neuroscience Methods</em> — review of temporal information processing in ADHD.</cite>
+      </div>
+    </details>
+
+    <details>
+      <summary>Chime + streak — immediate reward for a steep discounter</summary>
+      <div class="body">
+        <p>ADHD brains discount delayed rewards more steeply than controls (a meta-analytically robust finding), which is why "it'll pay off next month" motivates approximately nothing. The fix isn't discipline; it's moving the reward to now. A completion chime, a counter that visibly increments, a streak you'd feel losing — small, immediate, contingent. It's the same mechanism behind every slot machine, pointed at your tax return.</p>
+        <cite>Jackson & MacKillop (2016), <em>Biological Psychiatry: CNNI</em> — meta-analysis of delay discounting in ADHD. · Volkow et al. (2009), <em>JAMA</em> — reduced dopamine reward-pathway markers in adult ADHD.</cite>
+      </div>
+    </details>
+
+    <details>
+      <summary>The 5-minute movement break — acute exercise</summary>
+      <div class="body">
+        <p>Single bouts of moderate aerobic exercise produce measurable short-term improvements in inhibition and attention in ADHD — one of the few non-pharmacological effects that survives meta-analysis. A brisk walk between sprints is not a break from the protocol; it is the protocol.</p>
+        <cite>Cerrillo-Urbina et al. (2015), <em>Child: Care, Health and Development</em> — meta-analysis of exercise effects in ADHD. · Pontifex et al. (2013), <em>Journal of Pediatrics</em> — acute exercise improves inhibitory control in ADHD.</cite>
+      </div>
+    </details>
+
+    <details>
+      <summary>What's deliberately missing</summary>
+      <div class="body">
+        <p>No gamified forest, no XP, no settings page, no account. Every configurable option is a fresh decision, and decisions are the tax this page exists to eliminate. Body doubling (working alongside another person) has promising but still mostly anecdotal evidence — if it works for you, a video call with a friend on mute does the job better than any app. And nothing here replaces the boring heavy hitters above.</p>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    Built for one specific brain. If it works, the streak knows.
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- state ---------- */
+  var state = {
+    task: "",
+    action: "",
+    minutes: 25,
+    endAt: 0,
+    timerId: null
+  };
+
+  var stages = ["stDump", "stPick", "stShrink", "stRun", "stDone"];
+
+  function show(i) {
+    stages.forEach(function (id, k) {
+      document.getElementById(id).classList.toggle("active", k === i);
+    });
+    for (var d = 0; d < 4; d++) {
+      document.getElementById("dot" + d).classList.toggle("on", d <= Math.min(i, 3));
+    }
+    var focusMap = { 0: "dumpBox", 2: "firstAction" };
+    if (focusMap[i]) setTimeout(function () { document.getElementById(focusMap[i]).focus(); }, 60);
+  }
+  window.show = show;
+
+  /* ---------- storage ---------- */
+  var KEY = "ignition_v1";
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+  }
+  function save(s) { localStorage.setItem(KEY, JSON.stringify(s)); }
+  function todayStr() { return new Date().toISOString().slice(0, 10); }
+
+  function renderStats() {
+    var s = load();
+    var today = todayStr();
+    document.getElementById("sToday").textContent = (s.lastDay === today) ? (s.todayCount || 0) : 0;
+    document.getElementById("sTotal").textContent = s.total || 0;
+    document.getElementById("sStreak").textContent = s.streak || 0;
+  }
+
+  function recordSprint() {
+    var s = load();
+    var today = todayStr();
+    if (s.lastDay === today) {
+      s.todayCount = (s.todayCount || 0) + 1;
+    } else {
+      var yesterday = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+      s.streak = (s.lastDay === yesterday) ? (s.streak || 0) + 1 : 1;
+      s.todayCount = 1;
+      s.lastDay = today;
+    }
+    s.total = (s.total || 0) + 1;
+    save(s);
+    renderStats();
+  }
+
+  /* persist the dump so a tab close loses nothing */
+  var dumpBox = document.getElementById("dumpBox");
+  dumpBox.value = load().dump || "";
+  dumpBox.addEventListener("input", function () {
+    var s = load(); s.dump = dumpBox.value; save(s);
+  });
+
+  /* ---------- stage transitions ---------- */
+  function toPick() {
+    var lines = dumpBox.value.split("\n").map(function (l) { return l.trim(); }).filter(Boolean);
+    if (!lines.length) { dumpBox.focus(); dumpBox.placeholder = "At least one thing. Anything."; return; }
+    var list = document.getElementById("pickList");
+    list.innerHTML = "";
+    lines.slice(0, 30).forEach(function (l) {
+      var b = document.createElement("button");
+      b.textContent = l;
+      b.onclick = function () { state.task = l; toShrink(); };
+      list.appendChild(b);
+    });
+    show(1);
+  }
+  window.toPick = toPick;
+
+  function toShrink() {
+    document.getElementById("chosenTask").textContent = state.task;
+    document.getElementById("firstAction").value = "";
+    show(2);
+  }
+
+  /* duration buttons */
+  document.getElementById("durs").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    state.minutes = +b.dataset.m;
+    this.querySelectorAll("button").forEach(function (x) { x.classList.remove("sel"); });
+    b.classList.add("sel");
+  });
+
+  /* ---------- timer ---------- */
+  var pie = document.getElementById("pie");
+  var clock = document.getElementById("clock");
+  var baseTitle = document.title;
+
+  function arcPath(frac) {
+    /* frac = remaining portion, drawn as a Time-Timer disc that shrinks clockwise */
+    if (frac >= 0.9999) frac = 0.9999;
+    if (frac <= 0) return "";
+    var cx = 115, cy = 115, r = 102;
+    var a = -Math.PI / 2 + (1 - frac) * 0; /* start at 12 o'clock */
+    var end = -Math.PI / 2 + frac * 2 * Math.PI;
+    var x1 = cx + r * Math.cos(-Math.PI / 2), y1 = cy + r * Math.sin(-Math.PI / 2);
+    var x2 = cx + r * Math.cos(end), y2 = cy + r * Math.sin(end);
+    var large = frac > 0.5 ? 1 : 0;
+    return "M" + cx + "," + cy + " L" + x1 + "," + y1 +
+           " A" + r + "," + r + " 0 " + large + " 1 " + x2 + "," + y2 + " Z";
+  }
+
+  function fmt(secs) {
+    var m = Math.floor(secs / 60), s = secs % 60;
+    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+  }
+
+  function tick() {
+    var remainMs = state.endAt - Date.now();
+    if (remainMs <= 0) { finish(); return; }
+    var remainS = Math.ceil(remainMs / 1000);
+    var frac = remainMs / (state.minutes * 60000);
+    clock.textContent = fmt(remainS);
+    pie.setAttribute("d", arcPath(frac));
+    document.title = fmt(remainS) + " · " + state.task;
+  }
+
+  function launch() {
+    var a = document.getElementById("firstAction").value.trim();
+    if (!a) { document.getElementById("firstAction").focus(); return; }
+    state.action = a;
+    state.endAt = Date.now() + state.minutes * 60000;
+    document.getElementById("runTask").textContent = state.task;
+    document.getElementById("runContract").textContent =
+      "“The timer has started, so I am now: " + a + ".”";
+    show(3);
+    tick();
+    state.timerId = setInterval(tick, 500);
+  }
+  window.launch = launch;
+
+  function stopTimer() {
+    clearInterval(state.timerId);
+    state.timerId = null;
+    document.title = baseTitle;
+  }
+
+  function chime() {
+    try {
+      var ctx = new (window.AudioContext || window.webkitAudioContext)();
+      [523.25, 659.25, 783.99].forEach(function (f, i) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = "sine"; o.frequency.value = f;
+        o.connect(g); g.connect(ctx.destination);
+        var t = ctx.currentTime + i * 0.18;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(0.22, t + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.001, t + 0.9);
+        o.start(t); o.stop(t + 1);
+      });
+    } catch (e) { /* audio blocked — the streak still counts */ }
+  }
+
+  function finish() {
+    stopTimer();
+    chime();
+    recordSprint();
+    /* remove finished task from the dump */
+    var s = load();
+    if (s.dump) {
+      s.dump = s.dump.split("\n").filter(function (l) { return l.trim() !== state.task; }).join("\n");
+      save(s);
+      dumpBox.value = s.dump;
+    }
+    document.getElementById("doneMsg").textContent = "Sprint complete: " + state.task;
+    show(4);
+  }
+
+  function abandon() {
+    stopTimer();
+    show(2); /* back to shrink — try a smaller first action */
+  }
+  window.abandon = abandon;
+
+  function stuck() {
+    stopTimer();
+    document.getElementById("firstAction").value = "";
+    document.getElementById("firstAction").placeholder =
+      "Even smaller. What can you do in 30 seconds?";
+    show(2);
+  }
+  window.stuck = stuck;
+
+  function goAgain() {
+    /* task survived the finish-removal only if user re-adds; keep it in state */
+    document.getElementById("chosenTask").textContent = state.task;
+    show(2);
+    document.getElementById("firstAction").value = state.action;
+  }
+  window.goAgain = goAgain;
+
+  function backToPick() { toPick(); }
+  window.backToPick = backToPick;
+
+  function resetAll() { show(0); }
+  window.resetAll = resetAll;
+
+  /* ---------- keyboard ---------- */
+  dumpBox.addEventListener("keydown", function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { e.preventDefault(); toPick(); }
+  });
+  document.getElementById("firstAction").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); launch(); }
+  });
+
+  /* warn before closing mid-sprint */
+  window.addEventListener("beforeunload", function (e) {
+    if (state.timerId) { e.preventDefault(); e.returnValue = ""; }
+  });
+
+  renderStats();
+})();
+</script>
+</body>
+</html>
