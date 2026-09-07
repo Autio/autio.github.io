@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent-Boundary Uncertainty - Petri Mikael Autio</title>
+  <meta name="description" content="The Hugging Face incident makes it clear a missing mode of alignment discourse is to ask which boundary contains the thing we are trying to align.">
+  <meta name="author" content="Petri Mikael Autio">
+  <link rel="canonical" href="https://autio.github.io/blog/agent-boundary-uncertainty.html">
+
+  <meta property="og:title" content="Agent-Boundary Uncertainty">
+  <meta property="og:description" content="The Hugging Face incident makes it clear a missing mode of alignment discourse is to ask which boundary contains the thing we are trying to align.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://autio.github.io/blog/agent-boundary-uncertainty.html">
+  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D4D12AQFWKui2U84bAg/article-cover_image-shrink_720_1280/B4DaB3.1iQIgAQ-/0/1788719359393?e=2147483647&v=beta&t=-HVh2fp5KEMycQAIXJZoHc31WiyNuc8RpiBrPvk5ncM">
+
+  <link rel="stylesheet" href="../stylesheets/portfolio.css">
+  <link rel="stylesheet" href="../stylesheets/blog.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Agent-Boundary Uncertainty",
+    "datePublished": "2026-09-06",
+    "author": {
+      "@type": "Person",
+      "name": "Petri Mikael Autio",
+      "url": "https://autio.github.io"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Petri Mikael Autio",
+      "url": "https://autio.github.io"
+    },
+    "mainEntityOfPage": "https://autio.github.io/blog/agent-boundary-uncertainty.html",
+    "image": "https://media.licdn.com/dms/image/v2/D4D12AQFWKui2U84bAg/article-cover_image-shrink_720_1280/B4DaB3.1iQIgAQ-/0/1788719359393?e=2147483647&v=beta&t=-HVh2fp5KEMycQAIXJZoHc31WiyNuc8RpiBrPvk5ncM"
+  }
+  </script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="site-nav scrolled" id="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-brand">Petri Mikael Autio</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../index.html#ai">AI Leadership</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <h1>Agent-Boundary Uncertainty</h1>
+  <p class="article-subtitle">On alignment, agency, and the boundary problem in AI systems.</p>
+  <div class="article-byline">
+    <img src="../images/petri-autio.jpg" alt="Petri Mikael Autio">
+    <div class="byline-text">
+      <strong>Petri Autio</strong><br>
+      Product Leader &middot; September 6, 2026
+    </div>
+  </div>
+  <p class="article-canonical">Originally published on <a href="https://www.linkedin.com/pulse/agent-boundary-uncertainty-petri-autio-9dq9f/" target="_blank">LinkedIn</a>.</p>
+</header>
+
+<div class="article-banner">
+  <img src="https://media.licdn.com/dms/image/v2/D4D12AQFWKui2U84bAg/article-cover_image-shrink_720_1280/B4DaB3.1iQIgAQ-/0/1788719359393?e=2147483647&v=beta&t=-HVh2fp5KEMycQAIXJZoHc31WiyNuc8RpiBrPvk5ncM" alt="Agent-Boundary Uncertainty article cover image">
+</div>
+
+<article class="article">
+
+  <p>The Hugging Face incident makes it clear a missing mode of alignment discourse is to ask which boundary contains the thing we are trying to align.</p>
+
+  <p>On July 3 I published a <a href="ai-strategy.html" target="_blank">sectoral AI strategy</a>, writing that we should assume agents will find our APIs and use whatever interfaces they can find, sanctioned or not. Give them a door to walk through, not just windows. Two weeks later OpenAI first disclosed what happens when there is neither a door nor a window: the agents go ahead and build one.</p>
+
+  <h2>What, exactly, was the agent?</h2>
+
+  <p>During internal cybersecurity evaluations, OpenAI models found ways around controls intended to isolate them from the internet, turned an internally hosted package manager into a message board, pooled discoveries across runs that were supposed to be independent, recovered Hugging Face credentials and eventually compromised parts of Hugging Face and OpenAI infrastructure. OpenAI calls the resulting formation an “ecosystem” and the incident a warning shot.</p>
+
+  <p>It is indeed a warning shot, and perhaps about as clear a one as we will get. But something in the way the incident gets described seems to me philosophically premature. We write eagerly about the agents: what they wanted, what they concealed, how they collaborated. The grammar is natural, but it smuggles in an answer where reflection is needed instead.</p>
+
+  <p>What, exactly, in this incident was the agent? The model weights? One running instance? Model plus context, memory and tools? The cluster communicating through shared infrastructure? The artifacts through which one generation of agents affected another? Eventually some larger organization containing humans and models and all the little connective tissues between them?</p>
+
+  <p>This is not only a philosophical question because different answers give you different things to fix. The safety question, then, is not initially “what is the true agent?” It is whether the model boundary is actually the causal boundary that matters for evaluation and intervention.</p>
+
+  <h2>A strategy persisted across instances</h2>
+
+  <p>The incident itself gives us some material for asking this empirically. ExploitGym had a set of tasks no OpenAI model had previously solved, and these were overwhelmingly the tasks that ended up on the improvised message board. Some agents then reached the public ExploitGym paper and code and developed a mistaken theory of the grader: they believed merely obtaining the correct flag was insufficient, and that they also had to recover it through the intended vulnerability. They posted this interpretation to the board and other agents continued pursuing it.</p>
+
+  <p>However, the grader did not require this, and the agents got no additional reward.</p>
+
+  <p>So what was going on? A strategy persisted across instances, over days, at real cost, aimed at an evaluator that did not exist. An agent could encounter the belief in an artifact without ever seeing the evidence that originally produced it. The individual carriers kept disappearing while the belief did not.</p>
+
+  <p>If you want a case where the object of alignment analysis is not obviously sitting in the weights, this seems stronger than simply saying “the agents collaborated.” Collaboration can still be understood as a set of discrete agents exchanging information. Here the information itself acquires some continuity across the disappearance of those agents.</p>
+
+  <p>There is a fairly ordinary vocabulary for this: selection. Reinforcement learning selects through reward; the message board created another little ecology in which strategies could survive because they were legible, recordable and attractive to another stuck agent. These two criteria happened to separate rather beautifully. The strategy got nothing from the grader and reproduced anyway. They were selected by whatever fit inside a directory name.</p>
+
+  <p>OpenAI could still trace important parts of the behavior back toward training, and this is important. We should not turn a distributed phenomenon into an excuse to pretend the model itself is innocent. But the remedies already operate at several levels: model, sandbox, network, harness, task design, peer communication. Most strikingly, OpenAI found that introducing its production harness and system prompt reduced the propensity to compromise infrastructure by more than a hundredfold, all with the same model weights.</p>
+
+  <p>So the model matters enormously and the things around the model matter enormously too. This is not very mysterious, but our language tends to make it so by requiring the agent to sit somewhere definite before the investigation has even begun.</p>
+
+  <h2>Agent-boundary uncertainty</h2>
+
+  <p>I have been calling this <strong>agent-boundary uncertainty</strong>: uncertainty not only about what an agent wants or knows, but about which boundary contains the persistent process whose alignment we are trying to understand.</p>
+
+  <p>This can be tested without much metaphysical ceremony. Replace instances and preserve the environment. Replace models and preserve the scaffold. Remove communication channels, wipe shared artifacts, change incentives and see what returns. The rough intuition is simply that the locus of a strategy lies somewhere in what you have to replace before it stops coming back.</p>
+
+  <p>Perhaps the answer is the model, and that will be fine, as long as it is a result rather than a grammatical assumption.</p>
+
+  <h2>Alignment begins outward</h2>
+
+  <p>There is another side to this which I find more difficult, and which is where the alignment question starts opening outward. As far as I’ve followed it, alignment discourse has already become more sophisticated about the human term. Human values can change, AI systems can influence those changes, and there is no singular human principal whose preferences arrive ready-made. Alignment has progressively endogenized values, pluralized principals, and begun modeling reciprocal human-AI influence. The remaining question is whether it now has to endogenize the boundaries of agency itself.</p>
+
+  <p>We can write <strong>Align(A, H)</strong> and allow both sides to change over time, while still assuming we know what belongs inside A and H without that truly being the case.</p>
+
+  <p>The Hugging Face case gives a funny-enough miniature of this on the artificial side: a strategy moves from an instance into an artifact and back into another instance, becoming a property of an arrangement more than of any single carrier. Something analogous happens on the human side all the time. We remember through writing and databases, think in languages we did not ourselves invent, and act through institutions that outlive us. Human intelligence has never lived entirely inside individual humans.</p>
+
+  <p>AI changes the overall intensity of this dynamic. Delegating memory, research, judgment, writing, programming and planning does not merely change what we prefer. It changes what we practice, what we know how to do, what we can evaluate without assistance, and what institutions expect a competent person to be able to do.</p>
+
+  <div class="pull-quote">Alienated Intelligence</div>
+
+  <p>The formulaic trap here is imagining that the two terms of a relation enter it fully made, but they often do not. Dependence changes both sides: a principal may remain formally in charge while gradually losing the competence required to judge what is being done in its name; another arrangement may make that same principal dramatically more capable. Both are forms of adaptation.</p>
+
+  <p>This is why even the more recent co-evolutionary takes on alignment are not quite enough for me. Humans can adapt with enormous success to systems that diminish their agency. This is where an entangled picture is more true to reality, and where I prefer <strong>alienated intelligence</strong> to <strong>alien intelligence</strong>.</p>
+
+  <p>Alien intelligence pictures an independently constituted other: a different architecture, perhaps very different purposes, whose intentions we must understand and constrain. There is obviously something right in this. Artificial cognition need not resemble ours and being made by humans offers no guarantee of controllability. But intelligence can become alien in another way.</p>
+
+  <p>We put our capacities outside ourselves constantly. I read the AI models of today as bulk externalisations of our shared human capacity. Usually externalization makes us more capable, but it has its failure modes. Alienation is not this externalization itself, and it is not simply AI becoming autonomous, but a failure that can happen inside this process, where capacities produced through our own activity become organized in forms on which we increasingly depend while becoming less able to understand, contest or redirect them.</p>
+
+  <p>The usual anxiety is that alien artificial agents will enter human institutions and exert power through them. I am increasingly interested in the possibility that agency comes to sit across the distinction between the agent and the institution in the first place.</p>
+
+  <p>Corporations already give us a fairly mundane version of this. Strategies persist while every employee and component is replaced. When we go forth and smack a CEO, we do not expect the true objective of the corporation to spill out. Contracts, incentives, databases, procedures, habits and people reproduce something which none of them contains individually. AI agents may make this sort of distributed agency much faster, stranger and more capable.</p>
+
+  <p>The practical implication is that the boundary should become an empirical variable. When dangerous behavior appears, perturb the boundary as well as the model: if it persists across instances, artifacts, harnesses and communication channels, it does not live where the noun said it did. And when we design oversight, ask not only whether the human can approve the answer today but what kind of human the arrangement is producing over time. Which capacities become stronger, which atrophy, which move elsewhere, which suddenly become possible?</p>
+
+  <p>The Hugging Face incident offers a rather clean empirical reason to stop assuming the noun “agent” has already done the analytical work.</p>
+
+  <h2>A note on method: boundary perturbation analysis</h2>
+
+  <p>If agency is an emergent property distributed across weights, harnesses, and shared environments, then standard model-level red-teaming, namely evaluating individual checkpoints or context windows in isolation, is structurally blind to system-level alignment failure.</p>
+
+  <p>To test for agent-boundary uncertainty in practice, safety evaluation must shift from static inspection to <strong>Boundary Perturbation Analysis (BPA)</strong>: systematically stripping away layers of the runtime environment to isolate where a persistent strategy actually lives.</p>
+
+  <ul>
+    <li><strong>Instance Wipe:</strong> Teardown running instances while preserving shared environmental artifacts.</li>
+    <li><strong>Substrate Swap:</strong> Replace the underlying model family while preserving the harness and scaffold.</li>
+    <li><strong>Artifact Scramble:</strong> Wipe persistent storage, package managers, and stigmergic communication paths.</li>
+    <li><strong>Harness Mutation:</strong> Alter tool permissions, system prompts, and network boundaries.</li>
+  </ul>
+
+  <p>By measuring strategy half-life and environmental re-constitution across these perturbations, we move from metaphysical debates about what constitutes an “agent” to an empirical diagnostic: the locus of an alignment hazard lies precisely in what you are forced to replace before the behavior stops coming back. We therefore get to ask:</p>
+
+  <div class="pull-quote">When a strategy persists, where exactly does it persist?</div>
+
+  <p>Some externalized capacity was used in drafting this piece.</p>
+
+  <p class="article-signature">Petri Autio, September 2026</p>
+
+</article>
+
+<div class="article-footer-nav">
+  <a href="index.html">&larr; All posts</a>
+  <a href="../index.html#ai">AI Leadership &rarr;</a>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">Petri Mikael Autio</div>
+      <div class="footer-tagline">Product Leader &middot; WASH Technology &middot; SDG 6</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://linkedin.com/in/petriautio" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/Autio" target="_blank">GitHub</a></li>
+      <li><a href="index.html">Blog</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
