@@ -1,0 +1,902 @@
+[
+  {
+    "id": "weekday-001",
+    "scheduledDate": "2026-09-11",
+    "status": "ready",
+    "text": "A product lesson from mWater: New Dashboard Widget: KPIs. Display a single summary value prominently on the dashboard with the KPI widget. Useful for highlighting the number…\n\nhttps://portal.mwater.co/#/dashboards/e02c9a0612d949c396adc5ec2a102b07#heading:KPI%20widgets",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-09-08",
+    "sourceUrl": "https://portal.mwater.co/#/dashboards/e02c9a0612d949c396adc5ec2a102b07#heading:KPI%20widgets",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-002",
+    "scheduledDate": "2026-09-14",
+    "status": "ready",
+    "text": "Portal · Expressions\n\nA small feature can remove a large operational burden. Added fiscal half-year expression.\n\nThat is how digital infrastructure earns trust: useful improvements, shipped steadily.\nhttps://api.mwater.co/v3/images/16c41d50b6144de5ad6b69bec5e60827?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-09-08",
+    "sourceUrl": "https://api.mwater.co/v3/images/16c41d50b6144de5ad6b69bec5e60827?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-003",
+    "scheduledDate": "2026-09-15",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Launched: Sanitation Asset Standard. mWater’s newly launched Sanitation Asset Standard gives practitioners such as service providers, government…\n\nhttps://mwater.co/blog/sanitation-asset-standard",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-08-21",
+    "sourceUrl": "https://mwater.co/blog/sanitation-asset-standard",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-004",
+    "scheduledDate": "2026-09-16",
+    "status": "ready",
+    "text": "Portal · Maps\n\nFrom the mWater product desk: Map layer selector updated.\n\nThe test is simple: does it help practitioners act with better information?\nhttps://portal.mwater.co/#/dashboards/e02c9a0612d949c396adc5ec2a102b07#heading:KPI%20widgets",
+    "source": "mWater changelog",
+    "sourceDate": "2026-09-08",
+    "sourceUrl": "https://portal.mwater.co/#/dashboards/e02c9a0612d949c396adc5ec2a102b07#heading:KPI%20widgets",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-005",
+    "scheduledDate": "2026-09-17",
+    "status": "ready",
+    "text": "A product is not inclusive if its core workflows disappear with the signal. Offline-first design is infrastructure, not a convenience.\n\nHow would you measure whether this really helps frontline teams?\nRead more: https://autio.github.io/#about",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/#about",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-006",
+    "scheduledDate": "2026-09-18",
+    "status": "ready",
+    "text": "Portal · Tables\n\nOne thing I keep learning in WASH technology: Search feature for text, choice labels, and site codes in tables.\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://portal.mwater.co/#/dashboards",
+    "source": "mWater changelog",
+    "sourceDate": "2026-09-03",
+    "sourceUrl": "https://portal.mwater.co/#/dashboards",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-007",
+    "scheduledDate": "2026-09-21",
+    "status": "ready",
+    "text": "A product lesson from mWater: A global registry for capable data collectors: hire.mwater.co. Hire.mwater.co is where water utilities and service providers may find trained field data collectors, and data…\n\nhttps://hire.mwater.co",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-08-20",
+    "sourceUrl": "https://hire.mwater.co",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-008",
+    "scheduledDate": "2026-09-22",
+    "status": "ready",
+    "text": "Portal · Assets\n\nA small feature can remove a large operational burden. Launched sanitation assets.\n\nAt scale, seemingly modest usability gains compound across thousands of people.\nhttps://www.mwater.co/blog/sanitation-asset-standard",
+    "source": "mWater changelog",
+    "sourceDate": "2026-08-22",
+    "sourceUrl": "https://www.mwater.co/blog/sanitation-asset-standard",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-009",
+    "scheduledDate": "2026-09-23",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Blog: Nine months of Workflows in mWater. mWater users, utilities foremost amongst them, stand to gain real monetary value and much more by adopting…\n\nhttps://www.mwater.co/blog/workflow-reflections",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-08-20",
+    "sourceUrl": "https://www.mwater.co/blog/workflow-reflections",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-010",
+    "scheduledDate": "2026-09-24",
+    "status": "ready",
+    "text": "The question is no longer whether AI agents will reach data platforms, but whether we give them a safe, structured way in.\n\nWhat would make this most useful in your work?\nMore of my work: https://autio.github.io/blog/ai-strategy.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/ai-strategy.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-011",
+    "scheduledDate": "2026-09-25",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. Meet us at World Water Week 2026. The mWater team is at World Water Week in Stockholm, 23 to 27 August 2026. Tell us what you would…\nhttps://formlink.mwater.co/#/7cf7575b6a594658960db895193bfc6b/6ff2d9d02b734a53898dca79ed790ac1?branding=mwater",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-08-10",
+    "sourceUrl": "https://formlink.mwater.co/#/7cf7575b6a594658960db895193bfc6b/6ff2d9d02b734a53898dca79ed790ac1?branding=mwater",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-012",
+    "scheduledDate": "2026-09-28",
+    "status": "ready",
+    "text": "Other · Blues\n\nOne thing I keep learning in WASH technology: Relaunched hire.mwater.co to facilitate data collectors and experts finding roles.\n\nThat is how digital infrastructure earns trust: useful improvements, shipped steadily.\nhttps://hire.mwater.co",
+    "source": "mWater changelog",
+    "sourceDate": "2026-08-21",
+    "sourceUrl": "https://hire.mwater.co",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-013",
+    "scheduledDate": "2026-09-29",
+    "status": "ready",
+    "text": "A product lesson from mWater: UN AI for Good Summit 2026. Join us at the AI for Good summit in Geneva 7.-10.7.2026. If you are there, please reach out to our Head of Product,…\n\nhttps://www.linkedin.com/feed/update/urn:li:activity:7479848716166869011",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-07-07",
+    "sourceUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7479848716166869011",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-014",
+    "scheduledDate": "2026-09-30",
+    "status": "ready",
+    "text": "A small feature can remove a large operational burden. Direct asset import. You can now import assets to a water system from the asset registry page for a more streamlined…\n\nThe test is simple: does it help practitioners act with better information?\nhttps://portal.mwater.co/#/water_systems",
+    "source": "mWater changelog",
+    "sourceDate": "2026-08-13",
+    "sourceUrl": "https://portal.mwater.co/#/water_systems",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-015",
+    "scheduledDate": "2026-10-01",
+    "status": "ready",
+    "text": "Responsible AI starts by asking which boundary contains the thing we are trying to align: a model, an agent, a team, or an institution.\n\nWhat would responsible adoption look like in your context?\nRead more: https://autio.github.io/blog/agent-boundary-uncertainty.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/agent-boundary-uncertainty.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-016",
+    "scheduledDate": "2026-10-02",
+    "status": "ready",
+    "text": "From the mWater product desk: List view. You can toggle between a thumbnail view and list view when viewing your consoles, dashboards, maps and datagrids.\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://api.mwater.co/v3/images/d2bace547d3c43be965ec4a8a49a4f18",
+    "source": "mWater changelog",
+    "sourceDate": "2026-08-11",
+    "sourceUrl": "https://api.mwater.co/v3/images/d2bace547d3c43be965ec4a8a49a4f18",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-017",
+    "scheduledDate": "2026-10-05",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. Building for the Future: An AI Strategy for WASH Data. Our key learnings so far from implementing AI features and responding to the rise of agentic AI.\n\nhttps://www.mwater.co/blog/ai-strategy",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-07-06",
+    "sourceUrl": "https://www.mwater.co/blog/ai-strategy",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-018",
+    "scheduledDate": "2026-10-06",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Notifications refresh. The notifications page has been updated to be visually clearer and easier to navigate.\n\nAt scale, seemingly modest usability gains compound across thousands of people.\nhttps://portal.mwater.co/#/notifications",
+    "source": "mWater changelog",
+    "sourceDate": "2026-08-11",
+    "sourceUrl": "https://portal.mwater.co/#/notifications",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-019",
+    "scheduledDate": "2026-10-07",
+    "status": "ready",
+    "text": "A product lesson from mWater: mWater Launches Horizon. mWater Launches Horizon: A Free Flood and Rainfall Awareness App, Available Worldwide. Horizon is a free app that…\n\nhttps://www.mwater.co/blog/horizon",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-06-20",
+    "sourceUrl": "https://www.mwater.co/blog/horizon",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-020",
+    "scheduledDate": "2026-10-08",
+    "status": "ready",
+    "text": "Water utilities need operational data to connect: infrastructure, customers, meter readings, billing and finance belong in one working system.\n\nWhere does this problem show up in your organisation?\nMore of my work: https://autio.github.io/blog/from-assets-to-accounting.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/from-assets-to-accounting.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-021",
+    "scheduledDate": "2026-10-09",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. New Video: Connecting your AI to mWater. Connect AI assistants like Claude, Cursor, and OpenAI Codex directly to your mWater and Solstice data using our new…\n\nhttps://www.youtube.com/watch?v=glKms2cBFmw",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-06-18",
+    "sourceUrl": "https://www.youtube.com/watch?v=glKms2cBFmw",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-022",
+    "scheduledDate": "2026-10-12",
+    "status": "ready",
+    "text": "From the mWater product desk: Image dimension metadata. Now you can use a new expression to check the width, height, or file size of an uploaded photo to…\n\nThat is how digital infrastructure earns trust: useful improvements, shipped…\nhttps://api.mwater.co/v3/images/ab7cf59f1e4e431f8f2b5b1cb766b8a0",
+    "source": "mWater changelog",
+    "sourceDate": "2026-08-10",
+    "sourceUrl": "https://api.mwater.co/v3/images/ab7cf59f1e4e431f8f2b5b1cb766b8a0",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-023",
+    "scheduledDate": "2026-10-13",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. New Feature: Use mWater through your AI assistant. We have released our MCP server that allows you to connect your AI tool (OpenAI Codex, Claude Desktop, Cursor, etc.)…\n\nhttps://portal.mwater.co/#/resource_center/mcp_server",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-06-11",
+    "sourceUrl": "https://portal.mwater.co/#/resource_center/mcp_server",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-024",
+    "scheduledDate": "2026-10-14",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Survey optimization button. New button in survey settings for optimizing the survey for better performance in edge cases…\n\nThe test is simple: does it help practitioners act with…\nhttps://api.mwater.co/v3/images/1e1adaa544014fe6825b6f0e7aeb176e?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-08-04",
+    "sourceUrl": "https://api.mwater.co/v3/images/1e1adaa544014fe6825b6f0e7aeb176e?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-025",
+    "scheduledDate": "2026-10-15",
+    "status": "ready",
+    "text": "Useful asset management begins when pipes, pumps, tanks and meters form a connected system rather than isolated points on a map.\n\nWhich part of this challenge deserves more attention?\nRead more: https://autio.github.io/blog/asset-systems.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/asset-systems.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-026",
+    "scheduledDate": "2026-10-16",
+    "status": "ready",
+    "text": "Portal · Surveys\n\nA small feature can remove a large operational burden. AI widget design in survey reports.\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://api.mwater.co/v3/images/a5a39ff915e64ad89536298c48970974?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-07-14",
+    "sourceUrl": "https://api.mwater.co/v3/images/a5a39ff915e64ad89536298c48970974?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-027",
+    "scheduledDate": "2026-10-19",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Tech Infrastructure Updated. We have completed our latest platform modernization and are now running on Postgres 18, React 19, and Node 24 across…\n\nhttps://api.mwater.co/v3/images/23116e49960f4d01aa8b3ec7a2620ccc?h=640",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-06-04",
+    "sourceUrl": "https://api.mwater.co/v3/images/23116e49960f4d01aa8b3ec7a2620ccc?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-028",
+    "scheduledDate": "2026-10-20",
+    "status": "ready",
+    "text": "From the mWater product desk: Improved org backup export. Now instead of streaming the download it first creates all objects to be downloaded and then…\n\nAt scale, seemingly modest usability gains compound across thousands of…\nhttps://api.mwater.co/v3/images/968c03d89d724343ba74b152b3195930?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-07-07",
+    "sourceUrl": "https://api.mwater.co/v3/images/968c03d89d724343ba74b152b3195930?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-029",
+    "scheduledDate": "2026-10-21",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. Webinar: Data Sovereignty in the Age of Cloud Computing and AI. Watch our webinar recording on how mWater and Solstice keep data fully in users' hands, even with AI and the cloud.\n\nhttps://youtu.be/FnYhWgzWCKo",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-05-29",
+    "sourceUrl": "https://youtu.be/FnYhWgzWCKo",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-030",
+    "scheduledDate": "2026-10-22",
+    "status": "ready",
+    "text": "Good product work translates frontline constraints into systems that remain usable at national scale.\n\nWhich practical constraint should product teams solve next?\nMore of my work: https://autio.github.io/",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-031",
+    "scheduledDate": "2026-10-23",
+    "status": "ready",
+    "text": "A product lesson from mWater: Global Activity Dashboard. Explore data in the platform by selecting a country on the map. You can duplicate the dashboard to easily add your…\n\nhttps://portal.mwater.co/#/dashboards/173c0c8495554c049f7ff502335b2c31?share=0e7ec89365f44e369570fd16b5c8b45a",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-05-20",
+    "sourceUrl": "https://portal.mwater.co/#/dashboards/173c0c8495554c049f7ff502335b2c31?share=0e7ec89365f44e369570fd16b5c8b45a",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-032",
+    "scheduledDate": "2026-10-26",
+    "status": "ready",
+    "text": "Portal · Organizations\n\nA small feature can remove a large operational burden. Pan, zoom, and search added to org tree view.\n\nThat is how digital infrastructure earns trust: useful improvements, shipped steadily.\nhttps://api.mwater.co/v3/images/8ecb2938513842f8aa3d35bf89ab348b?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-07-03",
+    "sourceUrl": "https://api.mwater.co/v3/images/8ecb2938513842f8aa3d35bf89ab348b?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-033",
+    "scheduledDate": "2026-10-27",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Features Webinar: Dashboard Updates, New Question Types & AI-Powered Design. Watch our Head of Product, Petri, introduce powerful new features for surveys and dashboards, including…\nhttps://www.youtube.com/watch?v=wL4uzVOKbtc",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-05-19",
+    "sourceUrl": "https://www.youtube.com/watch?v=wL4uzVOKbtc",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-034",
+    "scheduledDate": "2026-10-28",
+    "status": "ready",
+    "text": "Portal · Visualizations\n\nFrom the mWater product desk: Multiple orgs for global filters. Now you can add more than one organization in a global filter when filtering by managed by.\n\nThe test is simple: does it help practitioners act with better information?\nhttps://portal.mwater.co/#/consoles",
+    "source": "mWater changelog",
+    "sourceDate": "2026-06-23",
+    "sourceUrl": "https://portal.mwater.co/#/consoles",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-035",
+    "scheduledDate": "2026-10-29",
+    "status": "ready",
+    "text": "I write about product management, WASH data, responsible AI and the occasional philosophy visualization.\n\nWhat would you add from your own experience?\nRead more: https://autio.github.io/",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-036",
+    "scheduledDate": "2026-10-30",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Data source removal. Now you can see a full list of data sources used in your calculated data source, and you can remove…\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://portal.mwater.co/#/calculated_data_sources",
+    "source": "mWater changelog",
+    "sourceDate": "2026-06-19",
+    "sourceUrl": "https://portal.mwater.co/#/calculated_data_sources",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-037",
+    "scheduledDate": "2026-11-02",
+    "status": "ready",
+    "text": "A product lesson from mWater: Webinar: New Features for Q2 2026. Learn about the platform's newest features including dashboard slicers, sections, and drilldowns; map extent…\n\nhttps://share.mwater.co/v3/dashboard_link/c3fd695a39624a559926fdb5f122e7f8?share=b8863cd85e684eaa9e4da528bb8ef971",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-05-14",
+    "sourceUrl": "https://share.mwater.co/v3/dashboard_link/c3fd695a39624a559926fdb5f122e7f8?share=b8863cd85e684eaa9e4da528bb8ef971",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-038",
+    "scheduledDate": "2026-11-03",
+    "status": "ready",
+    "text": "A small feature can remove a large operational burden. Workflow prefills. Can now prefill survey and mini-form data with results from other parts of a workflow.\n\nAt scale, seemingly modest usability gains compound across…\nhttps://api.mwater.co/v3/images/2c7a427ed970401f808929f150168cdd?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-06-15",
+    "sourceUrl": "https://api.mwater.co/v3/images/2c7a427ed970401f808929f150168cdd?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-039",
+    "scheduledDate": "2026-11-04",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Official WhatsApp Channel. Stay up to date on our latest news by following our new WhatsApp channel here.\n\nhttps://whatsapp.com/channel/0029VbD0uJN7Noa7WrbRBg0r",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-05-07",
+    "sourceUrl": "https://whatsapp.com/channel/0029VbD0uJN7Noa7WrbRBg0r",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-040",
+    "scheduledDate": "2026-11-05",
+    "status": "ready",
+    "text": "I share longer reflections and connect with WASH, data and product practitioners on LinkedIn.\n\nWhat have you learned from deploying this kind of system?\nMore of my work: https://www.linkedin.com/in/petriautio/",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://www.linkedin.com/in/petriautio/",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-041",
+    "scheduledDate": "2026-11-06",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. New Features: Slicers and Sections. Make your dashboards more interactive and more focused by splitting them into sections and adding slicer widgets.\n\nhttps://youtu.be/VoN_x6ioViw",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-04-30",
+    "sourceUrl": "https://youtu.be/VoN_x6ioViw",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-042",
+    "scheduledDate": "2026-11-09",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: MCP Server. Connect your AI assistant to mWater to query data, documentation, and propose data changes. Create MCP access…\n\nThat is how digital infrastructure earns trust: useful improvements,…\nhttps://portal.mwater.co/#/resource_center/mcp_server",
+    "source": "mWater changelog",
+    "sourceDate": "2026-06-11",
+    "sourceUrl": "https://portal.mwater.co/#/resource_center/mcp_server",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-043",
+    "scheduledDate": "2026-11-10",
+    "status": "ready",
+    "text": "A product lesson from mWater: Webinar: Leveraging AI to Democratize Data-Driven Management. Discover how AI can make data-driven decision-making more accessible to teams and communities everywhere by joining…\n\nhttps://whatsapp.com/channel/0029VbD0uJN7Noa7WrbRBg0r/119",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-04-29",
+    "sourceUrl": "https://whatsapp.com/channel/0029VbD0uJN7Noa7WrbRBg0r/119",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-044",
+    "scheduledDate": "2026-11-11",
+    "status": "ready",
+    "text": "A small feature can remove a large operational burden. View Site from response. Now you can directly click into a site from a site question when viewing a survey response in the…\n\nThe test is simple: does it help…\nhttps://api.mwater.co/v3/images/a13762ee257d4e71835788f1d1a81084?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-29",
+    "sourceUrl": "https://api.mwater.co/v3/images/a13762ee257d4e71835788f1d1a81084?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-045",
+    "scheduledDate": "2026-11-12",
+    "status": "ready",
+    "text": "A product is not inclusive if its core workflows disappear with the signal. Offline-first design is infrastructure, not a convenience.\n\nWhere could a shared approach save the most effort?\nRead more: https://autio.github.io/#about",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/#about",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-046",
+    "scheduledDate": "2026-11-13",
+    "status": "ready",
+    "text": "Portal · Homepage\n\nFrom the mWater product desk: Auto-login to sister sites. You can now jump between mWater, Solstice and Juno by clicking the links on the homepage.\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://portal.mwater.co",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-25",
+    "sourceUrl": "https://portal.mwater.co",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-047",
+    "scheduledDate": "2026-11-16",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. Platform Impact and Reach. mWater now reaches 198 countries with 360,000+ users and 7,000+ organizations, tracking 6.7 million infrastructure…\n\nhttps://www.mwater.co/impact",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-03-31",
+    "sourceUrl": "https://www.mwater.co/impact",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-048",
+    "scheduledDate": "2026-11-17",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Roster import and export through as separate roster sheets as an alternative to having them in line.\n\nAt scale, seemingly modest usability gains compound across thousands of people.\nhttps://api.mwater.co/v3/images/afdf484aca4443a1a5f2aa35bfd09e2f?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-22",
+    "sourceUrl": "https://api.mwater.co/v3/images/afdf484aca4443a1a5f2aa35bfd09e2f?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-049",
+    "scheduledDate": "2026-11-18",
+    "status": "ready",
+    "text": "A product lesson from mWater: Video: The Integrator. The Integrator connects external data sources to your WASH platform with no coding needed. Describe what you need in…\n\nhttps://youtu.be/wF_mEOubWr0",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-02-26",
+    "sourceUrl": "https://youtu.be/wF_mEOubWr0",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-050",
+    "scheduledDate": "2026-11-19",
+    "status": "ready",
+    "text": "The question is no longer whether AI agents will reach data platforms, but whether we give them a safe, structured way in.\n\nHow would you measure whether this really helps frontline teams?\nMore of my work: https://autio.github.io/blog/ai-strategy.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/ai-strategy.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-051",
+    "scheduledDate": "2026-11-20",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. New Feature: The Integrator. Connect mWater to everything. Now you can connect the platform to other systems much more easily than before, both…\n\nhttps://portal.mwater.co/#/resource_center/integrator",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-02-23",
+    "sourceUrl": "https://portal.mwater.co/#/resource_center/integrator",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-052",
+    "scheduledDate": "2026-11-23",
+    "status": "ready",
+    "text": "From the mWater product desk: Map extent filtering. When on, other widgets in this section only show items that are visible on the map\n\nThat is how digital infrastructure earns trust: useful improvements, shipped steadily.\nhttps://api.mwater.co/v3/images/39f3e7c6eb1a441f8f7eca362c89dc47?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-14",
+    "sourceUrl": "https://api.mwater.co/v3/images/39f3e7c6eb1a441f8f7eca362c89dc47?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-053",
+    "scheduledDate": "2026-11-24",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. New feature: Email Two-Factor Authentication. Users can now switch on email two-factor authentication from their account pages. Organizations can also enable an…\n\nhttps://portal.mwater.co/#/resource_center/two_factor_authentication",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-02-19",
+    "sourceUrl": "https://portal.mwater.co/#/resource_center/two_factor_authentication",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-054",
+    "scheduledDate": "2026-11-25",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Admin Region question type. Now you can connect survey responses to a specific admin region by making use of mWater's…\n\nThe test is simple: does it help practitioners act with…\nhttps://api.mwater.co/v3/images/cdd0f2a25d3342b08ca4778e0e6e0492?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-13",
+    "sourceUrl": "https://api.mwater.co/v3/images/cdd0f2a25d3342b08ca4778e0e6e0492?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-055",
+    "scheduledDate": "2026-11-26",
+    "status": "ready",
+    "text": "Responsible AI starts by asking which boundary contains the thing we are trying to align: a model, an agent, a team, or an institution.\n\nWhat would make this most useful in your work?\nRead more: https://autio.github.io/blog/agent-boundary-uncertainty.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/agent-boundary-uncertainty.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-056",
+    "scheduledDate": "2026-11-27",
+    "status": "ready",
+    "text": "A small feature can remove a large operational burden. Drilldowns. Click a region on a map and go to a new view that shows that region. Click a cell in a pivot table and go to a…\n\nThe value is not the feature alone; it is the…\nhttps://api.mwater.co/v3/images/867bde5e05a741a2b48a107266608e22?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-12",
+    "sourceUrl": "https://api.mwater.co/v3/images/867bde5e05a741a2b48a107266608e22?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-057",
+    "scheduledDate": "2026-11-30",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Webinar: Workflows for Water Utilities. View our first webinar of 2026 which demonstrated some useful workflows for water utilities.\n\nhttps://youtu.be/nMdFzECDH2c",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-01-19",
+    "sourceUrl": "https://youtu.be/nMdFzECDH2c",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-058",
+    "scheduledDate": "2026-12-01",
+    "status": "ready",
+    "text": "From the mWater product desk: Data source view. New tab in settings where you can view which data sources are used in the visualization, and which are…\n\nAt scale, seemingly modest usability gains compound across thousands of people.\nhttps://api.mwater.co/v3/images/0e705546ff414911abb8cc85020c5251",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-06",
+    "sourceUrl": "https://api.mwater.co/v3/images/0e705546ff414911abb8cc85020c5251",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-059",
+    "scheduledDate": "2026-12-02",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. New Feature: Advanced Math Expressions. mWater has been upgraded with a brand new set of advanced maths expressions. Now you can use square roots, cube…\n\nhttps://www.linkedin.com/feed/update/urn:li:activity:7416456636422246400",
+    "source": "mWater Portal news",
+    "sourceDate": "2026-01-18",
+    "sourceUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7416456636422246400",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-060",
+    "scheduledDate": "2026-12-03",
+    "status": "ready",
+    "text": "Water utilities need operational data to connect: infrastructure, customers, meter readings, billing and finance belong in one working system.\n\nWhat would responsible adoption look like in your context?\nMore of my work: https://autio.github.io/blog/from-assets-to-accounting.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/from-assets-to-accounting.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-061",
+    "scheduledDate": "2026-12-04",
+    "status": "ready",
+    "text": "A product lesson from mWater: 2025 Year in Review. Read all about the key features, projects, and learnings from 2025.\n\nhttps://drive.google.com/file/d/1PsJ9G1UXZomCYHoLPfKYhTlqO9tQUcSK/view?usp=sharing",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-12-15",
+    "sourceUrl": "https://drive.google.com/file/d/1PsJ9G1UXZomCYHoLPfKYhTlqO9tQUcSK/view?usp=sharing",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-062",
+    "scheduledDate": "2026-12-07",
+    "status": "ready",
+    "text": "Portal · Dashboards\n\nA small feature can remove a large operational burden. Dark mode. New standard dark theme for dashboards.\n\nThat is how digital infrastructure earns trust: useful improvements, shipped steadily.\nhttps://api.mwater.co/v3/images/8fe5a3ad0c79432c9449108293f1c4dd",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-05",
+    "sourceUrl": "https://api.mwater.co/v3/images/8fe5a3ad0c79432c9449108293f1c4dd",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-063",
+    "scheduledDate": "2026-12-08",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Video: Workflow Workshop. Follow along this video to see how a workflow is created to fit a specific business process.\n\nhttps://www.youtube.com/watch?v=nMdFzECDH2c",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-12-05",
+    "sourceUrl": "https://www.youtube.com/watch?v=nMdFzECDH2c",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-064",
+    "scheduledDate": "2026-12-09",
+    "status": "ready",
+    "text": "Portal · Consoles\n\nFrom the mWater product desk: Tab renaming moved. Tab renaming moved to the Settings modal.\n\nThe test is simple: does it help practitioners act with better information?\nhttps://portal.mwater.co/#/consoles",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-04",
+    "sourceUrl": "https://portal.mwater.co/#/consoles",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-065",
+    "scheduledDate": "2026-12-10",
+    "status": "ready",
+    "text": "Useful asset management begins when pipes, pumps, tanks and meters form a connected system rather than isolated points on a map.\n\nWhere does this problem show up in your organisation?\nRead more: https://autio.github.io/blog/asset-systems.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/asset-systems.html",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-066",
+    "scheduledDate": "2026-12-11",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Merged Quickfilters. Updated interface to make merging easier. They can also be reordered easily.\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://api.mwater.co/v3/images/8fe5a3ad0c79432c9449108293f1c4dd?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-05-04",
+    "sourceUrl": "https://api.mwater.co/v3/images/8fe5a3ad0c79432c9449108293f1c4dd?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-067",
+    "scheduledDate": "2026-12-14",
+    "status": "ready",
+    "text": "A product lesson from mWater: Webinar: Workflows. Learn about our latest major feature funded by UNICEF Madagascar. In this webinar, we'll cover what workflows are…\n\nhttps://www.linkedin.com/events/mwaterwebinar-introducingworkfl7399043073739055104/",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-11-26",
+    "sourceUrl": "https://www.linkedin.com/events/mwaterwebinar-introducingworkfl7399043073739055104/",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-068",
+    "scheduledDate": "2026-12-15",
+    "status": "ready",
+    "text": "A small feature can remove a large operational burden. Slicers. Powerful new widget type that allows you to add interactivity to dashboards. Create controls for users to slice…\n\nAt scale, seemingly modest usability gains…\nhttps://api.mwater.co/v3/images/3597071372374263b10516de85a9209b?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-28",
+    "sourceUrl": "https://api.mwater.co/v3/images/3597071372374263b10516de85a9209b?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-069",
+    "scheduledDate": "2026-12-16",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Introducing Workflows. Workflows allow you to turn business processes into digitised, repeatable, and trackable elements in the platform so…\n\nhttps://www.youtube.com/watch?v=4Tde4n4CVs4",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-11-25",
+    "sourceUrl": "https://www.youtube.com/watch?v=4Tde4n4CVs4",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-070",
+    "scheduledDate": "2026-12-17",
+    "status": "ready",
+    "text": "Good product work translates frontline constraints into systems that remain usable at national scale.\n\nWhich part of this challenge deserves more attention?\nMore of my work: https://autio.github.io/",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-071",
+    "scheduledDate": "2026-12-18",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. Webinar: Pipe Mapping. See this webinar from November 2025 for a demonstration of how you can easily and effectively map your water…\n\nhttps://youtu.be/JsB1hc6sYBs",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-11-06",
+    "sourceUrl": "https://youtu.be/JsB1hc6sYBs",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-072",
+    "scheduledDate": "2026-12-21",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Sections. Dashboards can now be split into sections as tabs, sidebars or in an accordion to group elements by theme and to…\n\nThat is how digital infrastructure earns trust: useful…\nhttps://api.mwater.co/v3/images/d0c52a91d52749e6bbf78f3467aa8494?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-27",
+    "sourceUrl": "https://api.mwater.co/v3/images/d0c52a91d52749e6bbf78f3467aa8494?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-073",
+    "scheduledDate": "2026-12-22",
+    "status": "ready",
+    "text": "A product lesson from mWater: New feature: Restoring deleted survey responses. Now survey admins and deployment managers can review survey responses deleted within the last 90 days and restore…\n\nhttps://www.linkedin.com/posts/mwater_mwater-waterdata-washdata-activity-7391353543334707200--9fo",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-11-04",
+    "sourceUrl": "https://www.linkedin.com/posts/mwater_mwater-waterdata-washdata-activity-7391353543334707200--9fo",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-074",
+    "scheduledDate": "2026-12-23",
+    "status": "ready",
+    "text": "A small feature can remove a large operational burden. AI-powered widget design. Now you can optionally talk to AI to create charts, pivot tables, maps, etc.\n\nThe test is simple: does it help practitioners act with better information?\nhttps://portal.mwater.co/#/dashboards",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-24",
+    "sourceUrl": "https://portal.mwater.co/#/dashboards",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-075",
+    "scheduledDate": "2026-12-24",
+    "status": "ready",
+    "text": "I write about product management, WASH data, responsible AI and the occasional philosophy visualization.\n\nWhich practical constraint should product teams solve next?\nRead more: https://autio.github.io/",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-076",
+    "scheduledDate": "2026-12-25",
+    "status": "ready",
+    "text": "From the mWater product desk: Hyperlinks to headers. Now you can add dashboard hyperlinks that take you straight to a header within a dashboard.\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://youtube.com/shorts/_sV9Xd5Iw7Y?feature=share",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-20",
+    "sourceUrl": "https://youtube.com/shorts/_sV9Xd5Iw7Y?feature=share",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-077",
+    "scheduledDate": "2026-12-28",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. New feature: Fiscal year and quarter expressions. Now you can easily view or filter your data by the fiscal year or quarter it belongs to. See the Expressions section…\n\nhttps://www.linkedin.com/feed/update/urn:li:activity:7391059334819987456",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-11-03",
+    "sourceUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7391059334819987456",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-078",
+    "scheduledDate": "2026-12-29",
+    "status": "ready",
+    "text": "One thing I keep learning in WASH technology: Days in Month. Returns the number of days in the month a date is in. Helps with average per month calculations, etc.\n\nAt scale, seemingly modest usability gains compound across…\nhttps://api.mwater.co/v3/images/748ee448967e481f938d2557eb7b198a?h=640",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-16",
+    "sourceUrl": "https://api.mwater.co/v3/images/748ee448967e481f938d2557eb7b198a?h=640",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-079",
+    "scheduledDate": "2026-12-30",
+    "status": "ready",
+    "text": "A product lesson from mWater: New question type: Signature Questions. Use the Signature question type to capture and store a respondent’s handwritten signature directly within a survey.…\n\nhttps://www.linkedin.com/feed/update/urn:li:activity:7389656409090473984",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-10-30",
+    "sourceUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7389656409090473984",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-080",
+    "scheduledDate": "2026-12-31",
+    "status": "ready",
+    "text": "I share longer reflections and connect with WASH, data and product practitioners on LinkedIn.\n\nWhat would you add from your own experience?\nMore of my work: https://www.linkedin.com/in/petriautio/",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://www.linkedin.com/in/petriautio/",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-081",
+    "scheduledDate": "2027-01-01",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Doing more with less:…\nhttps://www.linkedin.com/posts/mwater_uncwaterhealth-mwater-dataforgood-activity-7386719528304586752-BMV_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACo2oMBTvJ02AE4w8AccS1yZQrkKUNG1yw",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-10-23",
+    "sourceUrl": "https://www.linkedin.com/posts/mwater_uncwaterhealth-mwater-dataforgood-activity-7386719528304586752-BMV_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAACo2oMBTvJ02AE4w8AccS1yZQrkKUNG1yw",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-082",
+    "scheduledDate": "2027-01-04",
+    "status": "ready",
+    "text": "Portal · Languages\n\nFrom the mWater product desk: Added Chinese to the App and Portal\n\nThat is how digital infrastructure earns trust: useful improvements, shipped steadily.\nhttps://portal.mwater.co",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-14",
+    "sourceUrl": "https://portal.mwater.co",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-083",
+    "scheduledDate": "2027-01-05",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. Blog post: Why Cloud Security Protects Water Utilities Better Than Office Servers. Water utilities face big risks with local servers. Our cloud platform offers enterprise-grade security, daily…\n\nhttps://www.mwater.co/blog/mwater-security",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-09-30",
+    "sourceUrl": "https://www.mwater.co/blog/mwater-security",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-084",
+    "scheduledDate": "2027-01-06",
+    "status": "ready",
+    "text": "Portal · Languages\n\nOne thing I keep learning in WASH technology: Added Filipino to the Portal\n\nThe test is simple: does it help practitioners act with better information?\nhttps://portal.mwater.co",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-13",
+    "sourceUrl": "https://portal.mwater.co",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-085",
+    "scheduledDate": "2027-01-07",
+    "status": "ready",
+    "text": "A product is not inclusive if its core workflows disappear with the signal. Offline-first design is infrastructure, not a convenience.\n\nWhat have you learned from deploying this kind of system?\nRead more: https://autio.github.io/#about",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/#about",
+    "campaign": "personal-profile"
+  },
+  {
+    "id": "weekday-086",
+    "scheduledDate": "2027-01-08",
+    "status": "ready",
+    "text": "Portal · Images\n\nA small feature can remove a large operational burden. You can now make images full-screen and easily download them.\n\nThe value is not the feature alone; it is the time and uncertainty it removes.\nhttps://api.mwater.co/v3/images/811dc7e272f9414a8508df1276b86378?h=1280",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-12",
+    "sourceUrl": "https://api.mwater.co/v3/images/811dc7e272f9414a8508df1276b86378?h=1280",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-087",
+    "scheduledDate": "2027-01-11",
+    "status": "ready",
+    "text": "Building public-interest software means sweating the practical details. Webinar: Intro to mWater on September 30th. New to mWater? Want to learn more and connect with the team and other users? Join our webinar on September 30th to…\n\nhttps://www.youtube.com/watch?v=fvlRzIGYLDg",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-09-17",
+    "sourceUrl": "https://www.youtube.com/watch?v=fvlRzIGYLDg",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-088",
+    "scheduledDate": "2027-01-12",
+    "status": "ready",
+    "text": "From the mWater product desk: You can now click through to underlying data from tables and datagrids that use a calculated data source. The popup is…\n\nAt scale, seemingly modest usability gains compound across thousands of people.\nhttps://portal.mwater.co/#/calculated_data_sources",
+    "source": "mWater changelog",
+    "sourceDate": "2026-04-12",
+    "sourceUrl": "https://portal.mwater.co/#/calculated_data_sources",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-089",
+    "scheduledDate": "2027-01-13",
+    "status": "ready",
+    "text": "Good data systems turn field reality into decisions. New Feature: Calculated Data Sources. This feature allows you to make your dashboards faster than ever by having new data sources calculated in advance.…\n\nhttps://portal.mwater.co/#/resource_center/calculated_data_sources",
+    "source": "mWater Portal news",
+    "sourceDate": "2025-09-08",
+    "sourceUrl": "https://portal.mwater.co/#/resource_center/calculated_data_sources",
+    "campaign": "mwater-product"
+  },
+  {
+    "id": "weekday-090",
+    "scheduledDate": "2027-01-14",
+    "status": "ready",
+    "text": "The question is no longer whether AI agents will reach data platforms, but whether we give them a safe, structured way in.\n\nWhere could a shared approach save the most effort?\nMore of my work: https://autio.github.io/blog/ai-strategy.html",
+    "source": "Petri Autio",
+    "sourceDate": null,
+    "sourceUrl": "https://autio.github.io/blog/ai-strategy.html",
+    "campaign": "personal-profile"
+  }
+]

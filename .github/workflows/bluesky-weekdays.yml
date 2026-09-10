@@ -1,0 +1,32 @@
+name: Bluesky Weekday Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish instead of preview
+        type: boolean
+        required: true
+        default: false
+  schedule:
+    - cron: "17 7 * * 1-5"
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Preview scheduled post
+        if: github.event_name == 'workflow_dispatch' && inputs.publish != true
+        run: node social/bluesky/post-next.mjs
+      - name: Publish scheduled post
+        if: github.event_name == 'schedule' || inputs.publish == true
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: node social/bluesky/post-next.mjs --publish
