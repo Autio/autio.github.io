@@ -81,15 +81,16 @@ const evergreen = [
   { title: "From assets to accounting", description: "Water utilities need operational data to connect: infrastructure, customers, meter readings, billing and finance belong in one working system.", url: `${PROFILE}blog/from-assets-to-accounting.html` },
   { title: "Mapping whole water systems", description: "Useful asset management begins when pipes, pumps, tanks and meters form a connected system rather than isolated points on a map.", url: `${PROFILE}blog/asset-systems.html` },
   { title: "Product leadership in public-interest technology", description: "Good product work translates frontline constraints into systems that remain usable at national scale.", url: PROFILE },
-  { title: "What I am building and learning", description: "I write about product management, WASH data, responsible AI and the occasional philosophy visualization.", url: PROFILE },
-  { title: "Professional conversation", description: "I share longer reflections and connect with WASH, data and product practitioners on LinkedIn.", url: LINKEDIN }
+  { title: "Product lessons from interconnected systems", description: "The strongest platforms become more valuable as their features connect: collection, governance, analysis and action reinforcing one another.", url: "https://www.linkedin.com/pulse/mwater-backbone-wash-sector-petri-autio-2h2nf/" },
+  { title: "What I am building and learning", description: "Product management, WASH data and responsible AI meet in the practical details of tools that people can trust.", url: PROFILE }
 ]
 
-// Blend new releases, durable capabilities and personal product thinking. Avoid consecutive posts from one source.
+// Lead with useful releases and durable product lessons. Personal links are occasional supporting sources,
+// never engagement bait or a request for attention.
 const selected = []
 let ci = 0, ni = 0, ei = 0
 for (let i = 0; i < 90; i++) {
-  if (i % 5 === 4) selected.push({ ...evergreen[ei++ % evergreen.length], source: "Petri Autio" })
+  if (i % 15 === 14) selected.push({ ...evergreen[ei++ % evergreen.length], source: "Petri Autio" })
   else if (i % 2 === 0 && ni < news.length) selected.push(news[ni++])
   else selected.push(changes[ci++ % changes.length])
 }
@@ -103,27 +104,15 @@ const implications = [
   "The value is not the feature alone; it is the time and uncertainty it removes.",
   "That is how digital infrastructure earns trust: useful improvements, shipped steadily.",
   "At scale, seemingly modest usability gains compound across thousands of people.",
-  "The test is simple: does it help practitioners act with better information?",
+  "The useful test is whether it helps practitioners act with better information.",
   "This is the unglamorous work that makes data systems dependable."
 ]
-const questions = [
-  "What would make this most useful in your work?",
-  "Where does this problem show up in your organisation?",
-  "Which practical constraint should product teams solve next?",
-  "What have you learned from deploying this kind of system?",
-  "How would you measure whether this really helps frontline teams?",
-  "What would responsible adoption look like in your context?",
-  "Which part of this challenge deserves more attention?",
-  "What would you add from your own experience?",
-  "Where could a shared approach save the most effort?"
-]
-
 const start = process.argv.find(x => x.startsWith("--start="))?.split("=")[1] || "2026-09-11"
 const dates = nextWeekdays(start, 90)
 const queue = selected.map((item, i) => {
   let body
   if (item.source === "Petri Autio") {
-    body = `${item.description}\n\n${questions[i % questions.length]}\n${i % 10 === 9 ? "More of my work:" : "Read more:"} ${item.url}`
+    body = `${item.description}\n\n${item.url}`
   } else if (item.source === "mWater Portal news") {
     body = `${openings[i % openings.length]} ${item.title}. ${shorten(item.description, 118)}\n\n${item.url}`
   } else {
@@ -140,7 +129,7 @@ const queue = selected.map((item, i) => {
     id: `weekday-${String(i + 1).padStart(3, "0")}`,
     scheduledDate: dates[i], status: "ready", text: body,
     source: item.source, sourceDate: item.date || null, sourceUrl: item.url,
-    campaign: i % 5 === 4 ? "personal-profile" : "mwater-product"
+    campaign: item.source === "Petri Autio" ? "personal-perspective" : "mwater-product"
   }
 })
 

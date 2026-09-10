@@ -14,12 +14,12 @@ The account should be personal and clearly disclose the professional affiliation
 
 ## Editorial mix
 
-- 60% practical product releases and feature explanations
-- 20% WASH/data/AI product-leadership lessons
-- 10% mWater or Solstice articles and events
-- 10% direct personal-profile or LinkedIn discovery
+- 65% practical product releases and feature explanations
+- 25% WASH/data/AI product-leadership lessons
+- 8% mWater or Solstice articles and events
+- 2% personal-site or LinkedIn discovery
 
-Links to the personal site and LinkedIn are intentionally intermittent. A useful feed earns attention; repeated self-promotion spends it. Posts should invite substantive replies, and Petri should personally respond to relevant practitioners.
+Links to the personal site and LinkedIn are intentionally rare and used as supporting sources, not calls for attention. Regular posts contain no engagement-bait questions and no "read more" or "more of my work" language. A useful feed earns attention; repeated self-promotion spends it. Petri should personally respond when practitioners choose to engage.
 
 ## Prepared queue
 
@@ -55,4 +55,3 @@ The publisher refuses weekends, checks the 300-grapheme limit, creates rich link
 ## Growth loop
 
 Posting alone will not reliably grow a network. Budget 15 minutes after each post to reply thoughtfully to WASH, humanitarian data, digital public goods, GIS and responsible-AI conversations. Add the Bluesky link to the LinkedIn contact section and autio.github.io; periodically invite LinkedIn readers to follow the more frequent Bluesky product notes. Measure profile views, follows, link clicks and substantive conversations monthly—not raw impressions alone.
-
