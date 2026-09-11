@@ -21,11 +21,12 @@
 <nav class="site-nav scrolled" id="nav">
   <div class="container nav-inner">
     <a href="../index.html" class="nav-brand">Petri Mikael Autio</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="../index.html">Home</a></li>
       <li><a href="../index.html#ai">AI Leadership</a></li>
       <li><a href="../index.html#projects">Projects</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -41,7 +42,7 @@
   <a href="ai-strategy.html" class="post-card featured">
     <div class="post-meta"><span class="post-badge">Featured</span> July 3, 2026</div>
     <h2>Building for the Future: An AI Strategy for WASH Data</h2>
-    <p>Our users are showing up with AI agents, and the question for every data platform is no longer whether agents will arrive, but whether you've built them a proper way in. The design principle, the MCP server, and four lessons from shipping AI for 375,000+ users.</p>
+    <p>Our users are showing up with AI agents, and the question for every data platform is no longer whether agents will arrive, but whether you've built them a proper way in. The design principle, the MCP server, and four lessons from shipping AI for 390,000+ users.</p>
   </a>
 
   <a href="agent-boundary-uncertainty.html" class="post-card">
@@ -50,11 +51,11 @@
     <p>The Hugging Face incident makes it clear a missing mode of alignment discourse is to ask which boundary contains the thing we are trying to align.</p>
   </a>
 
-  <a href="https://www.linkedin.com/pulse/mwater-backbone-wash-sector-petri-autio-2h2nf/" target="_blank" class="post-card">
-    <div class="post-meta">August 28, 2026</div>
+  <a href="https://www.mwater.co/blog/mwater-is-the-backbone-of-the-wash-sector" target="_blank" class="post-card">
+    <div class="post-meta">August 31, 2026</div>
     <h2>&ldquo;mWater is the backbone of the WASH sector&rdquo;</h2>
     <p>Reflections from Stockholm World Water Week 2026. On trust, software velocity, the network effects of interconnected features, and why the impact could be tenfold greater still.</p>
-    <div class="post-external">Published on LinkedIn &nearr;</div>
+    <div class="post-external">Published on mwater.co &nearr;</div>
   </a>
 
   <a href="https://www.mwater.co/blog/workflow-reflections" target="_blank" class="post-card">
@@ -62,6 +63,12 @@
     <h2>Nine Months of Workflows in mWater</h2>
     <p>Nearly ten thousand workflow instances across 170+ types. Repair, maintenance, connections, procurement, and more. What we've learned from seeing workflows deployed at scale, and why defined processes are a multi-million-dollar opportunity for the WASH sector.</p>
     <div class="post-external">Published on mwater.co &nearr;</div>
+  </a>
+
+  <a href="../sanitation-asset-standard.html" class="post-card">
+    <div class="post-meta">August 18, 2026 &middot; Case study</div>
+    <h2>Sanitation Asset Standard</h2>
+    <p>A global, open standard for sanitation assets: 27 asset types and 211 attributes covering both sewered and on-site sanitation. Product implementation facilitated by Petri; authored by Susan Lamb.</p>
   </a>
 
   <a href="https://www.mwater.co/blog/horizon" target="_blank" class="post-card">
@@ -97,13 +104,6 @@
     <div class="post-external">Published on medium.com &nearr;</div>
   </a>
 
-  <a href="https://www.mwater.co/blog/sanitation-asset-standard" target="_blank" class="post-card">
-    <div class="post-meta">August 18, 2026 &middot; by Susan Lamb</div>
-    <h2>Sanitation Asset Standard</h2>
-    <p>A global, open standard for sanitation assets: 27 asset types and 211 attributes covering both sewered and on-site sanitation. Product implementation facilitated by Petri; authored by Susan Lamb.</p>
-    <div class="post-external">Published on mwater.co &nearr;</div>
-  </a>
-
 </main>
 
 <!-- Footer -->
@@ -120,6 +120,12 @@
     </ul>
   </div>
 </footer>
+
+<script>
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('active');navToggle.setAttribute('aria-expanded',String(open));});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('active');navToggle.setAttribute('aria-expanded','false');}));
+</script>
 
 </body>
 </html>

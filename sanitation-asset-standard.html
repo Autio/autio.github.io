@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sanitation Asset Standard — Product Case Study</title>
+  <meta name="description" content="A product case study of mWater's open Sanitation Asset Standard: 27 asset types and 211 attributes spanning sewered and on-site sanitation.">
+  <meta name="author" content="Petri Mikael Autio">
+  <meta property="og:title" content="Sanitation Asset Standard — Product Case Study">
+  <meta property="og:description" content="How mWater created a global, open, platform-independent language for sanitation infrastructure.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://autio.github.io/sanitation-asset-standard.html">
+  <link rel="stylesheet" href="stylesheets/portfolio.css">
+</head>
+<body>
+<nav class="site-nav scrolled" id="nav"><div class="container nav-inner"><a href="index.html" class="nav-brand">Petri Mikael Autio</a><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="platform-work.html">Product Record</a></li><li><a href="#approach">Approach</a></li><li><a href="#outcome">Outcome</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+
+<main>
+  <header class="detail-hero sanitation-hero"><div class="container"><span class="section-label">Product case study · 2024–2026</span><h1>A shared language for sanitation infrastructure</h1><p>mWater's Sanitation Asset Standard makes sewered and on-site sanitation assets consistent, portable, and understandable across service providers, regulators, development partners, and software platforms.</p><div class="detail-nav"><a href="#problem">The problem</a><a href="#approach">The approach</a><a href="#outcome">The outcome</a></div></div></header>
+
+  <section class="section"><div class="container detail-content">
+    <div class="metric-grid"><div class="metric-card"><strong>27</strong><span>asset types</span></div><div class="metric-card"><strong>211</strong><span>standard attributes</span></div><div class="metric-card"><strong>2</strong><span>sanitation system families</span></div><div class="metric-card"><strong>CC BY-SA</strong><span>open licence</span></div></div>
+
+    <section class="detail-section" id="problem"><span class="section-label">The problem</span><h2>Essential infrastructure, fragmented data</h2><p>A pit latrine, vacuum truck, sewer main, pump, and treatment plant all belong to sanitation service chains, yet their records usually sit in unrelated surveys, spreadsheets, proprietary schemas, and regional standards. That prevents comparison, raises switching costs, and forces each organization to rebuild the same conceptual model.</p><div class="backbone-panel sanitation-panel"><div><h3>Design question</h3></div><div><p>How can one standard describe the diversity of sanitation systems without imposing unnecessary complexity on any individual user?</p></div></div></section>
+
+    <section class="detail-section" id="approach"><span class="section-label">Product approach</span><h2>Global scope without a rigid template</h2><p>The work began under USAID IUWASH Tangguh in 2024 and was completed through mWater's own investment in 2026. Product implementation was facilitated by Petri, with the published standard authored by Susan Lamb and shaped through literature review, existing schemas, user needs, and contextual testing.</p>
+      <div class="standards-flow" aria-label="Structure of the sanitation asset standard">
+        <div class="standards-column"><span>On-site sanitation</span><strong>Containment</strong><strong>Emptying</strong><strong>Transport</strong><strong>Treatment</strong></div>
+        <div class="standards-spine"><span>Shared model</span><strong>Assets</strong><strong>Attributes</strong><strong>Relationships</strong></div>
+        <div class="standards-column"><span>Sewered sanitation</span><strong>Collection</strong><strong>Conveyance</strong><strong>Pumping</strong><strong>Treatment</strong></div>
+      </div>
+      <div class="credentials-grid case-grid">
+        <article class="credential-card"><h3>Reuse familiar foundations</h3><p>Fields shared with mWater's Water Asset Standard use the same language, reducing the learning curve and keeping connected infrastructure coherent.</p></article>
+        <article class="credential-card"><h3>Model relationships, not isolated objects</h3><p>Assets form hierarchies: pumps belong to stations, stations to systems, and service-chain elements connect across collection, transport, and treatment.</p></article>
+        <article class="credential-card"><h3>Reveal only relevant complexity</h3><p>No asset type or attribute is mandatory. Conditional fields allow a small operator and a national regulator to use the same model without seeing the same interface.</p></article>
+        <article class="credential-card"><h3>Keep the standard platform-independent</h3><p>The specification can be used in spreadsheets, other software, and institutional data models—not only in mWater.</p></article>
+      </div>
+    </section>
+
+    <section class="detail-section" id="outcome"><span class="section-label">Outcome</span><h2>One model, several practical routes to adoption</h2><p>Practitioners can map assets in the mWater mobile app, import them through the Portal, or use an AI assistant through the MCP server to align existing records with the standard. Survey monitoring and Workflows then attach operational history to the permanent asset records.</p>
+      <div class="feature-stories compact-stories">
+        <article class="story-card"><div class="story-number">01</div><div class="story-content"><h3>Collect once</h3><p>Record the asset and its identifying properties as a durable entity rather than recreating it in every monitoring round.</p></div></article>
+        <article class="story-card"><div class="story-number">02</div><div class="story-content"><h3>Understand consistently</h3><p>Use common asset types and attributes across regions, system types, and implementing organizations.</p></div></article>
+        <article class="story-card"><div class="story-number">03</div><div class="story-content"><h3>Reuse across systems</h3><p>Move data between platforms and institutions with less remapping and lower switching costs.</p></div></article>
+      </div>
+      <div class="section-actions"><a class="button-link" href="https://www.mwater.co/blog/sanitation-asset-standard" target="_blank">Read the full launch article</a><a class="secondary-link" href="platform-work.html">See the full product record →</a></div>
+    </section>
+  </div></section>
+</main>
+
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product Leader · WASH Technology · SDG 6</div></div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="platform-work.html">Product Record</a></li><li><a href="blog/">Writing</a></li></ul></div></footer>
+<script>const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('active');navToggle.setAttribute('aria-expanded',String(open));});document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('active');navToggle.setAttribute('aria-expanded','false');}));</script>
+</body>
+</html>
