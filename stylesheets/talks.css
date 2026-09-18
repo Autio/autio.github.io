@@ -1,0 +1,24 @@
+.talks-hero { padding-bottom: 44px; }
+.talks-hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+.talks-content { padding-top: 48px; padding-bottom: 72px; }
+.webinar { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; padding: 36px 0; border-bottom: 1px solid var(--gray-200); }
+.webinar:first-child { padding-top: 0; }
+.webinar-player { aspect-ratio: 16 / 9; width: 100%; border: 0; border-radius: 12px; background: var(--gray-900); }
+.webinar-meta { color: var(--gray-600); font-size: 0.9rem; margin-bottom: 10px; }
+.webinar h2 { color: var(--gray-900); font-size: 1.65rem; line-height: 1.25; margin-bottom: 14px; }
+.webinar-description { color: var(--gray-600); margin-bottom: 14px; }
+.webinar-credit { font-size: 0.9rem; color: var(--gray-700); margin-bottom: 18px; }
+.webinar-links { display: flex; gap: 12px 20px; flex-wrap: wrap; }
+.webinar-links a, .talks-channel a { color: var(--blue-700); text-underline-offset: 4px; }
+.talks-channel { margin-top: 28px; color: var(--gray-600); }
+.talks-history { margin-top: 64px; }
+.talks-history h2 { color: var(--gray-900); font-size: 2rem; margin-bottom: 24px; }
+.talks-history ul { list-style: none; padding: 0; }
+.talks-history li { display: grid; grid-template-columns: 100px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--gray-200); }
+.talks-history time { color: var(--gray-600); font-size: 0.9rem; }
+.talks-history strong { display: block; color: var(--gray-900); }
+.talks-history span { color: var(--gray-600); }
+@media (max-width: 800px) {
+  .webinar { grid-template-columns: 1fr; gap: 22px; }
+  .talks-history li { grid-template-columns: 1fr; gap: 6px; }
+}
