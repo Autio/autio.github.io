@@ -28,7 +28,7 @@
 .home-section-heading { margin-bottom: 30px; }
 .home-section-heading h2, .home-about h2, .home-contact h2, .talks-preview h2 { font-size: clamp(1.75rem, 3vw, 2.4rem); letter-spacing: -.025em; line-height: 1.2; margin-bottom: 14px; }
 .home-section-heading p { max-width: 680px; }
-.work-examples { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+.work-examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
 .work-example { min-width: 0; border-top: 3px solid #2c7e87; padding-top: 20px; display: flex; flex-direction: column; }
 .case-number { font-size: .875rem; color: #286271; margin-bottom: 14px; }
 .work-example h3 { font-size: 1.4rem; line-height: 1.25; margin-bottom: 14px; }
