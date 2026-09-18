@@ -13,6 +13,7 @@
 .intro-copy h1 { font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.1; letter-spacing: -.045em; margin-bottom: 24px; }
 .intro-text { font-size: 1.15rem; line-height: 1.65; margin-bottom: 16px; }
 .intro-context { max-width: 560px; color: #52616e; }
+.intro-context + .intro-context { margin-top: 12px; }
 .home-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 26px; }
 .home-actions > a:not(.button-link), .home-text-link { color: #185d76; font-weight: 600; }
 .personal-home .button-link { background: #155d75; color: white; font-size: .95rem; }
@@ -40,6 +41,9 @@
 .work-context { margin-top: 36px; padding-top: 24px; border-top: 1px solid #dbe4e9; display: flex; flex-wrap: wrap; gap: 12px 26px; }
 .work-context p { flex-basis: 100%; max-width: 790px; }
 .work-context a { color: #185d76; }
+.stellar-context > div { flex-basis: 100%; }
+.stellar-context .eyebrow { margin-bottom: 8px; }
+.stellar-context h3 { font-size: 1.4rem; }
 .home-reading { background: #f2f7f9; }
 .reading-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 70px; }
 .essay-list { margin-bottom: 24px; }
