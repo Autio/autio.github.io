@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valuing a Public-Interest Discovery Layer for AI - Petri Mikael Autio</title>
+  <meta name="description" content="A transparent scenario model for estimating the public value of a trusted discovery and assurance service for AI agents.">
+  <meta name="author" content="Petri Mikael Autio">
+  <link rel="canonical" href="https://autio.github.io/blog/public-interest-discovery-value.html">
+
+  <meta property="og:title" content="Could a Public-Interest Discovery Layer Create $1 Billion a Year in Value?">
+  <meta property="og:description" content="The assumptions, arithmetic, evidence and limits behind a public-value estimate for trusted agentic resource discovery.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://autio.github.io/blog/public-interest-discovery-value.html">
+  <meta property="og:image" content="https://autio.github.io/blog/images/public-interest-discovery-layer.png">
+
+  <link rel="stylesheet" href="../stylesheets/portfolio.css">
+  <link rel="stylesheet" href="../stylesheets/blog.css">
+  <style>
+    .value-callout{background:linear-gradient(135deg,#123643,#17677a);color:#fff;border-radius:16px;padding:34px 36px;margin:2.2em 0;box-shadow:0 12px 34px rgba(12,37,48,.18)}
+    .value-callout .number{font-family:var(--font);font-size:3rem;font-weight:750;line-height:1;margin-bottom:10px}
+    .value-callout p{color:#e7f4f5;margin:0;font-family:var(--font);font-size:1.02rem;line-height:1.55}
+    .model-table{width:100%;border-collapse:collapse;margin:1.8em 0 2.2em;font-family:var(--font);font-size:.94rem}
+    .model-table th,.model-table td{padding:13px 12px;border-bottom:1px solid var(--gray-200);text-align:right;vertical-align:top}
+    .model-table th:first-child,.model-table td:first-child{text-align:left}
+    .model-table thead th{background:var(--gray-50);color:var(--gray-700);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+    .model-table tr.total td{font-weight:750;color:var(--gray-900);border-top:2px solid var(--gray-400)}
+    .formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#eef5f6;border-radius:8px;padding:14px 16px;margin:1em 0 1.6em;color:#173b46;font-size:.95rem;overflow-x:auto}
+    .assumption{border-left:3px solid #2eac9b;padding-left:18px;margin:1.5em 0}
+    .method-note{background:#fff7e8;border:1px solid #efd8a8;border-radius:10px;padding:20px 22px;margin:2em 0}
+    .method-note p{font-family:var(--font);font-size:.96rem;line-height:1.6;margin:0;color:#5b4a28}
+    .source-list li{font-size:1rem}
+    @media(max-width:640px){.value-callout{padding:26px 24px}.value-callout .number{font-size:2.35rem}.model-table{font-size:.78rem}.model-table th,.model-table td{padding:10px 6px}}
+  </style>
+</head>
+<body>
+
+<nav class="site-nav scrolled" id="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-brand">Petri Mikael Autio</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../index.html#ai">AI Leadership</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <h1>Could a Public-Interest Discovery Layer Create $1 Billion a Year in Value?</h1>
+  <p class="article-subtitle">A transparent scenario model for trusted agentic resource discovery.</p>
+  <div class="article-byline">
+    <img src="../images/petri-autio.jpg" alt="Petri Mikael Autio">
+    <div class="byline-text">
+      <strong>Petri Autio</strong><br>
+      Methodology note &middot; September 20, 2026
+    </div>
+  </div>
+</header>
+
+<div class="article-banner">
+  <img src="images/public-interest-discovery-layer.png" alt="Real Solstice and mWater interfaces connected through a discovery and assurance layer">
+</div>
+
+<article class="article">
+
+  <p>This note sets out the arithmetic behind an indicative estimate of the value of a public-interest discovery and assurance service for AI agents. Such a service would help agents find and evaluate operational tools, data sources, APIs, workflows and specialised agents using transparent evidence about provenance, maintenance, security, licensing, operating context and real deployments.</p>
+
+  <p>The estimate is not a valuation of a company and it is not a revenue forecast. It is an estimate of <strong>public value</strong>: professional time released, duplicated or failed investment avoided, and better outcomes from public and development spending.</p>
+
+  <div class="value-callout">
+    <div class="number">About $1.1 billion a year</div>
+    <p>A plausible high-success scenario once the service is used internationally by major public institutions and agent platforms. A central scenario is approximately $280 million a year.</p>
+  </div>
+
+  <div class="method-note">
+    <p><strong>Important:</strong> the $1 billion figure is a scenario, not a prediction. It depends primarily on adoption. A technically sound catalogue that is rarely consulted would produce only a fraction of this value.</p>
+  </div>
+
+  <h2>The model in one table</h2>
+
+  <table class="model-table">
+    <thead>
+      <tr><th>Annual value channel</th><th>Conservative</th><th>Central</th><th>High success</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Professional time released</td><td>$5.3m</td><td>$75m</td><td>$360m</td></tr>
+      <tr><td>Avoided duplication and unsuitable choices</td><td>$1.9m</td><td>$30m</td><td>$187.5m</td></tr>
+      <tr><td>Better programme and operational outcomes</td><td>$34.9m</td><td>$174.3m</td><td>$522.9m</td></tr>
+      <tr class="total"><td>Total annual public value</td><td>$42m</td><td>$279m</td><td>$1.07bn</td></tr>
+    </tbody>
+  </table>
+
+  <p>These channels should be measured carefully in any real evaluation because some benefits can overlap. The model keeps the assumptions deliberately simple so that they can be challenged and replaced.</p>
+
+  <h2>1. Professional time released</h2>
+
+  <p>Programme teams, government staff, technical advisers and procurement specialists spend time finding tools, establishing whether they are maintained, comparing weakly documented options, checking provenance and locating evidence from previous deployments. Agents will perform more of this work, but an agent without a trusted discovery layer merely conducts the same uncertain search faster.</p>
+
+  <div class="assumption">
+    <strong>High-success assumptions:</strong> 150,000 regular professional users; 40 hours saved per user each year; loaded professional cost of $60 per hour.
+  </div>
+
+  <div class="formula">150,000 users × 40 hours × $60 = $360 million per year</div>
+
+  <p>The central case assumes 50,000 users, 30 hours saved and a loaded cost of $50 per hour, producing $75 million in annual value. These are productivity gains, not necessarily budget reductions: the more realistic benefit is that scarce professional capacity can be redirected towards implementation, local adaptation and human judgement.</p>
+
+  <h2>2. Avoided duplication and unsuitable choices</h2>
+
+  <p>Public-interest software is frequently rebuilt because previous work cannot be found, assessed or trusted. Other losses arise when organisations select systems that are abandoned, insecure, incompatible with existing infrastructure, unsuitable for local connectivity or unexpectedly costly to maintain.</p>
+
+  <div class="assumption">
+    <strong>High-success assumptions:</strong> 5,000 consequential tool-selection or development decisions influenced each year; average lifecycle cost of $250,000; 15% of cost avoided through reuse or better selection.
+  </div>
+
+  <div class="formula">5,000 decisions × $250,000 × 15% = $187.5 million per year</div>
+
+  <p>The World Bank identifies redundant investments, technically incompatible investments, unsustainable planning and vendor lock-in among recurring risks in public-sector digital transformation. These are precisely the kinds of risks that better discovery and assurance can make visible before a decision is made.<sup><a href="#source-2">2</a></sup></p>
+
+  <p>For scale rather than direct comparison, Bangladesh's electronic government procurement reform reported procurement savings of about 7%, or $1.1 billion in one fiscal year, while substantially reducing procurement time.<sup><a href="#source-3">3</a></sup> A discovery service is a much narrower intervention and the model assumes much smaller savings.</p>
+
+  <h2>3. Better programme and operational outcomes</h2>
+
+  <p>The largest potential benefit is not administrative efficiency. It is the possibility that programmes make marginally better decisions because they can find proven tools, current data, documented workflows and evidence from comparable operating contexts.</p>
+
+  <p>Official development assistance from OECD Development Assistance Committee members and associates amounted to $174.3 billion in 2025.<sup><a href="#source-1">1</a></sup> The model uses this as a visible and independently reported reference pool. It does not suggest that the proposed service would control, or even directly touch, all of this spending.</p>
+
+  <div class="assumption">
+    <strong>High-success assumption:</strong> the aggregate improvement attributable to better discovery and assurance is equivalent to 0.30% of annual ODA.
+  </div>
+
+  <div class="formula">$174.3 billion × 0.30% = $522.9 million per year</div>
+
+  <p>The central case uses 0.10%, producing $174.3 million. The conservative case uses 0.02%, producing $34.9 million. Effects of this size could arise from a collection of small improvements: quicker emergency analysis, less duplicated data collection, better monitoring systems, earlier detection of implementation problems, reuse of public software and fewer abandoned digital deployments.</p>
+
+  <h2>What success would have to mean</h2>
+
+  <p>The high case requires considerably more than a well-designed directory. Within several years, the service would need to:</p>
+
+  <ul>
+    <li>be queried by major agent platforms or public-sector agent deployments;</li>
+    <li>cover thousands of resources with meaningful, current assessments;</li>
+    <li>influence more than one hundred thousand professional users;</li>
+    <li>be embedded in donor, government or multilateral procurement and due-diligence processes;</li>
+    <li>distinguish publisher claims from independent evidence;</li>
+    <li>demonstrate that its recommendations change real selections and operational decisions.</li>
+  </ul>
+
+  <p>If the service remained an optional catalogue used by a small technical community, annual public value would more plausibly sit in the tens of millions. The billion-dollar scenario describes shared international infrastructure with institutional adoption.</p>
+
+  <h2>What the estimate excludes</h2>
+
+  <p>The model does not attempt to monetise lives saved, improved trust in public institutions, greater local autonomy, reduced dependence on consultants, wider access to specialist capabilities or the option value of preserving useful open-source work. It also excludes possible private-sector spillovers.</p>
+
+  <p>Conversely, it does not subtract the cost of operating the service. A serious international assurance function would require continuing technical maintenance, domain reviewers, security expertise, governance, appeals and active monitoring of resource drift. Those costs could reasonably reach several million or tens of millions of dollars annually at global scale, while remaining small relative to the central value scenario.</p>
+
+  <h2>How to test the proposition</h2>
+
+  <p>A credible pilot should measure observed behaviour rather than catalogue size. Useful indicators would include time to identify an acceptable resource, proportion of recommendations supported by independent evidence, reuse instead of new development, avoided switching costs, recommendation uptake, security incidents, successful challenges to listings and outcomes compared with decisions made through ordinary search.</p>
+
+  <div class="pull-quote">The difficult variable is not how many resources the registry contains, but whether consequential agents and institutions actually use its judgements.</div>
+
+  <h2>Sources</h2>
+
+  <ol class="source-list">
+    <li id="source-1">OECD, <a href="https://www.oecd.org/en/data/insights/data-explainers/2026/04/a-historic-decline-in-foreign-aid-preliminary-2025-oda-data.html">A historic decline in foreign aid: Preliminary 2025 ODA data</a>. DAC members and associates reported $174.3 billion in ODA in 2025.</li>
+    <li id="source-2">World Bank, <a href="https://documents1.worldbank.org/curated/en/099061523115010183/pdf/P179627-b7cacceb-3c50-4061-8f7e-c52e69bb90e7.pdf">Institutional and Procurement Practice Note on Cloud Computing</a>. The note identifies redundant, incompatible and unsustainable public digital investments among key risks.</li>
+    <li id="source-3">World Bank, <a href="https://www.worldbank.org/en/results/2022/08/04/world-bank-funded-project-drives-public-procurement-reform-in-bangladesh">World Bank-Funded Project Drives Public Procurement Reform in Bangladesh</a>. The reported e-procurement results are contextual evidence, not a parameter transferred directly into this model.</li>
+    <li id="source-4">UNDP Independent Evaluation Office, <a href="https://www.undp.org/evaluation/digitalization-public-services">Evaluating UNDP Support to Digitalization of Public Services</a>. The evaluation covers nearly $3 billion in UNDP digitalisation expenditure between 2015 and 2023, illustrating the scale and institutional complexity of public digital investment.</li>
+  </ol>
+
+  <p class="article-signature">Petri Autio, September 2026</p>
+
+</article>
+
+<div class="article-footer-nav">
+  <a href="index.html">&larr; All posts</a>
+  <a href="../index.html#ai">AI Leadership &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">Petri Mikael Autio</div>
+      <div class="footer-tagline">Product Leader &middot; WASH Technology &middot; SDG 6</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://linkedin.com/in/petriautio" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/Autio" target="_blank">GitHub</a></li>
+      <li><a href="index.html">Blog</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
