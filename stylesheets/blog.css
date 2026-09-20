@@ -147,10 +147,6 @@
   font-style: italic;
 }
 
-.nowrap {
-  white-space: nowrap;
-}
-
 .article-byline {
   display: flex;
   align-items: center;
