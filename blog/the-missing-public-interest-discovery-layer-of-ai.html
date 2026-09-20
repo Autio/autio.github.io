@@ -13,9 +13,9 @@ Discovery Layer of AI">
   <meta property="og:description" content="The tooling layer through which AI finds resources is becoming a field of power—and a practical opportunity for public-interest institutions.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://autio.github.io/blog/the-missing-public-interest-discovery-layer-of-ai.html">
-  <meta property="og:image" content="https://autio.github.io/blog/images/public-interest-discovery/03-discovery-assurance.png">
-  <meta property="og:image:width" content="1600">
-  <meta property="og:image:height" content="900">
+  <meta property="og:image" content="https://autio.github.io/blog/images/public-interest-discovery/04-public-interest-discovery-layer.png">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
   <link rel="stylesheet" href="../stylesheets/portfolio.css">
   <link rel="stylesheet" href="../stylesheets/blog.css?v=20260920-discovery-resolution">
   <script type="application/ld+json">
@@ -26,7 +26,7 @@ Discovery Layer of AI">
     "datePublished": "2026-09-20",
     "author": {"@type": "Person", "name": "Petri Mikael Autio", "url": "https://autio.github.io"},
     "mainEntityOfPage": "https://autio.github.io/blog/the-missing-public-interest-discovery-layer-of-ai.html",
-    "image": "https://autio.github.io/blog/images/public-interest-discovery/03-discovery-assurance.png"
+    "image": "https://autio.github.io/blog/images/public-interest-discovery/04-public-interest-discovery-layer.png"
   }
   </script>
 </head>
@@ -51,8 +51,8 @@ Discovery Layer of AI">
 <article class="article">
 <section id="from-a-prompt-to-an-operational-system" class="level2">
 <h2>From a Prompt to an Operational System</h2>
-<p>Suppose a climate-change-induced flood hits a rural area hard, and a
-district officer wants to map out a response plan based on the latest
+<p>Suppose a climate-change-induced flood hits a rural district hard in
+the Himalayas, and a local government officer wants to map out a response plan based on the latest
 satellite data and best available rapid flood-modelling tools as soon as
 possible. How can they achieve a good result quickly? Or take a
 district-wide programme to operationalise chlorine monitoring in all of
@@ -106,49 +106,51 @@ well-supported and contextually appropriate tool instead of settling for
 something subpar or confidently coding a less-than-ideal solution on the
 spot? More broadly, where does power sit as people become accustomed to
 having AIs and agents do their work for them?</p>
-<p>Here I will argue that external communications should be
-self-consciously crafted with LLMs in mind, and that the tooling layer
-immediately above large language models is at risk of being neglected as
-a nexus of power and leverage for positive impact in humanitarian and
-development work. Ultimately, there should be transparently governed,
-authoritative registries of agentic skills for good governance and
-humanitarian response. Humanitarian and public-sector actors should
-treat the emerging infrastructure of agentic resources as a field of
-governance, not merely as a developer convenience.</p>
+<p>Here I will argue that the tooling layer immediately above large
+language models is becoming a nexus of power and leverage for
+humanitarian and development work. A published technical foundation for
+discovery now exists. What remains open is the trust framework: the
+criteria by which registries and agents decide whether a resource is
+appropriate for a public-interest task. Humanitarian and public-sector
+actors should define that framework before enterprise compliance and
+popularity become the defaults.</p>
 <p>The way we interact with software is changing, albeit at different
 speeds in different contexts and from one individual to another.</p>
 </section>
 <section id="making-good-work-legible-to-ai" class="level2">
 <h2>Making Good Work Legible to AI</h2>
-<p>If you have built a great flood-modelling tool, write its
+<p>In the public forum, we no longer write only for humans. If you have
+built a great flood-modelling tool, write its
 documentation so that it can be discovered and understood by AI. If you
 maintain a scalable software platform, it is better to overcommunicate
 than undercommunicate its capabilities: AIs can parse far more
-information than most prospective human users will ever read. An easy
-step is to publish an <code>llms.txt</code> file that points models and
-agentic tools which support the emerging convention towards the most
-useful, authoritative material on your site. It is a low-cost
-experiment, not a guarantee of indexing or preferential treatment. But
-when you write online, do not write only for humans. Write also for the
-averaged externalisation of human knowledge as it hums and buzzes around
-us through AIs.<a href="#fn2" class="footnote-ref" id="fnref2"
+information than most prospective human users will ever read. An
+<code>llms.txt</code> file pointing tools that support the convention
+towards authoritative material is one low-cost experiment, not a
+guarantee of indexing or preferential treatment.<a href="#fn2" class="footnote-ref" id="fnref2"
 role="doc-noteref"><sup>2</sup></a></p>
 <p>The next step is to make tools themselves discoverable. Agentic
-Resource Discovery, or ARD, is a draft open specification announced in
-June 2026 and developed with contributors from Microsoft, Google,
-Hugging Face and several other technology companies.<a href="#fn3"
-class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> It
-provides a common way to publish, index and search for resources such as
-tools, skills, APIs, MCP servers and specialised agents. Under the
-current draft, hosting a lightweight manifest at
-<code>/.well-known/ard.json</code> tells an AI what a resource does, who
-operates it, what authority it requires and how it can be invoked.
-Discovery services can then index these catalogues, allowing an agent to
-search for a capability when it needs one instead of requiring every
-possible tool to be installed in advance. Whether ARD itself achieves
-broad adoption remains uncertain, but the discovery problem it addresses
-is unlikely to disappear.<a href="#fn4" class="footnote-ref" id="fnref4"
+Resource Discovery, or ARD, was published in June 2026 by an industry
+working group with contributors from Google, Microsoft, Hugging Face and
+other major technology companies. It is licensed under Apache 2.0 and
+builds on the Linux Foundation AI Catalog data model.<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+Google’s Agent Registry in Gemini Enterprise implements the approach,
+while Hugging Face’s Discover Tool provides a working reference
+implementation that searches skills and MCP servers.<a href="#fn4"
+class="footnote-ref" id="fnref4"
 role="doc-noteref"><sup>4</sup></a></p>
+<p>ARD provides a common way to publish, index and search resources such
+as tools, skills, APIs, MCP servers and specialised agents. Its current
+specification uses <code>/.well-known/ard.json</code>; earlier
+implementations and the underlying catalogue convention use
+<code>/.well-known/ai-catalog.json</code>, so publishers may need to
+support both during the transition. More important than the filename are
+the entries themselves. Each should include representative
+natural-language queries describing the tasks it can serve, because
+registries use those examples to build semantic rankings. Writing them
+well may determine whether a resource is returned at all.<a href="#fn4"
+class="footnote-ref" role="doc-noteref"><sup>4</sup></a></p>
 <p>For organisations such as Solstice and mWater that are widely used
 globally, including at government level, this creates an opportunity.
 They can publish catalogues that make their platforms and preferred
@@ -177,6 +179,19 @@ which AI encounters the outside world, is still being actively formed.
 It is a layer at which governments, humanitarian organisations,
 universities and civil-society actors can have considerable influence if
 they engage early.</p>
+<p>I use <strong>discovery layer</strong> to mean the systems through
+which an AI finds, assesses and selects external tools, skills, data and
+platforms. Models sit at the centre; agentic harnesses plan, manage
+permissions and invoke tools around them; the discovery layer determines
+which outside capabilities become available in the first place. What AI
+can find shapes what AI can do.</p>
+<p>But discovery standards matter only when an agent, developer or build
+pipeline actually queries a registry. They do not directly change model
+training, ordinary web search or an agent environment that has already
+hard-coded its tools. A public-interest catalogue that is not ingested
+by vendor connector directories, enterprise registries and other
+selection channels remains invisible. Distribution into those channels
+is therefore part of the intervention, not an afterthought.</p>
 <p>This extends beyond software tools to the broader discourse around
 subjects such as climate change. Organisations already invest in making
 evidence visible to policymakers, journalists and search engines. They
@@ -188,37 +203,24 @@ sources will fill the gap. The sector cannot afford to stand outside
 this conversation while its knowledge is increasingly mediated through
 these systems.</p>
 </section>
-<section id="a-hundred-million-dollar-opportunity" class="level2">
-<h2>A Hundred Million Dollar Opportunity</h2>
-<p>Even a narrowly successful version could have substantial economic
-value. If a trusted discovery service saved professional time, prevented
-a small number of duplicated or failed digital investments, and improved
-the use of only one tenth of one percent of global development spending,
-its public value could reach roughly $250 million a year. At broader
-adoption, the value could plausibly exceed $1 billion annually, although
-most of that would appear as better public outcomes and avoided waste,
-not revenue to the registry itself.<a href="#fn5" class="footnote-ref"
-id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
-</section>
 <section id="discovery-is-a-governance-question" class="level2">
 <h2>Discovery Is a Governance Question</h2>
 <figure class="article-figure-wide">
-<img src="images/public-interest-discovery/03-discovery-assurance.png" alt="Operational workflows and live service data pass through a discovery and assurance layer into a reviewable operational view" width="1600" height="900" loading="lazy">
+<img src="images/public-interest-discovery/04-public-interest-discovery-layer.png" alt="Large language model, agentic harness and highlighted discovery layer showing where a public-interest trust framework can shape operational outcomes" width="1672" height="941" loading="lazy">
 <figcaption>
-Discovery is also a layer of assurance: provenance, maintenance, local
-fit and permissions shape what becomes available at the moment of need.
+The discovery layer is a practical point of intervention: a public-interest
+trust framework can shape how agents find, assess and select tools, skills,
+data and platforms.
 </figcaption>
 </figure>
-<p>When an AI seeks a tool for a given task, it should not simply be
-offered whichever private organisation has paid the highest promotional
-price. It should be able to find well-supported options suited to the
-job, taking account of evidence, local appropriateness, openness,
-security, maintenance and institutional trust. There is therefore a need
-for public-interest registries of agentic resources. These would not be
-merely inert data repositories like AWS Open Data, HDX, or Project W,
-waiting to be mined. They would be active force multipliers for an ever
-broader group of human users, giving many more people a pathway to
-become effective superusers.</p>
+<p>The most immediate failure mode is not necessarily paid placement. It
+is popularity bias. Semantic discovery will tend to favour resources
+with abundant English-language documentation, familiar terminology and
+a large online footprint. Large vendors and GitHub-star-heavy projects
+can therefore become easier to retrieve than quieter tools with stronger
+evidence, better local fit or years of field use. A public-interest
+intervention should correct for that imbalance rather than reproduce
+it.</p>
 <p>The governance challenge is substantial. Someone must decide what is
 indexed, how resources are ranked, which claims are verified and how
 unsafe or abandoned tools are handled. Those decisions should not be
@@ -229,16 +231,34 @@ No catalogue can determine the right tool independently of place,
 language, institutional capacity and risk. But it can make those factors
 visible and give both the agent and its human user better grounds for
 deciding.</p>
-<p>In concrete terms, such a service could sit over open discovery
-standards and record verified publisher identity, maintenance status,
-evidence behind a tool’s claims, licences and data-governance
-constraints, languages and operating contexts, known failure modes,
-security assessments and experience from real deployments. It could
-expose its ranking criteria, distinguish publisher claims from
-independent assessments, log why a resource was recommended, and provide
-ways to correct or contest a listing. Its public value would lie not
-simply in storing entries, but in maintaining credible and revisable
-judgements about them.</p>
+<p>ARD already provides the slot in which a stronger public-interest
+approach can be built. Its optional trust manifest can carry
+cryptographic identity, provenance, signatures and attestations pointing
+to compliance evidence. But ARD deliberately does not decide whether
+those claims check out or what weight they deserve. Signing and
+verification are delegated to the trust framework named in the manifest,
+while the registry and client make the actual trust decision. The
+protocol supplies the envelope; someone still has to define the
+judgement.<a href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a></p>
+<p>The opportunity, then, is to define a public-interest trust framework
+that ARD registries and clients can use. It should extend beyond corporate
+compliance signals such as SOC 2, HIPAA and GDPR to record maintenance
+status, evidence behind a tool’s claims, licences, data sovereignty and
+governance constraints, languages and operating contexts, offline
+capability, accessibility, known failure modes, security assessments and
+experience from real deployments. It should distinguish publisher claims
+from independent assessments, expose how each factor affects ranking,
+log why a resource was recommended, and allow listings to be corrected
+or contested.</p>
+<p>This layer also needs a threat model. Tool descriptions can carry
+prompt injection; skills and packages can be poisoned upstream; metadata
+can be signed yet still describe an unsafe capability. Domain control
+establishes who published a claim, not whether the resource is secure or
+suitable. Registries and clients therefore need verification, scanning,
+constrained invocation and revocation processes alongside richer
+public-interest evidence.<a href="#fn7" class="footnote-ref"
+role="doc-noteref"><sup>7</sup></a></p>
 <p>There are, then, two broad ways to influence what large models do.
 One is to shape what they internalise during training and retrieve
 through ordinary search. This is slow, uncertain and largely controlled
@@ -247,51 +267,72 @@ knowledge clear and machine-readable. The other is to shape the
 resources models can discover and use at runtime. That layer is more
 immediate, more open to intervention and, for operational organisations,
 potentially more consequential.</p>
-<p>A public-interest registry alone would not ensure that commercial
-agents consult it or give its assessments meaningful weight. The
-political goal should therefore be broader: open and interoperable
-discovery, public-interest assurance and ranking, and procurement or
-institutional rules requiring public-sector agents to consult
-appropriate registries, disclose their sources and explain consequential
-selections. This would not remove the power of model and agent vendors,
-but it would make that power more visible and contestable.</p>
-<p>Is there anything out there that could work as the institutional
-foundation? The Digital Public Goods Alliance maintains a registry of
-more than 250 recognised digital public goods, reassessed annually, and
-already exposes it through a public API.<a href="#fn6"
-class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> The
-Solstice Institute maintains libraries of public good indicators,
-workflows, environmental data sets, and more. A useful first push could
-add agentic profiles to twenty well-used tools, recording when they suit
-a task, where they fail and whether claims are publisher-asserted,
-independently verified or backed by a named deployment, then publish
-them through an ARD catalogue. Commercial marketplaces could index this
-assurance feed, while procurement guidance could require publicly funded
-agents to consult it and record why a tool was chosen. Extending an
-existing institution and standard would be a considerably shorter path
-than creating a new body and would give us something concrete to
-test.</p>
+<p>A public-interest trust framework alone would not ensure that
+commercial agents consult it or give its assessments meaningful weight.
+The political goal should therefore be broader: distribution into the
+registries and connector directories agents actually use,
+public-interest assurance and ranking, and procurement or institutional
+rules requiring publicly funded agents to consult appropriate
+registries, disclose their sources and explain consequential selections.
+This would not remove the power of model and agent vendors, but it would
+make that power more visible and contestable.</p>
+<p>The institutional foundation may already exist in more than one
+place. Solstice Institute maintains libraries designed to turn shared
+knowledge into operational systems. Its Global Indicator Library
+combines definitions, references, calculations and tested question sets
+that users can bring directly into surveys. Environmental datasets,
+expert workflows and MCP skills also already exist. These are not yet
+agentic registries, but they embody much of the underlying idea:
+capturing expert knowledge in structured forms that can be discovered,
+adapted and put to work.</p>
+<p>The roles should remain separate. Solstice Institute could act as an
+early <strong>publisher</strong>, adding rich ARD profiles to twenty
+well-used resources from its libraries, including carefully written
+representative queries, data requirements, operating contexts and known
+limitations. An independent registrar or assurer should own verification
+criteria and judgements about those claims. The Digital Public Goods
+Alliance’s registry of more than 250 recognised digital public goods,
+reassessed annually and available through a public API, could provide a
+complementary route to broader coverage.<a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+Vendor registries and marketplaces could ingest the resulting profiles
+and assurance signals, while procurement guidance could require publicly
+funded agents to consult them and record why a resource was selected.</p>
+<p>This is a shorter and more credible path than asking a tool publisher
+to assess itself or inventing a wholly new institution. Start with twenty
+profiles, keep publisher and assurer roles distinct, test whether the
+resources are actually returned for representative tasks, and measure
+whether the assurance changes selection.</p>
 </section>
 <section id="what-organisations-can-do-now" class="level2">
 <h2>What Organisations Can Do Now</h2>
 <ul>
-<li><p>Make documentation machine-readable: publish an
-<code>llms.txt</code> file at your site root to guide models towards
-authoritative datasets and methodology documents.</p></li>
-<li><p>Expose tools via open specifications: if you have developed
-tools, APIs or agentic skills worth exposing to the wider world,
-experiment with publishing a <code>/.well-known/ard.json</code> manifest
-under the ARD specification.</p></li>
+<li><p>Publish rich ARD profiles: describe the tasks a resource can
+serve through two to five representative queries, alongside its
+capabilities and limitations.</p></li>
+<li><p>Define public-interest trust signals: extend identity and
+compliance metadata with evidence of field use, maintenance, licensing,
+data sovereignty, offline operation and local fit.</p></li>
 <li><p>Document workflows, not just features: detail when and in what
 context a tool should be deployed so agents can evaluate situational
 fit.</p></li>
-<li><p>Champion public-interest registries: advocate for transparently
-governed registries within donor and humanitarian networks before
-commercial discovery marketplaces define ranking default rules.</p></li>
+<li><p>Create demand and distribution: require publicly funded agents
+to consult appropriate registries and work with vendor directories so
+public-interest profiles are actually ingested.</p></li>
 </ul>
+<p>The capability frontier of large language models will continue to
+advance. Whether models reliably find the best of our accumulated tools
+and knowledge for a given context is a separate question. The answer
+will depend, in no small part, on what we make visible to them now, as
+well as on who governs the systems through which they find it.</p>
+<p>The specific next step is to draft a public-interest trust schema for
+ARD and test it against twenty established digital resources. If you
+operate a relevant registry, maintain a widely used digital public good
+or work on procurement rules for publicly funded AI, I would like to
+hear which criteria and distribution channels such a pilot must
+include.</p>
 <p>Petri Mikael Autio<br />
 Head of Product, mWater and Solstice</p>
-<p>Want to take this work onward? Contact me.</p>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
@@ -307,17 +348,17 @@ href="https://llmstxt.org/">llmstxt.org</a>.<a href="#fnref2"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Google Developers Blog, <a
 href="https://developers.googleblog.com/announcing-the-agentic-resource-discovery-specification/">“Announcing
-the Agentic Resource Discovery specification”</a>, 17 June 2026.<a
+the Agentic Resource Discovery specification”</a>, 17 June 2026. The
+announcement describes Google’s Agent Registry implementation, the
+Apache 2.0 licence and the specification’s basis in the Linux Foundation
+AI Catalog data model.<a
 href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>ARD working group, <a
-href="https://github.com/ards-project/ard-spec/blob/main/spec/ard.md">“Agentic
-Resource Discovery Specification,” version 0.91</a>, 26 August 2026.<a
+href="https://agenticresourcediscovery.org/spec/">“Agentic Resource
+Discovery Specification,” version 0.91</a>; <a
+href="https://agenticresourcediscovery.org/glossary/">ARD glossary</a>;
+and Hugging Face, <a href="https://github.com/huggingface/hf-discover"><code>hf-discover</code></a>.<a
 href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Petri Mikael Autio, <a
-href="https://autio.github.io/blog/public-interest-discovery-value.html">“Could
-a Public-Interest Discovery Layer Create $1 Billion a Year in
-Value?”</a>, 20 September 2026.<a href="#fnref5" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>Digital Public Goods Alliance, <a
 href="https://www.digitalpublicgoods.net/registry">DPG Registry</a>, <a
 href="https://app.digitalpublicgoods.net">DPG API</a>, and <a
@@ -325,6 +366,13 @@ href="https://www.digitalpublicgoods.net/digital-public-goods/faqs">“DPG
 Application FAQs”</a>, accessed 20 September 2026. The registry count
 changes as solutions are added, reassessed or removed.<a href="#fnref6"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>ARD working group, <a
+href="https://agenticresourcediscovery.org/spec/#45-identity-and-trust">“Identity
+and Trust,” ARD Specification</a>, and <a
+href="https://agenticresourcediscovery.org/faq/">ARD FAQ</a>. ARD
+communicates trust signals; registries and clients verify and weigh
+them.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </article>
