@@ -267,8 +267,21 @@
 }
 
 .article .article-figure-wide {
-  margin-left: -120px;
-  margin-right: -120px;
+  width: min(1120px, calc(100vw - 48px));
+  max-width: none;
+  margin-left: 50%;
+  margin-right: 0;
+  transform: translateX(-50%);
+}
+
+.discovery-article .article-banner {
+  max-width: 1200px;
+}
+
+.discovery-article .article-banner img,
+.discovery-article .article figure img {
+  height: auto;
+  object-fit: contain;
 }
 
 .article code {
@@ -391,7 +404,8 @@
     padding: 20px 22px;
   }
   .article .article-figure-wide {
+    width: 100%;
     margin-left: 0;
-    margin-right: 0;
+    transform: none;
   }
 }
