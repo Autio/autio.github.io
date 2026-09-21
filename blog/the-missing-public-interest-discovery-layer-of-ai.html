@@ -40,7 +40,7 @@
   <p class="article-subtitle">Building a Public Interest Assurance Layer for Agentic Discovery</p>
   <div class="article-byline">
     <img src="../images/petri-autio.jpg" alt="Petri Mikael Autio">
-    <div class="byline-text"><strong>Petri Autio</strong><br>Head of Product, mWater and Solstice &middot; September 20, 2026</div>
+    <div class="byline-text"><strong>Petri Autio</strong><br>Head of Product, Solstice Institute &middot; September 20, 2026</div>
   </div>
 </header>
 <div class="article-banner">
@@ -51,16 +51,16 @@
 Operational System</h2>
 <p>Suppose a climate-change induced flood hits a rural district hard in
 the Himalayas. A local government officer wants a response plan based on
-current satellite data and the best available rapid flood-modelling
+current satellite data and the best available rapid flood-modeling
 tools. How can they get to a good result quickly?</p>
-<p>They have learnt to use AI in their daily routines, so imagine next
+<p>They have learned to use AI in their daily routines, so imagine next
 that they create a good prompt. An agent could clarify the problem,
 fetch a locally runnable open-source flood model, spin it up and run it
 and overlay the result with water and sanitation information from <a
 href="https://mwater.co">mWater</a>. It would still need to surface
 uncertainties, check local suitability and leave consequential
-judgements with responsible people. But the result could be a reviewable
-plan with prioritised targets, produced in record time.</p>
+judgments with responsible people. But the result could be a reviewable
+plan with prioritized targets, produced in record time.</p>
 <p>Or take district-wide chlorine monitoring in schools. A district
 officer asks: “How do I set this up?” An agent could then discover the
 <a href="https://solstice.world/#/resource_center/mcp_server">Solstice
@@ -70,11 +70,11 @@ approval. The district could have an operational system in hours or days
 while retaining responsibility for institutional decisions, data
 protection and adoption.</p>
 <p>These scenarios are becoming feasible. <a
-href="https://solstice.world">Solstice</a> and <a
-href="https://mwater.co">mWater</a> have been leading the way with <a
-href="https://solstice.world/#/resource_center/integrator">agentic AI
-data integration</a>. But the scenarios depend on AIs knowing how to use
-existing platforms, specialised open-source tools and inert data
+href="https://solsticeinstitute.com">Solstice Institute</a> has built an
+<a href="https://solstice.world/#/resource_center/mcp_server">MCP server
+and a growing set of skills</a> that help agents work with operational
+data and workflows. But the scenarios depend on AIs knowing how to use
+existing platforms, specialized open-source tools and inert data
 repositories when the user makes their prompt and not settling for
 something subpar randomly found, or confidently coding a less-than-ideal
 solution on the spot.</p>
@@ -88,34 +88,38 @@ AI can discover and understand it. In my experience, if you maintain a
 platform, it is now more than ever better to overcommunicate than
 undercommunicate its capabilities. AIs can parse far more information
 than most prospective users will read.</p>
-<p>An easy step towards this kind of legibility is an
+<p>An easy step toward this kind of legibility is an
 <code>llms.txt</code> file pointing tools that support the emerging
-convention towards authoritative material on your site.<a href="#fn1"
+convention toward authoritative material on your site.<a href="#fn1"
 class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>The next step is to make tools themselves discoverable. <a
 href="https://developers.googleblog.com/announcing-the-agentic-resource-discovery-specification/">Agentic
 Resource Discovery</a>, or ARD, is an open specification for publishing,
 indexing and searching resources such as tools, skills, APIs, MCP
-servers and specialised agents.<a href="#fn2" class="footnote-ref"
+servers and specialized agents.<a href="#fn2" class="footnote-ref"
 id="fnref2" role="doc-noteref"><sup>2</sup></a> The current
 specification uses <code>/.well-known/ard.json</code> as the listing
 backbone. A profile there describes what a resource does, how it can be
 invoked and, through representative queries, the problems it is suited
-to solve. ARD is now a published, evolving specification, licensed under
-Apache 2.0 and built on the Linux Foundation AI Catalog data model.
-Google’s Agent Registry and Hugging Face’s Discover Tool already
-implement the approach. More important than the manifest path are the
+to solve. ARD is an open, Apache 2.0 specification, still at proposal
+stage, that grew out of the Linux Foundation AI Catalog work. Hugging
+Face’s Discover Tool and GitHub’s Agent Finder are working
+implementations; Google has said native ARD support is coming to its
+Agent Registry. More important than the manifest path are the
 entries themselves: two to five representative queries help registries
 decide when a resource should be returned.</p>
 <p>I see many good tools announced at conferences, used during a funded
 project and then forgotten. Documentation, stable metadata and a
 machine-discoverable account of what a tool does and where it fails give
-useful work a better chance of being rediscovered.</p>
+useful work a better chance of being rediscovered. These are now table
+stakes. The larger question is how we collectively ensure that AI
+surfaces the right tools and the best available knowledge for the task
+at hand.</p>
 <h2 id="discovery-is-a-governance-question">Discovery Is a Governance
 Question</h2>
 <p>Tech giants determine much of our lives now, and may flood the zone
 here as well. This is a reason to act in the public interest now.
-Semantic ranking will favour resources with abundant English-language
+Semantic ranking will favor resources with abundant English-language
 documentation, familiar terminology and a large online footprint. Large
 vendors and GitHub-star-heavy projects can become easier to retrieve
 than quieter tools with stronger evidence, better local fit or years of
@@ -128,11 +132,11 @@ framework, while registries and clients make the actual trust decision.
 That is the opening to be leveraged: define the public-interest trust
 framework that ARD already expects someone to supply. It should extend
 beyond corporate compliance to record field evidence, maintenance,
-licences, data sovereignty, operating contexts, offline capability,
+licenses, data sovereignty, operating contexts, offline capability,
 known failure modes and security assessments. It should distinguish
 publisher claims from independent assurance and explain why a resource
 was recommended.</p>
-<p>Security must be designed into this layer. A catalogue that steers
+<p>Security must be designed into this layer. A catalog that steers
 agents is also an attack surface: tool descriptions can carry prompt
 injection, skills can be poisoned, and publisher identity alone says
 little about whether a resource is safe. Claims must be verified,
@@ -149,15 +153,15 @@ href="https://solstice.world/#/resource_center/mcp_server">MCP
 skills</a> also already support global development at scale.</p>
 <p>Solstice Institute could act as an early publisher of rich agentic
 profiles, rather than as the body that assesses its own claims. A useful
-first push would add ARD profiles to well-used resources from its
+first push could add ARD profiles to well-used resources from its
 libraries, including carefully written representative queries, data
 requirements, operating contexts and known limitations. An independent
 registrar or assurer should own the verification criteria and
-judgements.</p>
+judgments.</p>
 <p>The Digital Public Goods Alliance is relevant here for more than the
 reach of its registry. It already performs something close to an
-independent assurance role, with published criteria, a nomination
-questionnaire, two stages of review and annual reassessment. Extending
+independent assurance role, with an eligibility check, technical review
+against nine published indicators and annual reassessment. Extending
 that machinery to agentic trust would require additional criteria,
 including evidence of field use, local suitability and operational
 performance. But it makes DPGA an obvious institution with which to
@@ -172,7 +176,7 @@ proven building blocks for stronger public systems. Solstice could also
 curate fit-for-purpose collections of skills for governments, with
 transparent evidence about where each resource works, what it requires
 and where its limitations lie.</p>
-<h2 id="what-organisations-can-do-now">What Organisations Can Do
+<h2 id="what-organizations-can-do-now">What Organizations Can Do
 Now</h2>
 <ul>
 <li>Publish rich ARD profiles, including representative queries and
@@ -191,15 +195,15 @@ on who governs the systems through which they find it.</p>
 <p>A serious first implementation would define the trust framework,
 publish and assess profiles for a manageable number of established
 resources, connect them to a working registry and test whether assurance
-changes what agents select. This is a bounded, mid-six-figure
-undertaking, not a new institution.</p>
+changes what agents select. This is a bounded program of work, not a new
+institution.</p>
 <p>The next step as I see it is to define a public-interest trust
 framework for ARD, apply it to established resources and test whether it
 changes what agents select. The discovery layer is emerging, and moving
 early can matter disproportionately. Whose evidence and values will
 shape this layer?</p>
 <p>Petri Mikael Autio<br />
-Head of Product, mWater and Solstice</p>
+Head of Product, Solstice Institute</p>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
