@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0512">
+<title>For K</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="front.jpg">
+<link rel="preload" as="image" href="back.jpg">
+<style>
+  :root {
+    --void: #0b0512;
+    --ink: #e9ddf5;
+    --muted: rgba(233, 221, 245, 0.55);
+    --paper-edge: #e8dcc4;
+    --aspect: 1.2123;
+    --w: min(86vw, calc(70dvh * var(--aspect)), 820px);
+    --h: calc(var(--w) / var(--aspect));
+    --t: 4px;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; height: 100%; overflow: hidden;
+    background: var(--void);
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none; user-select: none;
+    overscroll-behavior: none;
+  }
+
+  /* ---------- the void ---------- */
+  .void { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
+  .nebula {
+    position: fixed; inset: -50vmax; pointer-events: none;
+    background:
+      radial-gradient(closest-side at 32% 38%, rgba(98, 36, 140, 0.55), transparent),
+      radial-gradient(closest-side at 68% 62%, rgba(58, 22, 110, 0.6), transparent),
+      radial-gradient(closest-side at 55% 30%, rgba(150, 40, 110, 0.18), transparent),
+      radial-gradient(closest-side at 40% 70%, rgba(40, 20, 90, 0.5), transparent);
+    animation: drift 140s linear infinite;
+  }
+  @keyframes drift { to { transform: rotate(360deg); } }
+  #sky { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .vignette {
+    position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 45%, rgba(4, 1, 8, 0.85) 100%);
+  }
+  .halo {
+    position: fixed; left: 50%; top: 50%; pointer-events: none;
+    width: calc(var(--w) * 1.9); height: calc(var(--w) * 1.5);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(closest-side, rgba(170, 90, 220, 0.22), rgba(120, 50, 180, 0.08) 55%, transparent);
+    animation: breathe 9s ease-in-out infinite;
+  }
+  @keyframes breathe { 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.06); } }
+
+  /* ---------- the stage ---------- */
+  #stage {
+    position: fixed; inset: 0; overflow: hidden;
+    display: grid; place-items: center;
+    perspective: 1800px;
+    touch-action: none;
+    cursor: grab;
+  }
+  #stage.dragging { cursor: grabbing; }
+  .shadow {
+    position: absolute; left: 50%; top: 50%;
+    width: var(--w); height: calc(var(--h) * 0.18);
+    margin-left: calc(var(--w) / -2);
+    margin-top: calc(var(--h) * 0.62);
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(20, 5, 35, 0.75), transparent);
+    pointer-events: none;
+  }
+  #card {
+    position: relative;
+    width: var(--w); height: var(--h);
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    opacity: 0;
+    transition: opacity 2.4s ease;
+  }
+  #card.ready { opacity: 1; }
+  .face, .edge { position: absolute; }
+  .face {
+    inset: 0; overflow: hidden; border-radius: 4px;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    background: var(--paper-edge);
+  }
+  .face img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; }
+  .front { transform: translateZ(calc(var(--t) / 2)); }
+  .back  { transform: rotateY(180deg) translateZ(calc(var(--t) / 2)); }
+  .shade, .sheen { position: absolute; inset: 0; pointer-events: none; }
+  .shade { background: #0a0314; opacity: 0; }
+  .sheen {
+    mix-blend-mode: screen;
+    background: radial-gradient(circle at var(--sx, 30%) var(--sy, 25%), rgba(255, 235, 255, 0.22), rgba(220, 180, 255, 0.06) 30%, transparent 55%);
+  }
+  .edge { background: linear-gradient(#efe4cf, #d6c7aa); }
+  .edge.t, .edge.b { left: 0; width: 100%; height: var(--t); }
+  .edge.t { top: 0; transform: translateY(calc(var(--t) / -2)) rotateX(90deg); }
+  .edge.b { top: calc(100% - var(--t)); transform: translateY(calc(var(--t) / 2)) rotateX(90deg); }
+  .edge.l, .edge.r { top: 0; height: 100%; width: var(--t); }
+  .edge.l { left: 0; transform: translateX(calc(var(--t) / -2)) rotateY(90deg); }
+  .edge.r { left: calc(100% - var(--t)); transform: translateX(calc(var(--t) / 2)) rotateY(90deg); }
+
+  /* ---------- words & controls ---------- */
+  .dedication {
+    position: fixed; top: max(22px, env(safe-area-inset-top)); left: 0; right: 0;
+    text-align: center; pointer-events: none;
+    font-style: italic; font-weight: 300; letter-spacing: 0.32em;
+    font-size: clamp(15px, 2.2vw, 20px); color: var(--muted);
+    opacity: 0; animation: fadein 4s ease 1.2s forwards;
+  }
+  .hint {
+    position: fixed; left: 0; right: 0;
+    bottom: calc(max(18px, env(safe-area-inset-bottom)) + 62px);
+    text-align: center; pointer-events: none;
+    font-style: italic; font-size: clamp(14px, 1.8vw, 17px); letter-spacing: 0.08em;
+    color: var(--muted); padding: 0 16px;
+    opacity: 0; animation: fadein 3s ease 2.6s forwards;
+    transition: opacity 1.6s ease;
+  }
+  .hint.gone { opacity: 0 !important; animation: none; }
+  @keyframes fadein { to { opacity: 1; } }
+  .controls {
+    position: fixed; left: 0; right: 0;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    display: flex; justify-content: center; gap: 12px; padding: 0 16px;
+    opacity: 0; animation: fadein 3s ease 3.2s forwards;
+  }
+  .controls button {
+    font: inherit; font-size: 16px; font-style: italic; letter-spacing: 0.06em;
+    color: var(--ink);
+    background: rgba(60, 28, 90, 0.35);
+    border: 1px solid rgba(210, 170, 255, 0.22);
+    border-radius: 999px;
+    padding: 10px 20px; min-height: 44px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+  .controls button:hover, .controls button:focus-visible {
+    background: rgba(90, 40, 130, 0.5);
+    border-color: rgba(230, 200, 255, 0.45);
+    outline: none;
+  }
+</style>
+</head>
+<body>
+  <div class="void">
+    <div class="nebula"></div>
+    <canvas id="sky"></canvas>
+    <div class="halo"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div id="stage" aria-label="A postcard. Drag to turn it, pinch or scroll to bring it closer.">
+    <div class="shadow" id="shadow"></div>
+    <div id="card">
+      <div class="edge t"></div><div class="edge b"></div>
+      <div class="edge l"></div><div class="edge r"></div>
+      <div class="face front">
+        <img src="front.jpg" alt="A dark red painting of a volcanic, fiery landscape with a domed city under a storm">
+        <div class="shade"></div><div class="sheen"></div>
+      </div>
+      <div class="face back">
+        <img src="back.jpg" alt="The back of the postcard: a sonnet, 'Shall I compare thee to a tissue's ply', addressed to K from M">
+        <div class="shade"></div><div class="sheen"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dedication">for K</div>
+  <div class="hint" id="hint">drag to turn · pinch to draw near · double-tap to hold</div>
+  <div class="controls">
+    <button id="flip" type="button">turn over</button>
+    <button id="hold" type="button">hold still</button>
+  </div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stage = document.getElementById('stage');
+  const card = document.getElementById('card');
+  const shadow = document.getElementById('shadow');
+  const hint = document.getElementById('hint');
+  const flipBtn = document.getElementById('flip');
+  const holdBtn = document.getElementById('hold');
+  const [frontShade, backShade] = card.querySelectorAll('.shade');
+  const [frontSheen, backSheen] = card.querySelectorAll('.sheen');
+
+  const AUTO_SPEED = reduce ? 3 : 8;      // degrees per second of idle drift
+  const RESUME_AFTER = 2.5;               // seconds of quiet before drifting again
+  const DEG = Math.PI / 180;
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+  let rx = -8, ry = -28;                  // current rotation
+  let vx = 0, vy = 0;                     // angular velocity after a fling
+  let zoom = 1, zoomShown = 1, panX = 0, panY = 0;
+  let still = false, target = null, autoBlend = 0;
+  let lastTouch = -1e9, t = 0;
+
+  // ---------- card appears once both faces are loaded ----------
+  Promise.all([...card.querySelectorAll('img')].map(img =>
+    img.complete ? Promise.resolve() : new Promise(r => { img.onload = img.onerror = r; })
+  )).then(() => card.classList.add('ready'));
+
+  // ---------- gestures ----------
+  const pointers = new Map();
+  let drag = null, pinch = null, lastTap = 0, moved = 0;
+
+  function dismissHint() { hint.classList.add('gone'); }
+  setTimeout(dismissHint, 11000);
+
+  function startPinch() {
+    const [a, b] = [...pointers.values()];
+    pinch = {
+      dist: Math.hypot(a.x - b.x, a.y - b.y) || 1,
+      mid: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 },
+      zoom, panX, panY
+    };
+    drag = null;
+  }
+
+  stage.addEventListener('pointerdown', e => {
+    stage.setPointerCapture(e.pointerId);
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    lastTouch = t; target = null; dismissHint();
+    if (pointers.size === 1) {
+      drag = { x: e.clientX, y: e.clientY, time: performance.now() };
+      vx = vy = 0; moved = 0;
+      stage.classList.add('dragging');
+    } else if (pointers.size === 2) {
+      startPinch();
+    }
+  });
+
+  stage.addEventListener('pointermove', e => {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    lastTouch = t;
+    if (pointers.size === 1 && drag) {
+      const now = performance.now();
+      const dt = Math.max(1, now - drag.time) / 1000;
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      const k = 0.38 / Math.sqrt(zoom);
+      ry += dx * k;
+      rx = clamp(rx - dy * k, -75, 75);
+      vy = vy * 0.5 + (dx * k / dt) * 0.5;
+      vx = vx * 0.5 + (-dy * k / dt) * 0.5;
+      moved += Math.abs(dx) + Math.abs(dy);
+      drag = { x: e.clientX, y: e.clientY, time: now };
+    } else if (pointers.size >= 2 && pinch) {
+      const [a, b] = [...pointers.values()];
+      const dist = Math.hypot(a.x - b.x, a.y - b.y);
+      zoom = clamp(pinch.zoom * dist / pinch.dist, 0.6, 3.2);
+      zoomShown = zoom;
+      panX = pinch.panX + ((a.x + b.x) / 2 - pinch.mid.x);
+      panY = pinch.panY + ((a.y + b.y) / 2 - pinch.mid.y);
+      moved = 999;
+    }
+  });
+
+  function endPointer(e) {
+    if (!pointers.has(e.pointerId)) return;
+    pointers.delete(e.pointerId);
+    lastTouch = t;
+    if (pointers.size === 1) {
+      // lifted one finger of a pinch: carry on turning with the other, without a jump
+      const p = [...pointers.values()][0];
+      drag = { x: p.x, y: p.y, time: performance.now() };
+      pinch = null; vx = vy = 0;
+    } else if (pointers.size === 0) {
+      stage.classList.remove('dragging');
+      if (drag && performance.now() - drag.time > 80) vx = vy = 0; // held still before release
+      drag = null; pinch = null;
+      if (moved < 8 && e.type === 'pointerup') {
+        const now = performance.now();
+        if (now - lastTap < 320) { toggleHold(); lastTap = 0; } else lastTap = now;
+      }
+    }
+  }
+  stage.addEventListener('pointerup', endPointer);
+  stage.addEventListener('pointercancel', endPointer);
+
+  stage.addEventListener('wheel', e => {
+    e.preventDefault();
+    const scale = e.ctrlKey ? 0.012 : 0.0016; // trackpad pinch arrives as ctrl+wheel
+    zoom = clamp(zoom * Math.exp(-e.deltaY * scale), 0.6, 3.2);
+    lastTouch = t; dismissHint();
+  }, { passive: false });
+
+  // Safari desktop trackpad pinch
+  let gestureZoom = 1;
+  stage.addEventListener('gesturestart', e => { e.preventDefault(); gestureZoom = zoom; });
+  stage.addEventListener('gesturechange', e => { e.preventDefault(); zoom = clamp(gestureZoom * e.scale, 0.6, 3.2); });
+
+  // ---------- buttons & keys ----------
+  function nearestFace(offset = 0) {
+    return { rx: 0, ry: Math.round(ry / 180) * 180 + offset };
+  }
+  function setHold(on) {
+    still = on;
+    holdBtn.textContent = on ? 'let it drift' : 'hold still';
+  }
+  function toggleHold() {
+    if (still) { setHold(false); lastTouch = -1e9; return; }
+    setHold(true);
+    target = nearestFace();
+    zoom = 1; vx = vy = 0;
+  }
+  flipBtn.addEventListener('click', () => {
+    setHold(true);
+    target = nearestFace(180);
+    vx = vy = 0; lastTouch = t; dismissHint();
+  });
+  holdBtn.addEventListener('click', () => { toggleHold(); dismissHint(); });
+
+  addEventListener('keydown', e => {
+    const step = 12;
+    if (e.key === 'ArrowLeft') ry -= step;
+    else if (e.key === 'ArrowRight') ry += step;
+    else if (e.key === 'ArrowUp') rx = clamp(rx + step, -75, 75);
+    else if (e.key === 'ArrowDown') rx = clamp(rx - step, -75, 75);
+    else if (e.key === '+' || e.key === '=') zoom = clamp(zoom * 1.2, 0.6, 3.2);
+    else if (e.key === '-') zoom = clamp(zoom / 1.2, 0.6, 3.2);
+    else return;
+    target = null; lastTouch = t; dismissHint();
+  });
+
+  // ---------- the sky ----------
+  const sky = document.getElementById('sky');
+  const ctx = sky.getContext('2d');
+  let W = 0, H = 0, dpr = 1, stars = [], motes = [];
+  function resize() {
+    dpr = Math.min(2, devicePixelRatio || 1);
+    W = innerWidth; H = innerHeight;
+    sky.width = W * dpr; sky.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(Math.min(260, W * H / 5200));
+    stars = Array.from({ length: n }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      d: Math.random() ** 2,               // depth: 0 far, 1 near
+      p: Math.random() * Math.PI * 2,
+      s: 0.4 + Math.random() * 1.6,
+      hue: Math.random() < 0.25 ? 300 : Math.random() < 0.5 ? 45 : 265
+    }));
+    motes = Array.from({ length: 14 }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: 30 + Math.random() * 90,
+      vx: (Math.random() - 0.5) * 6, vy: -2 - Math.random() * 5,
+      hue: [285, 300, 320, 265, 40][Math.floor(Math.random() * 5)],
+      a: 0.035 + Math.random() * 0.05
+    }));
+  }
+  addEventListener('resize', resize);
+  resize();
+
+  function drawSky(dt) {
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    for (const m of motes) {
+      m.x += m.vx * dt; m.y += m.vy * dt;
+      if (m.y < -m.r) { m.y = H + m.r; m.x = Math.random() * W; }
+      if (m.x < -m.r) m.x = W + m.r; else if (m.x > W + m.r) m.x = -m.r;
+      const g = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r);
+      g.addColorStop(0, `hsla(${m.hue}, 70%, 65%, ${m.a})`);
+      g.addColorStop(1, `hsla(${m.hue}, 70%, 50%, 0)`);
+      ctx.fillStyle = g;
+      ctx.fillRect(m.x - m.r, m.y - m.r, m.r * 2, m.r * 2);
+    }
+    // stars shift a little with the card's turning, nearer ones more
+    const shift = ry * 1.6, lift = rx * 1.2;
+    for (const s of stars) {
+      const x = ((s.x + shift * (0.15 + s.d)) % W + W) % W;
+      const y = ((s.y - t * (2 + s.d * 6) + lift * (0.15 + s.d)) % H + H) % H;
+      const tw = 0.55 + 0.45 * Math.sin(t * (0.6 + s.d) + s.p);
+      const a = (0.25 + 0.75 * s.d) * tw;
+      const r = s.s * (0.5 + s.d);
+      ctx.fillStyle = `hsla(${s.hue}, 60%, 88%, ${a})`;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+      if (s.d > 0.8) {
+        ctx.fillStyle = `hsla(${s.hue}, 70%, 75%, ${a * 0.12})`;
+        ctx.beginPath(); ctx.arc(x, y, r * 4, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  // ---------- the loop ----------
+  let prev = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.05, (now - prev) / 1000);
+    prev = now; t += dt;
+    const touching = pointers.size > 0;
+
+    if (!touching) {
+      if (target) {
+        const k = 1 - Math.exp(-dt * 3.2);
+        rx += (target.rx - rx) * k;
+        ry += (target.ry - ry) * k;
+        if (Math.abs(target.ry - ry) < 0.05 && Math.abs(target.rx - rx) < 0.05) {
+          rx = target.rx; ry = target.ry; target = null;
+        }
+      } else {
+        // fling, fading out
+        ry += vy * dt; rx = clamp(rx + vx * dt, -75, 75);
+        const decay = Math.exp(-dt * 2.4);
+        vx *= decay; vy *= decay;
+        // idle drift returns gently
+        const idle = !still && t - lastTouch > RESUME_AFTER;
+        autoBlend += ((idle ? 1 : 0) - autoBlend) * (1 - Math.exp(-dt * 0.6));
+        ry += AUTO_SPEED * autoBlend * dt;
+        const tilt = -6 + Math.sin(t * 0.23) * 7;
+        rx += (tilt - rx) * autoBlend * (1 - Math.exp(-dt * 0.5));
+      }
+    }
+
+    zoomShown += (zoom - zoomShown) * (1 - Math.exp(-dt * 8));
+    if (!pinch && zoom <= 1.02) {
+      const k = 1 - Math.exp(-dt * 5);
+      panX -= panX * k; panY -= panY * k;
+    }
+    const w = card.offsetWidth, h = card.offsetHeight;
+    const maxX = Math.max(0, w * (zoomShown - 1) / 2) + 40, maxY = Math.max(0, h * (zoomShown - 1) / 2) + 40;
+    panX = clamp(panX, -maxX, maxX); panY = clamp(panY, -maxY, maxY);
+
+    const calm = still ? 0.35 : 1;
+    const bob = reduce ? 0 : Math.sin(t * 0.7) * 10 * calm;
+    const rz = reduce ? 0 : Math.sin(t * 0.41) * 1.4 * calm;
+
+    card.style.transform =
+      `translate3d(${panX}px, ${panY + bob}px, 0) scale(${zoomShown}) ` +
+      `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
+
+    // light: faces dim as they turn away, a soft sheen slides across
+    const cy = Math.cos(ry * DEG), cx = Math.cos(rx * DEG);
+    const facing = cy * cx;                           // +1 front to viewer, -1 back to viewer
+    frontShade.style.opacity = (1 - Math.max(0, facing)) * 0.7;
+    backShade.style.opacity = (1 - Math.max(0, -facing)) * 0.7;
+    const sy = Math.sin(ry * DEG), sx = Math.sin(rx * DEG);
+    frontSheen.style.setProperty('--sx', `${30 - sy * 70}%`);
+    frontSheen.style.setProperty('--sy', `${25 + sx * 70}%`);
+    backSheen.style.setProperty('--sx', `${30 + sy * 70}%`);
+    backSheen.style.setProperty('--sy', `${25 + sx * 70}%`);
+
+    const spread = 0.35 + 0.65 * Math.abs(cy);
+    shadow.style.transform =
+      `translate(${panX}px, ${panY * 0.3}px) scale(${spread * zoomShown}, ${1 - bob / 60})`;
+    shadow.style.opacity = card.classList.contains('ready') ? 0.55 - bob / 50 : 0;
+
+    drawSky(dt);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
