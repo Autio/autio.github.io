@@ -1,4 +1,4 @@
-# Spinoza’s Ethics — an argument atlas
+# A Map of Spinoza’s Ethics
 
 Explore how the claims in **Part I: Concerning God** depend on one another, with the complete Part I text alongside the map. Select a proposition to move directly to its statement, proof, and notes; select a corollary to jump to that exact paragraph.
 
@@ -24,7 +24,7 @@ python3 -m http.server 8000
 
 Open <http://localhost:8000>. Opening `index.html` directly as a file will not reliably load the JSON data.
 
-This folder publishes the [live Ethics atlas](https://autio.github.io/projects/spinoza_ethics/) through this repository’s GitHub Pages site. The standalone source project is [Autio/Ethics](https://github.com/Autio/Ethics).
+This folder publishes the [live map of Spinoza’s Ethics](https://autio.github.io/projects/spinoza_ethics/) through this repository’s GitHub Pages site. The standalone source project is [Autio/Ethics](https://github.com/Autio/Ethics).
 
 ## Text and provenance
 
