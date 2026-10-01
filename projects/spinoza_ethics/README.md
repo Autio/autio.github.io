@@ -102,3 +102,7 @@ For interface changes, check all three views, hover and keyboard previews, propo
 ## Licence
 
 The application retains the [GNU GPL version 2 licence](LICENSE). The historical translation is public domain, and the retained Gutenberg source includes its own distribution notice. Please preserve the attribution to R. F. Tredwell when reusing the dependency data.
+
+## Line of argument
+
+Choose **Line of argument** in the view selector to read the selected statement’s complete chain of recorded premises as numbered text steps. Dependencies appear before the statements that use them; shared premises appear once. Each step includes its source statement and immediate premise references. Click a step to select it and read its full proof in the reading pane. This view expands the editorial dependency dataset; it does not claim to reconstruct a unique or formally verified proof.
