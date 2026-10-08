@@ -12,7 +12,7 @@
 .panel-feature .webinar-credit { margin-top: 24px; margin-bottom: 0; color: #fff; }
 .panel-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 38px; }
 .panel-gallery figure { min-width: 0; margin: 0; }
-.panel-gallery img { display: block; width: 100%; aspect-ratio: 1.4 / 1; object-fit: cover; border-radius: 12px; background: rgba(255, 255, 255, 0.08); }
+.panel-gallery img { display: block; width: 100%; height: auto; border-radius: 12px; background: rgba(255, 255, 255, 0.08); }
 .panel-gallery figcaption { margin-top: 9px; color: rgba(255, 255, 255, 0.7); font-size: 0.78rem; line-height: 1.45; }
 .webinar { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; padding: 36px 0; border-bottom: 1px solid var(--gray-200); }
 .webinar-player { aspect-ratio: 16 / 9; width: 100%; border: 0; border-radius: 12px; background: var(--gray-900); }
