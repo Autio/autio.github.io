@@ -27,6 +27,17 @@
   padding: 40px 24px 80px;
 }
 
+.post-list-label {
+  margin: 0 0 14px;
+  color: var(--gray-500);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.post-list-label-latest { margin-top: 40px; }
+
 .post-card {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
