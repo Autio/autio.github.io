@@ -52,6 +52,16 @@
   border-width: 2px;
 }
 
+.post-card.post-card-note {
+  display: block;
+  padding: 18px 22px;
+  border-left: 4px solid var(--blue-500);
+  background: var(--gray-50);
+}
+
+.post-card.post-card-note h2 { font-size: 1.25rem; }
+.post-card.post-card-note p { max-width: 820px; }
+
 .post-thumbnail {
   display: block;
   width: 100%;
