@@ -15,8 +15,11 @@
       margin: 0 auto;
       padding: 14mm 16mm;
     }
+    @page { size: A4; margin: 12mm 14mm; }
     @media print {
-      body { padding: 10mm 14mm; }
+      body { padding: 0; }
+      h2, h3, .role-header, .role-org { break-after: avoid; }
+      .role-block, .two-col { break-inside: avoid; }
       .no-print { display: none; }
     }
     a { color: #1a5ca8; text-decoration: none; }
@@ -53,6 +56,8 @@
 </head>
 <body>
 
+<p class="no-print" style="text-align: right; margin-bottom: 12px;"><a href="output/pdf/Petri-Autio-CV.pdf" download>Download PDF</a></p>
+
 <header>
   <h1>Petri Mikael Autio</h1>
   <p class="tagline">Product Leader | WASH & International Development Technology</p>
@@ -65,7 +70,7 @@
 </header>
 
 <h2>Profile</h2>
-<p>Product leader with 8+ years heading product for mWater and Solstice, including the world's most widely used free data platform for water, sanitation, and hygiene (WASH). Directed design, prioritization, and rollout of 300+ major features serving 390,000+ users across 200 countries and territories. Background in international development (WaterAid), data systems, and team management since 2016. Combines deep WASH sector knowledge with hands-on technical skills to bridge user needs, business requirements, and engineering capacity. mWater's technical architecture and engineering are led by CTO Clayton Grassick.</p>
+<p>Product leader with 8+ years of product leadership experience, heading product for both mWater and Solstice. mWater is the world's most widely used free data platform for water, sanitation, and hygiene (WASH), while Solstice extends that work into health, education, agriculture, and other sectors. Directed design, prioritization, testing and rollout of 300+ major features serving 390,000+ users across 200 countries and territories. Background spans quantitative hedge fund work, international development with WaterAid and the Red Cross, data systems, and team management since 2016. Combines deep WASH sector knowledge and broader SDG and govtech work with hands-on technical skills to bridge user needs, business requirements, and engineering capacity.</p>
 
 <h2>Experience</h2>
 
@@ -84,16 +89,16 @@
     <span class="dates">Mar 2018 - Present</span>
   </div>
   <div class="role-org"><strong>mWater</strong> (mwater.co) &amp; <strong>Solstice</strong> (solstice.world) | Remote</div>
-  <p><strong>Product strategy, roadmap ownership, and feature delivery</strong> for a free data platform and digital public good used by governments, UNICEF, USAID, Water.org, CRS, and hundreds of NGOs to manage WASH data at national scale.</p>
+  <p><strong>Product strategy, roadmap ownership, and feature delivery</strong> for a free data platform and digital public good used by governments, utilities, UNICEF, and hundreds of NGOs to manage WASH data at national scale.</p>
   <ul>
     <li>Directed design and rollout of 300+ major features across mobile data collection, dashboards, GIS mapping, asset management, water system planning, AI capabilities, and workflows</li>
-    <li>Launched Solstice, the sector-agnostic sibling platform extending mWater's technology to health, education, agriculture, and other SDG domains, and drove its early adoption (Medair, World Vision ESCA, others)</li>
+    <li>Launched and led Solstice, the sector-agnostic sibling platform extending mWater's technology to health, education, agriculture, and other SDG domains, and drove its early adoption (Medair, World Vision ESCA, WWF, and others)</li>
     <li>Authored and executing a multi-phase AI roadmap: shipped AI-powered translations (2024-2025), workflows engine, calculated data sources, and an AI-powered data integrator (2026, funded by UNICEF Madagascar)</li>
-    <li>Coordinates and manages all mWater communications: portal news feed (hundreds of thousands of unique visitors/year), company blog, LinkedIn (grown from 500 to 5,000+ followers), and YouTube channel (200K+ views)</li>
+    <li>Coordinates and manages all mWater communications: portal news feed (hundreds of thousands of unique visitors/year), company blog, LinkedIn (grown from 500 to 5,000+ followers), and YouTube channel (250K+ views)</li>
     <li>Hired staff and managed distributed teams across the US, Canada, Haiti, Uganda, Ethiopia, Indonesia, and Nepal. Selected and mentored interns from the University of Chicago</li>
     <li>Drove internationalization to 25+ portal languages including Bangla, Burmese, Khmer, Tetun, and Tajik</li>
     <li>Runs partner training for CAWST, Medair, Netherlands Red Cross, UNICEF, USAID IUWASH, Water for People, DigDeep, Clear Cambodia, and others</li>
-    <li>Presents annually at Stockholm World Water Week; also at UNC Water and Health, Colorado WASH Symposium, Brisbane WASH Futures, and AfWA</li>
+    <li>Conference presentations and panels at IWA World Water Congress, Stockholm World Water Week; also at UNC Water and Health, Colorado WASH Symposium, Brisbane WASH Futures, and AfWA</li>
   </ul>
 </div>
 
@@ -174,7 +179,7 @@
 </div>
 
 <h2>Technical Skills</h2>
-<p>TypeScript, JavaScript, React, CoffeeScript, Node.js, Python, C#, PostgreSQL, SQL, REST API design, D3.js, Leaflet, MapboxGL, CSS, HTML5, Git, GIS, agentic AI development, local LLMs, prompt engineering, PowerBI, AWS, Docker, Linux, VBA, ETL, data visualization, unit testing.</p>
+<p>TypeScript, JavaScript, React, Node.js, Python, C#, PostgreSQL, SQL, REST API design, D3.js, Leaflet, MapboxGL, CSS, HTML5, Git, GIS, agentic AI development, local LLMs, prompt engineering, PowerBI, AWS, Docker, Linux, VBA, ETL, data visualization, unit testing.</p>
 
 <h2>Key Projects Managed at mWater</h2>
 <p>CRS Azure (azurewater.org), digital platform for small water utilities. USAID Haiti, platform for all urban utilities in-country. Ethiopia CO-WASH, one of Africa's largest WASH monitoring programs. Uganda RUMIS (rumis.ug), rural and urban water MIS. Malawi national water point database, 120K+ points. Papua New Guinea WASH MIS (umben.mwater.co). USAID IUWASH Tangguh, Indonesia. Water Mission systems integration. UNICEF-LIXIL youth citizen reporter monitoring. Medair Solstice implementation and indicator development. EquityTool integration.</p>
