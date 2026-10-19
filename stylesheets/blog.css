@@ -214,6 +214,7 @@
 .article-banner img,
 .article-banner video {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   box-shadow: 0 12px 40px rgba(12, 25, 41, 0.14);
   display: block;
@@ -274,6 +275,7 @@
 .article figure img,
 .article figure video {
   width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 8px 28px rgba(12, 25, 41, 0.12);
   display: block;
