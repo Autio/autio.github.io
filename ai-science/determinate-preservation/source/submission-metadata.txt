@@ -1,0 +1,37 @@
+Title: Determinate Preservation: Hegelian Sublation and the Homotopy of Resolving Levels
+Authors: Petri Mikael Autio
+Suggested primary category: math.HO
+Suggested secondary category: math.CT
+Comments: 29 pages; source and reproducibility materials included.
+Affiliation: not supplied
+
+Abstract:
+Lawvere's categorical rendering of Hegelian sublation makes preservation
+precise through least resolving levels. We study two choices on which
+such leastness depends: the relations represented and the coefficient
+semantics governing generation and reconstruction.
+For diagrams over a finite poset, a matching-map argument gives the least
+full reconstruction subset for any specified diagram family, and hence
+for arbitrary starting levels. For constant generation this becomes an
+upper-interval criterion. We compute coefficient-relative resolution
+profiles from sets through truncated homotopy types. A Boolean family
+has explicit wedge-of-sphere obstructions and arbitrarily many distinct
+least levels, although every earlier resolution comparison remains
+unchanged. A compact family realizes $m$ distinct levels on $2m+2$
+objects; for an initial one-object level, the first set-to-groupoid jump
+requires exactly six. The jump
+also survives nonconstant generation. Without preservation of generation,
+a second family reverses the inclusion: richer coefficients require fewer
+positions. A further comparison, grounded in
+an interactive reader of the Science of Logic, orders the same
+positions by ancestry or succession. Both profiles are invariant under
+coefficient enrichment, yet their least subsets differ sharply.
+Together these calculations show why old-test agreement does not secure
+later leastness, and why coefficient stability does not establish an
+interpretation. Reading these results alongside Hegel's accounts of
+retention, mediation, and method, we defend determinate preservation:
+a reconstruction must make its asserted mode of retention and its
+interpretive warrant answerable together. The resulting comparison with
+nLab and contemporary formalizations separates mathematical necessity
+within a representation from justification of the relations and tests
+that produce it.

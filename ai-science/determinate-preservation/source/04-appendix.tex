@@ -1,0 +1,157 @@
+\section{The preliminary left-extension obstruction}
+\label{app:left}
+
+An elementary calculation motivated the main construction but should be
+distinguished from it. Let $J=\Pcat_3$, and add a terminal object $t$ to
+obtain $C$. For the constant singleton diagram $1:J\to\Set$,
+\[
+(\Lan_J^{\Set}1)(t)=\colim_J 1=1.
+\]
+For the same discrete-valued diagram in spaces,
+\[
+(\Lan_J^{\Spc}1)(t)\simeq\hocolim_J *\simeq\B J\simeq S^1.
+\]
+Thus the natural comparison from the space-valued extension to the
+discrete image of the set-valued extension is not an equivalence.
+This is a standard example of the topology retained by a homotopy
+colimit \cite{Dugger}. It is not, on its own, a failure of an
+Aufhebung relation. The main family isolates the latter kind of issue
+by making its left extension constant in every coefficient category.
+
+More generally, for a set-valued diagram $F$ on an ordinary category $J$,
+the homotopy colimit of its discrete image is the classifying space of
+its category of elements. The ordinary colimit records the connected
+components of that category. The comparison is an equivalence precisely
+when each component has contractible classifying space. This familiar
+description is useful for checking where a discrete-to-homotopy comparison
+can fail; it must not be promoted into a general contractibility test
+based on homology alone.
+
+\section{Reproducibility and the status of verification}
+\label{app:verification}
+
+The accompanying program \texttt{verify\_family.py} uses only the Python
+standard library. It constructs order complexes, represents boundary
+matrices as bitsets, and computes their ranks over $\mathbb F_2$ by
+Gaussian elimination. The report is saved as
+\texttt{verification.json}. Run it with:
+\begin{quote}
+\texttt{python verify\_family.py}
+\end{quote}
+
+For $N=3$, the program examines all $2^7=128$ full subposets
+containing $b$. For $N=4$, it examines all $2^{15}=32{,}768$. At each
+omitted object it tests the necessary condition of connectedness and
+vanishing reduced homology through degree $k$ in the comma nerve. The
+resulting candidate counts are:
+\begin{center}
+\begin{tabular}{@{}crrr@{}}
+\toprule
+$N$ & $k=0$ & $k=1$ & $k=2$\\
+\midrule
+3 & 2 & 1 & 1\textsuperscript{\,a}\\
+4 & 32 & 2 & 1\\
+\bottomrule
+\end{tabular}\par
+\smallskip
+{\footnotesize\textsuperscript{a}The script exhausts $k=0,1$ for $N=3$;
+the last value follows from the identity-only result.}
+\end{center}
+In each enumerated case, the homological necessary conditions agree with
+containment of the predicted least level. This agreement is supplementary
+evidence. It does not generally turn a necessary homological test into a
+sufficient homotopical one. The proof of sufficiency is the wedge
+calculation in the text.
+
+For $N=3,4,5,6$, the program additionally checks the predicted homology
+of every proposed proper least resolver at $a$, verifies the expected
+failure at the next homological degree, and tests deletion of each
+mandatory face even when all other objects are available. It does not
+enumerate every subposet for $N=5$ or $6$.
+
+The additional program \texttt{verify\_matching.py} independently
+enumerates finite limits as compatible tuples. It examines every
+naturally labelled poset on up to four objects and every functor whose
+object sets have cardinalities $0,1,2$, checking all full reconstruction
+subsets. It performs 121,774 comparisons across 7,766 diagrams; the
+four-object cases include 5,763 diagrams with varying cardinalities.
+These are direct Set-valued checks of \cref{prop:support}, not nerve
+or homology tests. The program \texttt{verify\_nonconstant.py} checks
+all 128 admissible subsets of the nine-object example against nine
+input pairs of finite sets, performing 1,152 reconstruction checks.
+
+For the shrinking family, \texttt{verify\_reversal.py} enumerates
+553 Set-valued diagrams on $Q_2$, forms their quotient-set colimits,
+and performs 2,212 direct reconstruction comparisons. Only the whole
+six-object category resolves all these inputs. The higher claim rests
+on the written canonical-cocone and map-to-empty argument, not on
+this Set-valued enumeration.
+
+The program \texttt{verify\_models.py} checks the compact sphere
+models through eight layers and separately enumerates all naturally
+labelled initial posets on up to six objects. For the latter check,
+each relevant upper interval has at most four vertices. Its order
+complex is explicitly collapsed to a graph, whose cycle rank decides
+simple connectivity. No jump occurs below six objects; among the 357
+naturally labelled six-object cases, exactly one exhibits the first
+jump. This does not replace the lower-bound proof in the text.
+
+Finally, \texttt{verify\_reader.py} audits the supplied
+\texttt{reader-positions.json}. It confirms the branching hypothesis
+for the tree comparison: 120 positions including the synthetic root,
+80 leaves, one vertex with two children, and 39 with three. The data
+record editorial containment and an explicitly chosen traversal, not
+textually established relations of logical dependence.
+
+All programs use only the standard library. Their reports carry the
+corresponding prefix and \texttt{-verification.json} suffix, except
+the original \texttt{verification.json}. Running each program from
+the source directory regenerates its report.
+
+The mathematical argument in this manuscript is a written proof, supported
+by these finite calculations. It has not been checked in a proof assistant.
+The counts and homology computations should not be described as a
+machine verification of every homotopy-theoretic assertion.
+
+\noindent\begin{minipage}{\linewidth}
+AI tools assisted with the literature study, drafting, mathematical derivation,
+and verification code. Two Astra review agents independently criticized the
+mathematical and philosophical arguments, prompting substantive revisions.
+These checks constitute AI-assisted internal review, not external human
+peer review or proof-assistant certification.
+\end{minipage}
+
+\section{Questions opened by the calculation}
+
+For nontrivial starting levels, \cref{cor:arbitraryD} settles existence
+of a least full resolver over a finite poset. Its formula can still be
+difficult to evaluate. Left extension need not be constant, and its
+interaction with right extension introduces more than the homotopy
+type of an unweighted comma nerve. A further problem is to identify
+finite detecting families for the matching-map tests in
+\eqref{eq:arbitraryD}, and conditions under which ordinary resolution
+transports to higher coefficients.
+
+There are no incomparable minimal full resolvers for any starting
+level in the finite-poset setting of \cref{cor:arbitraryD}. To seek
+such examples one must change the indexing or admissible class, for
+example by admitting nonidentity endomorphisms or restricting which
+full subcategories count as levels. The ordinary constant-diagram
+case also belongs to existing minimal-subposet theory
+\cite{DeyLesnick,BrustleEtAl}. Neither formula supplies a general
+effective contractibility algorithm: homology alone does not decide
+the unrestricted condition.
+
+A third question concerns the admissible level family. The ordinary
+finite-site case has a rigidity theorem, but no such classification is
+assumed for the higher coefficient categories here. Establishing a
+correspondence between the full-subcategory profiles and a broader
+notion of higher essential levels would strengthen the result. It
+should be proved rather than absorbed into terminology.
+
+Finally, the textual benchmark in this paper can be developed into a
+full comparison of alternative models of the becoming transition. That
+would require accounts of the moments' self-transformation and altered
+significance beyond the recoverability test used here. The present
+calculation supplies a precise constraint on such an interpretation; it
+does not supply those missing accounts.

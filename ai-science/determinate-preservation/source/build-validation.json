@@ -1,0 +1,11 @@
+{
+  "compiler": "Tectonic 0.17.0 (XeTeX-based)",
+  "clean_archive_extraction": true,
+  "clean_rebuild_succeeded": true,
+  "pages": 29,
+  "page_text_identical_to_delivery": true,
+  "unresolved_references": false,
+  "overfull_or_underfull_boxes": false,
+  "arxiv_server_tested": false,
+  "visual_review": "All pages inspected; revised figures and appendix pages additionally inspected at larger resolution."
+}

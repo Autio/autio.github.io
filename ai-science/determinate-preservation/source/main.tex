@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=29mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype,booktabs,array,enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds}
+\usepackage{fancyhdr}
+\definecolor{ink}{HTML}{16364B}
+\definecolor{accent}{HTML}{A34D3B}
+\definecolor{soft}{HTML}{EDF2F4}
+\usepackage[colorlinks=true,linkcolor=ink,citecolor=ink,urlcolor=ink,
+ pdfauthor={Petri Mikael Autio},
+ pdftitle={Determinate Preservation: Hegelian Sublation and the Homotopy of Resolving Levels}]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\hypersetup{pdfsubject={Philosophy of mathematics; Hegel; Aufhebung; truncated homotopy types; Kan extensions}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Determinate preservation}}
+\fancyhead[R]{\small Petri Mikael Autio}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.15em}
+\setlist{nosep,topsep=5pt}
+\emergencystretch=1.5em
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Spc}{\mathcal S}
+\newcommand{\Vk}{\mathcal V_k}
+\newcommand{\Fun}{\operatorname{Fun}}
+\newcommand{\Map}{\operatorname{Map}}
+\newcommand{\Lan}{\operatorname{Lan}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\sk}{\operatorname{sk}}
+\newcommand{\cosk}{\operatorname{cosk}}
+\newcommand{\colim}{\operatorname*{colim}}
+\newcommand{\hocolim}{\operatorname*{hocolim}}
+\newcommand{\limop}{\operatorname*{lim}}
+\newcommand{\B}{\mathrm B}
+\newcommand{\N}{\mathrm N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Aup}{\mathsf A}
+\newcommand{\Ccat}{\mathcal C}
+\newcommand{\Pcat}{\mathcal P}
+\newcommand{\K}{\mathrm K}
+\newcommand{\tr}{\tau_{\leq k}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\vspace*{17mm}
+{\color{accent}\large\textsc{Philosophy \& mathematics}}\par
+\vspace{9mm}
+{\color{ink}\Huge\bfseries Determinate Preservation\par}
+\vspace{5mm}
+{\LARGE Hegelian Sublation and the Homotopy\par of Resolving Levels\par}
+\vspace{12mm}
+{\Large Petri Mikael Autio\par}
+\vspace{3mm}
+{22 October 2026\par}
+\vspace{12mm}
+\begin{abstract}
+Lawvere's categorical rendering of Hegelian sublation makes preservation
+precise through least resolving levels. We study two choices on which
+such leastness depends: the relations represented and the coefficient
+semantics governing generation and reconstruction.
+For diagrams over a finite poset, a matching-map argument gives the least
+full reconstruction subset for any specified diagram family, and hence
+for arbitrary starting levels. For constant generation this becomes an
+upper-interval criterion. We compute coefficient-relative resolution
+profiles from sets through truncated homotopy types. A Boolean family
+has explicit wedge-of-sphere obstructions and arbitrarily many distinct
+least levels, although every earlier resolution comparison remains
+unchanged. A compact family realizes $m$ distinct levels on $2m+2$
+objects; for an initial one-object level, the first set-to-groupoid jump
+requires exactly six. The jump
+also survives nonconstant generation. Without preservation of generation,
+a second family reverses the inclusion: richer coefficients require fewer
+positions. A further comparison, grounded in
+an interactive reader of the \emph{Science of Logic}, orders the same
+positions by ancestry or succession. Both profiles are invariant under
+coefficient enrichment, yet their least subsets differ sharply.
+Together these calculations show why old-test agreement does not secure
+later leastness, and why coefficient stability does not establish an
+interpretation. Reading these results alongside Hegel's accounts of
+retention, mediation, and method, we defend determinate preservation:
+a reconstruction must make its asserted mode of retention and its
+interpretive warrant answerable together. The resulting comparison with
+nLab and contemporary formalizations separates mathematical necessity
+within a representation from justification of the relations and tests
+that produce it.
+\end{abstract}
+\vfill
+{\small\color{ink}Keywords: Hegel; Science of Logic; Aufhebung; categorical logic;
+Kan extension; truncated spaces; philosophy of formalization.\par}
+\vspace{3mm}
+{\small Research manuscript. Mathematical proofs and reproducible finite checks
+are included; this version has not undergone external peer review.\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\begingroup\footnotesize\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+\newpage
+\pagenumbering{arabic}
+\input{01-argument}
+\input{02-mathematics}
+\input{03-interpretation}
+\input{references}
+\appendix
+\input{04-appendix}
+\end{document}

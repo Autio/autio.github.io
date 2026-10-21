@@ -1,0 +1,676 @@
+\section{What changes, and what remains true}
+\label{sec:change}
+
+\subsection{Enlarging a test is not refuting its restricted version}
+
+There is an easy but misleading way to describe the example: homotopy theory
+reveals that the set-valued resolution was false. It does not. The
+set-valued assertion remains true for every set. What changes is the range
+of objects over which sufficiency is quantified.
+
+\begin{proposition}[Persistence of the earlier tests]\label{prop:persistence}
+In the setting of \cref{lem:criterion}, let $0\leq k\leq\ell\leq\infty$.
+For every $A\in\mathcal V_k$, the resolution comparison is the same when
+computed in $\mathcal V_k$ or in $\mathcal V_\ell$. Hence an
+$\ell$-resolver is a $k$-resolver, while a $k$-resolver can fail to be an
+$\ell$-resolver only on additional test objects.
+\end{proposition}
+
+\begin{proof}
+The inclusion $\mathcal V_k\hookrightarrow\mathcal V_\ell$ is fully
+faithful and preserves limits. Left extension from $D$ is constant in both
+settings. Thus the pointwise right Kan extension and its unit agree on
+$A\in\mathcal V_k$. An equivalence for all objects of the larger
+category is, in particular, one for all objects of the smaller category.
+\end{proof}
+
+This proposition locates the result exactly. It does not exhibit a
+contradiction between two answers to the same fully specified mathematical
+question. It exhibits different answers to related questions whose
+coefficient parameter was easily left implicit. The philosophical problem is
+to determine when that parameter may legitimately remain fixed and when
+the interpretation itself requires it to vary.
+
+In particular, our main family is stronger as a test than the familiar
+observation that a homotopy colimit can differ from an ordinary colimit.
+That observation is relevant background \cite{Dugger}, and an elementary
+example is recorded in the appendix. Here the source construction is
+unchanged even on nondiscrete coefficients: $\Lan_D A$ is constant.
+The defect lies in its reconstruction through a higher right Kan
+extension. We have isolated the test of resolution from a possible change
+in the generation of the object being tested.
+
+More generally, let $i:\mathcal V\hookrightarrow\mathcal W$ be
+fully faithful and preserve the relevant limits. If the canonical
+comparison
+\[
+i\Lan_D^{\mathcal V} A\longrightarrow\Lan_D^{\mathcal W}(iA)
+\]
+is an equivalence for every old input $A$, then the generated resolution
+units agree on those inputs. For finite $C$, this implies
+$\Aup_{\mathcal V}(D)\subseteq\Aup_{\mathcal W}(D)$: a resolver in
+$\mathcal W$ passes every old comparison, and hence contains the least
+one in $\mathcal V$. The initial-singleton case satisfies this hypothesis,
+as does the nine-object example because its generation uses coproducts.
+The hypothesis is sufficient, and the next result shows why it cannot
+simply be omitted.
+
+\subsection{Changing generation can shrink a least resolver}
+\label{sec:reversal}
+
+Preservation of left generation is a substantive hypothesis in the
+comparison of coefficients. Without it, the least resolving subset can
+become smaller when the coefficient category becomes larger.
+
+\begin{proposition}[Reversal when generation changes]
+\label{prop:reversal}
+Let $J$ be a nonempty finite poset, and put
+\[
+C=\{x\}\star J\star\{t\},\qquad D=J,\qquad U=J\star\{t\}.
+\]
+For finite $k\geq0$ let $T_k=\tau_{\leq k}\B J$, and put
+$T_\infty=\B J$. Then
+\[
+\Aup_k(D)=
+\begin{cases}
+C,&T_k\simeq *,\\
+U,&T_k\not\simeq *.
+\end{cases}
+\]
+In particular, if $J=Q_{d+1}$ is the ordinal sum of $d+1$
+two-element antichains, where $d\geq1$, then $|C|=2d+4$ and
+\[
+\Aup_k(D)=
+\begin{cases}
+C,&0\leq k<d,\\
+C\setminus\{x\},&d\leq k\leq\infty.
+\end{cases}
+\]
+\end{proposition}
+
+\begin{proof}
+For every $A:J\to\mathcal V_k$, its left extension $X=\Lan_D A$
+has $X(x)=\varnothing$, restricts to $A$ on $J$, and has
+$X(t)=\colim_J A$ with the canonical cocone. The terminal position
+$t$ is mandatory at every coefficient level: taking the empty input
+diagram gives the matching map $\varnothing\to *$ at $t$. The
+positions in $D$ are mandatory by definition. It therefore remains
+only to decide whether $x$ is mandatory.
+
+Take the constant terminal input, and write
+$F=(\Lan_D1)|_U$. Its restriction to $J$ is terminal and
+$F(t)=T_k$. The canonical cocone represents the truncation map
+$\eta:\B J\to T_k$, or the identity for $k=\infty$. A cone over
+$F$ is a cone over its restriction to $J$, a point of $T_k$, and
+compatibility with that cocone. Consequently
+\[
+\limop_U F\simeq
+T_k\times_{\Map(\B J,T_k)}\{\eta\},
+\]
+where $T_k\to\Map(\B J,T_k)$ sends a point to the corresponding
+constant map. By the universal property of truncation,
+$\Map(\B J,T_k)\simeq\Map(T_k,T_k)$; under this equivalence,
+$\eta$ is the identity and constant maps remain constant.
+The displayed homotopy pullback is therefore nonempty exactly when
+the identity of $T_k$ is homotopic to a constant, equivalently when
+$T_k$ is contractible.
+
+If $T_k$ is noncontractible, this limit is empty. For arbitrary
+$A$, the unique map $A\to1$ induces
+\[
+\limop_U(\Lan_D A)|_U\longrightarrow\limop_U F=\varnothing.
+\]
+An object of spaces or truncated spaces admitting a map to the
+empty object is itself empty. Thus the matching map at $x$ is
+$\varnothing\to\varnothing$ for every input, and $U$ resolves $D$.
+Together with the mandatory positions already identified, this
+proves leastness.
+
+If $T_k$ is contractible, $F$ is pointwise terminal on $U$, so its
+limit is terminal. The matching map at $x$ for the terminal input
+is then $\varnothing\to *$. Thus $x$ is also mandatory, and the
+least resolver is $C$.
+
+Finally, $\B Q_{d+1}\simeq S^d$. Its $k$-truncation is
+contractible exactly for $0\leq k<d$, and is noncontractible for
+finite $k\geq d$ and for unrestricted spaces. This proves the
+last formula.
+\end{proof}
+
+For $d=1$, the least resolver has six objects for sets and five for
+groupoids and all higher coefficients. This reverses the direction of
+the main family's change. The reason is explicit: the terminal input
+is generated with value $*$ at $t$ in sets and $S^1$ at $t$ in
+groupoids. The main family and the nonconstant nine-object example
+preserve their left generation on old inputs; this example does not.
+The two behaviors concern different hypotheses.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}lcrrl@{}}
+\toprule
+Six-object family & $|D|$ & Sets & Groupoids & Generation on old inputs\\
+\midrule
+$C'_2$ of \cref{prop:compact} & 1 & 5 & 6 & Preserved\\
+Cone family of \cref{prop:reversal} & 4 & 6 & 5 & Changed\\
+\bottomrule
+\end{tabular}
+\caption{Sizes of least resolvers in two different six-object posets.
+Preserving generation guarantees monotonicity under the stated comparison
+hypotheses; changing generation can reverse the inclusion.}
+\label{tab:directions}
+\end{table}
+
+\subsection{A resolution profile}
+
+For a fixed ambient indexing category, starting level, and admissible family,
+call the sequence $k\mapsto\Aup_k(D)$ its \emph{resolution profile},
+where the least levels exist. The expression is a name for the comparison
+being studied, not a replacement for established cofinality terminology.
+
+The profile contains more information than a single result. For the growing
+families it shows both the validity of a restricted resolution and the first
+expressive level at which it ceases to suffice. The reversal profile instead
+loses a formerly essential position when generation changes.
+In \cref{thm:main}, the failure has a
+specified location, namely $a$, a specified shape, a wedge of spheres,
+and a specified detecting coefficient, an Eilenberg--Mac Lane space. What
+would otherwise be an unspecified demand for ``more structure'' becomes a
+calculable request.
+
+This also clarifies a distinction between erasure and invisibility. The
+nerve is a circle already in the first example. Set-valued coefficients do
+not turn that nerve into a contractible space; they are unable to distinguish
+it from a point by the maps under consideration. The distinction untested by the comparison is
+therefore relative to that test. To say that a result preserves everything
+relevant is to say something about what counts as a relevant test, not only
+about the construction of the result.
+
+\subsection{Why leastness is not enough}
+
+A least object is uniquely determined up to the relevant equivalence once
+the ordered collection of candidates and its predicate of adequacy are
+fixed. Leastness can therefore express a strong form of internal necessity.
+In our family no alternative full subposet is smaller and still meets the
+specified test. The matching-support calculation excludes all such alternatives.
+
+Consider an explicit inference, introduced here as a claim to be tested,
+not attributed to any of the authors discussed: if an enrichment keeps the
+generation of the diagrams and every earlier resolution comparison intact,
+then it also keeps their least adequate resolving level intact. The premise
+is stronger than agreement on selected examples. It preserves the entire
+old domain of comparisons. Yet \cref{prop:persistence,thm:main} jointly
+refute the conclusion, with arbitrarily long finite chains of different
+least levels.
+
+What survives is correctness on the earlier domain; what fails is its
+sufficiency to determine the least adequate reconstruction on the enlarged
+domain. This distinction is not a discrepancy between an informal reading
+and a formal calculation. It occurs between formally stated properties,
+with fixed indexing data and fixed generation. Leastness combines an order
+of candidates with a predicate of adequacy. Persistence of old comparisons
+preserves one part of the predicate's evidence without establishing the
+completeness of its range.
+
+For a reconstruction of dialectical necessity, the consequence is conditional
+but exact. If its explanatory commitments give a reason to admit additional
+tests, continued agreement on all earlier tests does not by itself secure
+its earlier leastness claim. It must justify the original test domain,
+prove a transport result, or accept a changed least resolution. If no such
+reason is given, our theorem supplies a possible comparison rather than a
+refutation. This is the distinction between a useful external analysis and
+an internally demanded revision to which we now turn.
+
+\section{Determinate preservation as an interpretive requirement}
+\label{sec:preservation}
+
+\subsection{A criterion with a limited demand}
+
+We propose the following requirement for a mathematical reconstruction of
+sublation:
+\begin{quote}
+State the relations claimed to represent the mediation and the distinctions
+whose retention constitutes the proposed preservation; show how the
+resolving construction retains them; and justify the treatment
+of distinctions that become detectable under the reconstruction's own
+licensed changes of language.
+\end{quote}
+This requirement of \emph{determinate preservation} is our methodological
+proposal. It is not a quotation from Hegel or a theorem of category theory.
+Its motivation is that preservation needs a determinate content if it is to
+play an explanatory role. The theorem supplies an exact case in which an
+unqualified preservation claim would conceal a choice.
+
+The demand is intentionally weaker than invariance under every enrichment.
+Not every new formal distinction deserves philosophical recognition. A set-based
+model can be exactly appropriate for a question about ordinary
+classification. A groupoid model may be appropriate when identifications
+and automorphisms matter. The requirement is to defend this choice in
+relation to the interpreted material, not to rank models by how much
+machinery they contain.
+
+A change of test becomes relevant in at least three distinguishable ways.
+The reconstruction may itself use the additional structure to explain the
+passage; its claimed applications may require that structure; or a close
+reading may show that its original tests identify distinctions it needs to
+retain. These are warrants that can be contested with textual and
+mathematical evidence. Merely knowing that groupoids are available is not
+such a warrant. Conversely, declaring that only sets are admissible does
+not settle the issue if the explanatory argument already invokes coherent
+identity. The present theorem diagnoses consequences once a warrant is
+given; it does not manufacture that warrant.
+
+Nor does the requirement insist that every revision add more objects.
+In the generation-preserving families the least resolver grows;
+\cref{prop:reversal} shows that a change of generation can instead
+make it shrink. Another model might revise its equivalences, its morphisms,
+or its admissible tests instead. The general lesson is about explicit
+dependence on representational choices; the particular repairs in a
+constructed poset do not constitute a universal recipe for dialectic.
+
+\subsection{Retention without identity of status}
+
+The philosophical attraction of sublation is that something can persist
+without retaining its former independence. A categorical reconstruction can
+give this thought more than one precise form. An object may occur as the
+image of an embedding, as a retract, as a component of gluing data, or as
+the value of a modality. These are different modes of dependence. Their
+differences should be used rather than obscured by a common label.
+
+Our resolution condition does one specific job: an earlier skeletal object
+is recoverable through a later right extension. This captures a relation of
+recoverability and changed presentation. It does not independently capture
+every philosophical sense of negation, nor does it show that the earlier
+concept has criticized itself. The model is informative because its
+achievement can be stated exactly.
+
+There is also a limit to the familiar picture of preservation as storage.
+Keeping a copy of every earlier object need not preserve the relations
+that made those objects what they were. In homotopy theory, retaining points
+while suppressing paths can alter the character of the object. In an
+inferential account, retaining sentences while changing which consequences
+they license can alter their content. The analogy between these cases is
+methodological, not an identification of paths with inferences. Both require
+the interpretation to specify the relations its preservation concerns.
+
+\subsection{What is established in the content, and what is available to us}
+
+The distinction in Hegel's discussion of determinate being is especially
+instructive. In online paragraph 193, a determination may be available to
+our reflection before it is established as part of the concept's own
+development. Such a comparison can elucidate or anticipate; that does not
+give it the status of a ground of the transition \cite{HegelDasein}.
+
+The author's running commentary, distinct from the earlier interactive
+map, foregrounds this problem in its first two readings
+\cite{AutioCommentary}. Its distinction between what is available
+``for us'' and what has been posited within the development helps formulate
+the interpretive demand. It is a statement of the problem, not independent
+evidence that a particular reconstruction meets it.
+
+Applied to this paper, the distinction asks why a coefficient enrichment
+belongs to the represented content rather than only to our means of
+investigating it. The answer cannot be that the richer formalism exists.
+Nor can it be that the enrichment has produced an interesting theorem.
+Those facts justify studying the comparison, but they do not determine
+its interpretive status. A close reading must identify the relevant demand
+of the content; a mathematical preservation theorem must then establish
+what the chosen formal correlate achieves.
+
+This yields an interpretation audit with a definite result. Measured
+against the demands drawn from the becoming passage, our formal calculation
+establishes recoverability and least repair only for its stipulated
+mathematical data. It does not supply the moments'
+self-transformation or explain their altered significance. For the status
+of the coefficient category, it supplies a sensitivity result but no
+immanent warrant for enrichment. The mathematical result is therefore
+philosophically useful in an elucidatory role, while its promotion to a
+derivation would require evidence it does not provide.
+
+\subsection{Immanence and the status of the formal language}
+
+Hegel's final discussion of method presents the relation between method and
+content as internal rather than as the application of an independently
+chosen technique \cite{HegelIdea}. A mathematical reconstruction necessarily
+begins with some formal resources. It cannot escape that fact by describing
+those resources as universal. It can, however, make their role an object
+of the reconstruction rather than leaving it as an unexplained background.
+
+Hentrup's account of rational proof supplies an independent philosophical
+comparator. In section II, geometric demonstration can establish a
+necessity belonging to its object while its progression remains the
+prover's activity. In sections V--VI, rational proof requires mutual
+mediation in which the terms' identities develop, rather than reciprocal
+support between fixed terms \cite{Hentrup}. On this reading, the
+difference between valid demonstration and adequate mediation is already
+a substantive Hegelian problem. Our contribution is not to discover that
+difference, but to make two dependencies of a formal reconstruction
+calculable: the tests that determine its least resolver and the
+relations whose interpretation remains to be justified.
+
+The resolution profile offers one finite way to do so. The coefficient
+category is first a parameter of the model; the profile then shows how
+the model's verdict depends on it. This does not reproduce Hegel's claim
+that the method determines itself. It provides a disciplined partial
+analogue: the consequences of the choice of method are brought into the
+argument and can be evaluated. A stronger claim of self-determination
+would require additional work explaining why the sequence of admissible
+tests is generated by the subject matter rather than chosen by us.
+
+The gap should remain visible. Our theorem can force the next resolving
+level \emph{if} the next coefficient category is admitted. It does not force
+the admission of that category. Confusing these two steps would repeat,
+at a higher level, the very substitution of external comparison for internal
+development that the reconstruction is meant to illuminate.
+
+\subsection{A reader audit: stable profiles and different relations}
+\label{sec:readeraudit}
+
+Coefficient variation is not the only choice a reconstruction makes.
+The author's earlier interactive reader \cite{AutioReader} supplies a
+concrete case in which to distinguish it from the choice of indexing
+relations. The reader locates sections within larger sections and
+opens their associated passages. Containment and succession are both
+legitimate editorial relations. Neither, by itself, establishes the
+dependence by which one determination generates another.
+
+Consider two explicitly stipulated encodings of the same positions.
+In one, an ancestor is below its descendants in a rooted tree. In the
+other, the positions are totally ordered by a traversal compatible
+with that ancestry. A synthetic book-header root is first in both.
+It is an editorial device, not an identification with Pure Being;
+likewise the second order records succession, not implication.
+
+\begin{proposition}[A limit of the profile diagnostic]\label{prop:treechain}
+Let $T$ be a finite rooted tree with root $b$, with at least two
+children at every nonleaf vertex. Let $L$ be a total order on the same
+vertex set extending the ancestor order, and write $t$ for its last
+vertex. For $D=\{b\}$ and every $0\leq k\leq\infty$,
+\begin{equation}\label{eq:treechain}
+\Aup_k^T(D)=T,\qquad \Aup_k^L(D)=\{b,t\}.
+\end{equation}
+Thus both profiles are invariant under coefficient enrichment, although
+their least subsets can differ by arbitrarily many objects.
+\end{proposition}
+
+\begin{proof}
+At a leaf of $T$ the strict upper interval is empty. At a nonleaf it is
+the disjoint union of the descendant subtrees rooted at its children.
+Each component has an initial object, so its nerve is contractible;
+there are at least two such components. Every vertex therefore belongs
+to $E_k(T)$ at every $k$. In $L$, only $t$ has empty strict upper
+interval; at every earlier vertex that interval has a least element.
+Hence $E_k(L)=\{t\}$. Apply \cref{thm:intrinsic} and add the required
+starting object $b$. Finite branching trees can have arbitrarily many
+vertices.
+\end{proof}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=.9cm,
+ kept/.style={circle,draw=ink,fill=ink,inner sep=2.6pt},
+ omitted/.style={circle,draw=ink,fill=white,inner sep=2.6pt},
+ edge/.style={draw=ink!65,line width=.65pt},
+ every node/.style={font=\small}]
+\node[kept,label=left:{$b$}] (tb) at (0,0) {};
+\node[kept,label=left:{$u$}] (tu) at (-.8,1) {};
+\node[kept,label=right:{$v$}] (tv) at (.8,1) {};
+\node[kept,label=above:{$w$}] (tw) at (-1.3,2) {};
+\node[kept,label=above:{$z$}] (tz) at (-.3,2) {};
+\foreach \s/\t in {tb/tu,tb/tv,tu/tw,tu/tz}
+\draw[edge] (\s)--(\t);
+\node[align=center] at (0,-.9) {Containment\\$\Aup_k^T(D)=T$};
+\node[kept,label=right:{$b$}] (lb) at (4.3,0) {};
+\node[omitted,label=right:{$u$}] (lu) at (4.3,.55) {};
+\node[omitted,label=right:{$w$}] (lw) at (4.3,1.1) {};
+\node[omitted,label=right:{$z$}] (lz) at (4.3,1.65) {};
+\node[kept,label=right:{$v=t$}] (lv) at (4.3,2.2) {};
+\foreach \s/\t in {lb/lu,lu/lw,lw/lz,lz/lv}
+\draw[edge] (\s)--(\t);
+\node[align=center] at (4.3,-.9) {Succession\\$\Aup_k^L(D)=\{b,t\}$};
+\end{tikzpicture}
+\caption{Two stipulated orders on the same positions. Filled vertices
+are in the least resolver for every coefficient level. The invariance
+of both profiles does not decide which relation, if either, models
+the intended mediation. Arrows in these Hasse diagrams point upward.}
+\label{fig:treechain}
+\end{figure}
+
+The active reader contains 120 positions in four displayed depths.
+After excluding its one unnamed placeholder and adding the synthetic
+root, there are 120 named-or-root positions. Every internal vertex
+still has at least two children. The proposition therefore applies
+to these proposed encodings. These counts describe the inspected
+editorial data; they assert neither a canonical inventory of Hegelian
+categories nor a mathematical structure derived from the text.
+
+The contrast supplies a limit on our own diagnostic. Invariance of a
+resolution profile is insufficient for interpretive adequacy. The
+opposed leastness verdicts here are explained by branching and
+terminality before any philosophical content is assigned to the
+labels. This does not make either encoding defective: it specifies
+what each achieves. In this case the unsettled choice concerns
+relations; in the Boolean family the relations are fixed and the
+varying choice concerns tests. The two choices require distinct
+arguments.
+
+A passage-grounded extension would therefore distinguish containment,
+succession, and argued dependence, recording textual evidence for the
+latter instead of silently replacing it with either of the former.
+Composites and identifications between dependency paths would require
+further justification before a category or higher category is claimed.
+The present paper does not invent those relations in order to find
+Hegelian loops. It identifies what such an extension would need to
+establish before a homotopy calculation acquired that interpretation.
+
+\subsection{A mathematical reading need not be a reduction}
+
+The distinction between orientation and derivation has a direct textual
+basis. In the final discussion of method, Hegel permits an advance survey
+of the whole while denying that division into its already specified parts
+establishes their transition (online paragraph 1813). The author's earlier
+interactive reader \cite{AutioReader} makes this distinction concrete:
+its hierarchy locates moments and opens the corresponding passages.
+Such navigational success need not claim to establish their mediation.
+Nor does a circular display by itself realize the return through mediation
+described in paragraph 1814. A formal interpretation must say which of
+these achievements it intends.
+
+There is also a challenge to our own procedure. Paragraph 1812 rejects
+the claim that criticism of cognition's instrument enjoys an automatic
+priority over engagement with the subject matter: that criticism has
+presuppositions of its own \cite{HegelIdea}. Determinate preservation
+should therefore operate within the examination of a reconstruction,
+rather than as a preliminary tribunal that settles its possibility in
+advance. The test must answer to the content it claims to illuminate.
+Our theorem identifies a dependence to be justified; it neither supplies
+a presuppositionless standpoint nor decides that justification before
+the interpretation has been attempted.
+
+The value of a mathematical reading is not exhausted by translation into a
+fixed formal calculus. It can reveal a question that was difficult to state,
+separate claims previously run together, and supply counterexamples to an
+overextended argument. Here the precise separation is between the
+existence of a least resolver and the justification of its criterion of
+resolution.
+
+This supports a reciprocal rather than a reductive relation between
+philosophy and mathematics. The philosophical concern with retention
+motivates a comparison of coefficients; the mathematical comparison then
+forces the philosophical concern to become more specific. Neither side
+receives authority simply by borrowing the other's vocabulary. What matters
+is whether the encounter changes the questions that can responsibly be
+asked and the answers that can be defended.
+
+\section{Contemporary alternatives and adjacent results}
+\label{sec:literature}
+
+\subsection{Progression, contradiction, and logical form}
+
+Priest's model uses paraconsistent logic, but also specifies a concrete
+retention condition: introducing the new predicate leaves the old
+vocabulary's extensions and anti-extensions unchanged
+\cite[section 3]{Priest}. In section 6 he expressly limits the aim to the
+logical structure of progression, rather than an explanation of why a
+progression occurs. These are precedents for specifying preservation and
+scope, not errors our theorem corrects. His retention condition is
+stipulated in the construction; ours is Kan-extension recoverability
+with a proved leastness profile. Neither identification alone establishes
+its adequacy to the text.
+
+An adjunction does not assert $P\wedge\neg P$, and a homotopical
+obstruction does not license or reject explosion. A useful comparison
+must therefore identify shared explanatory tasks before treating
+paraconsistency and modal adjunctions as competing answers to one
+question.
+
+Yang's published abstract distinguishes the accuracy of describing
+dialectical progression from the ability to explain it \cite{Yang}.
+This distinction is congenial to our separation of retention,
+determination, and necessity. We do not rely on a detailed reconstruction
+of Yang's argument, whose full text was not available for this study.
+Our mathematical result provides an independent instance of the general
+difference: a diagram can describe a proposed transition without
+settling why its adequacy criterion is the appropriate one.
+
+Kolman's account treats Hegel's relation to logical form through the
+reconsideration of fixed determinations rather than the mere addition of
+one more logical form \cite{Kolman}. Our proposal shares that concern
+with the status of a formal standpoint, while giving it a different
+technical expression. Changing coefficients does not model a history of
+logic. It gives a controlled comparison in which what a formalism can
+detect becomes part of the account of its verdict.
+
+Brown offers a positive example of making preservation explicit.
+Definition 2.6 calls a morphism $f:X\to Y$ of incompatibility frames
+conservative when every finite multiset $\Gamma$ is incompatible in $X$
+exactly when $f(\Gamma)$ is incompatible in $Y$. Proposition 2.1 proves
+this property for the adjunction unit; the signed construction inherits
+it in section 3.2 \cite{Brown}. The universal construction thus has a
+separately stated preservation achievement. It differs from our
+Kan-extension recoverability. The methodological point is that specifying
+an adjunction and specifying what it retains are distinguishable tasks.
+
+\subsection{What recent Aufhebung calculations already achieve}
+
+The work of Kennett, Riehl, Roy, and Zaks computes actual skeletal and
+coskeletal bounds in ordinary presheaf topoi \cite{KennettEtAl}. Their
+results show why an unspecified ``next dimension'' is not an adequate
+description of Aufhebung. The precise bound depends on the indexing
+category, and low-dimensional cases require attention.
+
+The recent solution by Hora, Kamio, and Maehara to Lawvere's fourth
+problem computes the relation for symmetric simplicial sets
+\cite{HoraEtAl}. This removes that calculation from the list of open
+targets. Our family changes a different parameter: its indexing category
+is fixed while its coefficients vary. The elementary topology involved
+does not make it a replacement for the substantially deeper combinatorics
+of their theorem.
+
+Menni's work on the least subtopos containing the discrete skeleton of
+$\Omega$ shows the power of replacing a large containment condition by
+a distinguished generator \cite{Menni}. It also makes essentiality a
+substantive issue. One cannot freely identify a least subtopos with a
+least essential resolving level. This is why our higher theorem names
+its admissible full-subcategory levels explicitly instead of relying on
+an unstated lattice classification.
+
+Dey--Lesnick and Br\"ustle--Desrochers--Leblanc address the least
+full subposets needed for ordinary limit or colimit computation
+\cite{DeyLesnick,BrustleEtAl}. They are direct antecedents of the
+$k=0$ upper-interval mechanism, while their treatment of nonfull
+relation-sparse subposets optimizes a different admissible class. Our
+calculation combines a truncated version of this mechanism with explicit
+sphere obstructions to compare coefficients. It does not reopen the
+ordinary least-full-subposet problem as if that literature did not exist.
+
+\subsection{What a checked construction preserves}
+
+DeBruce's Cubical Agda tutorial offers a useful contemporary example
+because it places explicit limitations beside its formal declarations.
+Chapter 4 introduces a higher inductive type \texttt{Becoming} with two
+points, \texttt{being} and \texttt{nothing}, and a path between them
+\cite{DeBruce}. These points are new inhabitants of a common carrier.
+They are not the unit and empty types used for Being and Nothing in
+Chapter 2. The distinction matters: a path between those earlier types
+would transport an inhabitant of the unit type into the empty type.
+The consistent construction therefore depends on changing what is
+related, not simply on replacing judgmental equality with path equality.
+An interpretation must explain which roles of the earlier assignments
+survive this change.
+
+The same chapter declares an \texttt{Aufhebung} record containing a
+higher unity and a function from the lower moment to the higher. It
+explicitly leaves an instance unconstructed and acknowledges missing
+compatibility requirements; it supplies no leastness theorem. These are
+useful limits on the achievement, not reasons to dismiss it. The tutorial
+makes an interpretive audit concrete: naming, providing a structure,
+retaining a specified property, and proving minimality are distinguishable
+accomplishments. We assess the inspected declarations and their
+interpretation; we have not independently rerun that project's Agda build.
+
+\subsection{Higher modal semantics is infrastructure, not a transfer theorem}
+
+Uemura's internal languages for diagrams of infinity-logoses connect
+modalities, gluing, and higher categorical semantics \cite{Uemura}.
+Shulman's multimodal adjoint type theory provides a systematic treatment
+of modal adjunctions and their semantics \cite{Shulman}. Myers and Riley
+study multiple commuting cohesions \cite{MyersRiley}. These works make
+the higher setting substantially more precise than an informal instruction
+to replace sets by types.
+
+The computational side is also important. Gratzer's normalization result
+relates type checking to equality in the chosen mode theory
+\cite{Gratzer}; the combination of cubical and multimodal type theory
+provides another route toward expressing homotopical modal arguments
+\cite{AagaardEtAl}. None of these metatheorems selects the mode theory
+appropriate to Hegel, and none by itself says that a given set-valued
+resolution has the same least solution in spaces. They supply languages
+in which such questions can be asked rigorously.
+
+Protin's recent discussion of Hegel and topology offers mathematical
+illustrations and hermeneutic proposals \cite{Protin}. The contrast with
+our purpose is one of task: we isolate a preservation claim and calculate
+its failure of transport. An illustration can illuminate a passage without
+claiming to establish a universal property; a universal property can be
+proved without establishing that the passage has been interpreted correctly.
+The distinction protects both kinds of work from exaggerated expectations.
+
+\section{Conclusion: the conditions of a necessary transition}
+\label{sec:conclusion}
+
+The finite families give definite mathematical answers. A fixed initial
+level can have successively different least resolutions when its admissible
+coefficients range from sets through higher truncated spaces. The entire
+sequence is calculable; its obstructions are explicit; its leastness holds
+against every full-subcategory competitor. The earlier answer remains
+true within its domain, while a richer domain detects what it did not test.
+When generation changes as well, the reversal family shows that the least
+resolver can instead shrink. Preserving the earlier generation is therefore
+a substantive condition on a comparison, not a harmless convention.
+
+The reader audit supplies the converse restraint. Containment and
+succession, encoded on the same positions, can yield sharply different
+least resolvers while both profiles remain coefficient-invariant.
+Robustness under a change of tests is therefore no certificate that the
+relations being tested express the intended mediation. Together the
+examples separate two tasks: accounting for the admitted relations,
+and accounting for the domain over which their adequacy is tested.
+
+For a mathematical reading of Hegel, the result recommends neither a
+retreat from formalization nor an unqualified preference for higher
+structures. It recommends a more demanding account of preservation.
+The interpretation must identify the content of what survives, the
+equivalences under which it survives, and the tests by which its survival
+is judged. As the interpretation proceeds, those choices must answer
+to the text and explanatory task. A universal property can then help
+explain the conditional necessity of its result without being asked
+to justify the representation by itself.
+
+Lawvere's approach is especially valuable because it permits this demand
+to become mathematics. A proposed resolution can fail, and the failure
+can have a shape. In our example that shape is a sphere invisible to one
+coefficient category and visible to the next. The philosophical lesson
+is not that every hidden sphere is a dialectical moment. It is that a
+formal account of a necessary transition owes an account of what its
+notion of necessity can see.

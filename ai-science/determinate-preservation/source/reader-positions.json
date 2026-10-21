@@ -1,0 +1,727 @@
+{
+  "source": "https://github.com/Autio/autio.github.io/blob/master/projects/scienceoflogic/index.html",
+  "source_blob_sha": "004ddbfd5a41bc07817002f2e29f214dd3e9a18b",
+  "transformation": "Removed one unnamed placeholder; added synthetic common root; retained hierarchy labels without interpreting their numbering as mathematical data.",
+  "positions": [
+    {
+      "id": 0,
+      "name": "Synthetic book-header root",
+      "anchor": null,
+      "parent": null
+    },
+    {
+      "id": 1,
+      "name": "1.1 Being",
+      "anchor": "0130",
+      "parent": 0
+    },
+    {
+      "id": 2,
+      "name": "1.1.1 Determinateness",
+      "anchor": "0130",
+      "parent": 1
+    },
+    {
+      "id": 3,
+      "name": "1.1.1.1 Indeterminate Being",
+      "anchor": "0130",
+      "parent": 2
+    },
+    {
+      "id": 4,
+      "name": "1.1.1.1.1 Pure Being",
+      "anchor": "0132",
+      "parent": 3
+    },
+    {
+      "id": 5,
+      "name": "1.1.1.1.2 Nothing",
+      "anchor": "0133",
+      "parent": 3
+    },
+    {
+      "id": 6,
+      "name": "1.1.1.1.3 Becoming",
+      "anchor": "0134",
+      "parent": 3
+    },
+    {
+      "id": 7,
+      "name": "1.1.1.2 Determinate Being",
+      "anchor": "0188",
+      "parent": 2
+    },
+    {
+      "id": 8,
+      "name": "1.1.1.2.1 Determinate Being as Such",
+      "anchor": "0190",
+      "parent": 7
+    },
+    {
+      "id": 9,
+      "name": "1.1.1.2.2 Finitude",
+      "anchor": "0213",
+      "parent": 7
+    },
+    {
+      "id": 10,
+      "name": "1.1.1.1.3 Infinity",
+      "anchor": "0270",
+      "parent": 7
+    },
+    {
+      "id": 11,
+      "name": "1.1.1.3 Being For Itself",
+      "anchor": "0318",
+      "parent": 2
+    },
+    {
+      "id": 12,
+      "name": "1.1.1.3.1 Being for Itself as Such",
+      "anchor": "0320",
+      "parent": 11
+    },
+    {
+      "id": 13,
+      "name": "1.1.1.3.2 One and Many",
+      "anchor": "0330",
+      "parent": 11
+    },
+    {
+      "id": 14,
+      "name": "1.1.1.3.3 Repulsion and Attraction",
+      "anchor": "0349",
+      "parent": 11
+    },
+    {
+      "id": 15,
+      "name": "1.1.2 Magnitude",
+      "anchor": "0387",
+      "parent": 1
+    },
+    {
+      "id": 16,
+      "name": "1.1.2.1 Pure Quantity",
+      "anchor": "0395",
+      "parent": 15
+    },
+    {
+      "id": 17,
+      "name": "1.1.2.1.1 Continuity and Divisibility",
+      "anchor": "0395",
+      "parent": 16
+    },
+    {
+      "id": 18,
+      "name": "1.1.2.1.2 Continuous and Discrete Magnitude",
+      "anchor": "0429",
+      "parent": 16
+    },
+    {
+      "id": 19,
+      "name": "1.1.2.1.3 Limitation of Quantity",
+      "anchor": "0434",
+      "parent": 16
+    },
+    {
+      "id": 20,
+      "name": "1.1.2.2 Quantum",
+      "anchor": "0437",
+      "parent": 15
+    },
+    {
+      "id": 21,
+      "name": "1.1.2.2.1 The Number",
+      "anchor": "0438",
+      "parent": 20
+    },
+    {
+      "id": 22,
+      "name": "1.1.2.2.2 Extensive and intensive quantum",
+      "anchor": "0472",
+      "parent": 20
+    },
+    {
+      "id": 23,
+      "name": "1.1.2.2.3 Infinite Magnitude",
+      "anchor": "0497",
+      "parent": 20
+    },
+    {
+      "id": 24,
+      "name": "1.1.2.3 Ratio of Magnitudes",
+      "anchor": "0669",
+      "parent": 15
+    },
+    {
+      "id": 25,
+      "name": "1.1.2.3.1 Direct Ratio",
+      "anchor": "0674",
+      "parent": 24
+    },
+    {
+      "id": 26,
+      "name": "1.1.2.3.2 Inverse Ratio",
+      "anchor": "0679",
+      "parent": 24
+    },
+    {
+      "id": 27,
+      "name": "1.1.2.3.3 Ratio of Powers",
+      "anchor": "0688",
+      "parent": 24
+    },
+    {
+      "id": 28,
+      "name": "1.1.3 Measure",
+      "anchor": "0699",
+      "parent": 1
+    },
+    {
+      "id": 29,
+      "name": "1.1.3.1 Specific Quantity",
+      "anchor": "0711",
+      "parent": 28
+    },
+    {
+      "id": 30,
+      "name": "1.1.3.1.1 Specific Quantum",
+      "anchor": "0712",
+      "parent": 29
+    },
+    {
+      "id": 31,
+      "name": "1.1.3.1.2 Specifying Measure",
+      "anchor": "0724",
+      "parent": 29
+    },
+    {
+      "id": 32,
+      "name": "1.1.3.1.3 Being for Self in Measure",
+      "anchor": "0738",
+      "parent": 29
+    },
+    {
+      "id": 33,
+      "name": "1.1.3.2 Real Measure",
+      "anchor": "0742",
+      "parent": 28
+    },
+    {
+      "id": 34,
+      "name": "1.1.3.2.1 Relation of Stable Measures",
+      "anchor": "0744",
+      "parent": 33
+    },
+    {
+      "id": 35,
+      "name": "1.1.3.2.2 Nodal Line of Measure Relations",
+      "anchor": "0769",
+      "parent": 33
+    },
+    {
+      "id": 36,
+      "name": "1.1.3.2.3 The Measureless",
+      "anchor": "0779",
+      "parent": 33
+    },
+    {
+      "id": 37,
+      "name": "1.1.3.3 Becoming of Essence",
+      "anchor": "0785",
+      "parent": 28
+    },
+    {
+      "id": 38,
+      "name": "1.1.3.3.1 Absolute Indifference",
+      "anchor": "0785",
+      "parent": 37
+    },
+    {
+      "id": 39,
+      "name": "1.1.3.3.2 Indifference as Inverse",
+      "anchor": "0787",
+      "parent": 37
+    },
+    {
+      "id": 40,
+      "name": "1.1.3.3.3 Transition to Essence",
+      "anchor": "0803",
+      "parent": 37
+    },
+    {
+      "id": 41,
+      "name": "1.2 Essence",
+      "anchor": "0807",
+      "parent": 0
+    },
+    {
+      "id": 42,
+      "name": "1.2.1 Reflection Into Itself",
+      "anchor": "0817",
+      "parent": 41
+    },
+    {
+      "id": 43,
+      "name": "1.2.1.1 Illusory Being",
+      "anchor": "0818",
+      "parent": 42
+    },
+    {
+      "id": 44,
+      "name": "1.2.1.1.1 Essential and Unessential",
+      "anchor": "0819",
+      "parent": 43
+    },
+    {
+      "id": 45,
+      "name": "1.2.1.1.2 Illusory Being as Such",
+      "anchor": "0823",
+      "parent": 43
+    },
+    {
+      "id": 46,
+      "name": "1.2.1.1.3 Reflection",
+      "anchor": "0833",
+      "parent": 43
+    },
+    {
+      "id": 47,
+      "name": "1.2.1.2 Essentialities",
+      "anchor": "0860",
+      "parent": 42
+    },
+    {
+      "id": 48,
+      "name": "1.2.1.2.1 Identity",
+      "anchor": "0869",
+      "parent": 47
+    },
+    {
+      "id": 49,
+      "name": "1.2.1.2.2 Difference",
+      "anchor": "0885",
+      "parent": 47
+    },
+    {
+      "id": 50,
+      "name": "1.2.1.2.3 Contradiction",
+      "anchor": "0930",
+      "parent": 47
+    },
+    {
+      "id": 51,
+      "name": "1.2.1.3 Ground",
+      "anchor": "0964",
+      "parent": 42
+    },
+    {
+      "id": 52,
+      "name": "1.2.1.3.1 Absolute Ground",
+      "anchor": "0970",
+      "parent": 51
+    },
+    {
+      "id": 53,
+      "name": "1.2.1.3.2 Determinate Ground",
+      "anchor": "0994",
+      "parent": 51
+    },
+    {
+      "id": 54,
+      "name": "1.2.1.3.3 Condition",
+      "anchor": "1021",
+      "parent": 51
+    },
+    {
+      "id": 55,
+      "name": "1.2.2 Appearance",
+      "anchor": "1036",
+      "parent": 41
+    },
+    {
+      "id": 56,
+      "name": "1.2.2.1 Existence",
+      "anchor": "1040",
+      "parent": 55
+    },
+    {
+      "id": 57,
+      "name": "1.2.2.1.1 Thing and Properties",
+      "anchor": "1047",
+      "parent": 56
+    },
+    {
+      "id": 58,
+      "name": "1.2.2.1.2 Constitution out of Matter",
+      "anchor": "1068",
+      "parent": 56
+    },
+    {
+      "id": 59,
+      "name": "1.2.2.1.3 Dissolution of the Thing",
+      "anchor": "1073",
+      "parent": 56
+    },
+    {
+      "id": 60,
+      "name": "1.2.2.2 Appearance as Such",
+      "anchor": "1080",
+      "parent": 55
+    },
+    {
+      "id": 61,
+      "name": "1.2.2.2.1 Law of Appearance",
+      "anchor": "1088",
+      "parent": 60
+    },
+    {
+      "id": 62,
+      "name": "1.2.2.2.2 Appearing and World-in-itself",
+      "anchor": "1098",
+      "parent": 60
+    },
+    {
+      "id": 63,
+      "name": "1.2.2.2.3 Dissolution of Appearance",
+      "anchor": "1107",
+      "parent": 60
+    },
+    {
+      "id": 64,
+      "name": "1.2.2.3 Essential Relation",
+      "anchor": "1112",
+      "parent": 55
+    },
+    {
+      "id": 65,
+      "name": "1.2.2.3.1 Whole and Parts",
+      "anchor": "1118",
+      "parent": 64
+    },
+    {
+      "id": 66,
+      "name": "1.2.2.3.2 Force and Manifestation",
+      "anchor": "1132",
+      "parent": 64
+    },
+    {
+      "id": 67,
+      "name": "1.2.2.3.3 Outer and Inner",
+      "anchor": "1148",
+      "parent": 64
+    },
+    {
+      "id": 68,
+      "name": "1.2.3 Actuality",
+      "anchor": "1158",
+      "parent": 41
+    },
+    {
+      "id": 69,
+      "name": "1.2.3.1 The Absolute",
+      "anchor": "1162",
+      "parent": 68
+    },
+    {
+      "id": 70,
+      "name": "1.2.3.1.1 The Absolute's Exposition",
+      "anchor": "1163",
+      "parent": 69
+    },
+    {
+      "id": 71,
+      "name": "1.2.3.1.2 The Absolute Attribute",
+      "anchor": "1170",
+      "parent": 69
+    },
+    {
+      "id": 72,
+      "name": "1.2.3.1.3 The Absolute Mode",
+      "anchor": "1173",
+      "parent": 69
+    },
+    {
+      "id": 73,
+      "name": "1.2.3.2 Actuality as Such",
+      "anchor": "1187",
+      "parent": 68
+    },
+    {
+      "id": 74,
+      "name": "1.2.3.2.1 Contingency",
+      "anchor": "1192",
+      "parent": 73
+    },
+    {
+      "id": 75,
+      "name": "1.2.3.2.2 Relative Necessity",
+      "anchor": "1208",
+      "parent": 73
+    },
+    {
+      "id": 76,
+      "name": "1.2.3.2.3 Absolute Necessity",
+      "anchor": "1222",
+      "parent": 73
+    },
+    {
+      "id": 77,
+      "name": "1.2.3.3 Absolute Relation",
+      "anchor": "1232",
+      "parent": 68
+    },
+    {
+      "id": 78,
+      "name": "1.2.3.3.1 Relation of Substantiality",
+      "anchor": "1235",
+      "parent": 77
+    },
+    {
+      "id": 79,
+      "name": "1.2.3.3.2 Relation of Causality",
+      "anchor": "1243",
+      "parent": 77
+    },
+    {
+      "id": 80,
+      "name": "1.2.3.3.3 Reciprocity",
+      "anchor": "1272",
+      "parent": 77
+    },
+    {
+      "id": 81,
+      "name": "1.3 Notion",
+      "anchor": "1277",
+      "parent": 0
+    },
+    {
+      "id": 82,
+      "name": "1.3.1 Subjectivity",
+      "anchor": "1318",
+      "parent": 81
+    },
+    {
+      "id": 83,
+      "name": "1.3.1.1 Moments of Notion",
+      "anchor": "1322",
+      "parent": 82
+    },
+    {
+      "id": 84,
+      "name": "1.3.1.1.1 The Universal",
+      "anchor": "1325",
+      "parent": 83
+    },
+    {
+      "id": 85,
+      "name": "1.3.1.1.2 The Particular",
+      "anchor": "1336",
+      "parent": 83
+    },
+    {
+      "id": 86,
+      "name": "1.3.1.1.3 The Individual",
+      "anchor": "1339",
+      "parent": 83
+    },
+    {
+      "id": 87,
+      "name": "1.3.1.2 Judgement",
+      "anchor": "1346",
+      "parent": 82
+    },
+    {
+      "id": 88,
+      "name": "1.3.1.2.1 Judgement of Existence",
+      "anchor": "1360",
+      "parent": 87
+    },
+    {
+      "id": 89,
+      "name": "1.3.1.2.2 Judgement of Reflection and Necessity",
+      "anchor": "1387",
+      "parent": 87
+    },
+    {
+      "id": 90,
+      "name": "1.3.1.2.3 Judgement of Necessity",
+      "anchor": "1417",
+      "parent": 87
+    },
+    {
+      "id": 91,
+      "name": "1.3.1.3 Syllogism",
+      "anchor": "1436",
+      "parent": 82
+    },
+    {
+      "id": 92,
+      "name": "1.3.1.3.1 Syllogism of Existence",
+      "anchor": "1442",
+      "parent": 91
+    },
+    {
+      "id": 93,
+      "name": "1.3.1.3.2 Syllogism of Reflection",
+      "anchor": "1482",
+      "parent": 91
+    },
+    {
+      "id": 94,
+      "name": "1.3.1.3.3 Syllogism of Necessity",
+      "anchor": "1502",
+      "parent": 91
+    },
+    {
+      "id": 95,
+      "name": "1.3.2 Objectivity",
+      "anchor": "1530",
+      "parent": 81
+    },
+    {
+      "id": 96,
+      "name": "1.3.2.1 Mechanism",
+      "anchor": "1543",
+      "parent": 95
+    },
+    {
+      "id": 97,
+      "name": "1.3.2.1.1 Mechanical Object",
+      "anchor": "1544",
+      "parent": 96
+    },
+    {
+      "id": 98,
+      "name": "1.3.2.1.2 Mechanical Process",
+      "anchor": "1551",
+      "parent": 96
+    },
+    {
+      "id": 99,
+      "name": "1.3.2.1.3 Absolute Mechanism",
+      "anchor": null,
+      "parent": 96
+    },
+    {
+      "id": 100,
+      "name": "1.3.2.2 Chemism",
+      "anchor": "1577",
+      "parent": 95
+    },
+    {
+      "id": 101,
+      "name": "1.3.2.2.1 Chemical Object",
+      "anchor": "1579",
+      "parent": 100
+    },
+    {
+      "id": 102,
+      "name": "1.3.2.2.2 Chemical Process",
+      "anchor": "1582",
+      "parent": 100
+    },
+    {
+      "id": 103,
+      "name": "1.3.2.2.3 Transition of Chemism",
+      "anchor": "1590",
+      "parent": 100
+    },
+    {
+      "id": 104,
+      "name": "1.3.2.3 Teleology",
+      "anchor": "1593",
+      "parent": 95
+    },
+    {
+      "id": 105,
+      "name": "1.3.2.3.1 Subjective Purpose",
+      "anchor": "1601",
+      "parent": 104
+    },
+    {
+      "id": 106,
+      "name": "1.3.2.3.2 Means",
+      "anchor": "1606",
+      "parent": 104
+    },
+    {
+      "id": 107,
+      "name": "1.3.2.3.3 Realised Purpose",
+      "anchor": "1612",
+      "parent": 104
+    },
+    {
+      "id": 108,
+      "name": "1.3.3 The Idea",
+      "anchor": "1631",
+      "parent": 81
+    },
+    {
+      "id": 109,
+      "name": "1.3.3.1 Life",
+      "anchor": "1645",
+      "parent": 108
+    },
+    {
+      "id": 110,
+      "name": "1.3.3.1.1 Living Individual",
+      "anchor": "1652",
+      "parent": 109
+    },
+    {
+      "id": 111,
+      "name": "1.3.3.1.2 Life-Process",
+      "anchor": "1663",
+      "parent": 109
+    },
+    {
+      "id": 112,
+      "name": "1.3.3.1.3 The Genus",
+      "anchor": "1669",
+      "parent": 109
+    },
+    {
+      "id": 113,
+      "name": "1.3.3.2 Finite Cognition",
+      "anchor": "1677",
+      "parent": 108
+    },
+    {
+      "id": 114,
+      "name": "1.3.3.2.1 Cognition of the True",
+      "anchor": "1698",
+      "parent": 113
+    },
+    {
+      "id": 115,
+      "name": "1.3.3.2.2 Cognition of the Good",
+      "anchor": "1765",
+      "parent": 113
+    },
+    {
+      "id": 116,
+      "name": "1.3.3.3 Absolute Idea",
+      "anchor": "1781",
+      "parent": 108
+    },
+    {
+      "id": 117,
+      "name": "1.3.3.3.1 Infinite Form",
+      "anchor": "1783",
+      "parent": 116
+    },
+    {
+      "id": 118,
+      "name": "1.3.3.3.2 Moments",
+      "anchor": "1786",
+      "parent": 116
+    },
+    {
+      "id": 119,
+      "name": "1.3.3.3.3 System",
+      "anchor": "1789",
+      "parent": 116
+    }
+  ]
+}

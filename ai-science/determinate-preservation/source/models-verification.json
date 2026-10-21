@@ -1,0 +1,121 @@
+{
+  "smallest_jump": [
+    {
+      "objects": 1,
+      "initial_posets_examined": 1,
+      "naturally_labelled_posets_with_first_jump": 0
+    },
+    {
+      "objects": 2,
+      "initial_posets_examined": 1,
+      "naturally_labelled_posets_with_first_jump": 0
+    },
+    {
+      "objects": 3,
+      "initial_posets_examined": 2,
+      "naturally_labelled_posets_with_first_jump": 0
+    },
+    {
+      "objects": 4,
+      "initial_posets_examined": 7,
+      "naturally_labelled_posets_with_first_jump": 0
+    },
+    {
+      "objects": 5,
+      "initial_posets_examined": 40,
+      "naturally_labelled_posets_with_first_jump": 0
+    },
+    {
+      "objects": 6,
+      "initial_posets_examined": 357,
+      "naturally_labelled_posets_with_first_jump": 1
+    }
+  ],
+  "sphere_layer_checks": [
+    {
+      "layers": 1,
+      "vertices": 2,
+      "betti_F2": [
+        2
+      ]
+    },
+    {
+      "layers": 2,
+      "vertices": 4,
+      "betti_F2": [
+        1,
+        1
+      ]
+    },
+    {
+      "layers": 3,
+      "vertices": 6,
+      "betti_F2": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "layers": 4,
+      "vertices": 8,
+      "betti_F2": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "layers": 5,
+      "vertices": 10,
+      "betti_F2": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "layers": 6,
+      "vertices": 12,
+      "betti_F2": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "layers": 7,
+      "vertices": 14,
+      "betti_F2": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "layers": 8,
+      "vertices": 16,
+      "betti_F2": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "limits": "Only small upper intervals are collapsed to graphs; larger homology checks supplement the written sphere-join proof."
+}

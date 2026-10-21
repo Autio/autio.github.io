@@ -1,0 +1,34 @@
+{
+  "method": "Exhaustive compatible-tuple finite limits in Set.",
+  "cases": [
+    {
+      "objects": 1,
+      "naturally_labelled_posets": 1,
+      "set_valued_diagrams": 3,
+      "diagrams_with_varying_cardinality": 0,
+      "full_subposet_reconstruction_checks": 6
+    },
+    {
+      "objects": 2,
+      "naturally_labelled_posets": 2,
+      "set_valued_diagrams": 20,
+      "diagrams_with_varying_cardinality": 11,
+      "full_subposet_reconstruction_checks": 80
+    },
+    {
+      "objects": 3,
+      "naturally_labelled_posets": 7,
+      "set_valued_diagrams": 275,
+      "diagrams_with_varying_cardinality": 200,
+      "full_subposet_reconstruction_checks": 2200
+    },
+    {
+      "objects": 4,
+      "naturally_labelled_posets": 40,
+      "set_valued_diagrams": 7468,
+      "diagrams_with_varying_cardinality": 5763,
+      "full_subposet_reconstruction_checks": 119488
+    }
+  ],
+  "limitations": "Canonical object sets have cardinalities 0, 1, 2; this is not proof-assistant verification."
+}

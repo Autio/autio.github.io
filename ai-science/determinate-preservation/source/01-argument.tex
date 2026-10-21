@@ -1,0 +1,281 @@
+\section{The question hidden inside preservation}
+\label{sec:intro}
+
+A mathematical reconstruction of Hegelian sublation makes two
+commitments: it selects relations that represent the content, and it
+selects tests under which that content counts as preserved. Universal
+properties can determine a result once those commitments are fixed.
+They do not by themselves establish that the commitments express the
+intended mediation. We investigate this distinction through exact
+calculations of least resolving levels. The calculations show both how
+an expanded test domain can change a least result while preserving every
+earlier comparison, and how stability across test domains can leave the
+interpretation of the represented relations unsettled.
+
+For the first comparison, the relevant enrichment replaces
+sets by homotopy types. A set distinguishes its elements; a homotopy type also
+allows identifications between elements, identifications between those
+identifications, and further coherent structure. The issue is therefore not
+merely whether the same symbols remain available in a more elaborate
+foundation. The universal constructions denoted by those symbols can change.
+A compatibility condition that is sufficient for sets can leave a detectable
+obstruction when paths and higher paths are admitted.
+
+The philosophical importance of the question comes from sublation. In the
+\emph{Science of Logic}, Hegel distinguishes the result of mediation from an
+empty disappearance. In the remark on the expression \emph{Aufheben}, the
+earlier determination persists in a changed status: its immediacy is cancelled,
+but it is not simply annihilated \cite{HegelSublation}. Whatever else one takes
+this to mean, a mathematical reconstruction should explain which aspect of the
+earlier determination remains available and in what sense. The bare word
+``preservation'' does not yet provide that explanation.
+
+Lawvere's theory supplies a demanding candidate. A level has both a skeletal
+and a sheaf presentation in an ambient topos. A higher level resolves it when
+the earlier skeleta become sheaves at the higher level. An Aufhebung is a
+\emph{least} resolving level. This is substantially stronger than enclosing two
+objects in a third. The construction has a mathematical order, an explicit
+factorization condition, and a minimality claim
+\cite{KennettEtAl,Menni}. The question we ask is whether such leastness is
+unchanged when the coefficients become homotopical.
+
+Our answer is negative in a controlled and quantitative sense. We keep the
+finite indexing poset and the initial level fixed. We change only the category
+of coefficients, from sets to groupoids and then to successively higher
+truncated spaces. Every earlier resolution comparison remains unchanged,
+including the construction of the objects being tested. Nevertheless the
+least resolving full-subcategory level changes at every stage until the whole
+indexing category is required. Agreement on every earlier test does not
+therefore secure stability of the least adequate reconstruction. This is the
+stronger claim we defend, beyond a general reminder that models have
+parameters.
+
+\subsection{The result in advance}
+
+For $N\geq3$, let $\Pcat_N$ be the poset of nonempty proper subsets of
+$[N]=\{1,\ldots,N\}$. Place two objects $b<a$ below every element of
+$\Pcat_N$, obtaining a poset $\Ccat_N$ with $2^N$ objects. The starting level
+is $D=\{b\}$. We work with covariant functor categories, equivalently with
+presheaves on the opposite posets. Because $b$ is initial, extension from $D$
+produces constant diagrams.
+
+For $k\geq0$, let $\Vk=\Spc_{\leq k}$ be the category of $k$-truncated
+spaces. Thus $\mathcal V_0\simeq\Set$, while $\mathcal V_1$ may be presented
+by groupoids. A full subposet $R$ containing $b$ resolves $D$ if every constant
+$\Vk$-valued diagram on $\Ccat_N$ is a right Kan extension of its restriction
+to $R$. The main theorem computes the least such $R$:
+\begin{equation}\label{eq:introformula}
+\Aup_k(D)=
+\begin{cases}
+\{b\}\,\cup\,\{S\in\Pcat_N:|S|\geq N-k-2\},&0\leq k\leq N-3,\\
+\Ccat_N,&k\geq N-2.
+\end{cases}
+\end{equation}
+For unrestricted spaces the answer is also $\Ccat_N$. The word ``least''
+here refers to \emph{all} full subposets containing $b$, not merely to a
+preselected chain of rank cuts. The restricted class of levels is explicit;
+we do not assume a classification of all higher essential subtoposes.
+
+The proof identifies the comparison map at an object $x$ with
+\[
+A\longrightarrow\Map\bigl(\B(x\downarrow R),A\bigr).
+\]
+For a proposed resolver, the omitted information is therefore encoded by a
+comma-category nerve. At $a$, the nerve for the first line of
+\eqref{eq:introformula} is a wedge of
+$\binom{N-1}{k+2}$ spheres of dimension $k+1$. These spheres are invisible
+to $k$-types but visible to $(k+1)$-types. The theorem is consequently more
+informative than an isolated failure of transfer: it specifies how much
+coherence each resolution leaves untested.
+
+\subsection{What is and is not claimed as a contribution}
+
+The topology of simplex skeleta, the formula for a limit of a constant
+space-valued diagram, and the relation between truncation and connectivity are
+standard. They are proved or recalled below and are not proposed as new
+foundational results. The contribution offered here is a worked theory of finite
+coefficient-relative resolution profiles: a matching-support formula,
+explicit leastness calculations, a linear-size family with a sharp
+six-object first jump, a nonconstant extension, and a reverse family
+in which changed generation makes the least resolver smaller. The formula is an
+elementary consequence of Reedy reconstruction, not a new foundation for
+it. The philosophical argument pairs the changed-test calculation with
+a reader-based comparison in which coefficient stability fails to settle
+the interpretation of relations. These comparisons give distinct,
+precise tasks to the requirement of determinate preservation.
+
+The finite calculations have a methodological use. The paper
+does not solve the general problem of transporting Aufhebung between arbitrary
+topoi. It does not derive the sequence of Hegel's categories, and it does not
+identify the sphere in an example with a contradiction in Hegel's text. Its
+claim is that the family supplies a counterexample to a tempting methodological
+inference: mathematical leastness in one semantic setting does not, by itself,
+establish leastness in a richer one.
+
+The relevant background is wider than the vocabulary of Aufhebung.
+Truncated cofinality already explains why higher coefficients require more
+coherent limit data \cite{Du}. We use that background rather than claiming to
+rediscover it. What remains to be assessed by further specialist comparison is
+whether the specific finite resolution family has appeared in another form.
+The argument for its philosophical significance does not depend on presenting
+its elementary ingredients as previously unknown.
+
+The ordinary finite-poset endpoint also meets recent work on minimal initial
+functors. Dey and Lesnick describe a least full subposet sufficient for
+ordinary limit computation, as well as finer minimality questions allowing
+relations to be removed \cite{DeyLesnick}. Our coefficient-indexed profile
+should be compared with that work and with truncated cofinality, not
+presented as a new general theory of ordinary minimal limit computation.
+
+\section{Hegel, Lawvere, and the burden of a formal reconstruction}
+\label{sec:philosophy}
+
+\subsection{Three requirements that should not be collapsed}
+
+The Introduction to the \emph{Science of Logic} connects determinate negation
+with a result that has a specific content because of what it negates. Its
+advance is not the replacement of one empty designation by another. The
+method is also not supposed to be an independently supplied device applied
+to an indifferent subject matter \cite{HegelIntro}. These commitments motivate
+three distinct questions for a reconstruction.
+
+First, there is a question of \emph{retention}. What survives the transition?
+An embedding may preserve objects while changing the morphisms between them.
+A quotient may preserve connected components while erasing loops. A logical
+translation may preserve provable sentences while adding new inferential
+relations. None of these is preservation without qualification. A reconstruction
+must say which of these achievements, or which other achievement, is relevant
+to the passage under interpretation.
+
+Second, there is a question of \emph{determination}. Why is this result the
+result of this earlier content? A construction that can be attached equally
+well to any pair of terms may be mathematically legitimate but explanatorily
+weak. What matters is not merely that something later can accommodate
+something earlier. The earlier structure should contribute to specifying the
+later one.
+
+Third, there is a question of \emph{necessity}. What excludes alternatives?
+A universal property can answer this question after the ambient category,
+admissible constructions, and relevant equivalences have been fixed. Whether
+those choices express the philosophical content is an additional question.
+Confusing the two questions turns the uniqueness of an answer to a specified
+problem into an argument that the problem was specified in the only adequate
+way.
+
+These requirements do not amount to a definition of Hegel's method. They
+are obligations incurred by a mathematical interpretation that claims to
+represent its preservation, determination, or necessity. The distinction is
+important. An interpretation can meet one obligation and fail another; it can
+also be mathematically productive while making only a modest claim about
+Hegel.
+
+\subsection{Why the categorical proposal deserves a serious test}
+
+Lawvere's use of adjoint structures gives the philosophical vocabulary
+mathematical consequences. His account of unity and identity of opposites
+studies common retractions and their adjoint forms in examples from calculus
+and physics \cite{Lawvere1996}. The value of this approach lies in the
+possibility of asking whether the proposed relation exists, how it behaves,
+and which further structures it entails. The resulting mathematics can resist
+an interpretation as well as illustrate it.
+
+For full subcategories of an indexing category, restriction has left and right
+Kan extension adjoints. These two extensions produce different presentations
+of the same smaller diagram category inside the larger one. A resolving level
+requires the presentation supplied on one side of the earlier adjunction to
+be accessible through the other side of the later one. Leastness then
+constrains how much additional structure is admitted. In this respect,
+Lawvere's formulation directly addresses determination: the earlier skeletal
+image constrains which levels can count as resolutions.
+
+The formulation also makes a hidden choice visible. A Kan extension is
+computed in a category of coefficients. In sets its limits enforce ordinary
+compatibility. In spaces the same notation requests coherent compatibility.
+The latter includes data that the former cannot detect. The notation can
+remain unchanged while the mathematical demand becomes stronger. Our
+calculation makes this dependence explicit.
+
+\subsection{A textual benchmark: from becoming to determinate being}
+
+The transition at the beginning of the \emph{Logic} provides a demanding
+benchmark. In the account of coming-to-be and ceasing-to-be, each moment's
+direction passes into the other. Becoming depends on their distinction,
+yet that distinction is itself unstable; its result is not an empty
+return to nothing \cite{HegelBecoming}. The subsequent remark makes
+retention more specific: the earlier determinations become moments whose
+significance is established within their new unity \cite{HegelSublation}.
+
+Two requirements follow for an interpretation of this particular passage.
+It must explain how the earlier content supplies a reason for its
+transformation, and how the retained determinations acquire their changed
+significance. Merely putting copies of two objects into a third would meet
+neither requirement. Exact recovery of an earlier object would meet a
+retention condition, but would still not explain its changed status or
+the need for the transition.
+
+Our model leaves those two requirements open. Its indexing relations
+are supplied in advance, and admitting the next coefficient category is
+a decision in the construction. The theorem then forces a different least
+resolver. It establishes the conditional necessity of a repair, not the
+self-generated necessity of Hegel's transition. The test separates a
+recoverability achievement from the stronger interpretive claims that
+could otherwise be attached to it.
+
+Hegel's Introduction itself warns against importing mathematical method
+into philosophy \cite[online paragraph 62]{HegelIntro}. Our use of
+mathematics is diagnostic: it examines a proposed formal correlate. It
+does not claim that a calculation generates the movement of the
+\emph{Logic}. This addresses the warning without pretending to settle
+Hegel's wider assessment of mathematics.
+
+\subsection{The nLab project and its stated restrictions}
+
+nLab's \emph{Science of Logic} entry develops a modal and type-theoretic
+reconstruction: concepts are treated as types, moments through modalities,
+and opposition through adjoint structures. It connects an abstract treatment
+with universes and categorical models. It also places restrictions on its own
+results, distinguishing a 0-type argument about determinate negation from
+stable-type constructions \cite{nLabLogic}. The separate Aufhebung entry
+states a least resolving-level condition \cite{nLabAufhebung}.
+
+These restrictions are examples of the discipline advocated here, not
+errors that our finite example corrects. Likewise, nLab's claim that
+adjoints are determined is expressly conditional on a concrete interpreted
+moment. The question is how to extend comparable explicitness to the
+coefficient dependence of least resolving levels. Pr\"ahauser's exposition
+distinguishes a broader resolving relation from a unique least
+resolution \cite{Praehauser}; terminology alone cannot supply minimality.
+
+The present test is therefore internal to a mathematical possibility the
+project itself takes seriously: movement between categorical and homotopical
+settings. It is not an objection that a reconstruction fails to preserve every
+distinction in every conceivable foundation. Rather, when a reconstruction
+uses both ordinary and higher versions of its structures, their agreement
+must be established where it is invoked. A restricted theorem remains
+restricted even if its notation resembles a more general theorem.
+
+There is a constructive way to respond. One can retain the ordinary
+interpretation and justify its restriction to sets. One can strengthen the
+higher reconstruction and supply the extra coherence it requires. Or one can
+treat the sequence of coefficient categories as a family of distinct
+interpretations with distinct explanatory purposes. Each response is more
+informative than assuming that a familiar universal property carries its
+philosophical force unchanged across the passage.
+
+\subsection{Formalization as a source of philosophical questions}
+
+One might ask whether all this is merely a technical qualification on an
+analogy. It would be, if the claim under examination were only that adjunctions
+resemble some aspects of opposition. The stakes change when the claim is that
+a canonical or necessary transition has been exhibited. At that point,
+the conditions of canonicity become part of the philosophical argument.
+
+Hegel's discussion of determinate being offers a useful restraint here. He
+distinguishes determinations present in the concept under development from
+those supplied by the interpreter's comparison \cite{HegelDasein}. A
+homotopical reconstruction need not deny that distinction. It should apply it
+to itself. A path, a higher identity, or an ambient infinity-topos is initially
+a resource of the reconstruction. Its relevance to the interpreted content
+requires an argument. The mathematical theorem can sharpen that argument
+by showing exactly what depends on the resource, but cannot supply the
+historical or philosophical identification on its own.

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What does it mean to keep an idea? — Petri Mikael Autio</title>
+  <meta name="description" content="A plain-language guide to an AI-assisted paper on Hegel, mathematical preservation, and why richer mathematics can change what counts as enough.">
+  <meta name="author" content="Petri Mikael Autio">
+  <link rel="canonical" href="https://autio.github.io/ai-science/determinate-preservation/">
+  <meta property="og:title" content="What does it mean to keep an idea?">
+  <meta property="og:description" content="A research experiment in Hegel and mathematics, with a plain-language explanation, proofs, code and an open novelty question.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="/stylesheets/portfolio.css">
+  <link rel="stylesheet" href="/stylesheets/ai-science.css">
+</head>
+<body class="science-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation"><div class="container nav-inner"><a href="/" class="nav-brand">Petri Mikael Autio</a><ul class="nav-links" id="navLinks"><li><a href="/index.html#work">Work</a></li><li><a href="/blog/">Writing</a></li><li><a href="/side-projects.html#independent-projects">Projects</a></li><li><a href="/ai-science/" aria-current="page">AI Science</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main"><div class="science-wrap">
+<header class="science-intro">
+  <p><a href="/ai-science/">← AI Science Experiments</a></p>
+  <span class="science-kicker">Experiment 02 · Mathematics &amp; philosophy</span>
+  <h1>What does it mean to keep an idea?</h1>
+  <span class="research-state">Research manuscript · novelty unconfirmed</span>
+  <p>When we change an idea, what exactly survives? Hegel made that question central to his philosophy. This experiment turns one part of it into a mathematical problem: how much of a structure must we keep to recover what we left out?</p>
+  <p class="science-note">22 October 2026 · Petri Mikael Autio, with Codex and two Astra reviewers. AI-assisted research and internal critique; external human review pending.</p>
+  <div class="science-links"><a href="determinate-preservation.pdf">Read the paper (PDF, 29 pages)</a><a href="#simple">Start with the simple explanation</a></div>
+</header>
+
+<section class="science-section" id="simple" aria-labelledby="simple-title">
+  <h2 id="simple-title">Imagine keeping only part of a LEGO model</h2>
+  <p>You want to put most of a model away, but keep enough information to work out the missing parts. What counts as enough depends on what you want to recover. A list of brick colours answers some questions. It does not tell you which bricks connect or whether they form a loop.</p>
+  <p>The paper studies this kind of problem with mathematical diagrams. A <strong>resolving level</strong> is a selection of positions in a diagram from which the missing data can be recovered, under precise rules. We look for the smallest selection that works for every allowed input.</p>
+  <p>Now give the mathematics richer things to keep track of. First it handles ordinary labels. Then it can also handle reversible paths between labels, including loops. A part that seemed unnecessary can become essential: the old tests did not notice what was missing.</p>
+  <p>The LEGO story is an analogy. The actual theorems concern diagrams, sets, groupoids and spaces, rather than physical bricks.</p>
+</section>
+
+<section class="science-section" aria-labelledby="result-title">
+  <h2 id="result-title">The surprise: the smallest sufficient part can also shrink</h2>
+  <p>If we keep the generated data the same and add richer tests, our growing examples need more positions. But changing the mathematics can change how the data are built in the first place. The paper proves a second family where the smallest sufficient selection becomes smaller.</p>
+  <div class="science-table-wrap"><table class="science-table"><caption>Two different six-position examples from the paper</caption><thead><tr><th scope="col">Example</th><th scope="col">Ordinary labels<br>(sets)</th><th scope="col">Labels and reversible paths<br>(groupoids)</th></tr></thead><tbody><tr><th scope="row">Generation preserved</th><td>Keep 5 positions</td><td>Keep all 6</td></tr><tr><th scope="row">Generation changes</th><td>Keep all 6</td><td>Keep 5 positions</td></tr></tbody></table></div>
+  <p>These are different diagrams with different starting levels. They show why “richer mathematics always needs a bigger resolving level” is too broad a claim. Under the paper’s comparison assumptions, preserved generation guarantees that the least level cannot shrink. Without that assumption, it can.</p>
+  <details><summary>The mathematical statement</summary><p>For a finite poset C and a starting full subposet D, generate diagrams by left Kan extension from D. A full subposet R containing D resolves those diagrams when restriction to R followed by right Kan extension recovers each generated diagram. A matching-support criterion gives a least such R.</p><p>The coefficient categories are k-truncated spaces, from sets at k = 0 to groupoids at k = 1, and then higher types. The growing families have explicit profiles. For the shrinking family, take C = {x} ⋆ J ⋆ {t} and D = J, with J a nonempty finite poset. The least resolver is all of C exactly when the k-truncation of the classifying space BJ is contractible; otherwise it is C without x. The proof identifies a space of contractions. Proposition 6.2 states the result precisely.</p></details>
+</section>
+
+<section class="science-section" aria-labelledby="hegel-title">
+  <h2 id="hegel-title">What does this have to do with Hegel?</h2>
+  <p>Hegel’s word <em>Aufhebung</em>, usually translated as “sublation,” describes a change in which something is cancelled and something is preserved. Mathematicians, especially F. W. Lawvere, developed precise constructions inspired by this idea. The <a href="https://ncatlab.org/nlab/show/Aufhebung">nLab account</a> is one starting point for the paper.</p>
+  <p>The calculation makes us specify what we mean by preservation: which relations we represent, how we generate the data, and which tests the result must pass. Once those choices are fixed, a theorem can tell us what follows. It cannot, by itself, tell us that we chose the right representation of Hegel’s argument.</p>
+  <p>My <a href="/projects/scienceoflogic/">interactive map of the <em>Science of Logic</em></a> gives a concrete example. We can encode its sections as a branching contents tree or as a reading sequence. In the paper’s encodings, the tree requires all 120 positions; the sequence requires only its first and last positions. Both answers stay the same as the coefficient categories become richer. That stability does not establish which relation captures Hegel’s reasoning.</p>
+  <p>My newer <a href="/hegel-reader/">running commentary</a> approaches the philosophical issue through the distinction between what a reader can see and what the argument has established through its own development. A successful reconstruction test answers a useful question. Establishing the necessity of Hegel’s transitions requires more.</p>
+</section>
+
+<section class="science-section" aria-labelledby="novel-title">
+  <h2 id="novel-title">Is it novel?</h2>
+  <p><strong>There are candidate new results here, but priority is unconfirmed.</strong> A proof tells us that a statement follows from its assumptions. A literature review asks whether someone has already proved it, perhaps in different language. Those are separate jobs.</p>
+  <p>Kan extensions, matching objects, homotopy and finite models of spheres are established mathematics. The paper also credits recent ordinary minimal-subposet results. Its strongest candidate contribution is the explicit shrinking family, alongside exact growing profiles and their use in a philosophical audit of preservation.</p>
+  <p>The literature studied did not establish priority for those exact formulations. A specialist may recognize an equivalent result elsewhere. I am publishing this as an inspectable research manuscript, with that question open. It has not been submitted to arXiv or accepted by a journal.</p>
+  <details><summary>Some relevant comparisons</summary><ul><li><a href="https://arxiv.org/abs/2601.00209">Dey and Lesnick</a> and <a href="https://arxiv.org/abs/2510.10837">Brüstle, Desrochers and Leblanc</a>: ordinary minimal-subposet antecedents, credited rather than claimed as new.</li><li><a href="https://emilyriehl.github.io/files/reedy.pdf">Riehl and Verity</a>: the established Reedy matching machinery behind the general reconstruction criterion.</li><li><a href="https://arxiv.org/abs/2308.01798">Du</a>: higher and truncated cofinality context.</li><li><a href="https://doi.org/10.1017/hgl.2025.10083">Hentrup on Hegel’s theory of rational proof</a>: a contemporary philosophical comparison for distinguishing valid demonstration from adequate mediation.</li></ul><p>The paper has 34 references. Its <a href="source/research-claims.md">claim-by-claim assessment</a> separates standard methods, proposed contributions and unresolved priority.</p></details>
+</section>
+
+<section class="science-section" aria-labelledby="check-title">
+  <h2 id="check-title">What has been checked?</h2>
+  <p>The manuscript contains written proofs. Six Python programs provide additional checks of specified finite cases, including 121,774 ordinary reconstruction comparisons for the matching criterion. The shrinking example has its own 2,212 direct comparisons. These calculations support the proofs; they do not replace the arguments for all higher spaces.</p>
+  <p>Two Astra agents separately criticized the mathematics and philosophy, and their objections led to revisions. This is AI-assisted internal review. No external human peer review or proof-assistant verification is claimed.</p>
+  <div class="science-links"><a href="determinate-preservation.pdf">Paper: Determinate Preservation</a><a href="research-source.zip" download>Full research archive and reviews</a><a href="arxiv-source.zip" download>Prepared arXiv sources</a></div>
+  <div class="science-links"><a href="source/README.md">Build and reproduce</a><a href="source/research-claims.md">Claims and prior work</a><a href="source/submission-readiness.md">Review status and limits</a><a href="source/validation-results.json">Validation record</a></div>
+</section>
+</div></main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product, data, and public services.</div></div><ul class="footer-links"><li><a href="/ai-science/">AI Science Experiments</a></li><li><a href="https://github.com/Autio/autio.github.io">Source on GitHub</a></li><li><a href="/">Home</a></li></ul></div></footer>
+<script src="/ai-science/navigation.js" defer></script>
+</body></html>

@@ -1,0 +1,618 @@
+\section{Coefficient-relative resolution}
+\label{sec:setup}
+
+All indexing categories in the main construction are finite ordinary posets,
+regarded as categories. Their nerves are also used as indexing
+infinity-categories when the coefficients are spaces. Write $\B J=|\N J|$
+for the classifying space of an ordinary category $J$, with
+$\B\varnothing=\varnothing$.
+
+\subsection{Conventions and Kan extensions}
+
+For $k\geq0$ put $\Vk=\Spc_{\leq k}$, and put
+$\mathcal V_\infty=\Spc$. These categories admit the limits and colimits
+used below. Limits of $k$-types agree with their limits in spaces; colimits
+are obtained by taking the colimit in spaces and then truncating. When
+groupoids represent 1-types, their limits here are homotopy-coherent
+limits, not strict limits in the ordinary category of groupoids. We use
+\emph{covariant} diagrams $\Fun(C,\Vk)$. This is the presheaf convention
+on $C^{\mathrm{op}}$, not on $C$.
+
+For a full inclusion $u:R\hookrightarrow C$, let $u^*$ be restriction. Its
+adjoints are
+\begin{equation}\label{eq:triple}
+u_!=\Lan_u\ \dashv\ u^*\ \dashv\ u_*=\Ran_u.
+\end{equation}
+Both extension functors are fully faithful. On the ambient diagram category
+define
+\[
+\sk_R=u_!u^*,\qquad \cosk_R=u_*u^*.
+\]
+The counit $\sk_R X\to X$ detects $R$-skeletal objects; the unit
+$X\to\cosk_R X$ detects $R$-coskeletal objects. If $D\subseteq R$, the
+skeletal and coskeletal presentations for $D$ factor through those for $R$,
+by composition of Kan extensions. This is the ordering of the induced levels
+used throughout the paper.
+
+\begin{definition}\label{def:resolution}
+Let $D\subseteq R\subseteq C$ be full subcategories. The level $R$
+\emph{$k$-resolves $D$} if for every $A:D\to\Vk$ the canonical unit
+\begin{equation}\label{eq:resolution}
+\Lan_D A\longrightarrow \Ran_R\res_R\Lan_D A
+\end{equation}
+is an equivalence. A \emph{coefficient-relative Aufhebung}, written
+$\Aup_k(D)$, is a least such full subcategory under inclusion, if it exists.
+The definition for $k=\infty$ uses unrestricted spaces.
+\end{definition}
+
+The qualifier records a substantive restriction. For $k=0$, this is the
+usual skeletal-to-coskeletal resolution condition on the specified ordinary
+presheaf levels. For higher $k$, we extend the condition through
+\eqref{eq:triple}. We do not silently identify the admissible family of
+induced levels with every possible essential localization of a higher
+category of diagrams.
+
+\subsection{Matching maps and least reconstruction subsets}
+\label{sec:matching}
+
+The existence of a least full resolver over a finite poset can be
+separated from the calculation of that resolver. Let $\mathcal V$ be an
+infinity-category with finite limits. For $X:C\to\mathcal V$, write
+\begin{equation}\label{eq:matchingsupport}
+M_xX=\limop_{y\in C_{>x}}X(y),\qquad
+S(X)=\{x\in C:X(x)\longrightarrow M_xX\text{ is not an equivalence}\}.
+\end{equation}
+The map is induced by the arrows out of $x$; at a maximal element its
+target is terminal. These are matching objects for the inverse Reedy
+structure obtained by assigning smaller degree to higher objects of
+$C$. Matching objects and inductive extension of diagrams are standard
+Reedy machinery \cite[section 3]{RiehlVerity}. The following elementary
+consequence is useful because it applies to arbitrary full subposets,
+not just degree cuts.
+
+\begin{proposition}[Least reconstruction subset]\label{prop:support}
+Let $C$ be a finite poset, $R\subseteq C$ full, and
+$X:C\to\mathcal V$. The canonical unit
+$X\to\Ran_R(X|_R)$ is an equivalence if and only if $S(X)\subseteq R$.
+Consequently, for any specified family $\mathcal F$ of such diagrams,
+the least full subposet from which every member is right Kan extended is
+\begin{equation}\label{eq:familysupport}
+S(\mathcal F)=\bigcup_{X\in\mathcal F}S(X).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If $X$ is right Kan extended from $R$ and $x\notin R$, factor the
+inclusion through $C\setminus\{x\}$. Composition of right Kan
+extensions shows that $X$ is also right Kan extended from this
+intermediate subposet. Its unit at the only omitted object is exactly
+$X(x)\to M_xX$, because
+$(x\downarrow(C\setminus\{x\}))=C_{>x}$. Thus $x\notin S(X)$.
+
+Conversely, suppose $S(X)\subseteq R$. List the objects of
+$C\setminus R$ in an increasing linear extension, and delete them in
+that order. When $x$ is deleted, every $y>x$ is still present. The
+comparison for right extension from the remaining subposet is an
+equivalence at every retained object, and at $x$ it is the original
+matching map $X(x)\to M_xX$. This is an equivalence by assumption.
+Compose the finitely many right Kan extensions to obtain the assertion
+for $R$. Applying the equivalence to every $X\in\mathcal F$ proves
+the formula for a family.
+\end{proof}
+
+\begin{corollary}[Arbitrary starting levels]\label{cor:arbitraryD}
+If $D\subseteq C$ is any full subposet and $\mathcal V$ also admits
+the left Kan extensions in question, the least full resolver of $D$
+exists and is
+\begin{equation}\label{eq:arbitraryD}
+D\,\cup\!\bigcup_{A\in\Fun(D,\mathcal V)}S(\Lan_D A).
+\end{equation}
+In particular this holds for every $\mathcal V_k$ used here.
+\end{corollary}
+
+This is an existence result, not a general algorithm: the quantifier
+over $A$ can be substantial. It also locates the role of leastness in
+our finite setting. Once a diagram family and its matching tests are
+fixed, the least subset is already forced; the substantive problem is
+to compute it and to justify the chosen family. No new general theory
+of Reedy matching objects is claimed.
+
+\begin{example}[Why the finiteness hypothesis matters]\label{ex:infinite}
+Take $C=\mathbb N$ with its usual order and $D=\{0\}$.
+Every strict upper interval has a least element, so the matching support
+of every constant diagram is empty. Nevertheless a full $R$ containing
+$0$ resolves constants exactly when it is unbounded: then each
+$(n\downarrow R)$ has a least element, while for bounded $R$ an upper
+comma is eventually empty. There is no inclusion-minimal unbounded
+subset containing $0$, because any positive member may be deleted.
+Thus the finite matching-support conclusion cannot be extended to
+arbitrary infinite posets merely by using the same formula.
+\end{example}
+
+\subsection{Resolution of an initial one-object level}
+
+Let $C$ have an initial object $b$, and let $D=\{b\}$. Since the comma
+category $(D\downarrow x)$ has one object and its identity for every $x$,
+left extension from $D$ is the constant diagram:
+\begin{equation}\label{eq:constantlan}
+\Lan_D A\simeq\Delta_C A.
+\end{equation}
+This holds for every coefficient category under consideration, including
+arbitrary spaces. There is no homotopy-colimit defect in the left extension
+of this particular starting level.
+
+\begin{lemma}[Constant-diagram criterion]\label{lem:criterion}
+Let $R\subseteq C$ be full and contain $b$. For finite $k\geq0$, the
+following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $R$ $k$-resolves $D$;
+\item $\tau_{\leq k}\B(x\downarrow R)\simeq *$ for every $x\in C$.
+\end{enumerate}
+For $k=\infty$, replace (ii) by contractibility of every
+$\B(x\downarrow R)$.
+\end{lemma}
+
+\begin{proof}
+Pointwise right Kan extension and \eqref{eq:constantlan} identify the
+comparison at $x$ with
+\begin{equation}\label{eq:mapcomparison}
+A\longrightarrow\limop_{(x\downarrow R)}\Delta A
+\simeq\Map\bigl(\B(x\downarrow R),A\bigr).
+\end{equation}
+The equivalence is the standard formula for a limit of a constant diagram of
+spaces. The map sends a point of $A$ to the corresponding constant map.
+For $A$ a $k$-type, the target depends only on
+$\tau_{\leq k}\B(x\downarrow R)$. Thus (ii) implies (i).
+Conversely, if \eqref{eq:mapcomparison} is an equivalence for every
+$A\in\Vk$, the map
+$\tau_{\leq k}\B(x\downarrow R)\to *$ induces equivalences on mapping
+spaces into every object of $\Vk$. Yoneda implies that it is an
+equivalence. The same argument without truncation proves the unrestricted
+case. Equivalences of diagrams are detected pointwise.
+\end{proof}
+
+Our connectivity convention is that a nonempty space $T$ is
+\emph{$k$-connected} when $\tau_{\leq k}T\simeq *$. Thus 0-connected
+means connected, and 1-connected means simply connected. We state the
+convention because cofinality references can shift the index by one. The
+lemma is a constant-diagram instance of truncated cofinality \cite{Du};
+the short proof fixes exactly the special case needed here.
+
+For sets the criterion sees only connected components. For groupoids it also
+sees the fundamental group. For unrestricted spaces it requires the whole
+homotopy type of each comma nerve to be trivial. An ordinary resolution can
+therefore leave an obstruction detectable at the next coefficient level.
+
+\subsection{An intrinsic criterion for finite posets}
+\label{sec:intrinsic}
+
+For constant diagrams, the matching-map calculation specializes to a
+criterion depending only on the indexing poset. It is also a form of
+truncated cofinality \cite{Du}; the matching argument supplies a direct
+proof without an additional cofinality theorem.
+
+For a finite poset $C$, let $C_{>x}$ be the strict upper interval at $x$.
+Define
+\begin{equation}\label{eq:essentialset}
+E_k(C)=\{x\in C:\tau_{\leq k}\B(C_{>x})\not\simeq *\}.
+\end{equation}
+For $k=\infty$, replace the condition by noncontractibility. Every
+maximal element belongs to $E_k(C)$, because its upper interval is empty.
+
+\begin{theorem}[Upper-interval criterion]\label{thm:intrinsic}
+For finite $k\geq0$, a finite poset $C$, and a full subposet $R$,
+\begin{equation}\label{eq:intrinsic}
+\bigl[\tau_{\leq k}\B(x\downarrow R)\simeq *\text{ for every }x\in C\bigr]
+\quad\Longleftrightarrow\quad E_k(C)\subseteq R.
+\end{equation}
+The analogous statement holds without truncation for $k=\infty$.
+If $b$ is initial and $D=\{b\}$, it follows that
+\begin{equation}\label{eq:generalAufhebung}
+\Aup_k(D)=\{b\}\cup E_k(C)
+\end{equation}
+among full-subcategory levels containing $b$.
+\end{theorem}
+
+\begin{proof}
+For $X=\Delta_C A$, the matching map at $x$ is
+$A\to\Map(\B(C_{>x}),A)$. As $A$ ranges over all $k$-types,
+Yoneda identifies the union of their matching supports with $E_k(C)$.
+For unrestricted spaces the same argument uses no truncation.
+Apply \cref{prop:support} to this family: right extension from $R$
+recovers every constant diagram exactly when $E_k(C)\subseteq R$.
+The pointwise mapping-space calculation in the proof of
+\cref{lem:criterion}, which does not require an initial object,
+identifies it with the comma-nerve condition in \eqref{eq:intrinsic}.
+If $b$ is initial, left generation
+from $D$ is constant, so \cref{cor:arbitraryD} gives the last formula.
+\end{proof}
+
+For $k=0$, the dual lower-interval description is already part of the
+theory of least full initial subposets: see Dey--Lesnick
+\cite[Remark 3.6]{DeyLesnick} and Br\"ustle--Desrochers--Leblanc
+\cite[Theorem C and Remark 2]{BrustleEtAl}. The higher criterion is the matching-map consequence just proved,
+consistent with standard truncated cofinality. The untruncated
+reasoning is related to established point-deletion methods for finite
+spaces \cite{BarmakMinian}. We use the intrinsic form to organize and
+calculate a resolution profile, rather than claiming a new cofinality
+theorem.
+
+\section{A family with an exact resolution profile}
+\label{sec:family}
+
+\subsection{The indexing posets}
+
+Fix $N\geq3$. Let $\Pcat_N$ consist of nonempty proper subsets of $[N]$,
+ordered by inclusion. Define
+\begin{equation}\label{eq:Cdef}
+\Ccat_N=\{b<a\}\star\Pcat_N,
+\end{equation}
+where this means $b<a<S$ for every $S\in\Pcat_N$, with the original
+inclusion order on $\Pcat_N$. Thus $|\Ccat_N|=2^N$. The object $b$ is
+initial. We compare all full subposets containing $D=\{b\}$.
+
+For $0\leq k\leq N-3$, define
+\begin{equation}\label{eq:Rdef}
+R_k=\{b\}\cup\{S\in\Pcat_N:|S|\geq N-k-2\}.
+\end{equation}
+The object $a$ is omitted. The phrase ``top $k+2$ ranks'' refers to
+cardinalities $N-k-2,\ldots,N-1$, not to the existence of a largest
+element. The proper Boolean poset has several maximal elements.
+
+\subsection{The standard topological ingredient}
+
+\begin{lemma}[Simplex skeleton]\label{lem:skeleton}
+Let $\Delta^{m-1}$ be the simplex on $m$ vertices, and let
+$1\leq q\leq m-2$. Its $q$-skeleton has homotopy type
+\begin{equation}\label{eq:wedge}
+\bigvee^{\binom{m-1}{q+1}}S^q.
+\end{equation}
+It is $(q-1)$-connected and has nonzero reduced integral homology in degree
+$q$. The order complex of the poset of nonempty proper subsets of an
+$m$-element set is $S^{m-2}$ for $m\geq2$.
+\end{lemma}
+
+\begin{proof}
+Write $K=\sk_q\Delta^{m-1}$ and choose a vertex $v$. Its closed star is
+$L=v*\sk_{q-1}\Delta^{m-2}$, a contractible subcomplex. Every simplex
+of dimension less than $q$ belongs to $L$. The $q$-simplices outside $L$
+are exactly those not containing $v$, of which there are
+$\binom{m-1}{q+1}$. Their boundaries belong to $L$. Collapsing $L$
+gives the stated wedge. Since $L\hookrightarrow K$ is a cofibration and
+$L$ is nonempty and contractible, the quotient map is a homotopy
+equivalence. For the final assertion, the order complex is the barycentric
+subdivision of the boundary of an $(m-1)$-simplex.
+\end{proof}
+
+This is elementary standard topology. The proof makes the quantitative
+calculation independent of a black-box connectivity assertion.
+
+\begin{lemma}[The omitted-face nerves]\label{lem:nerve}
+Let $0\leq k\leq N-3$. If $x\in R_k$, then
+$\B(x\downarrow R_k)$ is contractible. At $x=a$ it is homotopy
+equivalent to
+\begin{equation}\label{eq:anervecalc}
+\bigvee^{\binom{N-1}{k+2}}S^{k+1}.
+\end{equation}
+If $x=S\in\Pcat_N\setminus R_k$ and $m=N-|S|$, then
+\begin{equation}\label{eq:facenervecalc}
+\B(S\downarrow R_k)\simeq
+\bigvee^{\binom{m-1}{k+2}}S^{k+1}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For $x\in R_k$, the identity arrow is initial in the comma category.
+For $a$, the comma category is the poset of proper subsets of $[N]$ of
+cardinality at least $N-k-2$. Complementation reverses its order and gives
+the poset of nonempty subsets of $[N]$ of cardinality at most $k+2$.
+Its order complex is the barycentric subdivision of
+$\sk_{k+1}\Delta^{N-1}$. Reversing a poset does not change the
+homeomorphism type of its order complex. Apply \cref{lem:skeleton}.
+
+For an omitted $S$, the comma category consists of selected supersets
+$T\supset S$. Taking complements in $[N]$ identifies its opposite with
+the nonempty subsets of $[N]\setminus S$ of cardinality at most $k+2$.
+Here $m\geq k+3$, since $S$ is omitted. Apply the same argument to
+$\sk_{k+1}\Delta^{m-1}$.
+\end{proof}
+
+\subsection{The main theorem}
+
+\begin{theorem}[Exact coefficient-relative Aufhebung]\label{thm:main}
+For $D=\{b\}$ in $\Ccat_N$, the least resolving full subposet exists at
+every coefficient level. It is
+\begin{equation}\label{eq:main}
+\Aup_k(D)=
+\begin{cases}
+R_k,&0\leq k\leq N-3,\\
+\Ccat_N,&N-2\leq k\leq\infty.
+\end{cases}
+\end{equation}
+In particular the levels at $k=0,1,\ldots,N-2$ form a strictly increasing
+chain of $N-1$ different least resolutions.
+\end{theorem}
+
+\begin{proof}
+Compute the set $E_k(\Ccat_N)$ in \cref{thm:intrinsic}.
+The strict upper interval of $b$ has initial object $a$, so $b$ never
+belongs to this essential set. The strict upper interval of $a$ is
+$\Pcat_N$, with classifying space $S^{N-2}$. Hence $a$ belongs
+exactly when $k\geq N-2$, or when $k=\infty$.
+
+For $S\in\Pcat_N$, let $m=N-|S|$. If $m=1$, its strict upper
+interval is empty, so $S$ is always essential. If $m\geq2$, the
+strict upper interval is the proper nonempty Boolean poset on $m$
+elements, with classifying space $S^{m-2}$. It is $k$-connected
+exactly when $m-2>k$. Thus for finite $k$, the essential subsets are
+precisely those with $|S|\geq N-k-2$; every subset is essential for
+unrestricted coefficients. Formula \eqref{eq:generalAufhebung} gives
+\eqref{eq:main}, including leastness against all full subposets.
+The wedge calculation in \cref{lem:nerve} independently displays the
+comma nerves of each proposed resolver.
+
+Successive $R_k$ add the nonempty rank $|S|=N-k-3$, until
+$R_{N-3}$ contains every object except $a$. The final step adds $a$.
+All inclusions in the stated chain are strict.
+\end{proof}
+
+The theorem does not rely on an unproved monotonicity principle for arbitrary
+full subcategories. Leastness is checked against every admissible competitor.
+It also avoids confusing a discrete-input calculation with a statement about
+all higher types: the proof uses every $A\in\Vk$ through
+\cref{lem:criterion}.
+
+\begin{corollary}[Unbounded length]\label{cor:unbounded}
+For every $r\geq1$, some finite indexing poset and fixed initial level have
+at least $r$ distinct least coefficient-relative resolutions. Moreover,
+\begin{equation}\label{eq:size}
+|\Aup_k(D)|=1+\sum_{j=1}^{k+2}\binom Nj\quad(0\leq k\leq N-3),
+\qquad |\Aup_{N-2}(D)|=2^N.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Take $N\geq\max(3,r+1)$ and apply \cref{thm:main}. The count follows
+by complementation of the selected proper subsets.
+\end{proof}
+
+\subsection{A compact family and the smallest first jump}
+\label{sec:compact}
+
+The Boolean family records the ranks of explicit wedges, but exponential
+size is unnecessary for a long profile. Let $Q_m$ be the ordinal sum
+of $m$ two-element antichains, with layers $1,\ldots,m$ from bottom
+to top. A chain selects at most one vertex in each layer, so
+$\B Q_m$ is the join of $m$ copies of $S^0$, hence $S^{m-1}$.
+These are the classical finite sphere models of McCord, studied in
+minimal-model theory by Barmak--Minian \cite{BarmakMinimal}.
+
+\begin{proposition}[Linear-size profiles]\label{prop:compact}
+For $m\geq2$ put $C'_m=\{b<a\}\star Q_m$, with $D=\{b\}$.
+For $0\leq k\leq m-2$, its least resolver consists of $b$ and the
+last $k+2$ layers of $Q_m$, and has $2k+5$ objects. For
+$k\geq m-1$, including $k=\infty$, the least resolver is $C'_m$.
+Thus $2m+2$ objects realize $m$ distinct least levels. For $m=2$
+this gives a six-object Set-to-groupoid jump, and no smaller finite
+poset with an initial one-object starting level can exhibit that jump.
+\end{proposition}
+
+\begin{proof}
+The strict upper interval of an element in layer $j<m$ is $Q_{m-j}$,
+with nerve $S^{m-j-1}$; the top layer has empty upper intervals.
+The interval above $a$ has nerve $S^{m-1}$, while the interval above
+$b$ has initial object $a$. The upper-interval criterion gives exactly
+the displayed levels. At every omitted object of a proper least
+resolver, the selected upper comma is $Q_{k+2}$, with nerve $S^{k+1}$.
+
+For minimality of six, a strict Set-to-groupoid change requires some
+$x\ne b$ with connected but not simply connected strict upper nerve.
+A connected poset on at most three objects has contractible order
+complex: it is a point, a tree, or the filled triangle of a total
+order. The upper interval therefore has at least four objects.
+Adding the distinct objects $x$ and $b$ gives at least six.
+\end{proof}
+
+The compact calculation is an application of standard sphere models,
+not a claim to have discovered those models. It shows that the
+coefficient sensitivity is not an artifact of the size of a Boolean
+lattice. The larger family retains its separate quantitative use:
+the ranks of its wedges measure multiple simultaneous obstructions.
+
+\subsection{An explicit witness at the next coefficient level}
+
+\begin{proposition}[Detection of missing coherence]\label{prop:witness}
+For $0\leq k\leq N-3$, the level $R_k$ fails to $(k+1)$-resolve $D$.
+For $A=\K(\Z,k+1)$, the failure is visible at $a$: the target of
+\eqref{eq:mapcomparison} has connected components indexed by
+\begin{equation}\label{eq:componentwitness}
+\Z^{\binom{N-1}{k+2}},
+\end{equation}
+whereas its source is connected. The constant-map comparison reaches only
+the zero component.
+\end{proposition}
+
+\begin{proof}
+Put $q=k+1\geq1$. By \cref{lem:nerve}, the indexing space at $a$ is
+$T\simeq\bigvee^h S^q$, where $h=\binom{N-1}{k+2}>0$.
+Eilenberg--Mac Lane representability gives
+\[
+\pi_0\Map(T,\K(\Z,q))\cong H^q(T;\Z)\cong\Z^h.
+\]
+The space $\K(\Z,q)$ is connected. Its constant maps have zero degree
+on every sphere and belong to the zero cohomology class. Hence the
+comparison is not an equivalence.
+\end{proof}
+
+This is a cohomological witness to a homotopical failure, not an assertion
+that cohomology generally classifies homotopy types. The preceding wedge
+identification justifies the calculation. No inference from acyclicity to
+contractibility is used.
+
+\subsection{Relation to ordinary topos levels}
+
+At $k=0$ we are in the ordinary presheaf topos
+$\Fun(\Ccat_N,\Set)=\Set^{\Ccat_N}$. Restriction to a full subposet
+has the triple \eqref{eq:triple}, with left-exact middle functor, and induces
+an essential subtopos. Finite posets have no nontrivial retract identifications. Apply the
+finite-site rigidity result to $\Ccat_N^{\mathrm{op}}$
+\cite{Marques}. Its subtoposes are induced by full subposets. More
+explicitly, the topology $J_R$ declares a sieve at $x$ covering exactly
+when it contains every arrow $r\to x$ with $r\in R$. The objects of
+$R$ are exactly the $J_R$-irreducible objects. Thus inclusion of the
+selected subsets agrees with the subtopos ordering, and a level above
+$D$ must include $b$. The set-valued member is therefore an ordinary
+Aufhebung calculation among all such levels. For higher coefficients
+the theorem retains its explicit full-subcategory qualification.
+
+These posets are not a counterexample to a special cohesive-site theorem.
+In $\Ccat_N^{\mathrm{op}}$, the terminal object is $b$, but there is no
+map $b\to x$ for $x\ne b$. The usual hypothesis that each site object
+has points therefore fails. The canonical components functor also fails
+to preserve binary products: representables at two distinct maximal
+faces each have singleton colimit, whereas their pointwise product is
+empty. Our comparison concerns the abstract resolution condition, not
+a refutation of a result with those additional cohesive hypotheses.
+
+\section{Examples: the loop and nonconstant generation}
+\label{sec:example}
+
+\subsection{The eight-object Boolean member}
+
+Take $N=3$. The six elements of $\Pcat_3$ are the vertices and edges of
+a triangle, ordered by incidence. Their nerve is the subdivided boundary
+circle. The full category adds $b<a$ beneath them, as in
+\cref{fig:eight}. The theorem gives
+\[
+\Aup_0(D)=\{b\}\cup\Pcat_3,\qquad
+\Aup_1(D)=\Aup_\infty(D)=\Ccat_3.
+\]
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1.4cm,y=1.15cm,
+ dot/.style={circle,draw=ink,fill=white,inner sep=2.7pt},
+ edge/.style={draw=ink!65,line width=.65pt},
+ every node/.style={font=\small}]
+\node[dot,label=above:{$12$}] (e12) at (-1.45,3) {};
+\node[dot,label=above:{$13$}] (e13) at (0,3) {};
+\node[dot,label=above:{$23$}] (e23) at (1.45,3) {};
+\node[dot,label=left:{$1$}] (v1) at (-1.45,2) {};
+\node[dot,label=right:{$2$}] (v2) at (0,2) {};
+\node[dot,label=right:{$3$}] (v3) at (1.45,2) {};
+\foreach \v/\e in {v1/e12,v1/e13,v2/e12,v2/e23,v3/e13,v3/e23}
+\draw[edge] (\v)--(\e);
+\node[dot,draw=accent,fill=accent!12,label=right:{$a$}] (a) at (0,.8) {};
+\node[dot,fill=ink,label=below:{$b$}] (b) at (0,0) {};
+\foreach \v in {v1,v2,v3}\draw[edge] (a)--(\v);
+\draw[edge] (b)--(a);
+\node[align=left,text=ink] at (3.1,2.5)
+ {$\B(a\downarrow R_0)\simeq S^1$\\[4pt]
+  $\tau_{\leq0}S^1\simeq *$\\[4pt]
+  $\tau_{\leq1}S^1\not\simeq *$};
+\end{tikzpicture}
+\caption{The eight-object poset $\Ccat_3$. The set-valued least resolver
+contains every object except $a$; the space-valued least resolver also
+requires $a$. This is a Hasse diagram: arrows point upward and transitive
+arrows are omitted. The six incidence edges form a circle in the order
+complex, despite crossings in the drawing.}
+\label{fig:eight}
+\end{figure}
+
+For a set $A$, compatible assignments of its elements over a connected
+indexing category are constant. Thus
+\[
+\limop_{\Pcat_3}\Delta A\cong A.
+\]
+There is no other omitted-object test, since only $a$ is omitted. Leastness
+also has a direct description. Every maximal edge object must be present:
+otherwise its comma category is empty. Each vertex must then be present:
+if it is absent, the two incident maximal edges give a disconnected comma
+category. All six objects are forced.
+
+For a space $A$, however,
+\[
+\limop_{\Pcat_3}\Delta A\simeq\Map(S^1,A).
+\]
+The comparison selects constant loops. Taking $A=\K(\Z,1)$ produces
+components indexed by $\Z$. The earlier resolution did not require this
+loop data to vanish; it did not test it. Once groupoids become admissible,
+the loop becomes visible. Adding $a$ gives the relevant comma category an
+initial object and repairs the failure.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}crrrr@{}}
+\toprule
+Indexing size & Sets & Groupoids & 2-types & 3-types\\
+\midrule
+$|\Ccat_3|=8$  &7&8&8&8\\
+$|\Ccat_4|=16$ &11&15&16&16\\
+$|\Ccat_5|=32$ &16&26&31&32\\
+\bottomrule
+\end{tabular}
+\caption{Cardinalities of the least resolving full subposets. The starting
+level and ambient indexing data are fixed within each row. Every row
+eventually stabilizes at the whole indexing category.}
+\label{tab:profiles}
+\end{table}
+
+These numbers are not a measurement of philosophical progress. They count
+objects in a constructed poset. Their role is to distinguish senses of
+resolution that ordinary notation could otherwise conceal.
+
+\subsection{A nonconstant nine-object example}\label{sec:nonconstant}
+
+The constant generation of the main family makes its comparison unusually
+transparent. The same first jump survives genuinely nonconstant generation.
+Start with $p<a<\Pcat_3$, and add an object $q$ with $q<1$, hence
+$q<12,13$, and no other new comparisons. Here $1,2,3$ denote singleton
+faces, while $12,13,23$ denote two-element faces. Let $D=\{p,q\}$;
+its two objects are incomparable. For a pair $(A,B)$ of coefficient
+objects, left extension produces the diagram $X=\Lan_D(A,B)$ with
+\begin{equation}\label{eq:nonconstant}
+\begin{array}{c|c}
+\text{positions}&\text{value of }X\\\hline
+p,a,2,3,23&A\\
+q&B\\
+1,12,13&A\sqcup B.
+\end{array}
+\end{equation}
+The nonidentity transition maps are identities or the appropriate
+coproduct inclusions. The lower comma categories for generation are
+discrete, so these coproducts agree on old inputs in every coefficient
+category. The diagrams are not constant, even when $A$ and $B$ are
+connected nonempty types.
+
+\begin{proposition}\label{prop:nonconstant}
+In this nine-object poset the least full resolver of $D$ is $C\setminus
+\{a\}$ for sets, and $C$ for all $k\geq1$, including unrestricted
+spaces.
+\end{proposition}
+
+\begin{proof}
+Taking $B=\varnothing$ and $A$ a two-element set forces all six faces:
+the matching map at an edge is $A\to *$, and at a vertex it is the
+diagonal $A\to A\times A$. Both fail to be bijective. Thus any
+resolver already contains $D\cup\Pcat_3$.
+
+To test the only remaining position $a$, restrict $X$ to
+$J=\Pcat_3$. Color its $A$ summands by $0$ and its $B$ summands by
+$1$, giving a natural map $X|_J\to\Delta_J\{0,1\}$. Since
+$\B J\simeq S^1$ is connected, the limit of the latter is
+$\{0,1\}$. The fiber of $\lim_JX$ over $0$ is the limit of the
+constant $A$ diagram, hence $\Map(S^1,A)$. Its fiber over $1$ is
+empty: that fiber diagram has empty values at $2,3,23$. Limits
+preserve these pullbacks. Consequently
+\[
+M_aX=\limop_JX\simeq\Map(S^1,A),
+\]
+and its matching map is the constant-map comparison from $A$.
+For sets it is always an equivalence. For $k\geq1$, take
+$A=\K(\Z,1)$ and $B=*$: the comparison misses all nonzero winding
+components. Apply \cref{prop:support,cor:arbitraryD}.
+\end{proof}
+
+This example isolates the two operations even without constant output
+from left generation: every earlier generated diagram is preserved,
+while the right reconstruction detects additional coherence.

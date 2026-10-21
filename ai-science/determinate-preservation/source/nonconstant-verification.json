@@ -1,0 +1,45 @@
+{
+  "objects": [
+    "p",
+    "a",
+    "q",
+    "1",
+    "2",
+    "3",
+    "12",
+    "13",
+    "23"
+  ],
+  "input_set_sizes": [
+    0,
+    1,
+    2
+  ],
+  "admissible_full_subposets": 128,
+  "diagram_reconstruction_checks": 1152,
+  "set_resolvers_for_test_family": [
+    [
+      "p",
+      "q",
+      "1",
+      "2",
+      "3",
+      "12",
+      "13",
+      "23"
+    ],
+    [
+      "p",
+      "a",
+      "q",
+      "1",
+      "2",
+      "3",
+      "12",
+      "13",
+      "23"
+    ]
+  ],
+  "least_size": 8,
+  "limitations": "Finite Set checks; written proof handles arbitrary sets and higher types."
+}

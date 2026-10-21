@@ -1,0 +1,166 @@
+{
+  "method": "Exact finite-field arithmetic; homology checks supplement the written proof.",
+  "exhaustive": [
+    {
+      "N": 3,
+      "admissible_subposets_examined": 128,
+      "homological_candidate_counts_by_k": [
+        2,
+        1
+      ],
+      "least_level_cardinalities": [
+        7,
+        8
+      ],
+      "interpretation": "Exhaustive necessary conditions agree with the proved levels."
+    },
+    {
+      "N": 4,
+      "admissible_subposets_examined": 32768,
+      "homological_candidate_counts_by_k": [
+        32,
+        2,
+        1
+      ],
+      "least_level_cardinalities": [
+        11,
+        15,
+        16
+      ],
+      "interpretation": "Exhaustive necessary conditions agree with the proved levels."
+    }
+  ],
+  "larger_profiles": [
+    {
+      "N": 3,
+      "profile_checks": [
+        {
+          "k": 0,
+          "level_size": 7,
+          "comma_at_a_betti_F2": [
+            1,
+            1
+          ],
+          "predicted_sphere_dimension": 1,
+          "predicted_sphere_count": 1
+        }
+      ]
+    },
+    {
+      "N": 4,
+      "profile_checks": [
+        {
+          "k": 0,
+          "level_size": 11,
+          "comma_at_a_betti_F2": [
+            1,
+            3
+          ],
+          "predicted_sphere_dimension": 1,
+          "predicted_sphere_count": 3
+        },
+        {
+          "k": 1,
+          "level_size": 15,
+          "comma_at_a_betti_F2": [
+            1,
+            0,
+            1
+          ],
+          "predicted_sphere_dimension": 2,
+          "predicted_sphere_count": 1
+        }
+      ]
+    },
+    {
+      "N": 5,
+      "profile_checks": [
+        {
+          "k": 0,
+          "level_size": 16,
+          "comma_at_a_betti_F2": [
+            1,
+            6
+          ],
+          "predicted_sphere_dimension": 1,
+          "predicted_sphere_count": 6
+        },
+        {
+          "k": 1,
+          "level_size": 26,
+          "comma_at_a_betti_F2": [
+            1,
+            0,
+            4
+          ],
+          "predicted_sphere_dimension": 2,
+          "predicted_sphere_count": 4
+        },
+        {
+          "k": 2,
+          "level_size": 31,
+          "comma_at_a_betti_F2": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "predicted_sphere_dimension": 3,
+          "predicted_sphere_count": 1
+        }
+      ]
+    },
+    {
+      "N": 6,
+      "profile_checks": [
+        {
+          "k": 0,
+          "level_size": 22,
+          "comma_at_a_betti_F2": [
+            1,
+            10
+          ],
+          "predicted_sphere_dimension": 1,
+          "predicted_sphere_count": 10
+        },
+        {
+          "k": 1,
+          "level_size": 42,
+          "comma_at_a_betti_F2": [
+            1,
+            0,
+            10
+          ],
+          "predicted_sphere_dimension": 2,
+          "predicted_sphere_count": 10
+        },
+        {
+          "k": 2,
+          "level_size": 57,
+          "comma_at_a_betti_F2": [
+            1,
+            0,
+            0,
+            5
+          ],
+          "predicted_sphere_dimension": 3,
+          "predicted_sphere_count": 5
+        },
+        {
+          "k": 3,
+          "level_size": 63,
+          "comma_at_a_betti_F2": [
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "predicted_sphere_dimension": 4,
+          "predicted_sphere_count": 1
+        }
+      ]
+    }
+  ],
+  "limitations": "Homology does not generally certify simple connectivity or contractibility."
+}

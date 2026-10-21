@@ -1,0 +1,35 @@
+{
+  "programs": [
+    {
+      "program": "verify_family.py",
+      "passed": true
+    },
+    {
+      "program": "verify_matching.py",
+      "passed": true
+    },
+    {
+      "program": "verify_nonconstant.py",
+      "passed": true
+    },
+    {
+      "program": "verify_models.py",
+      "passed": true
+    },
+    {
+      "program": "verify_reversal.py",
+      "passed": true
+    },
+    {
+      "program": "verify_reader.py",
+      "passed": true
+    }
+  ],
+  "bibliographic_entries": 34,
+  "missing_citations": [],
+  "cross_reference_targets": 19,
+  "missing_cross_references": [],
+  "duplicate_labels": [],
+  "layout_warnings": [],
+  "proof_assistant_verified": false
+}

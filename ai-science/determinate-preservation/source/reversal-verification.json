@@ -1,0 +1,12 @@
+{
+  "input_diagrams_examined": 553,
+  "direct_Set_reconstruction_comparisons": 2212,
+  "least_Set_resolver_size": 6,
+  "terminal_input_higher_obstruction": {
+    "classifying_space": "S^1",
+    "canonical_cocone_degree": 1,
+    "constant_map_degree": 0,
+    "conclusion_in_written_proof": "The coherent cone space is empty."
+  },
+  "scope": "Numerical enumeration is Set-valued only. All higher coefficients and all inputs are handled by the written map-to-empty argument."
+}

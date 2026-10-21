@@ -1,0 +1,14 @@
+{
+  "source_blob_sha": "004ddbfd5a41bc07817002f2e29f214dd3e9a18b",
+  "positions_including_synthetic_root": 120,
+  "child_count_distribution": {
+    "0": 80,
+    "2": 1,
+    "3": 39
+  },
+  "all_internal_vertices_have_at_least_two_children": true,
+  "tree_least_level_size_for_all_k": 120,
+  "linear_least_level_size_for_all_k": 2,
+  "last_position_in_chosen_preorder": "1.3.3.3.3 System",
+  "scope": "These are stipulated containment and succession encodings, not assertions of Hegelian logical dependence."
+}
