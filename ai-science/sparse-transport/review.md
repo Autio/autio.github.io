@@ -1,14 +1,64 @@
-# Research draft: review status
+# Stage-three review and release status
 
-21 October 2026. This is a proposed website update, not an arXiv submission.
+21 October 2026. A compiled, reproducible research draft; independent human
+mathematical review and priority remain open. This is not an arXiv submission.
 
-The revised paper foregrounds sharp Hall localization and the scalar filter. Direct batched min-cost transport supplies a simpler implemented O(k^5 log(k+1)n²) corollary; the optional canonical-witness specialization uses O(k³) per eligible large-order edge. Classical flow, matching, segment sharing and prior missing-neighbor arguments are credited.
+The 21-page paper now includes a quantitative sharp Hall cutoff, two numerical
+boundary types with exact deficit and one-vertex repair, and a complete
+large-order single-matching treatment of distance-three stars. The short
+[two-page note](theorem-note.pdf) isolates the structural cutoff for focused review.
+See [priority-review.md](priority-review.md) for the close construction overlap
+and explicit credit to prior weighted Hall, assignment, complement counting
+and flow results.
 
-The expanded priority audit recommends rework before submission and records closer proof-level overlap with Chen–Liu–You. No identical combined theorem was demonstrated in the inspected literature; this does not establish novelty. Independent human mathematical review remains outstanding.
+The implemented hybrid bound is O(k⁵n²), with O(k³n²) at large order including
+the fixed-size exceptional fallback. The O(k⁴n²) all-orders result uses a
+classical AOST backend that has not been implemented. All bounds use indexed
+word arithmetic and unreduced rational output, not a unit-cost assumption for
+arbitrary-precision normalized Python Fractions.
 
-The paper discloses substantial AI assistance. Proposed human authorship remains subject to acceptance and responsibility for the final contents. A public draft and a compiled source package do not complete arXiv endorsement, licensing or submission.
+## Checks and limits
 
-The [reproducibility archive](reproducibility-draft.zip) includes source, exact observations, benchmark scripts, independent reference solvers, and the scope of partial Lean checks. Repeated verification protocols overlap; do not sum them as independent graph coverage. Benchmarks are synthetic and host load was uncontrolled.
+- The final optional backend agrees with independent exact full transport on
+  164,594 eligible edges in all 27,475 connected labeled graphs through six
+  vertices; 53,900 ineligible edges are skipped by that optional-backend test.
+  An independent star audit checks 35,072 cases. The default all-orders wrapper
+  passes 5,659 edges of 839 graphs, including 1,418 fallback calls. These suites
+  overlap; their counts are not independent graph coverage.
+- The quantitative/boundary audit checks 366 full transport instances. A second
+  boundary protocol checks 40 graph variations, all 168,320 target subsets,
+  and 80 full transport values. These finite protocols corroborate the proofs.
+- Ten Lean modules compile with Lean/Mathlib 4.19.0. They include actual graph
+  set/count bridges, weighted Hall by cloning, integer clone-transport baseline,
+  boundary paths and the four-codegree cover. This is partial formalization;
+  metric cancellation, real/integer integrality, the complete algorithm and
+  runtime theorem remain outside an end-to-end formal proof.
+- Five-trial comparisons include NetworkX, SciPy/HiGHS/assignment and POT.
+  Baselines already use common-mass cancellation and appropriate aggregation.
+  POT wins all ten generic transport-matrix medians. Dense all-edge structural
+  workloads can benefit, but cold indexing loses badly on small batches and
+  sparse graphs. The final star supplement is especially noisy on the shared
+  host; exact coverage is stronger evidence than small timing differences.
 
-The exact reproducibility archive was approved for public inclusion by the author. SHA-256: 9DD2EE4092AB275D9E395471CAB5B54808668FBE1CB17B80C1C838AF826CF22A. It includes historical research and proof artifacts as well as the current code. The separate paper source archive contains only main.tex.
+## Reproducibility and submission
 
+The new [focused reproducibility archive](reproducibility-stage3.zip) includes
+the final code and dependency closure, independent checks, recorded benchmark
+observations, Lean sources/log, and source hashes. Only absolute local runtime
+paths in public JSON/logs are redacted; observations and code are preserved.
+The separate [arXiv source draft](arxiv-source-draft.zip) contains only main.tex
+with an embedded bibliography. It compiles locally; arXiv's own processing
+and preview have not been exercised.
+
+The [historical stage-two archive](reproducibility-draft.zip), explicitly
+approved for public inclusion, remains unchanged. Its SHA-256 is
+9DD2EE4092AB275D9E395471CAB5B54808668FBE1CB17B80C1C838AF826CF22A.
+It contains broader previous research artifacts and does not contain the new
+single-matching revision.
+
+The paper discloses substantial Codex/Astra assistance. Human authorship and
+responsibility for the final contents, arXiv account/endorsement status,
+category and license selection remain release decisions. arXiv requires
+significant AI use to be reported and the human authors to take responsibility;
+see its [AI policy](https://info.arxiv.org/help/moderation/index.html#policy-for-authors-use-of-generative-ai-language-tools).
+Preparing sources or a public draft does not establish novelty or arXiv acceptance.
