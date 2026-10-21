@@ -1,0 +1,4 @@
+'CurvatureGraph.leading_hall_slope_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureGraph.excluded_set_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureGraph.excluded_sources_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureGraph.two_excluded_exclusive_sources' depends on axioms: [propext, Classical.choice, Quot.sound]

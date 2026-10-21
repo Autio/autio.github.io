@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "exhaustive_graphs": 27475,
+  "exhaustive_edges": 218494,
+  "total_graphs": 27755,
+  "total_edges": 219371,
+  "shortcut_edges": 92635,
+  "bounded_dual_checks": 125628,
+  "closure_mincut_checks": 126736,
+  "largest_compressed_source_count": 19,
+  "boundary_family": [
+    {
+      "n": 6,
+      "curvature": "-2/3",
+      "triangle_gap": "2/3"
+    },
+    {
+      "n": 7,
+      "curvature": "0",
+      "triangle_gap": "1/4"
+    },
+    {
+      "n": 8,
+      "curvature": "1/5",
+      "triangle_gap": "1/5"
+    },
+    {
+      "n": 12,
+      "curvature": "5/9",
+      "triangle_gap": "1/9"
+    },
+    {
+      "n": 20,
+      "curvature": "13/17",
+      "triangle_gap": "1/17"
+    },
+    {
+      "n": 40,
+      "curvature": "33/37",
+      "triangle_gap": "1/37"
+    }
+  ],
+  "seconds": 40.73170876502991
+}

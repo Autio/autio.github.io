@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-21",
+  "python": "3.14.7",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD",
+  "seed_rule": "20261021+n",
+  "reference_repetitions": 3,
+  "fast_repetitions": 51,
+  "baseline": "Project dependency-free Bellman-Ford integer min-cost-flow reference, not an optimized library",
+  "timed_scope": "All edge values; fast eligibility/preprocessing included; graph generation excluded",
+  "limitations": "Synthetic eligible graphs only; small orders; same machine; no claim of application benefit or comparison to optimized solvers",
+  "rows": [
+    {
+      "vertices": 8,
+      "edges": 13,
+      "deleted_edges": 15,
+      "fast_median_ms": 0.025800000003073364,
+      "reference_median_ms": 1.0453000004417845,
+      "reference_over_fast": 40.51550388826611,
+      "all_values_equal": true
+    },
+    {
+      "vertices": 12,
+      "edges": 40,
+      "deleted_edges": 26,
+      "fast_median_ms": 0.07110000024113106,
+      "reference_median_ms": 19.448900000497815,
+      "reference_over_fast": 273.542896407006,
+      "all_values_equal": true
+    },
+    {
+      "vertices": 16,
+      "edges": 80,
+      "deleted_edges": 40,
+      "fast_median_ms": 0.07970000024215551,
+      "reference_median_ms": 71.10130000000936,
+      "reference_over_fast": 892.1116660474229,
+      "all_values_equal": true
+    },
+    {
+      "vertices": 24,
+      "edges": 209,
+      "deleted_edges": 67,
+      "fast_median_ms": 0.1691999996182858,
+      "reference_median_ms": 786.1180999998396,
+      "reference_over_fast": 4646.08807194632,
+      "all_values_equal": true
+    },
+    {
+      "vertices": 32,
+      "edges": 389,
+      "deleted_edges": 107,
+      "fast_median_ms": 0.31570000010106014,
+      "reference_median_ms": 3481.2854000001607,
+      "reference_over_fast": 11027.19480166535,
+      "all_values_equal": true
+    }
+  ]
+}

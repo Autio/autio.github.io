@@ -1,0 +1,7 @@
+Lean (version 4.19.0, x86_64-w64-windows-gnu, commit 6caaee842e94, Release)
+'Curvature.hall_localization' depends on axioms: [propext, Quot.sound]
+'Curvature.endpoint_degree_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Curvature.common_source_no_deficit' depends on axioms: [propext, Quot.sound]
+'Curvature.exclusive_source_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Curvature.exceptional_numerator_positive' depends on axioms: [propext, Quot.sound]
+'Curvature.order_eight_exception_positive' depends on axioms: [propext, Quot.sound]

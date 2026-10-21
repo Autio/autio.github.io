@@ -1,0 +1,3 @@
+'CurvatureNegative.four_level_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureNegative.hall_negative_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureNegative.four_level_profit_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]

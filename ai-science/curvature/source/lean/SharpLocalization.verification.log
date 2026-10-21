@@ -1,0 +1,5 @@
+'Curvature.maximal_hall_subset_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Curvature.negative_slope_order_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Curvature.common_target_card_bound' depends on axioms: [propext, Quot.sound]
+'Curvature.two_exclusive_sources_bound' depends on axioms: [propext, Quot.sound]
+'Curvature.excluded_sources_card_bound' depends on axioms: [propext, Quot.sound]

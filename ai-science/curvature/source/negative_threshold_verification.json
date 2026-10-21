@@ -1,0 +1,275 @@
+{
+  "passed": true,
+  "full_exact_transport_checks": 2153,
+  "sharp_families": [
+    {
+      "n": 5,
+      "deletions": 5,
+      "curvature": "-1/3"
+    },
+    {
+      "n": 6,
+      "deletions": 7,
+      "curvature": "-1/2"
+    },
+    {
+      "n": 7,
+      "deletions": 8,
+      "curvature": "-1/10"
+    },
+    {
+      "n": 8,
+      "deletions": 10,
+      "curvature": "-1/6"
+    },
+    {
+      "n": 9,
+      "deletions": 11,
+      "curvature": "-1/14"
+    },
+    {
+      "n": 10,
+      "deletions": 13,
+      "curvature": "-1/8"
+    },
+    {
+      "n": 11,
+      "deletions": 14,
+      "curvature": "-1/18"
+    },
+    {
+      "n": 12,
+      "deletions": 16,
+      "curvature": "-1/10"
+    },
+    {
+      "n": 13,
+      "deletions": 17,
+      "curvature": "-1/22"
+    },
+    {
+      "n": 14,
+      "deletions": 19,
+      "curvature": "-1/12"
+    },
+    {
+      "n": 15,
+      "deletions": 20,
+      "curvature": "-1/26"
+    },
+    {
+      "n": 16,
+      "deletions": 22,
+      "curvature": "-1/14"
+    },
+    {
+      "n": 17,
+      "deletions": 23,
+      "curvature": "-1/30"
+    },
+    {
+      "n": 18,
+      "deletions": 25,
+      "curvature": "-1/16"
+    },
+    {
+      "n": 19,
+      "deletions": 26,
+      "curvature": "-1/34"
+    },
+    {
+      "n": 20,
+      "deletions": 28,
+      "curvature": "-1/18"
+    },
+    {
+      "n": 21,
+      "deletions": 29,
+      "curvature": "-1/38"
+    },
+    {
+      "n": 22,
+      "deletions": 31,
+      "curvature": "-1/20"
+    },
+    {
+      "n": 23,
+      "deletions": 32,
+      "curvature": "-1/42"
+    },
+    {
+      "n": 24,
+      "deletions": 34,
+      "curvature": "-1/22"
+    },
+    {
+      "n": 25,
+      "deletions": 35,
+      "curvature": "-1/46"
+    },
+    {
+      "n": 26,
+      "deletions": 37,
+      "curvature": "-1/24"
+    },
+    {
+      "n": 27,
+      "deletions": 38,
+      "curvature": "-1/50"
+    },
+    {
+      "n": 28,
+      "deletions": 40,
+      "curvature": "-1/26"
+    },
+    {
+      "n": 29,
+      "deletions": 41,
+      "curvature": "-1/54"
+    },
+    {
+      "n": 30,
+      "deletions": 43,
+      "curvature": "-1/28"
+    },
+    {
+      "n": 31,
+      "deletions": 44,
+      "curvature": "-1/58"
+    },
+    {
+      "n": 32,
+      "deletions": 46,
+      "curvature": "-1/30"
+    },
+    {
+      "n": 33,
+      "deletions": 47,
+      "curvature": "-1/62"
+    },
+    {
+      "n": 34,
+      "deletions": 49,
+      "curvature": "-1/32"
+    },
+    {
+      "n": 35,
+      "deletions": 50,
+      "curvature": "-1/66"
+    },
+    {
+      "n": 36,
+      "deletions": 52,
+      "curvature": "-1/34"
+    },
+    {
+      "n": 37,
+      "deletions": 53,
+      "curvature": "-1/70"
+    },
+    {
+      "n": 38,
+      "deletions": 55,
+      "curvature": "-1/36"
+    },
+    {
+      "n": 39,
+      "deletions": 56,
+      "curvature": "-1/74"
+    },
+    {
+      "n": 40,
+      "deletions": 58,
+      "curvature": "-1/38"
+    }
+  ],
+  "universal_endpoint_extremal_families": [
+    {
+      "n": 8,
+      "deletions": 10,
+      "curvature": "-1/14"
+    },
+    {
+      "n": 10,
+      "deletions": 13,
+      "curvature": "-1/18"
+    },
+    {
+      "n": 12,
+      "deletions": 16,
+      "curvature": "-1/22"
+    },
+    {
+      "n": 14,
+      "deletions": 19,
+      "curvature": "-1/26"
+    },
+    {
+      "n": 16,
+      "deletions": 22,
+      "curvature": "-1/30"
+    },
+    {
+      "n": 18,
+      "deletions": 25,
+      "curvature": "-1/34"
+    },
+    {
+      "n": 20,
+      "deletions": 28,
+      "curvature": "-1/38"
+    },
+    {
+      "n": 22,
+      "deletions": 31,
+      "curvature": "-1/42"
+    },
+    {
+      "n": 24,
+      "deletions": 34,
+      "curvature": "-1/46"
+    },
+    {
+      "n": 26,
+      "deletions": 37,
+      "curvature": "-1/50"
+    },
+    {
+      "n": 28,
+      "deletions": 40,
+      "curvature": "-1/54"
+    },
+    {
+      "n": 30,
+      "deletions": 43,
+      "curvature": "-1/58"
+    },
+    {
+      "n": 32,
+      "deletions": 46,
+      "curvature": "-1/62"
+    },
+    {
+      "n": 34,
+      "deletions": 49,
+      "curvature": "-1/66"
+    },
+    {
+      "n": 36,
+      "deletions": 52,
+      "curvature": "-1/70"
+    },
+    {
+      "n": 38,
+      "deletions": 55,
+      "curvature": "-1/74"
+    },
+    {
+      "n": 40,
+      "deletions": 58,
+      "curvature": "-1/78"
+    }
+  ],
+  "seconds": 3.3020682334899902,
+  "random_seed": 2026102102
+}

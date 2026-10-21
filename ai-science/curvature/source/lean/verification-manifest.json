@@ -1,0 +1,15 @@
+{
+  "checked_utc": "2026-10-21T10:44:11.3187994Z",
+  "compiler": "Lean (version 4.19.0, x86_64-w64-windows-gnu, commit 6caaee842e94, Release)",
+  "mathlib_commit": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "source_sha256": {
+    "Localization.lean": "211911A666157730EEC25CFFA601356D41FBE354F486A26FB93562446918DCF8",
+    "SharpLocalization.lean": "F08616C4043C47601DA7B78235F86BD1C655BDE6BAF631917B985C8E3A9C37FB",
+    "GraphHall.lean": "E984FCD0DD819D197249B2437AC9BB966EF7C73DB4BF571D160A14F998E1EBBD",
+    "CutLabels.lean": "1B7F752E30553318903B191AA7167BC6FEA0F6A774044C04C023B831999CD069",
+    "DeletionStability.lean": "C2E37E236C21654CD9099010E9281147B1021426E0B1E55FF551789508C8E45D",
+    "GraphDeletion.lean": "298BE63D3AC07E7074BEF111BB3F5102C0332869A46CD30503D8E868DAD730E3",
+    "NegativeThreshold.lean": "AA90BEC576783F62EEB4C426752A3FD4C55DC0ECE6293AACFBC42D18E8A984F6"
+  },
+  "scope": "Partial formalization: actual finite-graph lemmas and conditional numerical arguments; no complete optimal-transport curvature formalization."
+}

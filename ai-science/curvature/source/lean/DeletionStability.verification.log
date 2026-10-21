@@ -1,0 +1,4 @@
+'CurvatureDeletion.no_exclusion_deficit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureDeletion.hall_numerator_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureDeletion.deletion_budget_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureDeletion.equality_rigidity' depends on axioms: [propext, Classical.choice, Quot.sound]

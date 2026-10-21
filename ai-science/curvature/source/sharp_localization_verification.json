@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "sharp_families": [
+    {
+      "k": 2,
+      "n": 5,
+      "beta": 3,
+      "degrees": [
+        2,
+        3
+      ],
+      "curvature": "-1/3",
+      "triangle_gap": "1/3"
+    },
+    {
+      "k": 3,
+      "n": 10,
+      "beta": 7,
+      "degrees": [
+        3,
+        8
+      ],
+      "curvature": "1/12",
+      "triangle_gap": "1/24"
+    },
+    {
+      "k": 4,
+      "n": 17,
+      "beta": 13,
+      "degrees": [
+        4,
+        15
+      ],
+      "curvature": "7/60",
+      "triangle_gap": "1/60"
+    },
+    {
+      "k": 5,
+      "n": 26,
+      "beta": 21,
+      "degrees": [
+        5,
+        24
+      ],
+      "curvature": "7/60",
+      "triangle_gap": "1/120"
+    },
+    {
+      "k": 6,
+      "n": 37,
+      "beta": 31,
+      "degrees": [
+        6,
+        35
+      ],
+      "curvature": "23/210",
+      "triangle_gap": "1/210"
+    },
+    {
+      "k": 7,
+      "n": 50,
+      "beta": 43,
+      "degrees": [
+        7,
+        48
+      ],
+      "curvature": "17/168",
+      "triangle_gap": "1/336"
+    },
+    {
+      "k": 8,
+      "n": 65,
+      "beta": 57,
+      "degrees": [
+        8,
+        63
+      ],
+      "curvature": "47/504",
+      "triangle_gap": "1/504"
+    },
+    {
+      "k": 9,
+      "n": 82,
+      "beta": 73,
+      "degrees": [
+        9,
+        80
+      ],
+      "curvature": "31/360",
+      "triangle_gap": "1/720"
+    },
+    {
+      "k": 10,
+      "n": 101,
+      "beta": 91,
+      "degrees": [
+        10,
+        99
+      ],
+      "curvature": "79/990",
+      "triangle_gap": "1/990"
+    }
+  ],
+  "boundary_shortcut_checks": 27
+}

@@ -1,0 +1,3 @@
+'CurvatureCut.distance_constraint_encoding' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvatureCut.clip_target_label' depends on axioms: [propext, Quot.sound]
+'CurvatureCut.baseline_objective' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "full_exact_transport_checks": 34,
+  "families": [
+    {
+      "k": 2,
+      "maximal_second_order_intercept": 1
+    },
+    {
+      "k": 3,
+      "maximal_second_order_intercept": 4,
+      "last_transient_order": 13,
+      "persistent_beta": 4
+    },
+    {
+      "k": 4,
+      "maximal_second_order_intercept": 9,
+      "last_transient_order": 21,
+      "persistent_beta": 6
+    },
+    {
+      "k": 5,
+      "maximal_second_order_intercept": 16,
+      "last_transient_order": 31,
+      "persistent_beta": 8
+    },
+    {
+      "k": 6,
+      "maximal_second_order_intercept": 25,
+      "last_transient_order": 43,
+      "persistent_beta": 10
+    },
+    {
+      "k": 7,
+      "maximal_second_order_intercept": 36,
+      "last_transient_order": 57,
+      "persistent_beta": 12
+    },
+    {
+      "k": 8,
+      "maximal_second_order_intercept": 49,
+      "last_transient_order": 73,
+      "persistent_beta": 14
+    },
+    {
+      "k": 9,
+      "maximal_second_order_intercept": 64,
+      "last_transient_order": 91,
+      "persistent_beta": 16
+    },
+    {
+      "k": 10,
+      "maximal_second_order_intercept": 81,
+      "last_transient_order": 111,
+      "persistent_beta": 18
+    }
+  ],
+  "seconds": 1.040799617767334
+}

@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "max_n": 8,
+  "exact_marked_edge_checks": 420914,
+  "equality_cases": 1092,
+  "zero_cases": 126,
+  "by_order": [
+    {
+      "n": 3,
+      "marked_deletion_sets": 3
+    },
+    {
+      "n": 4,
+      "marked_deletion_sets": 16
+    },
+    {
+      "n": 5,
+      "marked_deletion_sets": 130
+    },
+    {
+      "n": 6,
+      "marked_deletion_sets": 1471
+    },
+    {
+      "n": 7,
+      "marked_deletion_sets": 21700
+    },
+    {
+      "n": 8,
+      "marked_deletion_sets": 397594
+    }
+  ],
+  "seconds": 95.89102125167847
+}
