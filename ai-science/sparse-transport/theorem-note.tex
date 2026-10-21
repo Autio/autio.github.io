@@ -1,0 +1,112 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=.78in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,microtype,xurl}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\title{A sharp cutoff for transient Hall defects\\in graph complements}
+\author{Petri Mikael Autio\thanks{Proposed attribution subject to the named author's acceptance. Substantial Codex/Astra assistance; no independent human mathematical review is claimed.}}
+\date{Research note for focused review, 21 October 2026}
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+\textbf{Question.} Under bounded complement codegree, how large can a graph be if a Hall obstruction to zero-idleness triangle equality disappears under universal-vertex padding? The proposed answer is an exact order cutoff. This note isolates the structural argument from the longer algorithm paper. Priority remains unresolved.
+
+Let $G$ be a connected finite simple graph and $H=\overline G$, with
+$|N_H(u)\cap N_H(v)|\le k$ for $u\ne v$, where $k\ge2$.
+For $xy\in E(G)$ orient $a=d_G(x)\le b=d_G(y)$ and set $d=b-a$.
+Write $A=N_G(x)\setminus N_G(y)$, $B=N_G(y)\setminus N_G(x)$,
+$C=N_G(x)\cap N_G(y)$ and $R=V\setminus(N_G(x)\cup N_G(y))$;
+their sizes are $\alpha,\beta,c,r$. Then
+\[
+ a=\alpha+c,\quad b=\beta+c,\quad d=\beta-\alpha,\quad n=a+\beta+r,\quad r\le k.
+\]
+For uniform measures on \emph{open} neighborhoods, $\kappa_0(x,y)\le c/b$.
+Cancel common mass and multiply by $ab$: each source in $A$ supplies $b$,
+each source in $C$ supplies $d$, and each target in $B$ demands $a$.
+Weighted Hall gives equality exactly when every target set has enough adjacent supply.
+A deficient set $S\subseteq B\setminus\{x\}$ has $s=|S|$ and excludes $p$ sources of $A$ and $q$ of $C$, with positive numerator
+\[
+ F=(s+p-\beta)a+d(p+q)>0.
+\]
+Call its leading coefficient $L=s+p-\beta$ its \emph{slope}: adjoining a universal vertex to $G$ increases $F$ by $L$.
+
+\begin{theorem}[Cutoff]
+Every deficient set with $L<0$ satisfies $F\le k^2+k+2-n$, hence $n\le k^2+k+1$. There is no such set for $k=2$. For every $k\ge3$ the order bound is attained.
+Above this order every defective edge satisfies
+$\beta\le\max(k+1,2k-2)$.
+\end{theorem}
+\textbf{Proof.}
+Every source sees target $x$, and source $y$ sees all targets, so a deficient set excludes $x$ and has $s\ge2$.
+An excluded source and $x$ have $S$ as common $H$-neighbors, so $s\le k$.
+Two targets have $x$ and all excluded sources as common $H$-neighbors, giving $p+q\le k-1$.
+Also $\alpha\ge p+1$ and $a\ge\alpha+q$.
+If $p\ge2$, two excluded exclusive sources share $S\cup\{y\}$ in $H$, hence $s\le k-1$.
+
+Put $e=p+q$, $u=a-e\ge1$ and $h=\beta-s-p\ge1$.
+The deficit identity becomes $F=e(s+p-\alpha)-hu>0$.
+Integrality and $\alpha\ge p+1$ imply
+\[
+ hu\le e(s-1)-1,\qquad u+h\le hu+1\le e(s-1),\qquad
+ a+\beta\le(e+1)s+p.
+\]
+For $p\le1$ the last expression is at most $k^2+1$; for $p\ge2$ it is at most $k^2-1$. More precisely, putting $N=k^2+k+1$,\[N+1-n-F=\bigl[N-((e+1)s+p+r)\bigr]+e(\alpha-p-1)+(u-1)(h-1)\ge0.\]
+For $k=2$, $hu\le e(s-1)-1\le0$ is impossible.
+Above the cutoff every deficient set has $L\ge0$, so $\beta\le s+p\le\max(k+1,2k-2)$.\hfill$\square$
+
+\newpage
+\begin{proposition}[Boundary refinement, candidate]
+Let $k\ge3$, $n=k^2+k+1$, and suppose an edge has a deficient set with $L<0$.
+Then $r=s=k$, $p=1$, $q=k-2$, $\alpha=2$, $F=1$, $b=k^2-1$, and exactly one of
+\[
+ (a,\beta,L)=(k,k^2-k+1,-k(k-2)),\qquad
+ (k^2-k-1,k+2,-1)
+\]
+holds. Moreover $\kappa_0(x,y)=c/b-1/(ab)$, and adjoining one universal vertex restores triangle equality at $xy$.
+These are numerical types, not uniqueness of the whole graph.
+\end{proposition}
+\textbf{Proof outline.}
+Equality in the cutoff chain forces $p=1$, $e=k-1$, $s=r=k$,
+$\alpha=p+1=2$, $F=1$, and $(u-1)(h-1)=0$ with $uh=k(k-2)$.
+This gives the two types and $b=k^2-1$.
+Let $A=\{y,z\}$. Since $x,z$ already share all $k$ vertices of $S$ in $H$,
+$z$ sees every vertex of $R$ in $G$ and every target outside $S$.
+For each $s\in S$, the vertices $y,s$ already share $z$ in $H$, so not all $k$ vertices of $R$ can be $H$-neighbors of $s$.
+Thus $z$ reaches $s$ in two $G$-steps through $R$.
+Common-source exceptions use a two-step path through $y$, so all residual costs are at most two. Every positive Hall witness is transient because $p\le1$ and $\beta\ge k+2$, hence its numerator is one by the same equality analysis.
+Maximum cost-one flow therefore leaves exactly one unit for cost two.
+After padding, each such numerator becomes $1+L\le0$.
+All other nonempty target sets have nonpositive slope: for $|S|\le k$ this follows from $p\le1$ and $\beta\ge k+2$; larger sets exclude no source.
+Their nonpositive numerators cannot increase; the empty set has deficit zero before and after padding.\hfill$\square$
+
+\textbf{Realizations of both types.}
+Take $x,y,z$ and disjoint sets $S,W,R,T,P$, with
+$|S|=|R|=k$, $|W|=k-2$, and put exactly
+\[
+ x\sim S\cup T,\qquad z\sim S\cup\{y\},\qquad W\sim S,\qquad R\sim\{x,y\}
+\]
+in $H$; vertices of $P$ are isolated in $H$.
+Choose $(|T|,|P|)=(k(k-2),0)$ or $(1,k(k-2)-1)$.
+Both complements are connected and have pair codegree at most $k$. More generally, taking $P=\varnothing$ and $1\le |T|\le k(k-2)$ attains $F=k^2+k+2-n$ at every integer $3k+2\le n\le k^2+k+1$.
+The set $S$ gives the asserted parameters. Adding an $H$-edge inside $T$ in the first case, or inside $P$ in the second, gives nonisomorphic examples; the numerical classification does not assert graph rigidity.
+
+\textbf{What is established background and what needs review.}
+Weighted Hall, common-mass cancellation, and transport duality are classical.
+Li--Lu give unequal-degree weighted Hall criteria for a related LLY equality bound [2].
+Chen--Liu--You supply the complement framework and local counting principles [1, Section 5]; their four-block template [1, Section 6] also underlies these constructions, with a modification of $k-2$ complement edges.
+Asai--Yamada study zero-idleness triangle equality for specific edge-deleted complete graphs [3].
+The proposed contribution to assess is the universal sharp cutoff and its boundary refinement, not those ingredients.
+
+\textbf{Verification scope.}
+The longer paper supplies computational checks. Lean files connect actual graph sets to the quantitative cutoff, scalar consequences, boundary counts and paths. Weighted Hall and its graph-specific real/integer unit-baseline transport equivalence are checked. Metric common-mass cancellation, general higher-cost integrality, extremal realization and the complete curvature corollary remain outside the formal proof. This note remains subject to adversarial and expert review.
+
+\small
+[1] K. Chen, S. Liu, Z. You, \emph{Criteria on forbidden subgraphs in the complements for positive Lin--Lu--Yau curvature}, 2026. \url{https://arxiv.org/abs/2605.03470}.
+
+[2] Y. Li, L. Lu, \emph{Ricci Curvature Formula: Applications to Bonnet--Myers Sharp Irregular Graphs}, 2024, Corollaries 2--3. \url{https://arxiv.org/abs/2409.15667v2}.
+
+[3] Y. Asai, T. Yamada, \emph{Ollivier Ricci curvature on graphs obtained by removing edges from complete graphs}, 2026. \url{https://arxiv.org/abs/2605.30830v2}.
+\end{document}
