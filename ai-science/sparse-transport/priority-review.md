@@ -33,6 +33,13 @@ certificate of novelty. It replaces the earlier, less complete priority summary.
   supplies integral potentials and reduced local programs; [Hehl](https://arxiv.org/abs/2407.08854v3)
   supplies regular-graph assignment formulas. Common-mass cancellation,
   matching deficiency, minimum-cut lattices and transport duality are classical.
+- [Bonini, Carroll, Dinh, Dye, Frederick and Pearse (2020)](https://doi.org/10.2140/involve.2020.13.559),
+  [arXiv:1907.06733v1](https://arxiv.org/html/1907.06733), Theorem 4.6 and
+  preceding alternating-path lemmas, already express condensed (LLY) curvature
+  in strongly regular graphs through maximum-matching deficiency. This also
+  applies more generally to regular diameter-two graphs, as their Remark 1.3
+  states. Matching and alternating reachability are established curvature tools;
+  their isolated use is not a new contribution here.
 - [Ahuja, Orlin, Stein and Tarjan (1994)](https://doi.org/10.1137/S0097539791199334),
   Theorem 5.2 and Section 8, give a specialized O(tE+t³) flow bound extended to
   a known vertex cover of size t. The [primary report](https://www.cs.princeton.edu/techreports/1991/338.pdf)
@@ -50,7 +57,7 @@ For a connected simple graph whose complement has pair codegree at most k:
    the curvature deficit is exactly 1/(ab), and one universal vertex repairs
    equality. This is not a classification of the entire graph up to isomorphism.
 3. Above the cutoff, the codegree bounds localize defective targets, and the
-   residual distance-three support is a star (with the fixed k=2,n=8 fallback).
+   residual distance-three support is a star after the equality shortcuts.
    Under a>d(k−1), one inclusion-minimal maximum-slope Hall set evaluates the
    full weighted deficit and decides the row-star correction. No second matching
    or common-source row construction is needed on that branch.
@@ -58,6 +65,13 @@ For a connected simple graph whose complement has pair codegree at most k:
    bound; the large-order branch takes O(k³n²). A classical unimplemented AOST
    small-order substitution gives O(k⁴n²). No optimality or best-known exponent
    claim is made, and Python timings are not a proof of these asymptotic bounds.
+5. At codegree two and every order, equality fails exactly for the pattern
+   A={y,z}, B={x,s,t}, with z nonadjacent to both s,t. The curvature deficit is
+   (1+indicator(deg(z)=1))/(ab). A direct transport construction evaluates it.
+   This also rules out the apparent eight-vertex exception after the existing
+   shortcuts. The focused primary-source pass did not find this complete
+   classification explicitly in Chen–Liu–You, Li–Lu, Asai–Yamada or Kelly;
+   that limited finding does not establish priority or a first-formula claim.
 
 No inspected primary theorem was found that directly implies this entire
 combination. The search is incomplete: especially close proof-level overlap

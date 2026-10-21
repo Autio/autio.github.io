@@ -3,7 +3,7 @@
 21 October 2026. A compiled, reproducible research draft; independent human
 mathematical review and priority remain open. This is not an arXiv submission.
 
-The 21-page paper now includes a quantitative sharp Hall cutoff, two numerical
+The 22-page paper now includes a quantitative sharp Hall cutoff, two numerical
 boundary types with exact deficit and one-vertex repair, and a complete
 large-order single-matching treatment of distance-three stars. The short
 [two-page note](theorem-note.pdf) isolates the structural cutoff for focused review.
@@ -11,8 +11,9 @@ See [priority-review.md](priority-review.md) for the close construction overlap
 and explicit credit to prior weighted Hall, assignment, complement counting
 and flow results.
 
-The implemented hybrid bound is O(k⁵n²), with O(k³n²) at large order including
-the fixed-size exceptional fallback. The O(k⁴n²) all-orders result uses a
+The implemented hybrid bound is O(k⁵n²), with O(k³n²) at large order using
+matching or shortcuts alone. The codegree-two argument removes the earlier
+apparent eight-vertex exception. The O(k⁴n²) all-orders result uses a
 classical AOST backend that has not been implemented. All bounds use indexed
 word arithmetic and unreduced rational output, not a unit-cost assumption for
 arbitrary-precision normalized Python Fractions.
@@ -28,10 +29,12 @@ arbitrary-precision normalized Python Fractions.
 - The quantitative/boundary audit checks 366 full transport instances. A second
   boundary protocol checks 40 graph variations, all 168,320 target subsets,
   and 80 full transport values. These finite protocols corroborate the proofs.
-- Ten Lean modules compile with Lean/Mathlib 4.19.0. They include actual graph
+- Fifteen substantive Lean modules compile with Lean/Mathlib 4.19.0. They include actual graph
   set/count bridges, weighted Hall by cloning, integer clone-transport baseline,
-  boundary paths and the four-codegree cover. This is partial formalization;
-  metric cancellation, real/integer integrality, the complete algorithm and
+  real/integer unit-baseline feasibility, the graph quantitative bound and
+  canonical maximizer, boundary paths and the four-codegree cover. The scalar
+  restricted-set correction is conditional on an explicit margin. This is partial formalization;
+  metric cancellation, general higher-cost integrality, the complete algorithm and
   runtime theorem remain outside an end-to-end formal proof.
 - Five-trial comparisons include NetworkX, SciPy/HiGHS/assignment and POT.
   Baselines already use common-mass cancellation and appropriate aggregation.
@@ -39,8 +42,24 @@ arbitrary-precision normalized Python Fractions.
   workloads can benefit, but cold indexing loses badly on small batches and
   sparse graphs. The final star supplement is especially noisy on the shared
   host; exact coverage is stronger evidence than small timing differences.
+- A separate full-size dual verifier passes 3,734 eligible small-graph edges
+  and six larger controls and rejects three corrupted certificates. It checks
+  every actual residual inequality and the exact objective, using BFS distances.
+  This slow verifier is outside the fast algorithm and its benchmark clock.
+  A feasible dual alone is a lower bound, not a primal plan; the independent
+  transport comparison checks optimality on these test instances only.
 
 ## Reproducibility and submission
+
+An additional all-orders codegree-two corollary classifies every defective
+edge by A={y,z}, B={x,s,t}, with z nonadjacent to both s,t. Its curvature
+deficit is (1+indicator(deg(z)=1))/(ab). A direct transport construction
+proves this value without the general nested dual identity. Exact checks pass
+179,074 edges and 622,148 Hall subsets on 21,199 eligible graphs through order
+six. These overlap previous coverage. Its numerical witness type is checked
+in Lean; the complete transport construction remains handwritten. The focused
+primary-source search did not find this classification stated explicitly;
+that does not establish priority.
 
 The new [focused reproducibility archive](reproducibility-stage3.zip) includes
 the final code and dependency closure, independent checks, recorded benchmark

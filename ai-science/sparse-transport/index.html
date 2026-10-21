@@ -13,7 +13,7 @@
 <h1>Sharp Hall localization</h1>
 <span class="research-state">Novelty and independent human review remain open</span>
 <p>A large transport problem can sometimes be replaced by one small matching. This draft studies when missing-road structure makes that possible, and exactly where a local obstruction disappears.</p>
-<div class="paper-actions"><a href="paper.pdf">Read the paper · 21 pages</a><a href="theorem-note.pdf">Two-page theorem note</a><a href="main.tex">LaTeX source</a><a href="arxiv-source-draft.zip">Prepared arXiv sources</a><a href="reproducibility-stage3.zip">Current code and checks</a></div>
+<div class="paper-actions"><a href="paper.pdf">Read the paper · 22 pages</a><a href="theorem-note.pdf">Two-page theorem note</a><a href="main.tex">LaTeX source</a><a href="arxiv-source-draft.zip">Prepared arXiv sources</a><a href="reproducibility-stage3.zip">Current code and checks</a></div>
 <p class="science-note">21 October 2026. Substantial OpenAI Codex and Astra assistance is disclosed in the paper. This is a public review draft, with proposed human authorship subject to acceptance. It has not been submitted to arXiv or independently reviewed by a human specialist.</p>
 </header>
 <section class="science-section"><h2>The idea, without the notation</h2>
@@ -24,7 +24,8 @@
 <section class="science-section"><h2>What this revision proposes</h2>
 <ul><li>A quantitative cutoff: a transient Hall obstruction has scaled size at most k² + k + 2 − n. For k ≥ 3 the last possible graph order is exactly k² + k + 1. For k = 2 no such transient witness exists.</li>
 <li>At that boundary, two numerical witness types survive. The curvature deficit is exactly 1/(ab), and adding one universally connected vertex repairs equality. This does not classify the entire graph up to isomorphism.</li>
-<li>The large-order matching method now handles three-step transport as well as one/two-step cases. It reuses one canonical matching; the fixed k = 2, n = 8 exception uses a small exact fallback.</li></ul>
+<li>The large-order matching method handles three-step transport using one canonical matching. The codegree-two argument removes the apparent eight-vertex exception.</li>
+<li>At codegree two, an explicit all-orders formula classifies every defective edge. Its small local pattern has deficit 1/(ab), doubled precisely when the exceptional source is pendant.</li></ul>
 <p>The implemented hybrid has an O(k⁵n²) word-operation bound. The large-order branch takes O(k³n²). A theoretical O(k⁴n²) all-orders version substitutes a classical AOST flow backend at small order; that backend is unimplemented.</p>
 <details><summary>Assumptions and interpretation</summary>
 <p>G is a connected simple graph; its complement has at most k common neighbors at every distinct pair. Curvature uses uniform open-neighborhood measures at idleness zero. At an oriented edge, a ≤ b are endpoint degrees.</p>
@@ -36,7 +37,7 @@
 <p>The proposed additions are the sharp quantitative bound, boundary refinement and complete localized single-matching reduction. Our search has not established priority. <a href="priority-review.md">Read the expanded priority review</a>.</p></section>
 <section id="evidence" class="science-section"><h2>Evidence, including the negative results</h2>
 <p>The final optional backend agrees with independent exact transport on <strong>164,594 eligible edges</strong> in all 27,475 connected labeled graphs through six vertices; it deliberately skips 53,900 ineligible edges. A separately coded star audit checks 35,072 cases. The all-orders wrapper passes 5,659 edges, including fallback calls. These protocols overlap and are not added as independent graph coverage.</p>
-<p>Ten Lean modules compile with Lean and Mathlib 4.19.0. They check graph-set counting, weighted Hall and integer clone transport, boundary paths and the four-codegree cover. Metric cancellation, the real/integer transport bridge, the complete algorithm and its runtime are outside an end-to-end formal proof.</p>
+<p>Fifteen substantive Lean modules compile with Lean and Mathlib 4.19.0. They check actual graph counting and canonical maximizers, weighted Hall and real/integer unit-baseline feasibility, boundary paths and the four-codegree cover. Restricted-set correction arithmetic has an explicit margin hypothesis. Metric cancellation, general higher-cost integrality, the complete algorithm and its runtime are outside an end-to-end formal proof.</p>
 <p>Five-trial comparisons include NetworkX, SciPy and POT, with standard reductions already applied to the baselines. <strong>POT wins all ten generic transport-matrix medians.</strong> Structural matching can help dense all-edge workloads, while cold indexing loses badly on small batches and sparse graphs.</p>
 <div class="table-wrap"><table class="research-table"><caption>Final single-matching supplement. Cold milliseconds, median ± MAD over five trials, including indexing.</caption><thead><tr><th scope="col">All-edge workload</th><th scope="col">Queries</th><th scope="col">New matching</th><th scope="col">POT dispatch</th></tr></thead><tbody>
 <tr><th scope="row">Row-star family, n = 55</th><td>1,430</td><td>37.626 ± 9.294</td><td>60.912 ± 8.309</td></tr>
