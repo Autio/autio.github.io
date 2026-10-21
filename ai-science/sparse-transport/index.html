@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sharp Hall localization — AI Science Experiments</title>
+<meta name="description" content="A research draft on exact graph curvature, with sharp structural bounds, reproducible checks, explicit prior-art credit and open novelty questions.">
+<link rel="canonical" href="https://autio.github.io/ai-science/sparse-transport/">
+<link rel="stylesheet" href="/stylesheets/portfolio.css"><link rel="stylesheet" href="/stylesheets/ai-science.css">
+<style>.paper-actions{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0}.paper-actions a{padding:10px 14px;border:1px solid #bfd0df;border-radius:6px;background:white}.research-table{width:100%;border-collapse:collapse;font-size:.9rem}.research-table th,.research-table td{text-align:left;padding:12px;border-bottom:1px solid #dfe7ee}.table-wrap{overflow-x:auto}.formula{padding:16px;background:#edf3f8;border-left:3px solid #2878aa;font-family:Georgia,serif}.science-page details{margin:22px 0}.science-page summary{cursor:pointer;font-weight:600}.science-note{font-size:.9rem;color:#4a6071}</style>
+</head><body class="science-page"><a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation"><div class="container nav-inner"><a href="/" class="nav-brand">Petri Mikael Autio</a><ul class="nav-links"><li><a href="/ai-science/">AI Science</a></li><li><a href="/ai-science/curvature/">Curvature demo</a></li><li><a href="#evidence">Evidence</a></li></ul></div></nav>
+<main id="main"><div class="science-wrap"><header class="science-intro">
+<p><a href="/ai-science/">← AI Science Experiments</a></p><span class="science-kicker">Graph curvature · algorithm paper draft</span>
+<h1>Sharp Hall localization</h1><span class="research-state">Research draft · novelty and independent review open</span>
+<p>When does a difficult network calculation actually need a large optimization problem? This experiment studies a family of densely connected graphs and finds sharp restrictions on the part that can cause trouble.</p>
+<div class="paper-actions"><a href="paper.pdf">Read the paper (PDF)</a><a href="main.tex">LaTeX source</a><a href="arxiv-source-draft.zip">Prepared arXiv sources</a></div>
+<p class="science-note">21 October 2026. Substantial assistance from OpenAI Codex and Astra agents is disclosed in the paper. The draft has not been submitted to arXiv or independently checked by a human specialist.</p></header>
+<section class="science-section"><h2>The idea, without the notation</h2>
+<p>Imagine putting a little sand on each neighbor of one place in a network. Move it to the neighbors of the next place, paying for every road it travels. The cheapest possible move tells us the curvature of that road.</p>
+<p>Our graphs have a restriction on their missing roads: any two places share at most <em>k</em> missing neighbors. That restriction limits where a shortage of direct routes can hide. The proposed proofs tell us when a simple neighbor count is already exact, and when the remaining optimization has a small side.</p>
+<p>The earlier experiment has an <a href="/ai-science/curvature/">interactive curvature demo</a>. This page records the algorithm-paper extension.</p></section>
+<section class="science-section"><h2>What changed in this revision</h2>
+<ul><li>A scalar Hall bound identifies more edges that need no transport solve. It also improves the small-graph runtime analysis.</li>
+<li>A direct transport solver replaces the earlier two-level closure construction. It uses classical shortest paths and blocking flows in at most three marginal-cost stages.</li>
+<li>In the cost-one/two regime, a canonical matching witness can avoid constructing the common-source rows altogether. This specialization is implemented separately.</li></ul>
+<p>The resulting general design has a candidate bound of O(k⁵ log(k+1)n²) word-RAM operations for all edge values. The earlier paper reached that exponent only with an unimplemented general-flow backend. The revised design uses ordinary Dinic throughout. The eligible large-order specialization takes O(k³) operations per edge after shared preprocessing.</p>
+<details><summary>The structural statements</summary>
+<p>Use uniform open-neighborhood measures at idleness zero. Let H be the complement of a connected simple graph G. Every distinct pair in H has at most k common neighbors.</p>
+<p>A deficient Hall witness with negative leading coefficient requires n ≤ k²+k+1. Above that sharp cutoff, an exceptional edge has at most bₖ = max(k+1, 2k−2) residual targets.</p>
+<p>If a ≤ b are endpoint degrees, d = b−a, and β counts targets in N(y) ∖ N(x), the new scalar upper bound is:</p>
+<p class="formula">U = (bₖ − β)a + d(k − 1).</p>
+<p>U ≤ 0 certifies equality in the triangle bound. When U &gt; 0, either β &lt; 2bₖ or a &lt; 2(k−1). This makes one residual side small even below the order cutoff.</p>
+<p>The theorem concerns indexed word-RAM operations and unreduced rational output. Python hashing, allocation and fraction normalization have their own costs. The dependence on k is not claimed optimal.</p></details></section>
+<section class="science-section"><h2>What belongs to prior work</h2>
+<p><a href="https://arxiv.org/html/2605.03470v1">Chen, Liu and You</a> already use forbidden complements, bounded missing-neighbor counts in Claim 5.2, and related pair counting. Those proof ingredients receive explicit credit here. Their result concerns positive Lin–Lu–Yau curvature; the proposed sharp cutoff concerns a finer equality defect for zero-idleness curvature.</p>
+<p><a href="https://arxiv.org/html/1909.12156v2">Kelly</a> gives integral graph potentials and reduced local programs. <a href="https://arxiv.org/html/2407.08854">Hehl</a> gives regular-graph assignment formulas. Matching, row aggregation, segment trees and the flow methods are established tools.</p>
+<p>The candidate contribution is the sharp Hall localization, its extremal examples, the new small-side filter, and the indexed computational consequences. Our broader search recommends reworking and checking those claims before submission. It has not established priority.</p>
+<p><a href="review.md">Read the review and release status</a> · <a href="priority-review.md">Expanded prior-art audit</a></p></section>
+<section id="evidence" class="science-section"><h2>Evidence and its limits</h2>
+<p>The revised general solver agrees with independent exact transport on <strong>218,956 edge comparisons</strong>, including every edge of all 27,475 connected labeled graphs through six vertices. These replay earlier instances; repeated checks are not additional distinct graph coverage.</p>
+<p>It also agrees on all 3,988 connected cases retained from an RTX 5090 sample of 4,096 nine-vertex graphs. The GPU enumerated potential labels exhaustively for each sampled graph; it did not exhaust all nine-vertex graphs.</p>
+<p>Both new transport representations passed 21,279 complete ternary cost matrices with seeded integral marginals. Six new scalar-filter arithmetic lemmas compile in Lean 4.19.0. The full transport and complexity theorem is not formalized end to end.</p>
+<p>The optional canonical-witness backend matches full exact transport on 137,414 eligible edges in the exhaustive six-vertex suite. Ineligible cases are deliberately skipped. Its large cubic-row families are checked separately.</p>
+<div class="table-wrap"><table class="research-table"><caption>Latest synthetic k=32 benchmark. Median seconds, three trials; includes construction and certificates.</caption><thead><tr><th scope="col">Costs</th><th scope="col">Closure dense</th><th scope="col">Closure segment</th><th scope="col">Primal dense</th><th scope="col">Primal segment</th></tr></thead><tbody><tr><th scope="row">1 / 2</th><td>1.340</td><td>2.040</td><td>0.575</td><td>0.626</td></tr><tr><th scope="row">1 / 3</th><td>1.158</td><td>1.316</td><td>0.590</td><td>0.676</td></tr></tbody></table></div>
+<p>The direct solver is faster in these displayed cases. The complete record includes a small case where it is slower. Dense primal flow beats segment primal flow in both displayed comparisons. The older closure encoding was also consistently slower with segment trees in its original study.</p>
+<p class="science-note">These are exploratory synthetic measurements on a shared Windows host with uncontrolled load. They do not establish performance on real networks, a stable crossover, or superiority to the best available transport software. The full code, proof logs and raw records remain in the local reproducibility package; that broader archive is not part of this public review draft.</p></section>
+<section class="science-section"><h2>A literal connection to adjunctions</h2>
+<p>The transport inequalities admit two potential-tightening maps, built from minima and maxima, that form a monotone adjunction. The paper gives the elementary calculation. This is established order theory, with no runtime conclusion by itself.</p>
+<p>It is a small mathematical connection to the structures discussed on nLab, and a companion to the separate <a href="/projects/scienceoflogic/">HegelWheel</a> project. No claim is made that a philosophical interpretation proves the algorithm.</p></section>
+<section class="science-section"><h2>Before submission</h2><p>The remaining questions are mathematical review of the structural arguments, the precise priority comparison, and the human author's acceptance of the final paper and disclosure. arXiv account, endorsement and license choices are separate release decisions. Preparing a source ZIP does not settle them.</p></section>
+</div></main><footer class="site-footer"><div class="container footer-inner"><a href="/ai-science/">AI Science Experiments</a><a href="https://github.com/Autio/autio.github.io">Website source</a></div></footer></body></html>

@@ -1,0 +1,576 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Oh}{\mathcal O}
+\newcommand{\NH}{N_H}
+\newcommand{\NGraph}{N_G}
+\newcommand{\cdeg}{\operatorname{codeg}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\title{Sharp Hall localization and exact curvature\protect\\in graph complements}
+\author{Petri Mikael Autio\thanks{Proposed attribution in a research draft, subject to the named author's acceptance. Significant AI assistance and the current review status are disclosed in Section~\ref{sec:status}.}}
+\date{21 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $G$ be a connected simple graph whose complement has at most $k$ common neighbors at every pair of distinct vertices. We study equality in the triangle upper bound for zero-idleness Ollivier curvature. A weighted Hall obstruction with negative leading coefficient exists only when $n\le k^2+k+1$; this cutoff is sharp. Above it, every defective edge has at most $\max\{k+1,2k-2\}$ residual targets, also sharp for $k\ge3$. At every order, a scalar Hall bound forces one side of each surviving transport instance to have size $\Oh(k)$. These structural facts, together with indexed pair-witness counting, give an implemented exact all-edge algorithm using $\Oh(k^5\log(k+1)n^2)$ word-RAM operations. The optimization is classical: at most three integral marginal-cost stages, each solved by ordinary Dinic blocking flow, on a dense small-order or sparse large-order representation. For eligible one/two-cost instances at large order, a canonical matching witness gives an additional $\Oh(k^3)$ per-edge specialization without constructing the common-source rows. A cubic family shows that identical-row aggregation alone can retain $\Theta(k^3)$ positive-supply rows. We report exact verification and negative as well as positive synthetic timing results; the earlier sparse closure encoding was slower than its dense counterpart. The claimed contribution is structural localization and its computational consequences, not a new general flow algorithm. Priority and independent human review remain unresolved.
+\end{abstract}
+
+\section{Problem, result, and relation to previous work}
+
+For a vertex $x$ of positive degree, let $\mu_x$ be the uniform probability measure on its open neighborhood $\NGraph(x)$. For an edge $xy$, define
+\[
+ \kappa_0(x,y)=1-W_1(\mu_x,\mu_y),
+\]
+where transport cost is shortest-path distance in $G$. The subscript emphasizes zero idleness: neither closed-neighborhood measures nor the Lin--Lu--Yau limiting convention is used. Write $H=\overline G$ and assume
+\begin{equation}\label{eq:codegree}
+ |\NH(u)\cap\NH(v)|\le k\qquad(u\ne v).
+\end{equation}
+This is equivalent to excluding $K_{2,k+1}$ as a not necessarily induced subgraph of $H$. It does not bound the maximum degree of $H$.
+
+The structural results concern a marked edge $xy$ oriented so that $a=d_G(x)\le b=d_G(y)$. Write $d=b-a$, $c=|\NGraph(x)\cap\NGraph(y)|$, $\beta=|\NGraph(y)\setminus\NGraph(x)|$, and $b_k=\max\{k+1,2k-2\}$. The triangle bound is $\kappa_0(x,y)\le c/b$.
+
+\begin{theorem}[Structural localization, summary]\label{thm:structural}
+Let $k\ge2$. Every positive scaled Hall deficiency is at most
+\[
+ U=(b_k-\beta)a+d(k-1).
+\]
+Thus $U\le0$ implies $\kappa_0(x,y)=c/b$. Every edge surviving this scalar test satisfies $\min(a,\beta)<2b_k$. A deficient Hall witness with negative coefficient of $a$ has $n\le k^2+k+1$. Above that order, every defective edge satisfies $\beta\le b_k$. The order cutoff and, for $k\ge3$, the persistent bound $\beta\le2k-2$ are sharp.
+\end{theorem}
+
+The scalar test, proved in Proposition~\ref{prop:scalar}, applies at every order; it need not decide equality on every edge. The finite-order cutoff is proved in Theorem~\ref{thm:cutoff}. Their combination is useful because the residual transport may have many common sources, and distance-three transfers can remain necessary even at arbitrarily large order.
+
+\begin{corollary}[Exact all-edge computation]\label{thm:main}
+For $k\ge2$, condition~\eqref{eq:codegree} can be recognized and, on a connected accepted graph, all edge curvatures can be computed exactly in
+\[
+ \Oh\bigl(k^5\log(k+1)n^2\bigr)
+\]
+word-RAM operations, using $\Oh(kn^2)$ words of space and unreduced rational output. The algorithm described below uses ordinary current-arc Dinic in a classical primal-dual transport method. It uses dense transport when $n\le k^2+k+1$ and a segment representation otherwise. For $k=1$, all edges attain the triangle bound and $\Oh(n^2)$ time suffices. Explicitly listing all edge values requires quadratic time in $n$ in the worst case.
+\end{corollary}
+
+The corresponding algorithm is implemented in the supplied Python code. The deterministic RAM bound assumes indexed adjacency and pair-witness tables and constant-time exact arithmetic on $\Oh(\log n)$-bit words, with $k$ capped at $\max(1,n-2)$. Python sets and dictionaries instead provide expected-time access. Reduced \texttt{Fraction} outputs add normalization costs omitted from the unreduced-output theorem.
+
+The closest prior framework is Chen, Liu, and You~\cite{chen}, who study positive Lin--Lu--Yau curvature under forbidden subgraphs in complements. Their Claim~5.2 already bounds the number of missing neighbors into the relevant exclusive neighborhood by $k$; their Section~5 also reserves an endpoint when counting common nonneighbors. We explicitly credit these local counting principles. The present sharp cutoff classifies transient defects in equality for zero-idleness curvature, rather than positivity of Lin--Lu--Yau curvature. For $k\ge8$, our sharp cutoff construction has $n=k^2+k+1\ge\max\{k^2+1,8k+8\}$ and hence lies within their Theorem~1.2 with $t=k+1$: every edge has positive Lin--Lu--Yau curvature, while the marked edge still has a transient triangle defect. This is a distinct conclusion inside their positivity regime; it is not a claim that the complement viewpoint or its basic counting tools are new.
+
+Kelly~\cite{kelly} proves integrality of graph potentials and develops reduced local linear programs. Hehl~\cite{hehl} gives optimal-assignment formulas for regular graphs, including zero-idleness curvature; in the equal-degree case, cancellation of the common neighborhood and an assignment formulation are therefore established. Matching-based curvature results also precede this work~\cite{bm}. Closed-neighborhood computational results~\cite{dgm} must be compared with their measure convention intact.
+
+Successive shortest-path min-cost flow, feasible potentials, blocking flows, unbalanced-network analysis~\cite{aost}, and identical-row aggregation are established machinery. The segment tree only shares ordinary cost-one arcs. The candidate contribution is the sharp localization, the universal scalar test and resulting small-side property, and their use with indexed transport construction. We claim neither a new general flow algorithm nor an optimal dependence on $k$. Capacities retain $\Oh(\log n)$ bits, so no polynomial kernel in total bit length is claimed. A bounded literature audit does not establish priority.
+
+\section{Residual transport and Hall obstructions}\label{sec:hall}
+
+Orient an edge $xy$ so that $a=d_G(x)\le b=d_G(y)$, and put
+\begin{align*}
+ A&=\NGraph(x)\setminus\NGraph(y),& B&=\NGraph(y)\setminus\NGraph(x),\\
+ C&=\NGraph(x)\cap\NGraph(y),& R&=V(G)\setminus(\NGraph(x)\cup\NGraph(y)).
+\end{align*}
+Let $\alpha=|A|$, $\beta=|B|$, $c=|C|$, $r=|R|$, and $d=b-a$. Then
+\begin{equation}\label{eq:bookkeeping}
+ y\in A,\quad x\in B,\quad a=\alpha+c,\quad
+ \beta=\alpha+d,\quad n=a+\beta+r,\quad r\le k.
+\end{equation}
+Also $d_H(x)=\beta-1+r$ and $d_H(y)=\alpha-1+r$.
+
+An optimal metric transport plan can leave mass $1/b$ at each vertex of $C$. For completeness, maximize total diagonal mass among optimal plans. If a common vertex $v$ has less diagonal mass than the smaller of its two marginal masses, there are positive transfers $u\to v$ and $v\to w$, with $u,w\ne v$. Replace an equal amount of those transfers by $u\to w$ and $v\to v$. The triangle inequality prevents a cost increase, while diagonal mass increases, a contradiction. Repeating this argument gives maximal common-mass cancellation.
+
+The remaining sources are $A$, with supply $1/a$ per vertex, and $C$, with supply $d/(ab)$ per vertex; zero supplies may be omitted. The targets are $B$, each demanding $1/b$. The residual total is
+\begin{equation}\label{eq:mass}
+ T=\frac{\beta}{b}=1-\frac cb.
+\end{equation}
+All source-target pairs are distinct and cost at least one. Consequently $\kappa_0(x,y)\le c/b$, with equality precisely when the residual supplies admit transport using only edges of $G$.
+
+\begin{lemma}[Hall witness]\label{lem:hall}
+If $\kappa_0(x,y)<c/b$, there is a set $S\subseteq B\setminus\{x\}$ such that, writing $s=|S|$ and letting $p,q$ count the sources in $A,C$ adjacent to no member of $S$,
+\begin{equation}\label{eq:hallbounds}
+ 2\le s\le k,\qquad p+q\le k-1,\qquad
+ p+1\le\alpha,\qquad q\le c,
+\end{equation}
+and
+\begin{equation}\label{eq:deficit}
+ F=(s+p-\beta)a+d(p+q)>0.
+\end{equation}
+Conversely, any such set with $F>0$ certifies failure of equality. If $p\ge2$, then $s\le k-1$.
+\end{lemma}
+\begin{proof}
+Weighted Hall feasibility follows directly by putting source supplies on arcs from a super-source, target demands on arcs to a super-sink, and unrestricted capacities on the allowed source-target edges. A cut shows that feasibility is equivalent to every target set receiving enough supply from its adjacent sources. For $S$, excluded supply is $p/a+qd/(ab)$, so its demand minus available supply, multiplied by $ab$, is
+\[
+ sa-a\beta+pb+qd=(s+p-\beta)a+d(p+q).
+\]
+Every source is adjacent to $x$, so a deficient set cannot contain $x$. Source $y$ sees every target and supplies at least one target's demand, excluding singletons. If $s\ge k+1$, any excluded source and $x$ would have at least $k+1$ common neighbors in $H$. Thus no source is excluded and the set cannot be deficient. For $s\ge2$, choose two members of $S$. Their common $H$-neighbors include $x$ and every excluded source, proving $p+q\le k-1$. Source $y$ is not excluded, giving $p+1\le\alpha$. Finally two excluded exclusive sources have $S\cup\{y\}$ among their common $H$-neighbors, so $s+1\le k$ if $p\ge2$.
+\end{proof}
+
+For $k=1$ no witness is possible, giving the special case in Corollary~\ref{thm:main}. The same elementary witness bounds give an additional useful scalar filter.
+
+\begin{proposition}[Universal scalar bound and a small side]\label{prop:scalar}
+Put $b_k=\max\{k+1,2k-2\}$. Every deficient set satisfies $s+p\le b_k$ and
+\[
+ 0<F\le U:=(b_k-\beta)a+d(k-1).
+\]
+Consequently $U\le0$ certifies triangle equality. If $U>0$, then
+\[
+ \min(a,\beta)<2b_k.
+\]
+In particular, when $n\le k^2+k+1$, every surviving candidate satisfies $a\beta=\Oh(k^3)$.
+\end{proposition}
+\begin{proof}
+If $p\le1$, Lemma~\ref{lem:hall} gives $s+p\le k+1$; otherwise it gives $s+p\le2k-2$. Substitute this and $p+q\le k-1$ in~\eqref{eq:deficit}. Equality is equivalent to the absence of a positive Hall deficiency, so $U\le0$ is a valid certificate.
+
+If $\beta<2b_k$, the small-side conclusion is immediate. Otherwise $U>0$ gives
+\[
+ (\beta-b_k)a<d(k-1)\le\beta(k-1),
+\]
+whence $a<2(k-1)\le2b_k$. Finally $a+\beta\le n=\Oh(k^2)$ at small order, and the product of a quantity of order $k$ with one of order $k^2$ is $\Oh(k^3)$.
+\end{proof}
+
+We also record a general localization bound, useful for rejecting candidates before constructing any rows.
+
+\begin{proposition}[General localization]\label{prop:global}
+For $k\ge2$, failure of triangle equality implies
+\[
+ \beta\le k^2-k+1,\qquad d_H(x),d_H(y)\le k^2.
+\]
+\end{proposition}
+\begin{proof}
+Let $S$ be deficient. Its excluded mass is at most $(k-1)/a$, while source $y$ alone gives $b/a<s$. Therefore
+\[
+ \beta<s+(k-1)b/a<ks.
+\]
+If $s\le k-1$, this is stronger than required. If $s=k$, Lemma~\ref{lem:hall} gives $p\le1$. The case $\beta<k+p$ is immediate. Otherwise put $u=\alpha-p\ge1$ and $e=p+q\le k-1$. As $a\ge\alpha+q$ and $k+p-\beta\le0$,
+\begin{align*}
+ F&\le(k+p-\beta)(\alpha+q)+(\beta-\alpha)(p+q)\\
+  &=ek-u(\beta+q-k)\le(e+1)k-\beta-q.
+\end{align*}
+The last step uses $\beta+q-k\ge0$. Moreover
+\[
+ k^2-k+2-\bigl((e+1)k-q\bigr)
+ =(k-1-p-q)(k-1)+(1-p)\ge0.
+\]
+Thus $0<F\le k^2-k+2-\beta$, and integrality proves the result. The endpoint degree bounds follow from~\eqref{eq:bookkeeping}.
+\end{proof}
+
+\section{A sharp finite-order cutoff}\label{sec:cutoff}
+
+For a Hall set write $L=s+p-\beta$. Under padding by isolated vertices of $H$, the quantities $s,p,q,\alpha,\beta,d$ stay fixed while $a$ increases. Thus $F=aL+d(p+q)$ explains why witnesses with $L<0$ are transient.
+
+\begin{theorem}[Cutoff and persistent target bound]\label{thm:cutoff}
+A deficient Hall set with $L<0$ can occur only if
+\[
+ n\le k^2+k+1.
+\]
+Consequently, for $n\ge k^2+k+2$, any edge failing triangle equality satisfies
+\begin{equation}\label{eq:persistent}
+ \beta\le b_k:=\max\{k+1,2k-2\}.
+\end{equation}
+For $k\ge3$, the order cutoff, the bound $\beta\le2k-2$, and the resulting endpoint bound $d_H(x),d_H(y)\le3k-3$ are sharp.
+\end{theorem}
+\begin{proof}
+Put $e=p+q$, $u=a-e$, and $h=\beta-s-p$. By~\eqref{eq:hallbounds}, $u\ge1$, and $L<0$ gives $h\ge1$. Since $d=\beta-\alpha$, rewriting~\eqref{eq:deficit} gives
+\[
+ F=e(s+p-\alpha)-hu>0.
+\]
+All quantities are integers and $\alpha\ge p+1$, so
+\[
+ hu\le e(s-1)-1.
+\]
+Since $(u-1)(h-1)\ge0$, it follows that $u+h\le hu+1\le e(s-1)$. Therefore
+\begin{equation}\label{eq:cutoffestimate}
+ a+\beta=u+e+s+p+h\le(e+1)s+p.
+\end{equation}
+For $p\le1$, the right side is at most $k^2+1$. For $p\ge2$, we have $s\le k-1$ and $p\le k-1$, giving at most $k^2-1$. Adding $r\le k$ proves the order bound.
+
+Above the cutoff, any deficient set has $L\ge0$, hence $\beta\le s+p$. If $p\le1$ this is at most $k+1$; otherwise it is at most $2k-2$. Equation~\eqref{eq:bookkeeping} gives the endpoint bounds. Sharpness is established by the following explicit constructions.
+\end{proof}
+
+For sharpness of the order cutoff, take $x,y,z$, disjoint sets $W,S,T$ of sizes $k-2,k,k(k-2)$, and $k$ further vertices $R$. In $H$ put exactly
+\[
+ x\mathrel{\sim}(S\cup T),\quad z\mathrel{\sim}(S\cup\{y\}),\quad
+ W\mathrel{\sim}S,\quad R\mathrel{\sim}\{x,y\}.
+\]
+Here $P\mathrel{\sim}Q$ means all edges between the indicated disjoint sets. The order is $k^2+k+1$. At $xy$ in $G$,
+\[
+ a=k,\quad b=k^2-1,\quad\alpha=2,\quad
+ \beta=k^2-k+1,\quad c=k-2.
+\]
+The set $S$ excludes $z$ and $W$, so $p=1$, $q=k-2$, $L=2k-k^2<0$, and $F=1$ for $k\ge3$.
+To check~\eqref{eq:codegree}, put $D=\{x,z\}\cup W$. Every vertex of $S$ has neighborhood $D$, of size $k$; pairs in $D$ share at most $S$. The pair $x,y$ shares exactly $R$, also of size $k$. A pair $y,s$ for $s\in S$ shares only $z$; pairs involving $R$ have at most two common neighbors, and the remaining pair types have at most one or are already covered. The complement is connected for $k\ge3$, as $T$ connects to both $y$ and $z$ in $G$, $W$ connects to both $x$ and $y$, and $R$ connects to $S$.
+
+For persistent sharpness take disjoint sets $Z,S,T,R$ of sizes $k-1,k-1,k-2,k$, together with $x,y$, and put exactly
+\[
+ x\mathrel{\sim}(S\cup T),\quad Z\mathrel{\sim}S,\quad y\mathrel{\sim}Z,
+ \quad R\mathrel{\sim}\{x,y\}
+\]
+in $H$. Add arbitrarily many isolated $H$-vertices. Pairs in $S$ have $\{x\}\cup Z$ as common neighbors, pairs in $Z$ have $S\cup\{y\}$, and $x,y$ share $R$; all three counts are $k$. Other pair types have at most $k-1$ common neighbors or at most two. At $xy$, $\alpha=k$, $\beta=2k-2$, $d=k-2$, and $d_H(x)=3k-3$. The set $S$ has $p=k-1$, $q=0$, $L=0$, and $F=(k-2)(k-1)>0$ for $k\ge3$. Padding preserves these facts and makes the order arbitrarily large.
+
+\section{Indexed construction and total missing incidence}\label{sec:construction}
+
+Build dense indexed adjacency for $H$. For each vertex $v$, enumerate pairs in $\NH(v)$ and append $v$ to their witness lists
+\[
+ \mathcal L(u,w)=\NH(u)\cap\NH(w).
+\]
+Reject as soon as a list receives a $(k+1)$st witness. Before rejection, and throughout an accepted run, there are at most $k\binom n2+1$ updates. Including adjacency construction and connectivity checking, preprocessing costs $\Oh(kn^2)$ time and space.
+
+For every edge, degrees and the table entry $r=|\mathcal L(x,y)|$ determine
+\[
+ c=n-2-d_H(x)-d_H(y)+r,\qquad
+ \alpha=1+d_H(y)-r,\qquad\beta=1+d_H(x)-r.
+\]
+Propositions~\ref{prop:scalar} and~\ref{prop:global}, together with Theorem~\ref{thm:cutoff}, give constant-time tests for returning $c/b$. All remaining edges are called candidates; some candidates still attain equality.
+
+For each residual source $u$ let
+\[
+ Q=B\setminus\{x\},\qquad
+ M(u)=\{t\in Q:ut\in E(H)\}.
+\]
+Since $Q\subseteq\NH(x)$ and $u\ne x$,
+\begin{equation}\label{eq:masksize}
+ |M(u)|\le|\mathcal L(x,u)|\le k.
+\end{equation}
+This mask bound is the same missing-neighbor principle as Chen, Liu, and You, Claim~5.2~\cite{chen}. Every entry outside $M(u)$ has distance one, including target $x$. For a common source, entries in its mask have distance two through $y$. For an exclusive source and a missing target $t$, the number of common $G$-neighbors is
+\begin{equation}\label{eq:distance}
+ n-d_H(u)-d_H(t)+|\mathcal L(u,t)|.
+\end{equation}
+If this is positive the distance is two; otherwise it is three via $u,x,y,t$. Formula~\eqref{eq:distance} is for a nonedge of $G$; the formula for an edge has an additional $-2$.
+
+Scale residual masses by $ab$. Each exclusive source supplies $b$, each common source supplies $d$, each target demands $a$, and total scaled mass is $M=a\beta$. Rows with identical costs may be merged by adding supplies. Any original plan projects by summing rows, and any quotient plan can be split proportionally among the original row supplies. This proves exactness, including unequal supplies. If $d=0$, common sources disappear.
+
+\begin{lemma}[Rows and incidences]\label{lem:incidence}
+Let $m$ denote the retained row count and $I$ the sum of their missing-mask cardinalities. The reduction can be constructed with
+\[
+\begin{array}{c|ccc}
+ &m&\beta&I\\\hline
+ n\ge k^2+k+2&\Oh(k^3)&\Oh(k)&\Oh(k^3)\\
+ n\le k^2+k+1&\Oh(k^2)&\Oh(k^2)&\Oh(k^3).
+\end{array}
+\]
+After preprocessing, its construction requires at most $\Oh(k^4\log(k+1))$ operations per candidate.
+\end{lemma}
+\begin{proof}
+For small order retain all residual sources. There are at most $a\le n=\Oh(k^2)$, and~\eqref{eq:masksize} bounds $I$ by $km$. On candidates surviving Proposition~\ref{prop:scalar}, we also have $m\beta\le a\beta=\Oh(k^3)$ and $\min(m,\beta)=\Oh(k)$.
+
+For large order, $\alpha\le\beta=\Oh(k)$. Retain exclusive sources separately and aggregate common sources by mask. With $q_0=|Q|$, the common masks of size at least two satisfy
+\begin{equation}\label{eq:pairbudget}
+ \sum_{u\in C}\binom{|M(u)|}{2}\le(k-1)\binom{q_0}{2}.
+\end{equation}
+Indeed every target pair already has $x$ as a common $H$-neighbor, leaving at most $k-1$ common-source witnesses. This is the endpoint-reservation counting device already used in Section~5 of~\cite{chen}; here it is summed to bound and construct the full transport representation. There are at most $1+q_0+(k-1)\binom{q_0}{2}=\Oh(k^3)$ distinct common masks. Counting each distinct mask once, its total incidence is at most
+\[
+ q_0+2(k-1)\binom{q_0}{2}=\Oh(k^3),
+\]
+because $t\le2\binom t2$ for $t\ge2$. Exclusive rows add at most $\alpha k=\Oh(k^2)$ incidences.
+
+It remains to construct this representation without scanning $C$. The endpoint $H$-degrees are $\Oh(k)$ on large candidates, so $A,B,R$ are obtained from their lists. Enumerate common sources missing at least two targets from the lists $\mathcal L(s,t)$ for pairs in $Q$, removing vertices in $A\cup B\cup R$. Their identities number $\Oh(k^3)$. Obtain each mask from $\mathcal L(x,u)$ and the indexed membership test for $B$. For a target $t$, the number of common sources missing it is
+\[
+ d_H(t)-|\NH(t)\cap(A\cup B\cup R)|.
+\]
+Subtract its already enumerated multiple-miss sources to obtain the singleton-mask count. The remaining $c$ common sources have empty mask. Sort and aggregate the masks, and evaluate exceptional exclusive costs with~\eqref{eq:distance}. The stated conservative bound covers these operations and deterministic sorting. Small-order construction may scan all vertices and is no larger.
+\end{proof}
+
+\section{Direct primal transport and the complexity bound}\label{sec:runtime}
+
+The solver uses a complete transport matrix with costs in $\{1,2,3\}$, represented by default cost one and $I$ exceptional entries. No graph-specific bound on optimal dual labels is needed for this part. We give the details to separate the structural result from the classical optimization it invokes.
+
+Write $U_i$ for the retained row supplies and $V_j=a$ for the target demands. Add terminals $\sigma,\tau$. Put capacity $U_i$ and cost zero on $\sigma\to i$, capacity $V_j$ and cost zero on $j\to\tau$, and capacity $K=M+1$ and cost $c_{ij}$ on each row-to-target arc. The internal bound $K$ is nonbinding for any flow of value at most $M$. A full flow has cost $D$ precisely when the corresponding residual transport does, and
+\begin{equation}\label{eq:output}
+ \kappa_0(x,y)=1-\frac{D}{ab}=\frac{ab-D}{ab}.
+\end{equation}
+
+On the small-order branch, all $m\beta$ row-to-target arcs are explicit. On the large-order branch, build one binary segment tree whose leaves are the ordered targets, with cost-zero, capacity-$K$ arcs directed from each helper to its children. A row's cost-one targets are the complement of its sorted mask, hence at most $|M_i|+1$ intervals. For their canonical segment covers add cost-one, capacity-$K$ arcs from the row to tree nodes. Keep each exceptional cost-two or cost-three arc direct.
+
+\begin{lemma}[Exact segment representation]\label{lem:sparse}
+The segment network has the same minimum transport cost as the dense network and has
+\[
+ V=\Oh(m+\beta),\qquad
+ E=\Oh\bigl((m+I+\beta)\log(\beta+1)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+Any dense transfer at cost one can be routed through a cover node and down the tree to its target; exceptional transfers retain their direct arcs. No internal capacity binds since the total flow is $M<K$. Conversely the original forward segment network is acyclic between its row and target layers. Decompose any feasible full flow into terminal-to-terminal paths. Each path chooses one row, then a direct exceptional target or a descendant leaf of a cost-one cover node. It therefore projects to a valid matrix transfer at the same cost. There are $\Oh(\beta)$ tree nodes and tree arcs, $\Oh((m+I)\log(\beta+1))$ cover arcs, and $I$ direct exceptional arcs.
+\end{proof}
+
+\begin{lemma}[At most three marginal-cost stages]\label{lem:stages}
+Either representation can be solved by at most three shortest-path computations followed by maximum flows in the zero-reduced-cost residual subgraph. Integral feasible potentials may be maintained by a clipped distance update.
+\end{lemma}
+\begin{proof}
+Start with zero flow and vertex potentials $\pi=0$, and use reduced costs
+\[
+ \widehat c(u,v)=c(u,v)+\pi(u)-\pi(v).
+\]
+All initial residual costs are nonnegative. At a stage, compute shortest reduced distances $\ell(v)$ from $\sigma$ and put $\Delta=\ell(\tau)$. A residual path to $\tau$ exists until the required mass is sent. Set
+\[
+ \pi'(v)=\pi(v)+\min\{\ell(v),\Delta\},
+\]
+interpreting an unreachable distance as $+\infty$. For every residual arc of reduced cost $z\ge0$, the shortest-path inequality and truncation imply
+\[
+ \min\{\ell(v),\Delta\}\le
+ \min\{\ell(u),\Delta\}+z.
+\]
+Thus all new reduced costs remain nonnegative, including on arcs incident with unreachable vertices. Augment a maximum flow in the subgraph of residual arcs of new reduced cost zero. Every augmentation has original marginal cost $\pi'(\tau)-\pi'(\sigma)$ by telescoping, and new reverse arcs also have reduced cost zero. Exhausting this admissible subgraph makes the next shortest reduced distance strictly positive. Integer costs and potentials therefore give strictly increasing integer marginal costs.
+
+While the total flow is less than $M$, some source supply and some target demand remain unsaturated. Their complete-matrix transfer gives a forward residual $\sigma$--$\tau$ path of original cost at most three. In the segment representation the corresponding forward path also exists: every internal arc retains positive residual capacity because its capacity is $M+1$. Hence the minimum original marginal path cost is at most three. The first marginal cost is at least one; all subsequent ones increase strictly. There are consequently at most three stages.
+
+At termination, feasible potentials certify optimality. Each original internal arc retains positive forward residual capacity, and every such arc with positive flow has a residual reverse arc. Its reduced cost is therefore zero. Summing this equality over the flow, including a telescoping sum along tree paths, gives
+\[
+ D=\sum_i U_i(-\pi(i))-\sum_j V_j(-\pi(j)).
+\]
+The same potentials satisfy $-\pi(i)+\pi(j)\le c_{ij}$ for every matrix entry. This is a feasible transport dual of value $D$, proving exact optimality by weak duality. All arithmetic remains integral.
+\end{proof}
+
+This is a bounded-cost instance of classical successive shortest-path optimization with maximal augmentation on admissible arcs. Neither the use of feasible potentials nor the three-value cost observation is presented as a new general min-cost-flow algorithm.
+
+\begin{lemma}[Short residual paths and Dinic]\label{lem:paths}
+In the dense network every simple residual path has length $\Oh(\min(m,\beta)+1)$. In the segment network it has length $\Oh(\beta)$. If $h$ is either bound, current-arc Dinic computes an admissible maximum flow in $\Oh(h^2E)$ operations, independently of capacities.
+\end{lemma}
+\begin{proof}
+In the dense case, deleting both terminals and the smaller row or target side leaves isolated vertices. A simple path visits each deleted vertex at most once and at most one remaining vertex between successive visits. In the segment case, delete the terminals, all targets, and all helpers, a set of $\Oh(\beta)$ vertices; the remaining source vertices are isolated. Residual reverse arcs preserve these underlying incidences. The same bounds hold in every admissible subgraph.
+
+Dinic increases shortest augmenting-path length between successful blocking-flow phases, so there are $\Oh(h)$ phases. Within one phase, current-arc pointers discard each failed level arc at most once. Every successful path augmentation saturates a level arc, and a saturated level arc cannot reappear within that phase, since reverse arcs decrease the fixed level. There are $\Oh(E)$ augmentations with $\Oh(h)$ path work each. Thus a phase costs $\Oh(hE)$ and the full maximum flow costs $\Oh(h^2E)$. This is a standard short-path argument; unbalanced flow algorithms have long exploited the smaller side~\cite{aost}.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{thm:main}]
+Apply the structural equality shortcuts before constructing rows. At small order, Proposition~\ref{prop:scalar} gives $\min(m,\beta)=\Oh(k)$ and $m\beta=\Oh(k^3)$. The dense network therefore has $E=\Oh(k^3)$, and each of the at most three admissible maximum flows costs $\Oh(k^5)$.
+
+At large order, Lemmas~\ref{lem:incidence} and~\ref{lem:sparse} give $\beta=\Oh(k)$ and $E=\Oh(k^3\log(k+1))$. Thus each admissible maximum flow costs $\Oh(k^5\log(k+1))$. Binary-heap shortest-path searches cost $\Oh((V+E)\log V)$ per stage and are smaller than these bounds. The indexed construction cost in Lemma~\ref{lem:incidence} is also smaller. Multiply by at most $\binom n2$ candidates and add $\Oh(kn^2)$ preprocessing.
+
+All capacities and flow values are $\Oh(n^2)$, the transport cost is at most $3M$, and the clipped potentials stay between zero and three. Arithmetic therefore uses $\Oh(\log n)$-bit words. Witness tables require $\Oh(kn^2)$ words. Holding one network at a time suffices: the dense representation has $\Oh(n^2)$ arcs, and the segment representation has $m,\beta\le n$, $I\le km$, and $\Oh(nk\log(n+1)+n)=\Oh(kn^2)$ arcs. Equation~\eqref{eq:output} gives exact unreduced output. Complete graphs lie in the class and have $\Theta(n^2)$ edges, proving the explicit-output lower bound.
+\end{proof}
+
+The theorem uses only ordinary Dinic, as does the current implementation. Specialized flow solvers for unbalanced networks may further improve the dependence on $k$ or remove the representation logarithm. The published abstract of~\cite{aost} gives relevant stronger bounds, but their complete applicability is not audited here and no stronger headline bound is claimed.
+
+\begin{remark}[Hall deficiency need not equal the cost gap]
+The equality test uses only cost-one feasibility, but computing a defective edge can require cost-three transfers. For example, let $S=\{s_1,s_2\}$, let $C$ have arbitrary size $c$, and put exactly $u\mathrel{\sim}(\{y\}\cup S\cup C)$ and $x\mathrel{\sim}S$ in $H$. Its maximum pair codegree is two. At $xy$ in $G$, $A=\{y,u\}$, $B=\{x,s_1,s_2\}$, $a=c+2$, $b=c+3$, and $d=1$. Vertex $u$ is pendant at $x$ in $G$. Its supply $b$ exceeds target $x$'s capacity $a$ by one, which must travel distance three to $S$. The remaining mass can use cost-one arcs. The maximum scaled Hall deficiency is one, but the extra transport cost is two. This persists at arbitrarily large order.
+\end{remark}
+
+\section{A canonical witness when all costs are at most two}\label{sec:canonical}
+
+The cubic row count need not be paid on every instance. In the one/two-cost regime, an ordinary matching can identify a canonical Hall witness before any common-source masks are materialized. We state the reduction separately from the general algorithm.
+
+For $S\subseteq B$, let $N_A(S)$ be its neighbors among exclusive sources, and define
+\[
+ L(S)=|S|-|N_A(S)|-d=|S|+p(S)-\beta.
+\]
+Let $\nu$ be the maximum cardinality of a matching in the bipartite graph of cost-one pairs between $A$ and $B$, and put $\ell=\alpha-\nu\ge0$.
+
+\begin{proposition}[Canonical Hall witness]\label{prop:canonical}
+Assume $a>d(k-1)$. There is a unique inclusion-minimal set $S_0\subseteq B$ maximizing $L$. Writing $p_0=p(S_0)$ and $q_0=q(S_0)$, the maximum scaled Hall deficiency is
+\[
+ \delta=\max_{S\subseteq B}F(S)=a\ell+d(p_0+q_0).
+\]
+If every residual cost is at most two, then $D=M+\delta$ and $\kappa_0=c/b-\delta/(ab)$.
+\end{proposition}
+\begin{proof}
+The matching deficiency formula gives $\max_S(|S|-|N_A(S)|)=\beta-\nu$, hence $\max L=\ell$. The neighborhood-cardinality function is submodular, so $L$ is supermodular. Its maximizing sets are closed under union and intersection; their intersection is the unique inclusion-minimal maximizer $S_0$.
+
+For any other maximizing set $S$, we have $S_0\subseteq S$. The excluded-source counts are antitone under inclusion, so $p(S)+q(S)\le p_0+q_0$. Thus $F(S)\le F(S_0)$ at the maximal slope. If a positive-deficiency set has smaller slope, integrality gives $L(S)\le\ell-1$, and Lemma~\ref{lem:hall} gives
+\[
+ F(S)\le a(\ell-1)+d(k-1)<a\ell\le F(S_0).
+\]
+Nonpositive deficiencies cannot exceed $F(S_0)\ge0$. This proves the formula. For costs one and two, maximum cost-one flow leaves exactly $\delta$ units to send at cost two, proving the remaining claims.
+\end{proof}
+
+The set $S_0$ is obtained by alternating reachability from unmatched vertices of $B$ after a maximum matching, or equivalently as the smallest source side of a minimum cut in the usual matching network. This follows because the cut determined by $S$ has capacity $\beta-|S|+|N_A(S)|$; residual reachability gives the unique smallest minimizing source side.
+
+Above the cutoff, an edge with $d\ge k$ attains triangle equality: a deficient set would have $L\le s-d-1\le k-d-1<0$, contrary to Theorem~\ref{thm:cutoff}. On the remaining candidates, $d\le k-1$, $\beta\le b_k$, and
+\[
+ a=n-\beta-r\ge k^2+2-b_k>(k-1)^2\ge d(k-1).
+\]
+The arithmetic hypothesis of Proposition~\ref{prop:canonical} is therefore automatic.
+
+All costs are at most two precisely when no exclusive missing-target pair has distance three; this can be checked in $\Oh(k^2)$ operations from the indexed pair lists. Constructing the exclusive bipartite graph costs $\Oh(k^2)$ and ordinary augmenting-path matching costs $\Oh(k^3)$. If $d=0$, the formula is simply $\delta=a\ell$ and no common-source query is needed. If $S_0=B$, then $p_0=q_0=0$ and $\ell=0$, so the result is equality. For $d>0$, any other $S_0$ excludes $x$ and has at least two elements: $L(\varnothing)=-d<0$ and singletons have $L\le-d<0$, whereas $\ell\ge0$. Choose distinct $s,t\in S_0$. Every common source excluded by $S_0$ belongs to $\mathcal L(s,t)$, which has at most $k$ entries. Filtering that one list for membership in $C$ and adjacency in $H$ to all of $S_0$ computes $q_0$ in $\Oh(k^2)$ operations, without scanning $C$.
+
+Thus this specialization takes $\Oh(k^3)$ operations per surviving large-order edge and bypasses the cubic collection of common-source rows, including on the family below. The matching and minimum-cut facts are classical; the candidate additional observation is that the localized Hall arithmetic makes one canonical slope maximizer sufficient. This specialization does not extend to the distance-three example above and is not needed for the general all-edge bound.
+The optional canonical-witness implementation agrees with full exact transport on 137,414 eligible edges in the exhaustive six-vertex suite; 81,080 ineligible edges are skipped. Twelve large-order cubic families for $k=5,\ldots,16$ also pass without materializing any common-source rows. These cases overlap the general verification suite and are not additional distinct graph coverage. On the actual cubic graph with $k=20$ and $n=857$, three-run median per-edge calls took 57.049 milliseconds for the general reducer and 0.153 milliseconds for the canonical specialization. Both exclude the same 170.359-millisecond preprocessing step. This is one structured family on an uncontrolled host, not a whole-graph or application-level speedup.
+
+\section{Cubic row counts on defective edges}\label{sec:sharp}
+
+\begin{proposition}\label{prop:cubic}
+For every $k\ge5$ there is a connected graph satisfying~\eqref{eq:codegree}, of order at least $k^2+k+2$, with a triangle-defective edge whose residual transport has at least $\binom{k-2}{3}$ distinct positive-supply common-source cost rows. Its exact deficit is $(k-1)/(ab)$.
+\end{proposition}
+\begin{proof}
+Take $x,y$, disjoint sets $S,T,Z$ of sizes $2,k-2,k-1$, and one vertex $c_U$ for each three-element subset $U\subseteq T$. In $H$ put exactly
+\[
+ x\mathrel{\sim}(S\cup T),\qquad y\mathrel{\sim}Z,\qquad Z\mathrel{\sim}S,
+ \qquad c_U\mathrel{\sim}U\quad(U\in\tbinom T3).
+\]
+Pad by isolated $H$-vertices if needed. Two vertices of $S$ have the $k$ common neighbors $\{x\}\cup Z$. Two vertices of $T$ have $x$ and the $k-4$ triple vertices containing both, totaling $k-3$. Two vertices of $Z$ share $S\cup\{y\}$, of size three. The pair $x,c_U$ shares $U$, of size three; distinct triple vertices share at most two targets. The pair $y,s$, $s\in S$, shares $Z$, of size $k-1$. All other types have at most two common neighbors. Thus~\eqref{eq:codegree} holds.
+
+At $xy$, $A=\{y\}\cup Z$, $B=\{x\}\cup S\cup T$, $\alpha=k$, $\beta=k+1$, and $d=1$. Every $c_U$ is a common source with mask exactly $U$ and scaled supply one. Their rows are distinct. The complement is connected: $Z$ connects to $x$, $S\cup T$ to $y$, and every common source to both endpoints. Missing common-source transfers have length two through $y$; missing $Z$-to-$S$ transfers have length two through a member of $T$.
+
+The set $S$ has $s=2$, $p=k-1$, $q=0$, $L=0$, and $F=k-1>0$. Sets meeting both $S$ and $T$ exclude no sources. A singleton from $S$ has the same excluded sources but a smaller numerator. A subset of $T$ excludes only common sources and has negative $L$; by Theorem~\ref{thm:cutoff} it cannot be deficient at this order. Sets containing $x$ are harmless. Thus $k-1$ is the maximum scaled Hall deficiency.
+
+When all residual costs are one or two, maximum flow on cost-one arcs sends precisely total mass minus the maximum Hall deficiency. Completing its unmatched supply and demand at cost two is feasible, and no plan can use less cost-two mass. The extra cost over $M$ is therefore $k-1$, proving the claimed deficit.
+\end{proof}
+
+The proposition proves sharp cubic order for the number of distinct rows retained by identical-row aggregation. It is not an $\Omega(k^3)$ lower bound for arbitrary curvature algorithms or every possible compression. In this family the triple rows do not create the actual deficient set $S$; a more semantic shortcut could bypass them.
+
+\section{Verification, timing, and limitations}\label{sec:experiments}
+
+Verification compares the graph solver with a separately implemented full-neighborhood integer transport reference. The suite includes every connected labeled graph of orders two through six (27,475 graphs and 218,494 edges), seeded larger cases, and the cubic family for $k=5,\ldots,15$, for 27,583 graph instances and 218,956 exact edge comparisons overall. Both the earlier closure backend and a replay with the revised primal backend and final scalar filter pass. The final run records 92,853 shortcut returns. These are repeated checks of overlapping instances, not twice as many sampled graphs. Selected tests force residual construction despite an applicable shortcut. Finite verification corroborates the proofs and detects implementation errors; it does not prove the universal theorem.
+
+The primal backend also passed 21,279 complete ternary cost matrices for the dimensions through $3\times3$ listed in its script, with seeded integral marginals, both dense and segment representations, and an independent min-cost reference. This is exhaustive over those cost matrices, not every possible marginal vector. At most three marginal stages were observed.
+
+A separate CUDA oracle samples 4,096 marked-edge graphs of order nine with seed 2026102104, retaining 3,988 connected records. It enumerates all $3^8$ anchored source-label assignments per retained record and chooses target potentials optimally; Appendix~\ref{sec:oraclelabels} justifies the labels. Unused source labels duplicate assignments. The small integer-valued float32 operations are exact with TF32 disabled. Every retained value agrees with a forced CPU solve, including a replay with the revised primal backend. This is exhaustive label enumeration for sampled graphs, not exhaustive graph coverage. Its recorded 8.254-second run on an NVIDIA GeForce RTX 5090 has no matched CPU timing; no GPU speedup is claimed.
+
+The initial timing study compared dense and segment versions of a two-level maximum-closure reduction, using identical current-arc Dinic code. It is a historical representation experiment, not a timing of the current primal algorithm. Table~\ref{tab:bench} retains selected original measurements. Each entry is the median of three runs, including construction and certificates, on the synthetic triple-mask family under Python 3.14.7 and Windows 10 build 19045, with recorded processor string AMD64 Family 25 Model 33 Stepping 2.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{r r r r r r}
+\toprule
+$k$&Rows&Dense arcs&Segment arcs&Dense (s)&Segment (s)\\
+\midrule
+8&22&428&338&0.000988&0.002067\\
+16&366&12,500&6,832&0.033505&0.065597\\
+32&4,062&268,196&96,742&1.353074&1.914443\\
+\bottomrule
+\end{tabular}
+\caption{Historical matched closure encodings with identical Dinic solver. The segment encoding is slower at every original tested size. Arcs exclude residual reverse bookkeeping.}
+\label{tab:bench}
+\end{table}
+
+At $k=32$ that segment encoding used about $2.77$ times fewer arcs but took $1.41$ times as long, with 19 blocking-flow phases versus 3 and longest observed augmenting paths of lengths 21 versus 5. These observations are consistent with helper and path overhead, but do not isolate causality. A separate $k=16$ ablation gave 0.764486 seconds for dense Edmonds--Karp, 0.028342 for dense Dinic, and 0.054148 for segment Dinic. The roughly $27$-fold baseline improvement reflects a classical solver switch and implementation, not a new flow method.
+
+The new comparison in \texttt{batched-benchmark.json} runs closure and primal backends on identical synthetic complete transport inputs with default cost one and exceptional cost two or three. The cost-three variant is a synthetic transport matrix, not asserted to be realized by the cubic graph construction. Table~\ref{tab:primal} reports the latest $k=32$ medians of three runs, including network construction and certificates. Host load was uncontrolled; these are local exploratory measurements.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{l r r r r}
+\toprule
+Costs&Closure dense&Closure segment&Primal dense&Primal segment\\
+\midrule
+$\{1,2\}$&1.339819&2.040211&0.574793&0.625651\\
+$\{1,3\}$&1.157711&1.316381&0.590050&0.676118\\
+\bottomrule
+\end{tabular}
+\caption{Latest shared-host synthetic times in seconds at $k=32$. The primal backend is classical batched min-cost flow. These measurements do not establish a segment advantage or an application speedup.}
+\label{tab:primal}
+\end{table}
+
+For the cost-one/two inputs the corresponding arc counts are 268,196 and 96,742 for the two closure encodings, and 138,141 and 52,414 for the primal encodings. Dense primal flow is faster than segment primal flow in both displayed comparisons despite the larger arc count. The primal backend does not win every comparison in the complete record: at $k=8$ with cost-one/two inputs, dense closure is faster than dense primal flow. All comparisons concern synthetic inputs and classical backend choices; they do not demonstrate the worst-case parameter bound or a general practical benefit from sparse representation.
+
+A conventional specialization is available when every residual cost is one or two: if $F_1$ is maximum cost-one flow, then $D=2M-F_1$. A separate implementation passed 454 actual-graph comparisons across 53 graphs and skipped 180 cases with cost-three entries. Its $k=32$ segment-versus-dense ordering reversed in a fresh replay, further limiting any crossover claim. This specialization must not be extended to arbitrary cost-three instances.
+
+The reproducibility materials include both solver generations, the indexed reducer, independent full transport, matrix and graph verification scripts, CUDA oracle and replay, and timing records. No public artifact URL is claimed in this draft. The deterministic theorem does not measure Python allocation, hashing, arbitrary-integer arithmetic, or fraction normalization. Negative timing results remain part of the record.
+
+\section{Research status and AI assistance}\label{sec:status}
+
+This manuscript is a research draft with explicit mathematical arguments for its stated results. A bounded literature search and internal computational checks have been performed. Neither priority nor acceptance by a subject expert has been established, and no independent human mathematical review is recorded. The result should be assessed as a focused candidate contribution, without a claim of a major algorithms breakthrough.
+
+Supporting work contains partial Lean formalizations of finite label constraints, graph neighborhood exclusions, arithmetic localization inequalities, and the new scalar-filter arithmetic. The latter was checked by the Lean kernel without \texttt{sorry} or \texttt{native\_decide}, with only standard axioms. The complete graph interpretation of the scalar filter, curvature-to-transport reduction, primal-network construction, runtime analysis, and manuscript have not been formalized end to end. Test success and partial formalization must not be described as a machine-checked proof of Corollary~\ref{thm:main}.
+
+OpenAI Codex agents, including GPT-6 Astra agents, contributed substantially to conjecture exploration, proof development and criticism, literature searches, software construction, test design, interpretation of results, and manuscript drafting. The proposed human attribution on the title page requires the named person's acceptance of authorship and responsibility. This disclosure does not assert that the proposed author has independently checked every proof, citation, or computation. The AI systems are tools and are not listed as authors. The current manuscript and source package remain for human review before any submission or publication decision.
+
+\appendix
+\section{Finite labels for the independent oracle}\label{sec:oraclelabels}
+
+This appendix describes a verification device and the earlier closure formulation; the primal algorithm does not depend on it. For supplies $U_i$, demands $V_j$, and costs $c_{ij}$, the transport dual is
+\begin{equation}\label{eq:dual}
+ \max\left\{\sum_iU_if_i-\sum_jV_jg_j:f_i-g_j\le c_{ij}\right\}.
+\end{equation}
+
+\begin{lemma}[Three labels suffice]\label{lem:labels}
+An optimal solution of~\eqref{eq:dual} exists with
+\[
+ f_i\in\{-1,0,1\},\qquad
+ g_j\in\{-2,-1,0\},\qquad g_x=0.
+\]
+\end{lemma}
+\begin{proof}
+Finite metric transport has the Kantorovich dual in graph Lipschitz potentials. Anchor the value at $x$ to zero. The graph edge constraints have a totally unimodular incidence matrix and integral right-hand side, so an integer optimal potential exists; this fact is also proved for graph curvature in~\cite{kelly}. All residual sources are adjacent to $x$ and all targets are within distance two of $x$ through $y$, giving source values in $\{-1,0,1\}$ and target values in $\{-2,-1,0,1,2\}$. Common-mass cancellation leaves its objective unchanged. Identical cost rows can take a common best feasible source value, so aggregation preserves an optimal dual with these bounds.
+
+Replace positive target values by zero. Feasibility is preserved because $f_i\le1\le c_{ij}$, and the maximized objective does not decrease. Transport duality implies the resulting feasible solution is still optimal. It need not extend to a graph Lipschitz potential; containment of an optimum in the bipartite feasible family is sufficient.
+\end{proof}
+
+
+Writing each integer label as a sum of two threshold bits turns these inequalities into weighted implications and hence into the classical maximum-closure problem~\cite{picard}. This was the original experimental backend. Its extra label layer is unnecessary for the direct primal proof above.
+
+\section{Two exact order-theoretic descriptions}
+
+The transport dual and the historical closure encoding admit elementary adjunction descriptions. These clarify its feasible sets but are not additional novelty claims or runtime arguments. We use the monotone adjunction convention; nLab notes that ``Galois connection'' can also refer to the antitone convention~\cite{nlabgalois,nlabclosure}.
+
+For a finite cost matrix, order source and target potential vectors coordinatewise and define
+\[
+ A(g)_i=\min_j(c_{ij}+g_j),\qquad
+ B(f)_j=\max_i(f_i-c_{ij}).
+\]
+Both maps are monotone, and rearranging the inequalities proves
+\[
+ B(f)\le g\quad\Longleftrightarrow\quad f\le A(g).
+\]
+Thus $B$ is left adjoint to $A$. The composite $AB$ is an extensive idempotent monotone operator on source potentials, while $BA$ is reductive and idempotent on target potentials. Dual feasibility is exactly either side of the displayed equivalence. This tightening structure alone gives neither an optimum for the weighted objective nor an iteration bound.
+
+For the historical implication graph, let $C(S)$ be the vertices reachable from $S$, including $S$ and any forced anchor. The map is extensive, monotone, and idempotent. Its fixed points are the feasible successor-closed sets containing the anchor. If $i$ includes this fixed-point poset into the powerset poset, then for a closed set $T$,
+\[
+ C(S)\subseteq T\quad\Longleftrightarrow\quad S\subseteq i(T).
+\]
+Hence closure, with codomain $\Fix(C)$, is left adjoint to inclusion. Maximum closure optimizes over this fixed-point family; it is not equivalent to closing an arbitrary initial set. No philosophical interpretation is needed for either statement or for the algorithm.
+
+\begin{thebibliography}{99}
+\bibitem{kelly}
+C.~Kelly.
+\emph{Exact Expressions and Reduced Linear Programmes for the Ollivier Curvature in Graphs}.
+arXiv:1909.12156v2, 2020.
+\url{https://arxiv.org/abs/1909.12156v2}.
+
+\bibitem{chen}
+K.~Chen, S.~Liu, and Z.~You.
+\emph{Criteria on forbidden subgraphs in the complements for positive Lin--Lu--Yau curvature}.
+arXiv:2605.03470, 2026.
+\url{https://arxiv.org/abs/2605.03470}.
+
+\bibitem{hehl}
+M.~Hehl.
+\emph{Ollivier-Ricci curvature of regular graphs}.
+arXiv:2407.08854v3, 2024.
+\url{https://arxiv.org/abs/2407.08854v3}.
+
+\bibitem{bm}
+B.~B.~Bhattacharya and S.~Mukherjee.
+\emph{Exact and Asymptotic Results on Coarse Ricci Curvature of Graphs}.
+arXiv:1306.6741v3, 2020.
+\url{https://arxiv.org/abs/1306.6741v3}.
+
+\bibitem{dgm}
+B.~DasGupta, E.~Grigorescu, and T.~Mukherjee.
+\emph{On computing Discretized Ricci curvatures of graphs: local algorithms and (localized) fine-grained reductions}.
+Author-hosted manuscript, accessed 21 October 2026.
+\url{https://bdasgup.github.io/resume/publ/papers/local-ricci.pdf}.
+
+\bibitem{picard}
+J.-C.~Picard.
+Maximal closure of a graph and applications to combinatorial problems.
+\emph{Management Science} 22(11):1268--1272, 1976.
+\url{https://doi.org/10.1287/mnsc.22.11.1268}.
+
+\bibitem{aost}
+R.~K.~Ahuja, J.~B.~Orlin, C.~Stein, and R.~E.~Tarjan.
+Improved algorithms for bipartite network flow.
+\emph{SIAM Journal on Computing} 23(5):906--933, 1994.
+\url{https://doi.org/10.1137/S0097539791199334}.
+Author-institution record:
+\url{https://collaborate.princeton.edu/en/publications/improved-algorithms-for-bipartite-network-flow/}.
+
+\bibitem{nlabgalois}
+nLab contributors. \emph{Galois connection}.
+Accessed 21 October 2026.
+\url{https://ncatlab.org/nlab/show/Galois+connection}.
+
+\bibitem{nlabclosure}
+nLab contributors. \emph{Closure operator}.
+Accessed 21 October 2026.
+\url{https://ncatlab.org/nlab/show/closure+operator}.
+\end{thebibliography}
+\end{document}
+
+
+
+
