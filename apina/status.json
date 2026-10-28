@@ -41,7 +41,23 @@
   "open_issues": [
     "Configured equity quote source disallows automated collection; no prices fabricated.",
     "Some news sources reject collection; Federal Reserve metadata feed succeeded.",
-    "Authentic multi-product sampling and a point-in-time return feed are not yet commissioned.",
+    "Daily systematic consumer-product sampling and a point-in-time return feed are not yet commissioned.",
     "No fitted or validated return model exists."
-  ]
+  ],
+  "consumer_pilot": {
+    "products_sampled": [
+      "Claude",
+      "Gemini",
+      "Grok"
+    ],
+    "response_observations": 5,
+    "initial_novice_responses": 3,
+    "explicit_stock_seeking_followups": 2,
+    "event_branch": "hypothetical Democratic control; unchanged presidency; no new law",
+    "control_branch_sampled": false,
+    "initial_result": "All three favored cash-like holdings, broad diversification, or no action over a political sector bet.",
+    "followup_result": "Gemini named FSLR/UNH/BEP; Grok named CNC/MOH/NEE. Lists did not overlap.",
+    "interpretation": "Small commissioning sample. No population-frequency, flow, causal, or alpha conclusion.",
+    "chatgpt_sampled": false
+  }
 }

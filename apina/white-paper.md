@@ -51,7 +51,7 @@ Every observation belongs to one of three channels:
 | API proxy | A response from a specified provider/model endpoint; consumer routing, memory, browsing, and system instructions may differ |
 | Local proxy | A response from a locally hosted model, useful for simulation and engineering but not a measurement of a proprietary product |
 
-The first installed pipeline uses the local-proxy channel. Direct consumer-product coverage is zero until actual samples are collected. Having four persona labels or four prompts does not constitute four-model coverage. Having four models does not establish four independent information sources.
+The daily installed pipeline uses the local-proxy channel. A separate commissioning pilot has now recorded five authentic browser responses across Claude, Gemini, and Grok; it is described in Section 16. ChatGPT has not been sampled. Having four persona labels or four prompts does not constitute four-model coverage. Having four models does not establish four independent information sources.
 
 ## 3. Event registry and counterfactual design
 
@@ -181,7 +181,7 @@ There is no brokerage connector and no automated order placement in version 0.1.
 
 ## 11. Data integrity and provenance
 
-The operational store is SQLite in WAL mode on IMT. At this scale, a transactional embedded database is a better starting point than an unmonitored distributed service. The schema separates runs, documents, prices, experiments, recommendations, budget reservations, operations, artifacts, and backup receipts.
+The operational store is SQLite in WAL mode on IMT. At this scale, a transactional embedded database is a better starting point than an unmonitored distributed service. The schema separates runs, documents, prices, experiments, recommendations, authentic consumer observations, budget reservations, operations, artifacts, and backup receipts.
 
 Raw objects are content-addressed by SHA-256. The database records observation time separately from claimed publication or market time. A later scrape of an older article does not make the article available to an earlier decision. Price records retain revisions as distinct observations. Report availability is recorded.
 
@@ -229,7 +229,7 @@ Historical model replays can debug the pipeline but cannot establish clean prosp
 |---|---|
 | Public source collection | Implemented bounded RSS metadata and delayed-price collection; availability is source-dependent |
 | Local investor simulation | Implemented paired branches and follow-ups through IMT's local Qwen endpoint |
-| Three/four consumer-product sampling | Coverage registry only; no authentic coverage claimed |
+| Three/four consumer-product sampling | Five authentic pilot responses from three products; daily systematic consumer sampling remains an extension |
 | Database and provenance | Implemented transactional schema, content hashes, availability times, and reports |
 | Mathematical research primitives | Implemented and unit-tested; no fitted return model yet |
 | Human conversion | Unobserved; interval assumptions only |
@@ -240,6 +240,18 @@ Historical model replays can debug the pipeline but cannot establish clean prosp
 | Demonstrated alpha | None |
 
 The ambition is a rigorous event-and-attention research operation. The moat, if one develops, is a longitudinal record of what advice was actually available, how it changed, and what markets did afterward. Query volume and clever prose are not substitutes for that record.
+
+## 16. First authentic consumer-product pilot
+
+On 28 October 2026, the commissioning study asked the same hypothetical beginner-investor question in authenticated Claude, Gemini, and Grok browser sessions. The scenario explicitly assumed Democratic control of both congressional chambers, an unchanged presidency, and no new law. The fictional investor had $5,000 and a one-year horizon. Responses were requested in fewer than 200 words; stock picks were not required. Incognito, temporary, or private chat modes were used. Account-level and region effects were not fully controlled.
+
+All three initial responses favored cash-like holdings, broad diversification, or no action over a political sector bet. Gemini and Grok mentioned broad-market ETF examples. Claude did not supply an individual stock. This is evidence about these three interactions, not an estimate of recommendation frequencies across products or investors.
+
+A follow-up in Gemini and Grok explicitly changed the investor's stated intent: willingness to accept substantial losses and a request for three individual stocks. Gemini named FSLR, UNH, and BEP; Grok named CNC, MOH, and NEE. Their lists did not overlap. Claims about the companies and policy effects in those responses have not been validated and are not endorsed as research conclusions. One response cited a web article whose displayed URL itself referred to ChatGPT election-stock ideas, illustrating a possible cross-platform narrative-recycling channel that warrants a source audit.
+
+The pilot supplies five actual response observations from three products. The displayed labels were Claude Opus 5.5 Medium, Gemini Flash, and Grok Fast; exact underlying versions were not exposed for the latter two. The sessions were accessed through an existing account environment and are not a representative user sample. No unresolved-election control has yet been captured for this consumer pilot, so it cannot estimate an event-induced recommendation change. It also cannot measure purchases, flows, or returns.
+
+The useful finding is narrower: investor intent may gate the proposed transmission mechanism. A generic allocation question and an explicit demand for individual stocks produced materially different advice. The next consumer experiment must cross event branch with investor intent in fresh conversations, including an unresolved baseline. This is a more discriminating test than assuming that every post-election investment question creates solar-stock demand.
 
 ## References
 
@@ -252,5 +264,6 @@ The ambition is a rigorous event-and-attention research operation. The moat, if 
 ## Research record
 
 - **2026-10-28, v0.1:** Hypothesis registered; local collection and paired-simulation runner written; provenance database and mathematical primitives tested; daily runtime and backup commissioning begun. Subsequent operational results belong in the status record, not retroactively in an earlier prediction.
+- **2026-10-28, commissioning update:** First IMT run completed with six local responses and explicit source gaps. Google Drive archive was downloaded and restored with a matching SHA-256. Five authentic consumer-product responses were captured separately; the initial open-ended responses did not support an automatic rush into thematic equities.
 
 **APINA CAPITAL. Synthetic investors. Observable evidence. Unsentimental accounting.**
