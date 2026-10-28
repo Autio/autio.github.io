@@ -22,9 +22,10 @@
     "unit_tests_passed_on_mac_and_imt": 14,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
-    "google_drive_upload": "completed; metadata and size verified",
-    "remote_checksum": "not exposed by connector metadata",
-    "drive_folder_sharing": "private"
+    "google_drive_upload": "completed; archive downloaded and restored successfully",
+    "remote_checksum": "downloaded bytes match original SHA-256",
+    "drive_folder_sharing": "private",
+    "remote_database_restore_integrity": "ok"
   },
   "schedules": {
     "imt_daily_collection": "00:35 Europe/Istanbul",
