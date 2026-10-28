@@ -191,7 +191,7 @@ Public collection is limited to configured sources, bounded response sizes, rate
 
 ## 12. Backups, recovery, and daily operations
 
-The daily Windows task runs on IMT at 00:35 Europe/Istanbul, expressed through an explicit UTC schedule boundary so the machine's local timezone does not silently change the intended instant. Missed runs may execute when available. Local inference depends on IMT and its existing model service being available; source or inference failures remain visible in the report.
+The daily Windows task runs on IMT at 00:35 Europe/Istanbul, expressed through an explicit UTC schedule boundary so the machine's local timezone does not silently change the intended instant. Missed runs may execute when available. When Salad is running, the daily task collects public evidence and snapshots the database without GPU inference. GPU sampling uses explicitly authorized pause windows. The window controller arms Salad recovery before pausing it, stops new inference near the deadline, and restores automatic service startup and the ordinary daily task afterward. Local inference depends on IMT and its existing model service being available; source or inference failures remain visible in the report.
 
 Each run creates a consistent database snapshot through SQLite's online backup API, checks database integrity, bundles raw objects and reports, records a per-file SHA-256 manifest, and verifies archive contents. No credential file is included. An archive is not considered remotely backed up merely because it exists on IMT.
 
