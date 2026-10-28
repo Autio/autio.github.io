@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 17,
+    "unit_tests_passed_on_mac_and_imt": 18,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -85,6 +85,12 @@
       "total_stored_metadata_records_at_check": 85,
       "distinct_urls_at_check": 85
     },
-    "price_observations": 0
+    "price_observations": 0,
+    "current_protocol": "paired-v3-low-reasoning-structured",
+    "reasoning_calibration": {
+      "zero_reasoning": "failed arithmetic smoke check; rejected",
+      "low_reasoning": "passed arithmetic and retail JSON smoke checks; separately labelled protocol",
+      "prior_batch": "interrupted explicitly; unknown outputs retained as missing"
+    }
   }
 }
