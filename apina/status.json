@@ -1,0 +1,46 @@
+{
+  "version": "0.1.0",
+  "status_date": "2026-10-28",
+  "stage": "commissioned_local_research_prototype",
+  "alpha_status": "UNVALIDATED",
+  "live_trading": false,
+  "hardware_verified": "NVIDIA RTX 5090",
+  "local_proxy_model": "qwen/qwen3.8-27b",
+  "first_run": {
+    "id": "20261028T191145Z-640376b2",
+    "status": "complete_with_gaps",
+    "matched_scenario_conversations": 3,
+    "model_responses_including_followups": 6,
+    "normalized_recommendations": 7,
+    "public_metadata_records": 20,
+    "market_price_observations": 0,
+    "consumer_products_sampled": 0,
+    "human_conversions_observed": 0,
+    "interpretation": "Engineering commissioning sample; not an investment signal"
+  },
+  "verification": {
+    "unit_tests_passed_on_mac_and_imt": 14,
+    "database_restore_integrity": "ok",
+    "archive_sha256_manifest": "verified",
+    "google_drive_upload": "completed; metadata and size verified",
+    "remote_checksum": "not exposed by connector metadata",
+    "drive_folder_sharing": "private"
+  },
+  "schedules": {
+    "imt_daily_collection": "00:35 Europe/Istanbul",
+    "codex_backup_and_audit": "01:45 Europe/Istanbul",
+    "dependencies": "IMT and its local model service; Codex automation environment for Drive transfer"
+  },
+  "spending": {
+    "paid_api_enabled": false,
+    "accounted_openai_api_usd": 0,
+    "authorized_project_ceiling_usd": 300,
+    "codex_usage": "Separate from APINA API ledger"
+  },
+  "open_issues": [
+    "Configured equity quote source disallows automated collection; no prices fabricated.",
+    "Some news sources reject collection; Federal Reserve metadata feed succeeded.",
+    "Authentic multi-product sampling and a point-in-time return feed are not yet commissioned.",
+    "No fitted or validated return model exists."
+  ]
+}
