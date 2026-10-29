@@ -3,7 +3,7 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.4 · Updated 29 October 2026
+Research white paper · Version 0.4.1 · Updated 29 October 2026
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
@@ -24,9 +24,17 @@ Stock selection also points to a competing mechanism. The only individual-stock 
 
 The new authentic consumer pilot has captured 12 of 18 planned fresh conversations: six Claude Sonnet 5.5 Medium responses in authenticated incognito mode and six Grok Fast responses in authenticated private mode. None supplied an explicit named-stock buy. Claude's three stock-seeking answers allowed conditional unnamed stock satellites; an independent review retained those broader outcomes as ambiguous. The six Gemini cells remain unstarted while access is pending. They are not negative observations. The earlier five-response pilot used different conditions and remains separate.
 
+A second, explicitly exploratory eight-call consumer test crossed unresolved versus Democratic scenarios with browsing requested versus not requested in those same two products. All eight calls completed. None supplied a named-stock buy, including all four calls with displayed web-search activity. Three Claude answers retained ambiguous conditional stock allowances. A browsing request is not proof of retrieval; actual search indicators and source panels were recorded separately. The intervention also changes guard wording, and each cell has only one response.
+
+Retrieval did not guarantee current evidence. One Claude answer acknowledged that its results were largely older forecasts and that it could not confirm current prices. Another response's five citation occurrences represented four URLs and approximately three apparent article families. Claims about historic returns, priced-in outcomes and loss limits remain unverified. Counting citation buttons as independent evidence would overstate coverage.
+
+The interface supplies a further outcome. After a cash answer, Grok displayed a suggested follow-up naming Apple and Tesla. No chip was clicked. This post-hoc observation is UI asset-name exposure, not an answer recommendation, measured human impression, purchase or flow. Expanded source-panel availability has the same distinction. The current results therefore concern answer generation; the broader interface-to-action path remains open for future study.
+
 The consumer instrument also has defects. All six Claude responses exceeded the requested word ceiling, and one described a divided Congress despite the both-chambers assumption. Those answers remain in the record. Claims that a political outcome is already priced, or that a particular allocation contains losses within 30%, are unverified model statements. Research framing, a one-year horizon, no browsing and permission to wait define the conditions. This is not a representative sample of urgent retail questions.
 
-A first issuer-displayed historical quote has now been recorded with availability time: FSLR closed at $176.30 on 28 October. Conflicting volume displays were preserved and the database volume field left unknown. One unadjusted UI observation is not a commissioned return feed. The completed v4 panel's private archive passed every manifest-member hash, restored database integrity and a downloaded checksum comparison; later consumer observations await the final window checkpoint. [Issuer stock information](https://investor.firstsolar.com/stock-info/default.aspx)
+At the current source audit, 1,293 metadata observation rows correspond to 123 distinct URLs and 139 distinct URL/title/publication-date states. Repeat polls are observations, not necessarily new articles or changed metadata.
+
+A first issuer-displayed historical quote has now been recorded with availability time: FSLR closed at $176.30 on 28 October. Conflicting volume displays were preserved and the database volume field left unknown. One unadjusted UI observation is not a commissioned return feed. A combined private checkpoint now contains both completed panels, all 25 consumer observations and versioned annotations. All 1,212 manifest members passed checksum verification, the restored SQLite database passed integrity checks, and the 3,700,686-byte copy downloaded from private backup matched its original SHA-256. [Issuer stock information](https://investor.firstsolar.com/stock-info/default.aspx)
 
 The motivating policy thesis needs a denominator correction. Annual guidance implies 45X credits equal 85.8% of consolidated gross profit at the midpoints and 42.5% of consolidated sales. The roughly 55% figure uses the narrower U.S. per-watt credit/ASP comparison. A Democratic Congress with no new law does not automatically increase the statutory credit: a valuation change must specify future-policy or discount-rate assumptions. Earnings and AI-mediated attention are separate possible mechanisms. The issuer's Q3 announcement is scheduled after the 29 October close, with its call at 4:30 PM ET. [SEC-hosted Q2 guidance](https://www.sec.gov/Archives/edgar/data/1274494/000127449426000169/ex991pressreleaseq2-2026.htm), [Section 45X](https://uscode.house.gov/us/usc/119-124/t26/s45X/), [Issuer earnings announcement](https://investor.firstsolar.com/news/news-details/2026/First-Solar-Inc--to-Announce-Third-Quarter-2026-Financial-Results-on-October-29-2026/default.aspx)
 

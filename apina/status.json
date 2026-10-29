@@ -1,7 +1,7 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "status_date": "2026-10-29",
-  "stage": "fixed_panels_complete_consumer_replication_partial",
+  "stage": "fixed_panels_and_browsing_exploration_completed",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,14 +19,13 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 35,
+    "unit_tests_passed_on_mac_and_imt": 37,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
     "remote_checksum": "downloaded bytes match original SHA-256",
     "drive_folder_sharing": "private",
-    "remote_database_restore_integrity": "ok",
-    "additional_local_tests_passed": 37
+    "remote_database_restore_integrity": "ok"
   },
   "schedules": {
     "imt_daily_collection": "00:35 Europe/Istanbul",
@@ -208,12 +207,15 @@
     "independent_event_families": 1
   },
   "research_counts": {
-    "document_versions": 1165,
-    "distinct_document_urls": 120,
+    "document_versions": 1293,
+    "distinct_document_urls": 123,
     "price_observations": 1,
     "human_trades_observed": 0,
-    "consumer_response_observations_total": 17,
-    "interpretation": "Counts at verification; repeated feed versions are not independent articles"
+    "consumer_response_observations_total": 25,
+    "interpretation": "document_versions is a legacy observation-row count; repeated polls do not imply new articles or changed metadata",
+    "metadata_observation_rows": 1293,
+    "distinct_metadata_states": 139,
+    "distinct_feed_objects": 40
   },
   "matched_v3": {
     "dem_control": {
@@ -244,11 +246,11 @@
     ]
   },
   "last_snapshot": {
-    "sha256": "816722cb2660c24badae78ae74139358b1a7ee283d48edc35ada3d22a29e0293",
-    "scope": "completed v4 panel; subsequent consumer observations await final window checkpoint",
-    "manifest_members_verified": 1108,
+    "sha256": "01b43ae74a579d883eca80119676178c73816c9e9ff2d3135ae11e1c38b272ea",
+    "scope": "completed v4 and v5 panels, all25 consumer observations, versioned annotations, private capture ledgers and current authorization/recovery source",
+    "manifest_members_verified": 1212,
     "restored_sqlite_integrity": "ok",
-    "drive_verification": "uploaded; metadata size and downloaded SHA-256 verified; receipt recorded"
+    "drive_verification": "uploaded; 3700686 downloaded bytes and SHA-256 verified; receipt recorded"
   },
   "completed_windows": [
     {
@@ -700,9 +702,27 @@
   "consumer_browsing_exploration": {
     "protocol": "consumer-browsing-exploration-v2",
     "planned": 8,
-    "stage": "in progress; outcomes not yet classified",
+    "stage": "completed",
     "design": "two authenticated products x baseline/Democratic branch x browsing requested/not requested",
     "status": "explicitly exploratory after previous results",
-    "caveat": "Requested browsing does not prove actual tool use; no repeated queries to seek desired picks"
+    "caveat": "Requested browsing does not prove actual tool use; no repeated queries to seek desired picks",
+    "captured": 8,
+    "named_stock_buys": 0,
+    "actual_search_displayed": 4,
+    "ambiguous_generic_stock_outcomes": 3,
+    "annotations": "independent Astra review; original raw records preserved",
+    "limits": "one response per cell; browse-request wording includes additional guards; no-browse instruction does not prove absence of hidden retrieval",
+    "retrieval_quality": "Older forecast results, repeated links and regional variants; generated financial claims unverified"
+  },
+  "UI_exposure_diagnostic": {
+    "status": "post-hoc observation",
+    "suggested_followup_names": [
+      "Apple",
+      "Tesla"
+    ],
+    "answer_named_stock_buy": false,
+    "chip_clicked": false,
+    "human_impressions_or_trades_measured": false,
+    "interpretation": "UI asset-name exposure is separate from recommendation and investor action"
   }
 }
