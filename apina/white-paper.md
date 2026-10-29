@@ -3,11 +3,30 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.6 · Updated 29 October 2026
+Research white paper · Version 0.7 · Updated 29 October 2026
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
+
+## Market-data admission — 29 October 2026
+
+The next research push targets the missing price and evaluation infrastructure. No new synthetic sampling was commissioned. The bounded local job collects the already permitted publisher metadata on CPU, while the GPU remains available to its ordinary workload.
+
+A source review prevented an invalid shortcut. Public Nasdaq history pages were visible, but the site's current terms explicitly restrict extracting content for data-analysis software without written permission. Captures made during the access probe were quarantined outside the operational dataset and backup paths. They were not imported, fitted, turned into return labels or published as raw data. Visibility and a download control do not establish permission for this research use. [Source terms](https://www.nasdaq.com/legal)
+
+A disabled-by-default adapter is prepared for Massive's documented historical-bar API. The account owner selected preparation of the free personal-research route; account activation and entitlement remain unconfirmed. The provider currently lists an individual Stocks Basic tier with end-of-day data, two years of history and five calls per minute. Personal eligibility must match the actual use; this does not establish a business license. No account, paid subscription or data entitlement was created by the research agent. [Provider plans](https://massive.com/pricing?product=stocks), [Individual terms](https://massive.com/legal/individuals-terms-of-service)
+
+The adapter requires explicit source permission and a separately configured key. Credentials use an authorization header, remain outside project files, and are not stored in request URLs. Redirects are refused; a persistent four-request rolling-minute budget leaves headroom under the selected tier, without automatic retries. Admission checks identity fields, dates, duplicates and OHLCV consistency. Current-session bars, incomplete pagination and invalid observations do not become zero returns. This is a prepared connection, not a live commissioned feed.
+
+The provider's adjusted aggregate field covers splits, not automatically dividend-adjusted total returns. Daily aggregate data also do not, by themselves, establish a regular-session execution price. All resulting bar output therefore remains ineligible for performance claims pending the source, identity, session and corporate-action work. [Bar specification](https://massive.com/docs/rest/stocks/aggregates/custom-bars)
+
+Independent review identified two further measurement risks: splicing adjusted observations from different retrieval vintages can manufacture returns; calibrating close-to-close betas and applying them to open-to-close labels changes the target. The implementation now selects a single coherent batch per asset and requires complete expected exchange dates. Missing sessions are not forward-filled. The proposed research label is consistently regular-close-to-regular-close, with exact interval endpoints frozen before outcomes and a future close at least 30 minutes after actual registration. This supersedes the earlier next-open proposal before any real forecast or performance claim was registered. Calendar and session verification remain required.
+
+The calculation primitive checks model identity, timing, finite values, complete horizons and matching benchmarks, and reports an arithmetic residual with explicit cost sensitivity. It does not produce compounded portfolio P&L. Live registered evaluation remains deliberately disabled until a source-to-bar provenance bridge is commissioned; caller-set flags cannot stand in for that missing bridge. The 69 passing local and research-machine tests use isolated mathematical fixtures, not observed market performance.
+
+At the first CPU-watch checkpoint, 1,674 metadata observation rows corresponded to 159 distinct URLs. The licensed-bar store contained zero observations; the earlier single issuer UI quote remains separate. The new work has produced no return series, new AI recommendations, human trades or validated alpha. Activation of an appropriate price source is the remaining external input; further simulations cannot replace it.
+
 
 ## Completed mechanism audit — 29 October 2026
 
@@ -372,6 +391,8 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 5. OpenAI. *Create a model response.* Request limits and returned usage. [Official API reference](https://developers.openai.com/api/reference/resources/responses/methods/create).
 
 ## Research record
+
+- **2026-10-29, v0.7:** Prepared a disabled licensed-data adapter, quarantined an ineligible source probe, and added coherent-vintage and exact-interval calculation checks. Source activation and the live provenance bridge remain pending; no performance is claimed.
 
 - **2026-10-29, v0.6:** Completed all 128 v6 primary responses after an 8/8 commissioning sample; reported relative ranking separately from explicit purchase decisions. Early native recovery verified. No market alpha claimed.
 

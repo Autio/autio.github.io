@@ -1,7 +1,7 @@
 {
-  "version": "0.6",
+  "version": "0.7",
   "status_date": "2026-10-29",
-  "stage": "v6_synthetic_audit_completed",
+  "stage": "v7_market_source_readiness_cpu_watch",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 45,
+    "unit_tests_passed_on_mac_and_imt": 69,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -210,15 +210,17 @@
     "independent_event_families": 1
   },
   "research_counts": {
-    "document_versions": 1610,
-    "distinct_document_urls": 143,
+    "document_versions": 1674,
+    "distinct_document_urls": 159,
     "price_observations": 1,
     "human_trades_observed": 0,
     "consumer_response_observations_total": 28,
     "interpretation": "document_versions is a legacy observation-row count; repeated polls do not imply new articles or changed metadata",
-    "metadata_observation_rows": 1610,
+    "metadata_observation_rows": 1674,
     "consumer_substantive_response_observations": 26,
-    "consumer_service_error_records": 2
+    "consumer_service_error_records": 2,
+    "metadata_count_asof": "2026-10-29T19:20:27+00:00",
+    "licensed_market_bars": 0
   },
   "matched_v3": {
     "dem_control": {
@@ -797,14 +799,37 @@
     }
   },
   "prospective_evaluation": {
-    "status": "specification and ledger primitive; return source/security master/model uncommissioned",
+    "status": "guarded primitives and specification; live evaluation remains disabled",
     "horizons_sessions": [
       1,
       5,
       20
     ],
     "primary_horizon_sessions": 5,
-    "entry_rule": "next regular-session open at least30minutes after actual registration; hypothetical until data commissioned",
-    "synthetic_v6_market_signals": false
+    "entry_rule": "future verified regular close at least30minutes after actual database registration; proposal before any real forecast",
+    "synthetic_v6_market_signals": false,
+    "return_convention": "regular-close-to-regular-close",
+    "exact_session_endpoints": "required in frozen plan; calendar/session validation not yet commissioned"
+  },
+  "readiness_session": {
+    "mode": "CPU-only metadata collection; no model calls or GPU pause",
+    "authorized_start": "2026-10-29T18:32:32+00:00",
+    "deadline": "2026-10-29T20:32:32+00:00",
+    "collection_cutoff": "2026-10-29T20:30:32+00:00",
+    "observed_scheduled_worker": "running",
+    "salad_observed": "running",
+    "verified_at": "2026-10-29T19:22:19+00:00"
+  },
+  "market_source_preparation": {
+    "provider": "Massive",
+    "owner_selected": "prepare free personal-research connection",
+    "activation": "not confirmed; sign-up left with account owner",
+    "source_enabled": false,
+    "licensed_bars": 0,
+    "quarantined_probe": "Nasdaq website captures excluded from operational data, modeling and backups",
+    "key_storage": "private owner configuration; never project files or public output",
+    "price_basis": "split-adjusted price bars; not total return",
+    "live_performance_evaluation": "disabled until admitted bar-reference bridge is commissioned",
+    "tests": "69 isolated tests passed; fixtures are not market evidence"
   }
 }
