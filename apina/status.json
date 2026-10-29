@@ -1,7 +1,7 @@
 {
-  "version": "0.4.1",
+  "version": "0.5",
   "status_date": "2026-10-29",
-  "stage": "fixed_panels_and_browsing_exploration_completed",
+  "stage": "v6_synthetic_mechanism_audit_running",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 37,
+    "unit_tests_passed_on_mac_and_imt": 45,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -63,13 +63,12 @@
     "chatgpt_sampled": false
   },
   "authorized_window": {
-    "started_at": "2026-10-29T12:08:41+03:00",
-    "ends_at": "2026-10-29T14:08:41+03:00",
-    "state_at_verification": "completed; Salad Running/Automatic; GPU and publisher tasks stopped; daily enabled; no research lock",
-    "native_recovery": "completed at 2026-10-29T11:08:45.5003517Z",
-    "broader_research_horizon": "17:20 Europe/Istanbul; does not extend GPU authorization",
-    "verified_at": "2026-10-29T11:09:01.8327051Z",
-    "gpu_memory_after_recovery_mib": 1933
+    "started_at": "2026-10-29T17:29:26+03:00",
+    "ends_at": "2026-10-29T21:29:26+03:00",
+    "dispatch_cutoff": "2026-10-29T21:25:26+03:00",
+    "state_at_verification": "all8canary complete; fixed128primary panel running; independent recovery verified",
+    "early_restoration": "enabled on worker completion or failure",
+    "verified_at": "2026-10-29T14:33:20+00:00"
   },
   "protocol_update": {
     "protocols": {
@@ -266,6 +265,15 @@
         "required_complete": 4,
         "outcome": "inference halted; metadata collection continued"
       }
+    },
+    {
+      "started_at": "2026-10-29T12:08:41+03:00",
+      "ends_at": "2026-10-29T14:08:41+03:00",
+      "state_at_verification": "completed; Salad Running/Automatic; GPU and publisher tasks stopped; daily enabled; no research lock",
+      "native_recovery": "completed at 2026-10-29T11:08:45.5003517Z",
+      "broader_research_horizon": "17:20 Europe/Istanbul; does not extend GPU authorization",
+      "verified_at": "2026-10-29T11:09:01.8327051Z",
+      "gpu_memory_after_recovery_mib": 1933
     }
   ],
   "v4_study": {
@@ -726,5 +734,36 @@
     "chip_clicked": false,
     "human_impressions_or_trades_measured": false,
     "interpretation": "UI asset-name exposure is separate from recommendation and investor action"
+  },
+  "v6_mechanism": {
+    "protocol": "v6-synthetic-identity-fact-swap",
+    "planned_primary": 128,
+    "planned_canary": 8,
+    "canary_required_valid": 7,
+    "observed_canary_complete_at_check": 8,
+    "canary_running_at_check": 0,
+    "primary_not_started_at_check": 124,
+    "manifest_sha256": "dbe093d6140441fed7558f49b393250eede3373b27d52283f27b6058dadac19e",
+    "registered_at": "2026-10-29T14:29:38.188485+00:00",
+    "full_panel_registered_before_calls": true,
+    "scope": "local synthetic mechanism audit; invented economic facts; not actual company news or market signal",
+    "primary": "favorable-aligned explicit-buy preference; range[-1,1]",
+    "secondary": "relative attractiveness separate from purchase",
+    "comparators": "equal mentions=0; signed-news rule=1 is endpoint ceiling",
+    "missing": "full planned-panel bounds; missing scores[-1,1]; not confidence intervals",
+    "result": "pending",
+    "primary_complete_at_check": 3,
+    "primary_running_at_check": 1
+  },
+  "prospective_evaluation": {
+    "status": "specification and ledger primitive; return source/security master/model uncommissioned",
+    "horizons_sessions": [
+      1,
+      5,
+      20
+    ],
+    "primary_horizon_sessions": 5,
+    "entry_rule": "next regular-session open at least30minutes after actual registration; hypothetical until data commissioned",
+    "synthetic_v6_market_signals": false
   }
 }

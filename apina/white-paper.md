@@ -3,11 +3,28 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.4.1 · Updated 29 October 2026
+Research white paper · Version 0.5 · Updated 29 October 2026
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
+
+## Next-stage protocol — identity and economic evidence
+
+Version 0.5 adds a controlled mechanism audit, not a market backtest. Prior experiments found packet-sensitive local advice but no demonstrated election trade. The next question is whether purchase recommendations respond to economic facts when exposure to issuer names is held constant.
+
+Protocol v6 crosses visible versus masked company identity with two opposite assignments of favorable and adverse hypothetical cash-flow revisions. The two identities are First Solar and FedEx, chosen purposively from the motivating thesis and the earlier most frequent local stock buy. Both receive identical fictional starting financial assumptions. Their expected annual free cash flow per share is then revised from 10 to 12 or 8, and the assignment is swapped. Every packet labels these numbers as invented. They are not actual disclosures, current prices, valuations or trade candidates. Name removal also removes prior company knowledge; it does not isolate a pure typography effect.
+
+The fixed panel has 128 fresh one-turn local responses: four conditions × four paraphrases × eight repeats. Eight separate commissioning calls require seven valid outputs before the main panel starts. All 136 cells, prompts, source hashes, model configuration and analysis rules were committed before the first call at the new research checkpoint. Orders are randomized within complete blocks. Company-to-ID mapping and display order are balanced across the panel, but their separate effects are not identified.
+
+The primary score is A-buy minus B-buy, signed toward the issuer with the favorable revision. Each cell is in [−1,1]. The equal-weight mean is half the balanced fact-swap contrast. Immediate purchases and conditional possibilities are distinct. A separate secondary field records relative attractiveness as A, B, equal or insufficient information. Ranking an issuer above another is not a purchase. Buying neither may be prudent; a zero purchase score does not establish failed comprehension.
+
+Two mechanical comparators are frozen: equal mentions (no discrimination) and the signed-news rule (favor the positive revision). The latter achieves the endpoint maximum by construction. This experiment can assess responsiveness beyond mentions and departures from the signed-news rule; it cannot demonstrate that AI beats the stronger comparator or predicts returns. Failed and unstarted cells remain unknown over [−1,1], with bounds for the entire planned panel. These are identification bounds, not confidence intervals or estimates of retail prevalence. Commissioning outcomes are excluded from the main analysis.
+
+Execution is bounded by a newly authorized four-hour maximum. Recovery is armed independently before GPU use and is also requested when the finite run finishes or fails, allowing earlier restoration. This protocol remains separate from v4, v5 and authentic consumer observations. Results will be reported after execution; no v6 outcome is claimed here.
+
+A separate prospective evaluation specification freezes proposed 1-, 5- and 20-session horizons, with five-session residual return primary, and a first hypothetical entry at the next regular-session open at least 30 minutes after actual signal registration. It compares news, sector and momentum baselines with those same features plus AI advice, using chronological event-cluster evaluation and purging of overlapping labels. The append-only ledger primitive rejects realized returns at registration. Neither the permitted return feed, verified security master nor fitted predictive model is commissioned. Synthetic v6 responses do not enter that market ledger. Infrastructure and a specification cannot establish alpha.
+
 
 ## Research note — 29 October 2026
 
@@ -329,6 +346,8 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 5. OpenAI. *Create a model response.* Request limits and returned usage. [Official API reference](https://developers.openai.com/api/reference/resources/responses/methods/create).
 
 ## Research record
+
+- **2026-10-29, v0.5:** Registered a separate synthetic identity × fact-assignment mechanism audit, with explicit-buy and relative-attractiveness outcomes kept distinct. Added a tested append-only signal-ledger primitive and a prospective market-evaluation specification. Execution status is reported separately; no new alpha claim.
 
 - **2026-10-29, v0.4.1:** Completed eight exploratory consumer browsing calls, retained source and UI-exposure annotations, and verified a combined private checkpoint containing all 25 consumer observations. No named-stock buys in either of the two new consumer studies.
 
