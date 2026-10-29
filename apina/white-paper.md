@@ -38,7 +38,7 @@ A first issuer-displayed historical quote has now been recorded with availabilit
 
 The motivating policy thesis needs a denominator correction. Annual guidance implies 45X credits equal 85.8% of consolidated gross profit at the midpoints and 42.5% of consolidated sales. The roughly 55% figure uses the narrower U.S. per-watt credit/ASP comparison. A Democratic Congress with no new law does not automatically increase the statutory credit: a valuation change must specify future-policy or discount-rate assumptions. Earnings and AI-mediated attention are separate possible mechanisms. The issuer's Q3 announcement is scheduled after the 29 October close, with its call at 4:30 PM ET. [SEC-hosted Q2 guidance](https://www.sec.gov/Archives/edgar/data/1274494/000127449426000169/ex991pressreleaseq2-2026.htm), [Section 45X](https://uscode.house.gov/us/usc/119-124/t26/s45X/), [Issuer earnings announcement](https://investor.firstsolar.com/news/news-details/2026/First-Solar-Inc--to-Announce-Third-Quarter-2026-Financial-Results-on-October-29-2026/default.aspx)
 
-At this checkpoint, the proposed positive advice mechanism is unsupported in the tested conditions. That is not evidence for a short trade. Conversion, incremental demand, feasible execution and prospective residual returns remain unvalidated. The current research window ends at 14:08 Istanbul; its independent recovery remains armed. Further source work and the broader evidence review are bounded by the user's additional research allowance.
+At this checkpoint, the proposed positive advice mechanism is unsupported in the tested conditions. That is not evidence for a short trade. Conversion, incremental demand, feasible execution and prospective residual returns remain unvalidated. The authorized GPU window ended at 14:08 Istanbul. Native recovery restored Salad at 14:08:45; both APINA window workers were stopped and the ordinary daily task was enabled. Further source work and the broader evidence review are bounded by the user's additional research allowance.
 
 APINA CAPITAL · Evidence before exposure.
 
@@ -118,7 +118,7 @@ Every observation belongs to one of three channels:
 | API proxy | A response from a specified provider/model endpoint; consumer routing, memory, browsing, and system instructions may differ |
 | Local proxy | A response from a locally hosted model, useful for simulation and engineering but not a measurement of a proprietary product |
 
-The daily installed pipeline uses the local-proxy channel. A separate commissioning pilot has now recorded five authentic browser responses across Claude, Gemini, and Grok; it is described in Section 16. ChatGPT has not been sampled. Having four persona labels or four prompts does not constitute four-model coverage. Having four models does not establish four independent information sources.
+The daily installed pipeline uses the local-proxy channel. The first commissioning pilot recorded five authentic browser responses across Claude, Gemini, and Grok; it is described in Section 16. The current research note reports 20 further responses across Claude and Grok, with new Gemini cells pending. ChatGPT has not been sampled. Having four persona labels or four prompts does not constitute four-model coverage. Having four models does not establish four independent information sources.
 
 ## 3. Event registry and counterfactual design
 
@@ -205,7 +205,7 @@ The target is a feasible residual return:
 
 Betas are fitted using pre-event data. Alternative benchmarks are reported because market and sector hedges can overlap and the residual depends on the specification. Entry occurs no earlier than signal completion plus modeled execution delay. Transaction costs include spreads, slippage, fees, financing, and borrow where relevant.
 
-The pipeline can record delayed, unadjusted price snapshots with market dates and observation times, but no permitted price source is commissioned and zero price observations are stored. Such snapshots alone would not support reliable intraday backtesting or split/dividend-adjusted return attribution. A point-in-time corporate-action-aware price feed and security master are required before performance claims.
+The pipeline can record delayed, unadjusted price snapshots with market dates and observation times, but no permitted systematic price source is commissioned. One manually recorded issuer UI observation is stored, as described in the current research note. Such snapshots alone would not support reliable intraday backtesting or split/dividend-adjusted return attribution. A point-in-time corporate-action-aware price feed and security master are required before performance claims.
 
 ## 9. Statistical model and what would falsify it
 
@@ -296,7 +296,7 @@ Historical model replays can debug the pipeline but cannot establish clean prosp
 |---|---|
 | Public source collection | Implemented bounded RSS metadata; quote adapter present but no permitted price feed commissioned |
 | Local investor simulation | Implemented paired branches and follow-ups through the local Qwen endpoint |
-| Three/four consumer-product sampling | Five authentic pilot responses from three products; daily systematic consumer sampling remains an extension |
+| Three/four consumer-product sampling | 25 retained responses across three products in separate protocols; new Gemini cells pending; daily systematic consumer sampling remains an extension |
 | Database and provenance | Implemented transactional schema, content hashes, availability times, and reports |
 | Mathematical research primitives | Implemented and unit-tested; no fitted return model yet |
 | Human conversion | Unobserved; interval assumptions only |
@@ -329,6 +329,8 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 5. OpenAI. *Create a model response.* Request limits and returned usage. [Official API reference](https://developers.openai.com/api/reference/resources/responses/methods/create).
 
 ## Research record
+
+- **2026-10-29, v0.4.1:** Completed eight exploratory consumer browsing calls, retained source and UI-exposure annotations, and verified a combined private checkpoint containing all 25 consumer observations. No named-stock buys in either of the two new consumer studies.
 
 - **2026-10-29, v0.4:** V4 completed 70 of 72 planned primary cells after a 6/6 canary. The positive Democratic stock-buying contrast was not supported. A new consumer pilot captured 12 responses across two authenticated products, with six cells pending. One issuer UI price observation was recorded with conflicting volume left unknown. A separately labeled exploratory packet-ablation study completed all 36 primary cells inside the existing GPU deadline, with buys in 6/18 original-packet responses versus 0/18 omitted-packet responses.
 

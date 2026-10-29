@@ -65,9 +65,11 @@
   "authorized_window": {
     "started_at": "2026-10-29T12:08:41+03:00",
     "ends_at": "2026-10-29T14:08:41+03:00",
-    "state_at_verification": "v4 and v5 GPU panels completed; publisher collection continues; Salad recovery remains armed",
-    "native_recovery": "armed and verified; deadline unchanged",
-    "broader_research_horizon": "17:20 Europe/Istanbul; does not extend GPU authorization"
+    "state_at_verification": "completed; Salad Running/Automatic; GPU and publisher tasks stopped; daily enabled; no research lock",
+    "native_recovery": "completed at 2026-10-29T11:08:45.5003517Z",
+    "broader_research_horizon": "17:20 Europe/Istanbul; does not extend GPU authorization",
+    "verified_at": "2026-10-29T11:09:01.8327051Z",
+    "gpu_memory_after_recovery_mib": 1933
   },
   "protocol_update": {
     "protocols": {
