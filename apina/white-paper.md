@@ -3,7 +3,7 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.8 · Updated 30 October 2026 (Europe/Istanbul)
+Research white paper · Version 0.8.1 · Updated 30 October 2026 (Europe/Istanbul)
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
@@ -23,6 +23,8 @@ There are now 31 consumer records across distinct protocols: 29 substantive resp
 
 ## Source-linked calibration and prospective observation — 30 October 2026
 
+The existing daily routine is now configured to refresh FSLR, SPY and TAN through the prior New York session, with at most three free-tier requests per target date, no automatic retries, and one coherent rolling history per security. The current smoke check made zero requests because all three required histories were already retained. The first later scheduled refresh is not yet observed. This routine always skips GPU sampling; source failures remain explicit and do not become returns. Its published-calendar coverage currently ends in 2026, after which a new verified calendar is required. This is continuing raw-data collection, not an admitted performance feed.
+
 The next push addressed measurement, not recommendation volume. Three longer historical requests produced 84 matching dates per security for FSLR, SPY and TAN, from 1 July through 28 October. The store now contains 276 daily bars in six retrieval batches; the latest coherent histories comprise 252 bars. The earlier 24 bars overlap those histories and are not additional independent dates. All 18 tracked market-data requests, including the initial connection checks, completed.
 
 Twelve reference requests supplied security details, splits, cash distributions and separate daily summaries. Each response was checked against its retained raw-object hash, frozen request manifest and completed request receipt. All six action responses explicitly contain a results array. A stricter versioned validator now treats an omitted array as unknown, not zero. The original records and validation outcomes remain retained. One SPY cash distribution appears in this window; none appears for FSLR or TAN in these bounded responses. No split is recorded in the requested interval. These are retrieved provider observations, not a historical information archive. [Reference specification](https://massive.com/docs/rest/stocks/corporate-actions/dividends)
@@ -33,7 +35,7 @@ A private descriptive calibration now uses 83 matched vendor-daily-close interva
 
 The ledger audit reproduced two avoidable weaknesses: an untyped nested payload could carry outcomes, and a changed payload could create another primary registration. The legacy entry point is now frozen; its database contained zero forecasts. A typed shadow-receipt path rejects unknown fields, conflicting payloads, timestamp changes, deletes and replacement writes. The receipt binds the exact selected source metadata and object references. An intact receipt and currently available source evidence are reported separately. This is application-level integrity, not protection against a hostile database owner. Uniqueness is per protocol, event-artifact and target; it does not automatically deduplicate different captures of the same economic event. Feature lineage and governance of stable event identities remain uncommissioned. No actual forecast has been registered.
 
-The local GPU contribution was a finite engineering review: six planned calls, four parsed reviews and two invalid JSON outputs. The failures remain failures, not negative investment advice. Generated suggestions were checked independently; broad or incorrect claims were annotated rather than adopted. The new code passes 105 tests on both machines. These tests validate arithmetic and failure handling, not a trading edge. The GPU was released early after the finite review; public-source metadata collection can continue on CPU within the remaining authorized window.
+The local GPU contribution was a finite engineering review: six planned calls, four parsed reviews and two invalid JSON outputs. The failures remain failures, not negative investment advice. Generated suggestions were checked independently; broad or incorrect claims were annotated rather than adopted. The new code passes 112 tests on both machines. These tests validate arithmetic and failure handling, not a trading edge. The GPU was released early after the finite review; public-source metadata collection can continue on CPU within the remaining authorized window.
 
 The [prospective observation plan](https://autio.github.io/apina/prospective-observation-plan.md) fixes one election family, six intended consumer-product cells, a qualifying-packet window, a 90-minute dispatch limit, and one primary endpoint: explicit present FSLR purchase recommendations among all six planned cells. Ambiguous and missing outputs enter finite-panel bounds. The election is one event family regardless of prompt count. The protocol is sealed preparation, not active execution or authorization for future GPU use. No future response, model score or return is invented to satisfy a schema. The scheduled federal election date is 3 November; that schedule establishes neither an outcome nor a new law. [FEC schedule](https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/)
 
@@ -422,6 +424,7 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 
 ## Research record
 
+- **2026-10-30, v0.8.1:** Configured a bounded daily historical refresh; zero duplicate requests in the smoke check and 112 tests passing. Automatic daily GPU sampling is disabled.
 - **2026-10-30, v0.8:** Added longer source-linked histories, explicit corporate-action revalidation, private proxy calibration, typed immutable receipts and a frozen future observation plan. No forecast or alpha is claimed.
 - **2026-10-29, v0.7.1:** Verified the owner-activated free individual source with three historical requests and 24 admitted bars. CPU collection completed; no return labels or alpha claims.
 - **2026-10-29, v0.7:** Prepared a disabled licensed-data adapter, quarantined an ineligible source probe, and added coherent-vintage and exact-interval calculation checks. Source activation and the live provenance bridge remain pending; no performance is claimed.

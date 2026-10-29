@@ -1,5 +1,5 @@
 {
-  "version": "0.8",
+  "version": "0.8.1",
   "status_date": "2026-10-30",
   "stage": "v8_source_linked_diagnostic_and_frozen_observation_design",
   "alpha_status": "UNVALIDATED",
@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 105,
+    "unit_tests_passed_on_mac_and_imt": 112,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -958,6 +958,24 @@
       "q3_adjusted_ebitda_within_prior_range": true,
       "buyback_authorized_usd": 500000000,
       "actual_buyback_spending_not_inferred": true
+    },
+    "daily_historical_refresh": {
+      "configured": true,
+      "symbols": [
+        "FSLR",
+        "SPY",
+        "TAN"
+      ],
+      "maximum_requests_per_target_date": 3,
+      "rolling_history_calendar_days": 240,
+      "current_smoke_new_requests": 0,
+      "current_smoke_reason": "all three required histories already retained",
+      "future_scheduled_refresh_observed": false,
+      "prior_new_york_session_only": true,
+      "automatic_retries": false,
+      "automatic_gpu_sampling": false,
+      "calendar_coverage_year": 2026,
+      "performance_eligible": false
     }
   }
 }
