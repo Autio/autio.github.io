@@ -1,7 +1,7 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "status_date": "2026-10-29",
-  "stage": "overnight_instrument_audit_completed",
+  "stage": "fixed_panels_complete_consumer_replication_partial",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,13 +19,14 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 22,
+    "unit_tests_passed_on_mac_and_imt": 35,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
     "remote_checksum": "downloaded bytes match original SHA-256",
     "drive_folder_sharing": "private",
-    "remote_database_restore_integrity": "ok"
+    "remote_database_restore_integrity": "ok",
+    "additional_local_tests_passed": 37
   },
   "schedules": {
     "imt_daily_collection": "00:35 Europe/Istanbul",
@@ -39,13 +40,12 @@
     "codex_usage": "Separate from APINA API ledger"
   },
   "open_issues": [
-    "No price observations, observed human trades, or validated return model.",
-    "Local Qwen observations are not consumer-product population samples.",
-    "Missing outcomes leave all examined matched ticker contrasts compatible with zero.",
-    "Planned cells were not registered before dispatch; planned-panel bounds unavailable.",
-    "Ticker contract rejects descriptive labels, including non-buy advice; allocation meaning needs repair before a new protocol.",
-    "Authentic consumer pilot lacks matched baseline; intent, risk tolerance and conversation history are confounded.",
-    "Daily collection uses permitted publisher RSS with backoff; some official sources remain unavailable."
+    "No commissioned return feed or human trade observations; one unadjusted issuer UI quote recorded.",
+    "Consumer coverage incomplete: six new Gemini cells pending; no representative user sample.",
+    "No validated AI-mediated demand or tradable alpha.",
+    "Research cues, one-year horizon, structured output and supplied news condition the results.",
+    "V5 is exploratory and lacks a news-only decision baseline.",
+    "Ticker identifiers and reported company references are unverified securities."
   ],
   "consumer_pilot": {
     "products_sampled": [
@@ -64,16 +64,11 @@
     "chatgpt_sampled": false
   },
   "authorized_window": {
-    "started_at": "2026-10-29T01:09:09+03:00",
-    "extended_deadline": "2026-10-29T05:00:00+03:00",
-    "salad_resumed_at": "2026-10-29T05:00:04.888861+03:00",
-    "state_at_verification": "window workers stopped; model released; Salad running with automatic startup; normal daily task enabled",
-    "continuation_canary": {
-      "complete": 3,
-      "attempted": 6,
-      "required_complete": 4,
-      "outcome": "inference halted; metadata collection continued"
-    }
+    "started_at": "2026-10-29T12:08:41+03:00",
+    "ends_at": "2026-10-29T14:08:41+03:00",
+    "state_at_verification": "v4 and v5 GPU panels completed; publisher collection continues; Salad recovery remains armed",
+    "native_recovery": "armed and verified; deadline unchanged",
+    "broader_research_horizon": "17:20 Europe/Istanbul; does not extend GPU authorization"
   },
   "protocol_update": {
     "protocols": {
@@ -213,10 +208,12 @@
     "independent_event_families": 1
   },
   "research_counts": {
-    "document_versions": 845,
-    "distinct_document_urls": 94,
-    "price_observations": 0,
-    "human_trades_observed": 0
+    "document_versions": 1165,
+    "distinct_document_urls": 120,
+    "price_observations": 1,
+    "human_trades_observed": 0,
+    "consumer_response_observations_total": 17,
+    "interpretation": "Counts at verification; repeated feed versions are not independent articles"
   },
   "matched_v3": {
     "dem_control": {
@@ -235,7 +232,7 @@
     }
   },
   "proposed_next_design": {
-    "status": "not_run",
+    "status": "local v4 panel completed; full replicated consumer experiment not run",
     "fresh_conversations_per_fixed_model_or_product": 72,
     "factors": "3 branches x 2 intent prompts x 3 paraphrases x 4 repeats",
     "requirements": [
@@ -247,10 +244,465 @@
     ]
   },
   "last_snapshot": {
-    "sha256": "bef8854c5e89f7bac745dccfc07fb9d265e61d1621c3923656756492605ccc1e",
-    "scope": "final no-inference checkpoint with corrected audits",
-    "drive_verification": "uploaded; metadata size and downloaded SHA-256 verified; receipt recorded",
-    "manifest_members_verified": 1021,
-    "restored_sqlite_integrity": "ok"
+    "sha256": "816722cb2660c24badae78ae74139358b1a7ee283d48edc35ada3d22a29e0293",
+    "scope": "completed v4 panel; subsequent consumer observations await final window checkpoint",
+    "manifest_members_verified": 1108,
+    "restored_sqlite_integrity": "ok",
+    "drive_verification": "uploaded; metadata size and downloaded SHA-256 verified; receipt recorded"
+  },
+  "completed_windows": [
+    {
+      "started_at": "2026-10-29T01:09:09+03:00",
+      "extended_deadline": "2026-10-29T05:00:00+03:00",
+      "salad_resumed_at": "2026-10-29T05:00:04.888861+03:00",
+      "state_at_verification": "window workers stopped; model released; Salad running with automatic startup; normal daily task enabled",
+      "continuation_canary": {
+        "complete": 3,
+        "attempted": 6,
+        "required_complete": 4,
+        "outcome": "inference halted; metadata collection continued"
+      }
+    }
+  ],
+  "v4_study": {
+    "protocol": "v4-one-turn-intent-randomized-planned",
+    "registered_primary_cells": 72,
+    "canary_counts": {
+      "complete": 6
+    },
+    "primary_status_counts": {
+      "complete": 70,
+      "error": 2
+    },
+    "strata": [
+      {
+        "intent": "general",
+        "branch": "baseline",
+        "status_counts": {
+          "complete": 12
+        },
+        "completed_primary_buys": 0,
+        "completed_ticker_bearing_buys": 0
+      },
+      {
+        "intent": "general",
+        "branch": "dem_control",
+        "status_counts": {
+          "complete": 12
+        },
+        "completed_primary_buys": 0,
+        "completed_ticker_bearing_buys": 0
+      },
+      {
+        "intent": "general",
+        "branch": "rep_control",
+        "status_counts": {
+          "complete": 11,
+          "error": 1
+        },
+        "completed_primary_buys": 0,
+        "completed_ticker_bearing_buys": 0
+      },
+      {
+        "intent": "individual_stocks",
+        "branch": "baseline",
+        "status_counts": {
+          "complete": 12
+        },
+        "completed_primary_buys": 7,
+        "completed_ticker_bearing_buys": 7
+      },
+      {
+        "intent": "individual_stocks",
+        "branch": "dem_control",
+        "status_counts": {
+          "complete": 12
+        },
+        "completed_primary_buys": 2,
+        "completed_ticker_bearing_buys": 2
+      },
+      {
+        "intent": "individual_stocks",
+        "branch": "rep_control",
+        "status_counts": {
+          "complete": 11,
+          "error": 1
+        },
+        "completed_primary_buys": 4,
+        "completed_ticker_bearing_buys": 4
+      }
+    ],
+    "contrasts": {
+      "dem_control_general": {
+        "model_labeled_stock_buy": {
+          "planned_blocks": 12,
+          "complete_blocks": 12,
+          "complete_block_mean": 0.0,
+          "planned_panel_bounds": [
+            0.0,
+            0.0
+          ]
+        },
+        "ticker_bearing_stock_buy_unverified": {
+          "planned_blocks": 12,
+          "complete_blocks": 12,
+          "complete_block_mean": 0.0,
+          "planned_panel_bounds": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "dem_control_individual_stocks": {
+        "model_labeled_stock_buy": {
+          "planned_blocks": 12,
+          "complete_blocks": 12,
+          "complete_block_mean": -0.4166666666666667,
+          "planned_panel_bounds": [
+            -0.41666666666666663,
+            -0.41666666666666663
+          ]
+        },
+        "ticker_bearing_stock_buy_unverified": {
+          "planned_blocks": 12,
+          "complete_blocks": 12,
+          "complete_block_mean": -0.4166666666666667,
+          "planned_panel_bounds": [
+            -0.41666666666666663,
+            -0.41666666666666663
+          ]
+        }
+      },
+      "dem_control_intent_interaction": {
+        "model_labeled_stock_buy": {
+          "planned_blocks": 12,
+          "complete_blocks": 12,
+          "complete_block_mean": -0.4166666666666667,
+          "planned_panel_bounds": [
+            -0.41666666666666663,
+            -0.41666666666666663
+          ]
+        },
+        "ticker_bearing_stock_buy_unverified": {
+          "planned_blocks": 12,
+          "complete_blocks": 12,
+          "complete_block_mean": -0.4166666666666667,
+          "planned_panel_bounds": [
+            -0.41666666666666663,
+            -0.41666666666666663
+          ]
+        }
+      },
+      "rep_control_general": {
+        "model_labeled_stock_buy": {
+          "planned_blocks": 12,
+          "complete_blocks": 11,
+          "complete_block_mean": 0.0,
+          "planned_panel_bounds": [
+            0.0,
+            0.08333333333333333
+          ]
+        },
+        "ticker_bearing_stock_buy_unverified": {
+          "planned_blocks": 12,
+          "complete_blocks": 11,
+          "complete_block_mean": 0.0,
+          "planned_panel_bounds": [
+            0.0,
+            0.08333333333333333
+          ]
+        }
+      },
+      "rep_control_individual_stocks": {
+        "model_labeled_stock_buy": {
+          "planned_blocks": 12,
+          "complete_blocks": 11,
+          "complete_block_mean": -0.18181818181818182,
+          "planned_panel_bounds": [
+            -0.25,
+            -0.16666666666666666
+          ]
+        },
+        "ticker_bearing_stock_buy_unverified": {
+          "planned_blocks": 12,
+          "complete_blocks": 11,
+          "complete_block_mean": -0.18181818181818182,
+          "planned_panel_bounds": [
+            -0.25,
+            -0.16666666666666666
+          ]
+        }
+      },
+      "rep_control_intent_interaction": {
+        "model_labeled_stock_buy": {
+          "planned_blocks": 12,
+          "complete_blocks": 11,
+          "complete_block_mean": -0.18181818181818182,
+          "planned_panel_bounds": [
+            -0.3333333333333333,
+            -0.16666666666666666
+          ]
+        },
+        "ticker_bearing_stock_buy_unverified": {
+          "planned_blocks": 12,
+          "complete_blocks": 11,
+          "complete_block_mean": -0.18181818181818182,
+          "planned_panel_bounds": [
+            -0.3333333333333333,
+            -0.16666666666666666
+          ]
+        }
+      }
+    },
+    "manifest_registered_before_first_call": true,
+    "manifest_sha256": "bbcb953291b0debf583c5366e2eaa2783220276d4fe9cb7e1140e9d43e4365dd",
+    "scope": "finite panel of local model responses; not investor prevalence or return evidence",
+    "stock_identifier_counts": [
+      {
+        "intent": "individual_stocks",
+        "branch": "rep_control",
+        "stock_buy_cell_counts": {
+          "FDX": 2,
+          "WEN": 3,
+          "ORCL": 1
+        }
+      },
+      {
+        "intent": "individual_stocks",
+        "branch": "dem_control",
+        "stock_buy_cell_counts": {
+          "FDX": 1,
+          "WEN": 2
+        }
+      },
+      {
+        "intent": "individual_stocks",
+        "branch": "baseline",
+        "stock_buy_cell_counts": {
+          "ORCL": 1,
+          "WEN": 2,
+          "FDX": 6,
+          "MSFT": 2
+        }
+      },
+      {
+        "intent": "general",
+        "branch": "rep_control",
+        "stock_buy_cell_counts": {}
+      },
+      {
+        "intent": "general",
+        "branch": "baseline",
+        "stock_buy_cell_counts": {}
+      },
+      {
+        "intent": "general",
+        "branch": "dem_control",
+        "stock_buy_cell_counts": {}
+      }
+    ],
+    "source_overlap": "All four reported buy identifiers correspond to companies in the frozen headline packet; exploratory diagnostic, not causal anchoring evidence"
+  },
+  "new_consumer_pilot": {
+    "protocol": "consumer-intent-pilot-v1",
+    "planned": 18,
+    "captured": 12,
+    "products": {
+      "Claude": {
+        "model_label": "Sonnet 5.5 Medium",
+        "session": "authenticated incognito",
+        "captured": 6
+      },
+      "Grok": {
+        "model_label": "Fast; exact version not exposed",
+        "session": "authenticated private",
+        "captured": 6
+      },
+      "Gemini": {
+        "captured": 0,
+        "pending": 6,
+        "reason": "sign-in incomplete"
+      }
+    },
+    "explicit_named_stock_buys": 0,
+    "ambiguous_generic_stock_satellites": 3,
+    "word_limit_exceeded": {
+      "Claude": 6,
+      "Grok": 0
+    },
+    "scenario_comprehension_flags": 1,
+    "comparison_limit": "One response per cell; research cue and no browsing; not pooled with prior pilot or local model; capture times are conservative availability records"
+  },
+  "issuer_ui_price": {
+    "symbol": "FSLR",
+    "market_date": "2026-10-28",
+    "close": 176.3,
+    "observed_at": "2026-10-29T09:27:28+00:00",
+    "source": "issuer-displayed historical table",
+    "volume": null,
+    "volume_limitation": "Current and historical widgets differ; volume unresolved",
+    "adjustments": "unadjusted; corporate actions unverified",
+    "feed_commissioned": false
+  },
+  "v5_exploration": {
+    "protocol": "v5-exploratory-packet-ablation",
+    "stage": "completed",
+    "primary_cells": 36,
+    "canary_cells": 6,
+    "canary_complete": 6,
+    "evidence_arms": [
+      "original frozen packet",
+      "omitted packet"
+    ],
+    "primary_contrast": "pooled original-minus-omitted any-stock-buy over 18 planned pairs",
+    "anchoring_metric": "reported reference to any company named in complete frozen packet; identities unverified",
+    "limits": "Exploratory; packet omission changes multiple information dimensions; both arms use AI; no incremental return claim",
+    "primary_complete": 36,
+    "primary_errors": 0,
+    "manifest_sha256": "2a94abc49a3464e1ed6e0c7dbc195a86bac8fad4e5087d7e593e48c9bf800fc5",
+    "strata": [
+      {
+        "arm": "original_packet",
+        "statuses": {
+          "complete": 18
+        },
+        "observed_any_stock_buy": 6,
+        "observed_packet_reference": 6
+      },
+      {
+        "arm": "omitted_packet",
+        "statuses": {
+          "complete": 18
+        },
+        "observed_any_stock_buy": 0,
+        "observed_packet_reference": 0
+      }
+    ],
+    "primary_and_anchoring_contrasts": {
+      "any_stock_buy": {
+        "planned_pairs": 18,
+        "outcome_complete_pairs": 18,
+        "complete_pair_mean": 0.3333333333333333,
+        "planned_panel_bounds": [
+          0.33333333333333337,
+          0.33333333333333337
+        ]
+      },
+      "packet_company_reference": {
+        "planned_pairs": 18,
+        "outcome_complete_pairs": 18,
+        "complete_pair_mean": 0.3333333333333333,
+        "planned_panel_bounds": [
+          0.33333333333333337,
+          0.33333333333333337
+        ]
+      },
+      "prior_four_reference": {
+        "planned_pairs": 18,
+        "outcome_complete_pairs": 18,
+        "complete_pair_mean": 0.3333333333333333,
+        "planned_panel_bounds": [
+          0.33333333333333337,
+          0.33333333333333337
+        ]
+      }
+    },
+    "secondary_branch_contrasts": {
+      "baseline": {
+        "any_stock_buy": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.3333333333333333,
+          "planned_panel_bounds": [
+            0.3333333333333333,
+            0.3333333333333333
+          ]
+        },
+        "packet_company_reference": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.3333333333333333,
+          "planned_panel_bounds": [
+            0.3333333333333333,
+            0.3333333333333333
+          ]
+        },
+        "prior_four_reference": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.3333333333333333,
+          "planned_panel_bounds": [
+            0.3333333333333333,
+            0.3333333333333333
+          ]
+        }
+      },
+      "dem_control": {
+        "any_stock_buy": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.16666666666666666,
+          "planned_panel_bounds": [
+            0.16666666666666666,
+            0.16666666666666666
+          ]
+        },
+        "packet_company_reference": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.16666666666666666,
+          "planned_panel_bounds": [
+            0.16666666666666666,
+            0.16666666666666666
+          ]
+        },
+        "prior_four_reference": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.16666666666666666,
+          "planned_panel_bounds": [
+            0.16666666666666666,
+            0.16666666666666666
+          ]
+        }
+      },
+      "rep_control": {
+        "any_stock_buy": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.5,
+          "planned_panel_bounds": [
+            0.5,
+            0.5
+          ]
+        },
+        "packet_company_reference": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.5,
+          "planned_panel_bounds": [
+            0.5,
+            0.5
+          ]
+        },
+        "prior_four_reference": {
+          "planned_pairs": 6,
+          "outcome_complete_pairs": 6,
+          "complete_pair_mean": 0.5,
+          "planned_panel_bounds": [
+            0.5,
+            0.5
+          ]
+        }
+      }
+    }
+  },
+  "consumer_browsing_exploration": {
+    "protocol": "consumer-browsing-exploration-v2",
+    "planned": 8,
+    "stage": "in progress; outcomes not yet classified",
+    "design": "two authenticated products x baseline/Democratic branch x browsing requested/not requested",
+    "status": "explicitly exploratory after previous results",
+    "caveat": "Requested browsing does not prove actual tool use; no repeated queries to seek desired picks"
   }
 }

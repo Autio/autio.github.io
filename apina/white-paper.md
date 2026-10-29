@@ -3,13 +3,41 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.3 · Updated 29 October 2026
+Research white paper · Version 0.4 · Updated 29 October 2026
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
 
 ## Research note — 29 October 2026
+
+The cleaner local experiment did not produce the expected political buying signal. Protocol v4 registered every cell before dispatch, used fresh one-turn conversations, held the investor and evidence fixed, randomized branch order within blocks, and separated general allocation intent from requests for stock ideas. Its six commissioning responses completed. The separate 72-cell panel produced 70 valid responses and two identifier-validation failures.
+
+| Investor intent | Unresolved baseline | Democratic Congress | Republican Congress |
+|---|---:|---:|---:|
+| General allocation: individual-stock buys / planned cells | 0 / 12 | 0 / 12 | 0 observed; 1 unknown / 12 |
+| Stock ideas if justified: individual-stock buys / planned cells | 7 / 12 | 2 / 12 | 4 observed; 1 unknown / 12 |
+
+The primary outcome is a model-labeled individual-stock buy, not a verified security or human purchase. Under stock-seeking intent, the Democratic-minus-baseline difference is −41.7 percentage points in the fully observed 12-block comparison. Republican-minus-baseline missing-outcome bounds are −25.0 to −16.7 points. These describe the realized planned panel. They are not confidence intervals or estimates for investor populations. Repeating one model on one event family does not create independent elections.
+
+Stock selection also points to a competing mechanism. The only individual-stock buy identifiers were FDX, WEN, ORCL and MSFT; each company appeared in the frozen 15-headline packet. FSLR received no buy. This is an exploratory source-overlap diagnostic, not proof of anchoring. A separately registered exploratory packet-ablation experiment then completed all 36 primary cells after a 6/6 canary. Original metadata produced stock buys in 6 of 18 responses; omitted metadata produced none in 18. Every reported buy referenced a company in the packet. The pooled observed difference is +33.3 percentage points across 18 planned pairs, not a population confidence interval. Both arms still use AI, and packet omission changes information content and length together. It cannot isolate name anchoring or establish incremental return prediction over news. Its results remain separate from v4.
+
+The new authentic consumer pilot has captured 12 of 18 planned fresh conversations: six Claude Sonnet 5.5 Medium responses in authenticated incognito mode and six Grok Fast responses in authenticated private mode. None supplied an explicit named-stock buy. Claude's three stock-seeking answers allowed conditional unnamed stock satellites; an independent review retained those broader outcomes as ambiguous. The six Gemini cells remain unstarted while access is pending. They are not negative observations. The earlier five-response pilot used different conditions and remains separate.
+
+The consumer instrument also has defects. All six Claude responses exceeded the requested word ceiling, and one described a divided Congress despite the both-chambers assumption. Those answers remain in the record. Claims that a political outcome is already priced, or that a particular allocation contains losses within 30%, are unverified model statements. Research framing, a one-year horizon, no browsing and permission to wait define the conditions. This is not a representative sample of urgent retail questions.
+
+A first issuer-displayed historical quote has now been recorded with availability time: FSLR closed at $176.30 on 28 October. Conflicting volume displays were preserved and the database volume field left unknown. One unadjusted UI observation is not a commissioned return feed. The completed v4 panel's private archive passed every manifest-member hash, restored database integrity and a downloaded checksum comparison; later consumer observations await the final window checkpoint. [Issuer stock information](https://investor.firstsolar.com/stock-info/default.aspx)
+
+The motivating policy thesis needs a denominator correction. Annual guidance implies 45X credits equal 85.8% of consolidated gross profit at the midpoints and 42.5% of consolidated sales. The roughly 55% figure uses the narrower U.S. per-watt credit/ASP comparison. A Democratic Congress with no new law does not automatically increase the statutory credit: a valuation change must specify future-policy or discount-rate assumptions. Earnings and AI-mediated attention are separate possible mechanisms. The issuer's Q3 announcement is scheduled after the 29 October close, with its call at 4:30 PM ET. [SEC-hosted Q2 guidance](https://www.sec.gov/Archives/edgar/data/1274494/000127449426000169/ex991pressreleaseq2-2026.htm), [Section 45X](https://uscode.house.gov/us/usc/119-124/t26/s45X/), [Issuer earnings announcement](https://investor.firstsolar.com/news/news-details/2026/First-Solar-Inc--to-Announce-Third-Quarter-2026-Financial-Results-on-October-29-2026/default.aspx)
+
+At this checkpoint, the proposed positive advice mechanism is unsupported in the tested conditions. That is not evidence for a short trade. Conversion, incremental demand, feasible execution and prospective residual returns remain unvalidated. The current research window ends at 14:08 Istanbul; its independent recovery remains armed. Further source work and the broader evidence review are bounded by the user's additional research allowance.
+
+APINA CAPITAL · Evidence before exposure.
+
+## Earlier overnight instrument audit — 29 October 2026
+
+The following records the earlier window ending at 05:00 Istanbul. Its zero-price count and consumer coverage refer to that earlier checkpoint, before the new v4 study and manual issuer observation.
+
 
 The overnight experiment produced a measurement result, not a trading signal. In protocol v3, 306 of 372 attempted conversations completed. Sixty-one failed validation and five stopped at the authorized inference cutoff. Among completed conversations, 222 contained no final-turn buy recommendation. This does not imply that all 222 recommended cash; it describes the structured final answer.
 
@@ -121,7 +149,7 @@ An initial rank score for a completed conversation is:
     direction(buy) = +1; direction(sell) = −1;
     direction(hold, avoid, example) = 0.
 
-“Avoid” is not treated as a sell order. The final turn is used for the initial score. Only matched, complete conversations enter branch-minus-baseline comparisons, including zeros for profiles that mention neither side's security. Rank deltas are measured simulation outputs. They are not dollar allocations or expected returns.
+“Avoid” is not treated as a sell order. The final turn is used for the initial score. The legacy rank-score comparison uses only matched, complete conversations, including zeros for profiles that mention neither side's security. V4 separately registers its complete planned panel and reports binary-outcome bounds with failed and unstarted cells unknown; complete-case estimates are secondary and explicitly selected. Rank deltas are measured simulation outputs. They are not dollar allocations or expected returns.
 
 For fuller experiments, distinguish recommendation probability, rank prominence, explicit allocation, and actionability rather than collapsing them into one unexamined number. Estimate conditional distributions with shrinkage when cells are sparse. Retain a separate no-action state so total probability remains conserved.
 
@@ -293,6 +321,8 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 5. OpenAI. *Create a model response.* Request limits and returned usage. [Official API reference](https://developers.openai.com/api/reference/resources/responses/methods/create).
 
 ## Research record
+
+- **2026-10-29, v0.4:** V4 completed 70 of 72 planned primary cells after a 6/6 canary. The positive Democratic stock-buying contrast was not supported. A new consumer pilot captured 12 responses across two authenticated products, with six cells pending. One issuer UI price observation was recorded with conflicting volume left unknown. A separately labeled exploratory packet-ablation study completed all 36 primary cells inside the existing GPU deadline, with buys in 6/18 original-packet responses versus 0/18 omitted-packet responses.
 
 - **2026-10-29, v0.3:** Completed overnight audit. V3: 306 complete, 61 validation failures and five cutoff outcomes. Extension canary stopped at three of six complete. Matched-attempt audit v2.0 corrected turn selection and branch matching; failure taxonomy retained original statuses. Source metadata: 845 versions, 94 distinct URLs. No price or human-trade observations. Salad restoration verified.
 
