@@ -1,7 +1,7 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status_date": "2026-10-29",
-  "stage": "commissioned_local_research_prototype",
+  "stage": "overnight_instrument_audit_completed",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 18,
+    "unit_tests_passed_on_mac_and_imt": 22,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -39,10 +39,13 @@
     "codex_usage": "Separate from APINA API ledger"
   },
   "open_issues": [
-    "Configured equity quote source disallows automated collection; no prices fabricated.",
-    "Daily systematic consumer-product sampling and a point-in-time return feed are not yet commissioned.",
-    "No fitted or validated return model exists.",
-    "Some official sources remain unavailable; permitted BBC and CNBC RSS collection is active with source-specific backoff."
+    "No price observations, observed human trades, or validated return model.",
+    "Local Qwen observations are not consumer-product population samples.",
+    "Missing outcomes leave all examined matched ticker contrasts compatible with zero.",
+    "Planned cells were not registered before dispatch; planned-panel bounds unavailable.",
+    "Ticker contract rejects descriptive labels, including non-buy advice; allocation meaning needs repair before a new protocol.",
+    "Authentic consumer pilot lacks matched baseline; intent, risk tolerance and conversation history are confounded.",
+    "Daily collection uses permitted publisher RSS with backoff; some official sources remain unavailable."
   ],
   "consumer_pilot": {
     "products_sampled": [
@@ -62,35 +65,192 @@
   },
   "authorized_window": {
     "started_at": "2026-10-29T01:09:09+03:00",
-    "ends_at": "2026-10-29T03:09:09+03:00",
-    "timezone": "Europe/Istanbul",
-    "state_at_verification": "GPU analysis and publisher collection running",
-    "recovery": "native task stops research, releases model, restores Salad and normal daily schedule"
+    "extended_deadline": "2026-10-29T05:00:00+03:00",
+    "salad_resumed_at": "2026-10-29T05:00:04.888861+03:00",
+    "state_at_verification": "window workers stopped; model released; Salad running with automatic startup; normal daily task enabled",
+    "continuation_canary": {
+      "complete": 3,
+      "attempted": 6,
+      "required_complete": 4,
+      "outcome": "inference halted; metadata collection continued"
+    }
   },
   "protocol_update": {
-    "prior_window": {
-      "complete_conversations": 106,
-      "truncated_conversations": 86,
-      "attempts": 192
+    "protocols": {
+      "legacy-v1": {
+        "branch_stats": {
+          "baseline": {
+            "status_counts": {
+              "complete": 37,
+              "error": 28
+            },
+            "completed_no_final_buy": 36,
+            "buy_counts": {
+              "CASH": 1
+            }
+          },
+          "dem_control": {
+            "status_counts": {
+              "complete": 38,
+              "error": 27
+            },
+            "completed_no_final_buy": 38,
+            "buy_counts": {}
+          },
+          "rep_control": {
+            "status_counts": {
+              "complete": 34,
+              "error": 31
+            },
+            "completed_no_final_buy": 34,
+            "buy_counts": {}
+          }
+        },
+        "failure_reasons": {
+          "ValueError: Local response truncated": 86
+        },
+        "prior_audit_fallback_affected_conversations": 0
+      },
+      "paired-v2-structured-order-balanced": {
+        "branch_stats": {
+          "baseline": {
+            "status_counts": {
+              "complete": 8
+            },
+            "completed_no_final_buy": 8,
+            "buy_counts": {}
+          },
+          "dem_control": {
+            "status_counts": {
+              "complete": 6,
+              "error": 2
+            },
+            "completed_no_final_buy": 6,
+            "buy_counts": {}
+          },
+          "rep_control": {
+            "status_counts": {
+              "complete": 5,
+              "error": 3,
+              "interrupted": 1
+            },
+            "completed_no_final_buy": 5,
+            "buy_counts": {}
+          }
+        },
+        "failure_reasons": {
+          "ValueError: Local response truncated; raw response retained": 5
+        },
+        "prior_audit_fallback_affected_conversations": 0
+      },
+      "paired-v3-low-reasoning-structured": {
+        "branch_stats": {
+          "baseline": {
+            "status_counts": {
+              "complete": 103,
+              "error": 21
+            },
+            "completed_no_final_buy": 78,
+            "buy_counts": {
+              "VTI": 11,
+              "VOO": 5,
+              "SGOV": 3,
+              "LQD": 2,
+              "GRID": 1,
+              "VT": 1,
+              "CASH": 1,
+              "BND": 1
+            }
+          },
+          "dem_control": {
+            "status_counts": {
+              "complete": 102,
+              "error": 22
+            },
+            "completed_no_final_buy": 77,
+            "buy_counts": {
+              "VTI": 15,
+              "VOO": 3,
+              "CASH": 2,
+              "SGOV": 2,
+              "AGGH": 1,
+              "CEG": 1,
+              "BND": 1
+            }
+          },
+          "rep_control": {
+            "status_counts": {
+              "complete": 101,
+              "error": 23
+            },
+            "completed_no_final_buy": 67,
+            "buy_counts": {
+              "VTI": 17,
+              "CASH": 4,
+              "BND": 2,
+              "CEG": 2,
+              "SGOV": 2,
+              "VOO": 2,
+              "SMH": 1,
+              "LQD": 1,
+              "VST": 1,
+              "LMT": 1,
+              "ORCL": 1
+            }
+          }
+        },
+        "failure_reasons": {
+          "ValueError: Invalid ticker": 59,
+          "ValueError: Allocations exceed 100%": 2,
+          "RuntimeError: Authorized GPU window closing; no new inference started": 5
+        },
+        "prior_audit_fallback_affected_conversations": 0
+      }
     },
-    "new_protocol": "paired-v2-structured-order-balanced",
-    "canary": {
-      "complete": 6,
-      "attempts": 6,
-      "truncated": 0
-    },
-    "full_run": "in_progress; failures retained and counted",
-    "new_data": {
-      "publisher_records": 65,
-      "total_stored_metadata_records_at_check": 85,
-      "distinct_urls_at_check": 85
-    },
+    "audit_version": "2.0-final-turn-matched-attempts",
+    "protocols_pooled": false,
+    "original_validation_statuses_preserved": true,
+    "independent_event_families": 1
+  },
+  "research_counts": {
+    "document_versions": 845,
+    "distinct_document_urls": 94,
     "price_observations": 0,
-    "current_protocol": "paired-v3-low-reasoning-structured",
-    "reasoning_calibration": {
-      "zero_reasoning": "failed arithmetic smoke check; rejected",
-      "low_reasoning": "passed arithmetic and retail JSON smoke checks; separately labelled protocol",
-      "prior_batch": "interrupted explicitly; unknown outputs retained as missing"
+    "human_trades_observed": 0
+  },
+  "matched_v3": {
+    "dem_control": {
+      "attempted_terminal_pairs": 124,
+      "complete_pairs": 87,
+      "pairs_with_missing_outcomes": 37,
+      "observed_cells_without_this_pair": 0,
+      "interpretation": "Within recorded matched cells only; completion selection and unstarted cells unidentified"
+    },
+    "rep_control": {
+      "attempted_terminal_pairs": 124,
+      "complete_pairs": 90,
+      "pairs_with_missing_outcomes": 34,
+      "observed_cells_without_this_pair": 0,
+      "interpretation": "Within recorded matched cells only; completion selection and unstarted cells unidentified"
     }
+  },
+  "proposed_next_design": {
+    "status": "not_run",
+    "fresh_conversations_per_fixed_model_or_product": 72,
+    "factors": "3 branches x 2 intent prompts x 3 paraphrases x 4 repeats",
+    "requirements": [
+      "Commission instrument first",
+      "Register planned cells",
+      "Randomize complete blocks",
+      "Hold investor risk and horizon fixed",
+      "Prespecify any individual-stock buy as primary outcome"
+    ]
+  },
+  "last_snapshot": {
+    "sha256": "bef8854c5e89f7bac745dccfc07fb9d265e61d1621c3923656756492605ccc1e",
+    "scope": "final no-inference checkpoint with corrected audits",
+    "drive_verification": "uploaded; metadata size and downloaded SHA-256 verified; receipt recorded",
+    "manifest_members_verified": 1021,
+    "restored_sqlite_integrity": "ok"
   }
 }
