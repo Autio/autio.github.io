@@ -3,11 +3,27 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.8.1 · Updated 30 October 2026 (Europe/Istanbul)
+Research white paper · Version 0.9 · Updated 30 October 2026 (Europe/Istanbul)
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
+
+## FSLR underwriting: credits, cash and comparable periods — 30 October 2026
+
+The 10-Q adds important scope checks to the original FSLR thesis. Global Q3 module sales were 4.1 GW, within the prior 3.9–4.5 GW outlook; production was 4.3 GW. A separate actual U.S.-only sales-volume figure is not established here. Quarterly volume and adjusted EBITDA within guidance coexist with the annual guidance cut. The filing therefore supports re-underwriting without turning every operating measure into a miss. [Issuer 10-Q record](https://investor.firstsolar.com/financials/sec-filings/sec-filings-details/default.aspx?FilingId=19884688), [issuer-linked primary PDF](https://d18rn0p25nwr6d.cloudfront.net/CIK-0001274494/f0c090b6-71b2-40d9-b68d-1616deeead06.pdf)
+
+The credit ratios need separate denominators. The filing reports $637.973 million of income-related government-grant benefits against Q3 cost of sales, compared with $713.060 million of consolidated gross profit. Their ratio is 89.47%. The nine-month equivalents give 83.17%. The grant table is broader than a standalone 45X line. Management's $237.7 million quarterly manufacturing-credit contribution to the year-over-year cost reduction is a change, not the total recognized credit.
+
+The annual guidance is more explicit: a $2.07–2.19 billion 45X assumption accompanies $2.4–2.6 billion of gross-profit guidance. Midpoints give 85.2%; independent endpoint comparisons give 79.6–91.25%. These are forecast accounting ratios, not paired management scenarios or a policy-repeal model. The company describes approximately $0.17/W maximum for fully U.S.-produced modules and $0.07/W for internationally initiated modules completed domestically. Applying the maximum to a blended multi-year backlog price does not establish a company-wide realized ASP ratio.
+
+Cash conversion deserves its own forecast. Nine-month GAAP net income was $1.340 billion, operating cash flow was negative $402.7 million, and cash PP&E purchases were $434.7 million. CFO less those purchases is negative $837.4 million. The cash-flow reconciliation includes a negative $1.286 billion grant-receivables working-capital adjustment; this is not all a direct cash payment. Management states resources are sufficient for at least twelve months. The evidence raises questions about collection timing, working capital and capital spending, without establishing a liquidity crisis.
+
+The Q3 underutilization addback is $9.997 million **excluding depreciation and amortization**. The corresponding total including D&A is not separately established in the reviewed disclosures. It cannot be compared directly with the original $40 million quarterly-total risk trigger or the $110–120 million annual assumption. Recognition, monetization, production start-up and underutilization are separate quantities.
+
+These source checks update one earnings-event family. They do not add another independent event, alter the original three consumer prompts or establish an AI trading edge. Structured facts, source pages and actual capture times are retained; the full filings are excluded from the research archive.
+
+Overnight continuation is scheduled on CPU only, with no new model inference or Salad pause. Short rounds begin at 02:00 Istanbul, stop new work at 07:50 and finish by 08:00 on 30 October. The existing bounded price refresh is gated until after 07:30, allowing time for free end-of-day availability. The first scheduled overnight round remains unobserved at this publication checkpoint. The combined code passes 116 tests on both machines.
 
 ## Actual earnings and targeted consumer advice — 30 October 2026
 
@@ -424,6 +440,7 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 
 ## Research record
 
+- **2026-10-30, v0.9:** Added primary 10-Q period/denominator checks for credits, cash conversion and underutilization; bounded overnight CPU rounds scheduled, with 116 tests passing. No new forecast or alpha claim.
 - **2026-10-30, v0.8.1:** Configured a bounded daily historical refresh; zero duplicate requests in the smoke check and 112 tests passing. Automatic daily GPU sampling is disabled.
 - **2026-10-30, v0.8:** Added longer source-linked histories, explicit corporate-action revalidation, private proxy calibration, typed immutable receipts and a frozen future observation plan. No forecast or alpha is claimed.
 - **2026-10-29, v0.7.1:** Verified the owner-activated free individual source with three historical requests and 24 admitted bars. CPU collection completed; no return labels or alpha claims.

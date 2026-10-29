@@ -1,7 +1,7 @@
 {
-  "version": "0.8.1",
+  "version": "0.9",
   "status_date": "2026-10-30",
-  "stage": "v8_source_linked_diagnostic_and_frozen_observation_design",
+  "stage": "v9_primary_underwriting_audit_and_overnight_cpu_data",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 112,
+    "unit_tests_passed_on_mac_and_imt": 116,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -977,5 +977,42 @@
       "calendar_coverage_year": 2026,
       "performance_eligible": false
     }
+  },
+  "primary_underwriting_audit": {
+    "source_accession": "0001274494-26-000212",
+    "event_family": "fslr-q3-2026-earnings",
+    "actual_q3_global_volume_gw_rounded": 4.1,
+    "q3_volume_within_prior_global_guidance": true,
+    "q3_actual_us_only_volume": null,
+    "q3_income_related_cogs_grant_benefits_usd": 637973000,
+    "not_standalone_45x_total": true,
+    "q3_grant_benefit_to_gross_profit_ratio": 0.8946975009115642,
+    "annual_45x_assumption_to_gp_midpoint_ratio": 0.852,
+    "annual_ratio_scope": "Forecast accounting midpoint; no counterfactual repeal or scenario probability",
+    "nine_month_operating_cash_flow_usd": -402714000,
+    "nine_month_cash_ppe_usd": 434662000,
+    "cfo_less_cash_ppe_usd": -837376000,
+    "cash_arithmetic_scope": "Same-period cash-flow calculation, not normalized annual free cash flow",
+    "q3_underutilization_ex_da_usd": 9997000,
+    "q3_total_underutilization_including_da": null,
+    "original_quarterly_total_cost_trigger_resolved": false,
+    "management_liquidity_assessment_months_at_least": 12,
+    "new_independent_events": 0,
+    "alpha_status": "UNVALIDATED"
+  },
+  "overnight_cpu_continuation": {
+    "authorization": "Human authorized continuing all night; agent bounded CPU work to08:00Istanbul30Oct",
+    "first_round_utc": "2026-10-29T23:00:00Z",
+    "stop_new_rounds_utc": "2026-10-30T04:50:00Z",
+    "finish_by_utc": "2026-10-30T05:00:00Z",
+    "interval_minutes": 15,
+    "execution_limit_minutes": 4,
+    "native_schedule_registered_and_next_time_verified": true,
+    "first_round_observed": false,
+    "gpu_inference": false,
+    "salad_observed_running": true,
+    "additional_api_market_gate_utc": "2026-10-30T04:30:00Z",
+    "new_consumer_studies": false,
+    "closing_review_istanbul": "2026-10-30T08:10:00+03:00"
   }
 }
