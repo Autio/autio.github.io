@@ -23,6 +23,8 @@ Two mechanical comparators are frozen: equal mentions (no discrimination) and th
 
 Execution is bounded by a newly authorized four-hour maximum. Recovery is armed independently before GPU use and is also requested when the finite run finishes or fails, allowing earlier restoration. This protocol remains separate from v4, v5 and authentic consumer observations. Results will be reported after execution; no v6 outcome is claimed here.
 
+Consumer coverage update after access returned: Gemini displayed Auto without an underlying model version. One previously frozen stock-intent response completed and favored cash-like holdings without a named-stock buy. Two subsequent cells returned explicit service errors, retained as unknown outcomes; the final three were left unstarted after an operational pause. No failed prompt was retried. The store now has 26 substantive consumer responses and two service-error records across separate protocols. This later collection is not concurrent with the earlier Claude/Grok pilot.
+
 A separate prospective evaluation specification freezes proposed 1-, 5- and 20-session horizons, with five-session residual return primary, and a first hypothetical entry at the next regular-session open at least 30 minutes after actual signal registration. It compares news, sector and momentum baselines with those same features plus AI advice, using chronological event-cluster evaluation and purging of overlapping labels. The append-only ledger primitive rejects realized returns at registration. Neither the permitted return feed, verified security master nor fitted predictive model is commissioned. Synthetic v6 responses do not enter that market ledger. Infrastructure and a specification cannot establish alpha.
 
 

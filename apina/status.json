@@ -40,7 +40,7 @@
   },
   "open_issues": [
     "No commissioned return feed or human trade observations; one unadjusted issuer UI quote recorded.",
-    "Consumer coverage incomplete: six new Gemini cells pending; no representative user sample.",
+    "Consumer coverage incomplete: three Gemini cells unstarted and two service-error outcomes unknown; no representative user sample.",
     "No validated AI-mediated demand or tradable alpha.",
     "Research cues, one-year horizon, structured output and supplied news condition the results.",
     "V5 is exploratory and lacks a news-only decision baseline.",
@@ -212,11 +212,13 @@
     "distinct_document_urls": 123,
     "price_observations": 1,
     "human_trades_observed": 0,
-    "consumer_response_observations_total": 25,
+    "consumer_response_observations_total": 28,
     "interpretation": "document_versions is a legacy observation-row count; repeated polls do not imply new articles or changed metadata",
     "metadata_observation_rows": 1293,
     "distinct_metadata_states": 139,
-    "distinct_feed_objects": 40
+    "distinct_feed_objects": 40,
+    "consumer_substantive_response_observations": 26,
+    "consumer_service_error_records": 2
   },
   "matched_v3": {
     "dem_control": {
@@ -518,7 +520,7 @@
   "new_consumer_pilot": {
     "protocol": "consumer-intent-pilot-v1",
     "planned": 18,
-    "captured": 12,
+    "captured": 15,
     "products": {
       "Claude": {
         "model_label": "Sonnet 5.5 Medium",
@@ -531,9 +533,13 @@
         "captured": 6
       },
       "Gemini": {
-        "captured": 0,
-        "pending": 6,
-        "reason": "sign-in incomplete"
+        "model_label": "Gemini Auto; underlying model not exposed",
+        "session": "authenticated temporary",
+        "captured": 3,
+        "substantive_responses": 1,
+        "service_errors": 2,
+        "pending": 3,
+        "reason": "operational pause after two consecutive service errors; no retries"
       }
     },
     "explicit_named_stock_buys": 0,
@@ -543,7 +549,10 @@
       "Grok": 0
     },
     "scenario_comprehension_flags": 1,
-    "comparison_limit": "One response per cell; research cue and no browsing; not pooled with prior pilot or local model; capture times are conservative availability records"
+    "comparison_limit": "One response per cell; research cue and no browsing; not pooled with prior pilot or local model; capture times are conservative availability records; Gemini captured later after access restored, in Auto mode; error outcomes unknown",
+    "substantive_responses": 13,
+    "service_errors": 2,
+    "unstarted": 3
   },
   "issuer_ui_price": {
     "symbol": "FSLR",
