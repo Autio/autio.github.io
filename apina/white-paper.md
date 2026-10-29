@@ -3,11 +3,35 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.5 · Updated 29 October 2026
+Research white paper · Version 0.6 · Updated 29 October 2026
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
+
+## Completed mechanism audit — 29 October 2026
+
+V6 completed all 128 registered primary responses after an 8/8 commissioning sample. No primary response failed structural validation. The model ranked the favorably revised fictional issuer above the other in 127 responses; one returned insufficient information. It issued 24 explicit issuer-level buy decisions, all for the favorable issuer. Across 256 issuer decisions, 45 were conditional purchases and 187 were no-position decisions. These are local-model output fields, not trades.
+
+| Frozen measurement | Named identities | Masked identities | Combined |
+|---|---|---|---|
+| Favorable-aligned explicit-buy score | 14 / 64 = 0.21875 | 10 / 64 = 0.15625 | 24 / 128 = 0.1875 |
+| Primary missing outcomes | 0 | 0 | 0 |
+
+The secondary named-minus-masked score difference is 0.0625 in this fixed panel. It is not a population effect or confidence interval. With no missing outcomes, the registered identification bounds collapse to the observed scores; this does not remove sampling variability, prompt sensitivity or design limitations. The separate relative-attractiveness score is 127/128 = 0.9921875. Correct relative ranking often coexisted with declining to recommend an immediate purchase.
+
+This result narrows the interpretation of earlier cash-heavy answers: abstention need not imply that the model ignored economic evidence. It also does not show that the model adds value over signed news. The frozen signed-news comparator scores 1 by construction, and the assay cannot demonstrate outperformance of that comparator. Invented equal starting fundamentals, unusually clear cash-flow revisions, local structured output and explicit research framing limit generalization. Real company identities bring prior knowledge as well as names.
+
+Overall-action labels were invest in 21 responses, no-change in 52, cash in 45 and wait in 10. These are distinct from the per-issuer fields used by the frozen primary outcome; they are not silently substituted for it. The prespecified raw-answer audit covers the first completed primary response in each of the four conditions. Its versioned findings are reported separately without altering original responses or validation statuses.
+
+The independent four-response audit found readable action labels consistent with the registered explicit-buy endpoint, but also clipped prose at schema field limits, unsupported discount-rate or valuation assumptions, a cash-flow change treated as a price return, and a synthetic-framing objection to taking hypothetical action. These flags are retained in a separate versioned annotation. Structurally valid JSON does not guarantee complete prose or sound financial reasoning. The four early cases contain no explicit-buy example and cannot establish defect prevalence or validate every buy label. Correct ordinal ranking is therefore not evidence of correct valuation.
+
+Sampling ended at 18:12:33 Istanbul. Native early recovery restored Salad at 18:12:43; the model was released, both window workers stopped and the daily task was enabled. About 43 minutes of the four-hour maximum were used. The obsolete later recovery trigger was disabled after restoration to avoid a duplicate unload. No additional study was started to fill the unused allowance.
+
+The final private checkpoint contains all 136 v6 cells, the separate consumer records and versioned audit annotations. All 1,378 archive members passed checksum verification, a restored SQLite database passed integrity checks, and the 4,311,890-byte copy downloaded from private backup matched its original SHA-256.
+
+The next priority is a permitted market-data source and prospective incremental prediction against news, sector and momentum baselines. No commissioned return series, observed human trades or validated alpha have been produced.
+
 
 ## Next-stage protocol — identity and economic evidence
 
@@ -21,7 +45,7 @@ The primary score is A-buy minus B-buy, signed toward the issuer with the favora
 
 Two mechanical comparators are frozen: equal mentions (no discrimination) and the signed-news rule (favor the positive revision). The latter achieves the endpoint maximum by construction. This experiment can assess responsiveness beyond mentions and departures from the signed-news rule; it cannot demonstrate that AI beats the stronger comparator or predicts returns. Failed and unstarted cells remain unknown over [−1,1], with bounds for the entire planned panel. These are identification bounds, not confidence intervals or estimates of retail prevalence. Commissioning outcomes are excluded from the main analysis.
 
-Execution is bounded by a newly authorized four-hour maximum. Recovery is armed independently before GPU use and is also requested when the finite run finishes or fails, allowing earlier restoration. This protocol remains separate from v4, v5 and authentic consumer observations. Results will be reported after execution; no v6 outcome is claimed here.
+Execution is bounded by a newly authorized four-hour maximum. Recovery is armed independently before GPU use and is also requested when the finite run finishes or fails, allowing earlier restoration. This protocol remains separate from v4, v5 and authentic consumer observations. The completed results are reported in the preceding note; this paragraph records the frozen design.
 
 Consumer coverage update after access returned: Gemini displayed Auto without an underlying model version. One previously frozen stock-intent response completed and favored cash-like holdings without a named-stock buy. Two subsequent cells returned explicit service errors, retained as unknown outcomes; the final three were left unstarted after an operational pause. No failed prompt was retried. The store now has 26 substantive consumer responses and two service-error records across separate protocols. This later collection is not concurrent with the earlier Claude/Grok pilot.
 
@@ -51,7 +75,7 @@ The interface supplies a further outcome. After a cash answer, Grok displayed a 
 
 The consumer instrument also has defects. All six Claude responses exceeded the requested word ceiling, and one described a divided Congress despite the both-chambers assumption. Those answers remain in the record. Claims that a political outcome is already priced, or that a particular allocation contains losses within 30%, are unverified model statements. Research framing, a one-year horizon, no browsing and permission to wait define the conditions. This is not a representative sample of urgent retail questions.
 
-At the current source audit, 1,293 metadata observation rows correspond to 123 distinct URLs and 139 distinct URL/title/publication-date states. Repeat polls are observations, not necessarily new articles or changed metadata.
+At the earlier v4/v5 source audit, 1,293 metadata observation rows correspond to 123 distinct URLs and 139 distinct URL/title/publication-date states. Repeat polls are observations, not necessarily new articles or changed metadata.
 
 A first issuer-displayed historical quote has now been recorded with availability time: FSLR closed at $176.30 on 28 October. Conflicting volume displays were preserved and the database volume field left unknown. One unadjusted UI observation is not a commissioned return feed. A combined private checkpoint now contains both completed panels, all 25 consumer observations and versioned annotations. All 1,212 manifest members passed checksum verification, the restored SQLite database passed integrity checks, and the 3,700,686-byte copy downloaded from private backup matched its original SHA-256. [Issuer stock information](https://investor.firstsolar.com/stock-info/default.aspx)
 
@@ -348,6 +372,8 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 5. OpenAI. *Create a model response.* Request limits and returned usage. [Official API reference](https://developers.openai.com/api/reference/resources/responses/methods/create).
 
 ## Research record
+
+- **2026-10-29, v0.6:** Completed all 128 v6 primary responses after an 8/8 commissioning sample; reported relative ranking separately from explicit purchase decisions. Early native recovery verified. No market alpha claimed.
 
 - **2026-10-29, v0.5:** Registered a separate synthetic identity × fact-assignment mechanism audit, with explicit-buy and relative-attractiveness outcomes kept distinct. Added a tested append-only signal-ledger primitive and a prospective market-evaluation specification. Execution status is reported separately; no new alpha claim.
 

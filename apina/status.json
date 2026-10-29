@@ -1,7 +1,7 @@
 {
-  "version": "0.5",
+  "version": "0.6",
   "status_date": "2026-10-29",
-  "stage": "v6_synthetic_mechanism_audit_running",
+  "stage": "v6_synthetic_audit_completed",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -66,9 +66,11 @@
     "started_at": "2026-10-29T17:29:26+03:00",
     "ends_at": "2026-10-29T21:29:26+03:00",
     "dispatch_cutoff": "2026-10-29T21:25:26+03:00",
-    "state_at_verification": "all8canary complete; fixed128primary panel running; independent recovery verified",
+    "state_at_verification": "completed; Salad Running/Auto; Qwen unloaded; both workers stopped; daily enabled; no lock",
     "early_restoration": "enabled on worker completion or failure",
-    "verified_at": "2026-10-29T14:33:20+00:00"
+    "verified_at": "2026-10-29T15:32:15.3957144Z",
+    "restored_at": "2026-10-29T15:12:43.0369061Z",
+    "obsolete_later_recovery_trigger": "disabled after verified early restoration"
   },
   "protocol_update": {
     "protocols": {
@@ -208,15 +210,13 @@
     "independent_event_families": 1
   },
   "research_counts": {
-    "document_versions": 1293,
-    "distinct_document_urls": 123,
+    "document_versions": 1610,
+    "distinct_document_urls": 143,
     "price_observations": 1,
     "human_trades_observed": 0,
     "consumer_response_observations_total": 28,
     "interpretation": "document_versions is a legacy observation-row count; repeated polls do not imply new articles or changed metadata",
-    "metadata_observation_rows": 1293,
-    "distinct_metadata_states": 139,
-    "distinct_feed_objects": 40,
+    "metadata_observation_rows": 1610,
     "consumer_substantive_response_observations": 26,
     "consumer_service_error_records": 2
   },
@@ -249,11 +249,12 @@
     ]
   },
   "last_snapshot": {
-    "sha256": "01b43ae74a579d883eca80119676178c73816c9e9ff2d3135ae11e1c38b272ea",
-    "scope": "completed v4 and v5 panels, all25 consumer observations, versioned annotations, private capture ledgers and current authorization/recovery source",
-    "manifest_members_verified": 1212,
+    "sha256": "2d3314f6ae47f988ea99273748683444adc9f0373596e64212f8b41864ec1814",
+    "scope": "all136v6cells,28consumerrecords including2serviceerrors, independent versioned audits, source and restoration record",
+    "manifest_members_verified": 1378,
     "restored_sqlite_integrity": "ok",
-    "drive_verification": "uploaded; 3700686 downloaded bytes and SHA-256 verified; receipt recorded"
+    "archive_bytes": 4311890,
+    "drive_verification": "private folder; metadata size and downloaded SHA-256 verified; receipt recorded"
   },
   "completed_windows": [
     {
@@ -760,9 +761,40 @@
     "secondary": "relative attractiveness separate from purchase",
     "comparators": "equal mentions=0; signed-news rule=1 is endpoint ceiling",
     "missing": "full planned-panel bounds; missing scores[-1,1]; not confidence intervals",
-    "result": "pending",
+    "result": "complete; no validated market alpha",
     "primary_complete_at_check": 3,
-    "primary_running_at_check": 1
+    "primary_running_at_check": 1,
+    "primary_complete": 128,
+    "primary_errors": 0,
+    "canary_complete": 8,
+    "primary_aligned_explicit_buy_score": 0.1875,
+    "secondary_relative_attractiveness_score": 0.9921875,
+    "named_score": 0.21875,
+    "masked_score": 0.15625,
+    "secondary_named_minus_masked_score": 0.0625,
+    "explicit_issuer_buy_decisions": 24,
+    "conditional_issuer_buy_decisions": 45,
+    "issuer_no_position_decisions": 187,
+    "overall_actions": {
+      "invest": 21,
+      "no_change": 52,
+      "cash": 45,
+      "wait": 10
+    },
+    "missing_outcomes": 0,
+    "bounds": "point identification in realized panel, not confidence intervals",
+    "raw_audit": {
+      "selection": "first complete primary response per four conditions",
+      "cases": 4,
+      "independent_review": "Astra; versioned annotations; originals unchanged",
+      "findings": [
+        "clipped prose despite valid JSON",
+        "unsupported valuation assumptions",
+        "cash-flow revision confused with price return",
+        "synthetic framing affected purchase advice"
+      ],
+      "scope": "no explicit-buy examples in audit; no prevalence estimate; does not validate all24 buy labels"
+    }
   },
   "prospective_evaluation": {
     "status": "specification and ledger primitive; return source/security master/model uncommissioned",
