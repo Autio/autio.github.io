@@ -3,11 +3,41 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.7.1 · Updated 29 October 2026
+Research white paper · Version 0.8 · Updated 30 October 2026 (Europe/Istanbul)
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
+
+## Actual earnings and targeted consumer advice — 30 October 2026
+
+First Solar's issuer-linked 8-K supplies a material change to the motivating investment thesis. Q3 revenue was $1.231 billion. Annual sales guidance fell to $4.6–4.9 billion from $4.9–5.2 billion, and volume guidance to 16–17 GW from 17–18.2 GW. These cross the original thesis's revenue and annual-guidance thresholds. Adjusted EBITDA of $744 million was within the prior $625–775 million outlook. The board authorized $500 million of repurchases; authorization is not completed buying. Re-underwriting is warranted, not an automatic short or a renewed political-bounce trade. [Issuer filing record](https://investor.firstsolar.com/financials/sec-filings/sec-filings-details/default.aspx?FilingId=19884501), [issuer-linked primary PDF, Exhibit 99.1](https://d18rn0p25nwr6d.cloudfront.net/CIK-0001274494/d9f1797c-1295-4e12-8503-07489d3964dd.pdf)
+
+A separate three-cell consumer observation was registered at 21:23:39 UTC on 29 October, after verifying that release and before any prompt was dispatched. One identical factual packet and targeted FSLR purchase question went to Grok Fast, Claude Sonnet 5.5 Medium and Gemini Auto. The investor profile was fictional: $5,000, one year, no position and 30% loss tolerance. Underlying Grok and Gemini versions were not exposed. Private/incognito/temporary sessions were used. Gemini displayed web search and a Business Wire citation; no search or citation was visible in the other two captures, which does not establish that browsing was disabled.
+
+All three explicitly decline a present purchase. Claude and Gemini also describe conditional future purchases. The frozen rule says conditional purchases are ambiguous, without specifying precedence for an explicit no-now. The conservative primary coding is therefore **yes 0, no 1, ambiguous 2, missing 0**, over three planned cells; the finite-panel bounds are **0/3 to 2/3**, not confidence intervals. We do not repair that ambiguity after seeing answers merely to report a tighter result. Separately, the three explicit no-now statements are directly observable. Grok makes an unsupported earnings-beat claim; Claude exceeds the requested 200-word ceiling. Agreement with the pre-existing guidance-cut rule is not an accuracy score.
+
+The original records are preserved. Versioned annotations correct a mislabeled provenance field: the recorded packet-hash field actually identified the facts-file bytes; the packet-text hash is retained separately. A stale packet-word-count field is also corrected by annotation, without replacing the sealed manifest. The complete original prompt remains in that pre-call manifest and matches every captured prompt.
+
+There are now 31 consumer records across distinct protocols: 29 substantive responses and two retained service errors. This new targeted earnings observation is not pooled with the election pilot, browsing exploration or initial commissioning responses. It measures neither independent stock discovery nor the effect of a Democratic victory. No current quote, prospective return outcome, human flow or AI alpha is established. Earnings changes are a direct fundamental confound for any future price move.
+
+## Source-linked calibration and prospective observation — 30 October 2026
+
+The next push addressed measurement, not recommendation volume. Three longer historical requests produced 84 matching dates per security for FSLR, SPY and TAN, from 1 July through 28 October. The store now contains 276 daily bars in six retrieval batches; the latest coherent histories comprise 252 bars. The earlier 24 bars overlap those histories and are not additional independent dates. All 18 tracked market-data requests, including the initial connection checks, completed.
+
+Twelve reference requests supplied security details, splits, cash distributions and separate daily summaries. Each response was checked against its retained raw-object hash, frozen request manifest and completed request receipt. All six action responses explicitly contain a results array. A stricter versioned validator now treats an omitted array as unknown, not zero. The original records and validation outcomes remain retained. One SPY cash distribution appears in this window; none appears for FSLR or TAN in these bounded responses. No split is recorded in the requested interval. These are retrieved provider observations, not a historical information archive. [Reference specification](https://massive.com/docs/rest/stocks/corporate-actions/dividends)
+
+The 84 dates match a frozen observation of the published exchange schedule. Its actual capture time is retained; it is not backdated to the calendar's original publication. Tests cover holidays, early closes and the November daylight-saving transition. The schedule does not certify that no emergency closure occurred. [NYSE schedule](https://www.nyse.com/trade/hours-calendars), [Nasdaq Trader schedule](https://www.nasdaqtrader.com/trader.aspx?id=calendar)
+
+A private descriptive calibration now uses 83 matched vendor-daily-close intervals and explicit split-adjusted ex-date cash amounts. Its two-factor fit describes in-sample market and solar-sector co-movement. It is neither an AI forecast nor evidence of excess return. Its convention is deliberately different from admitted regular-session execution prices, and it cannot pass the live evaluator. No coefficients, licensed raw prices or performance series are redistributed here. Historical reconstruction, terminal values, security continuity and executable costs remain separate work.
+
+The ledger audit reproduced two avoidable weaknesses: an untyped nested payload could carry outcomes, and a changed payload could create another primary registration. The legacy entry point is now frozen; its database contained zero forecasts. A typed shadow-receipt path rejects unknown fields, conflicting payloads, timestamp changes, deletes and replacement writes. The receipt binds the exact selected source metadata and object references. An intact receipt and currently available source evidence are reported separately. This is application-level integrity, not protection against a hostile database owner. Uniqueness is per protocol, event-artifact and target; it does not automatically deduplicate different captures of the same economic event. Feature lineage and governance of stable event identities remain uncommissioned. No actual forecast has been registered.
+
+The local GPU contribution was a finite engineering review: six planned calls, four parsed reviews and two invalid JSON outputs. The failures remain failures, not negative investment advice. Generated suggestions were checked independently; broad or incorrect claims were annotated rather than adopted. The new code passes 105 tests on both machines. These tests validate arithmetic and failure handling, not a trading edge. The GPU was released early after the finite review; public-source metadata collection can continue on CPU within the remaining authorized window.
+
+The [prospective observation plan](https://autio.github.io/apina/prospective-observation-plan.md) fixes one election family, six intended consumer-product cells, a qualifying-packet window, a 90-minute dispatch limit, and one primary endpoint: explicit present FSLR purchase recommendations among all six planned cells. Ambiguous and missing outputs enter finite-panel bounds. The election is one event family regardless of prompt count. The protocol is sealed preparation, not active execution or authorization for future GPU use. No future response, model score or return is invented to satisfy a schema. The scheduled federal election date is 3 November; that schedule establishes neither an outcome nor a new law. [FEC schedule](https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/)
+
+**The AI-channel conclusion is unchanged.** We have a longer, source-linked dataset and a more defensible future observation. We have no measured investor conversion, evaluated prospective event cluster, validated trade or AI return alpha. Earlier evidence against an automatic Democratic-win-to-FSLR-buy mechanism is not overturned by better plumbing.
 
 ## Market-data admission — 29 October 2026
 
@@ -392,6 +422,7 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 
 ## Research record
 
+- **2026-10-30, v0.8:** Added longer source-linked histories, explicit corporate-action revalidation, private proxy calibration, typed immutable receipts and a frozen future observation plan. No forecast or alpha is claimed.
 - **2026-10-29, v0.7.1:** Verified the owner-activated free individual source with three historical requests and 24 admitted bars. CPU collection completed; no return labels or alpha claims.
 - **2026-10-29, v0.7:** Prepared a disabled licensed-data adapter, quarantined an ineligible source probe, and added coherent-vintage and exact-interval calculation checks. Source activation and the live provenance bridge remain pending; no performance is claimed.
 

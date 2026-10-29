@@ -1,7 +1,7 @@
 {
-  "version": "0.7.1",
-  "status_date": "2026-10-29",
-  "stage": "v7_historical_connection_verified_returns_uncommissioned",
+  "version": "0.8",
+  "status_date": "2026-10-30",
+  "stage": "v8_source_linked_diagnostic_and_frozen_observation_design",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 69,
+    "unit_tests_passed_on_mac_and_imt": 105,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -825,7 +825,7 @@
     "owner_selected": "prepare free personal-research connection",
     "activation": "owner activated; authenticated Stocks Basic Individual $0/month verified",
     "source_enabled": true,
-    "licensed_bars": 24,
+    "licensed_bars": 276,
     "quarantined_probe": "Nasdaq website captures excluded from operational data, modeling and backups",
     "key_storage": "private owner configuration; never project files or public output",
     "price_basis": "split-adjusted price bars; not total return",
@@ -836,10 +836,15 @@
       "SPY",
       "TAN"
     ],
-    "retrieval_batches": 3,
+    "retrieval_batches": 6,
     "usage_scope": "personal internal research only",
     "last_received_at": "2026-10-29T20:41:59.557185+00:00",
-    "performance_eligible": false
+    "performance_eligible": false,
+    "latest_coherent_history_bars": 252,
+    "matched_dates": 84,
+    "potential_date_transitions": 83,
+    "reference_requests": 12,
+    "tracked_api_requests_complete": 18
   },
   "cpu_readiness_window": {
     "observed_scheduled_worker": "complete",
@@ -848,15 +853,111 @@
     "verified_at": "2026-10-29T20:36:46.3689550Z"
   },
   "current_data_counts": {
-    "publisher_metadata_observations": 1930,
-    "distinct_publisher_urls": 164,
-    "licensed_daily_bars": 24,
-    "licensed_batches": 3,
+    "publisher_metadata_observations": 2058,
+    "distinct_publisher_urls": 165,
+    "licensed_daily_bars": 276,
+    "licensed_batches": 6,
     "legacy_ui_quotes": 1,
-    "consumer_records": 28,
-    "consumer_substantive": 26,
+    "consumer_records": 31,
+    "consumer_substantive": 29,
     "consumer_service_errors": 2,
     "v6_cells_including_canaries": 136,
     "validated_return_labels": 0
+  },
+  "v8_progress": {
+    "authorization_end_utc": "2026-10-29T22:48:12Z",
+    "gpu_pause_started": "2026-10-29T20:50:25Z",
+    "gpu_restored_early": "2026-10-29T20:53:52.4667895Z",
+    "salad": "Running Automatic; local model released",
+    "obsolete_hard_recovery": "disabled after verified early restoration",
+    "engineering_review": {
+      "planned": 6,
+      "parsed": 4,
+      "invalid_json": 2,
+      "not_investor_samples": true
+    },
+    "source_checks": {
+      "planned": 15,
+      "completed": 15,
+      "original_statuses_preserved": true,
+      "reference_revalidation": "v2 requires explicit result array; raw objects and manifest/request links checked"
+    },
+    "calendar": {
+      "matched_published_dates": 84,
+      "actual_capture_utc": "2026-10-29T21:00:15.736548+00:00",
+      "historical_vintage": false,
+      "emergency_closures_certified": false
+    },
+    "private_calibration": {
+      "matched_vendor_close_proxy_intervals": 83,
+      "ai_forecast": false,
+      "performance_eligible": false,
+      "coefficients_publicly_redistributed": false
+    },
+    "typed_registry": {
+      "actual_forecasts": 0,
+      "legacy_writes": "frozen",
+      "uniqueness_scope": "protocol/event-artifact/target; semantic event deduplication not commissioned",
+      "feature_lineage_admitted": false
+    },
+    "prospective_observation": {
+      "status": "frozen_design_not_active_execution",
+      "event_family": "us-federal-midterms-2026-congress-control",
+      "planned_calls": 6,
+      "actual_calls": 0,
+      "primary_endpoint": "explicit present FSLR buy among all six planned cells",
+      "requires_future_authorized_execution": true
+    },
+    "alpha_status": "UNVALIDATED",
+    "actual_earnings_observation": {
+      "protocol": "consumer-actual-earnings-targeted-fslr-v1",
+      "sec_accession": "0001274494-26-000211",
+      "registered_before_dispatch_utc": "2026-10-29T21:23:39.295657+00:00",
+      "planned_cells": 3,
+      "completed_cells": 3,
+      "products": {
+        "Grok": "Fast; underlying model undisclosed",
+        "Claude": "Sonnet 5.5 Medium",
+        "Gemini": "Gemini Auto; underlying model undisclosed"
+      },
+      "all_three_explicitly_decline_present_purchase": true,
+      "formal_primary": {
+        "yes": 0,
+        "no": 1,
+        "ambiguous": 2,
+        "missing": 0
+      },
+      "finite_panel_bounds": [
+        0,
+        0.6666666666666666
+      ],
+      "not_confidence_interval": true,
+      "conditional_future_ideas": [
+        "Claude",
+        "Gemini"
+      ],
+      "displayed_web_search": [
+        "Gemini"
+      ],
+      "provenance_corrections": "Versioned annotation distinguishes facts-file vs packet-text hash and records corrected word count; originals retained",
+      "interpretation": "Targeted fictional-profile advice after verified earnings; not independent discovery, election treatment, accuracy, flow or alpha."
+    },
+    "fundamental_thesis": {
+      "primary_verified": true,
+      "guidance_reunderwrite_triggered": true,
+      "q3_revenue_usd_rounded": 1231000000,
+      "fy_sales_guidance_usd": [
+        4600000000,
+        4900000000
+      ],
+      "fy_volume_gw": [
+        16,
+        17
+      ],
+      "q3_adjusted_ebitda_usd_rounded": 744000000,
+      "q3_adjusted_ebitda_within_prior_range": true,
+      "buyback_authorized_usd": 500000000,
+      "actual_buyback_spending_not_inferred": true
+    }
   }
 }
