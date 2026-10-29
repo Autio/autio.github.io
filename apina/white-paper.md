@@ -3,7 +3,7 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.7 · Updated 29 October 2026
+Research white paper · Version 0.7.1 · Updated 29 October 2026
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
@@ -11,13 +11,13 @@ Research white paper · Version 0.7 · Updated 29 October 2026
 
 ## Market-data admission — 29 October 2026
 
-The next research push targets the missing price and evaluation infrastructure. No new synthetic sampling was commissioned. The bounded local job collects the already permitted publisher metadata on CPU, while the GPU remains available to its ordinary workload.
+The price-source readiness window completed on CPU, with no new synthetic sampling or GPU pause. The publisher watch ended with 1,930 metadata observation rows covering 164 distinct source URLs. After the owner activated the selected account and configured its key privately, three bounded historical API requests succeeded.
 
 A source review prevented an invalid shortcut. Public Nasdaq history pages were visible, but the site's current terms explicitly restrict extracting content for data-analysis software without written permission. Captures made during the access probe were quarantined outside the operational dataset and backup paths. They were not imported, fitted, turned into return labels or published as raw data. Visibility and a download control do not establish permission for this research use. [Source terms](https://www.nasdaq.com/legal)
 
-A disabled-by-default adapter is prepared for Massive's documented historical-bar API. The account owner selected preparation of the free personal-research route; account activation and entitlement remain unconfirmed. The provider currently lists an individual Stocks Basic tier with end-of-day data, two years of history and five calls per minute. Personal eligibility must match the actual use; this does not establish a business license. No account, paid subscription or data entitlement was created by the research agent. [Provider plans](https://massive.com/pricing?product=stocks), [Individual terms](https://massive.com/legal/individuals-terms-of-service)
+The owner activated Massive's Stocks Basic individual plan, displayed as $0 per month, and selected personal internal research. The source gate is now enabled for that scope; no commercial entitlement is inferred. FSLR, SPY and TAN each returned eight daily bars for 19–28 October 2026: 24 stored bars across three retrieval batches. These are connection and ingestion checks, not investment outcomes. No paid plan was purchased. [Provider plans](https://massive.com/pricing?product=stocks), [Individual terms](https://massive.com/legal/individuals-terms-of-service)
 
-The adapter requires explicit source permission and a separately configured key. Credentials use an authorization header, remain outside project files, and are not stored in request URLs. Redirects are refused; a persistent four-request rolling-minute budget leaves headroom under the selected tier, without automatic retries. Admission checks identity fields, dates, duplicates and OHLCV consistency. Current-session bars, incomplete pagination and invalid observations do not become zero returns. This is a prepared connection, not a live commissioned feed.
+The adapter requires explicit source permission and a separately configured key. Credentials use an authorization header, remain outside project files, and are not stored in request URLs. Redirects are refused; a persistent four-request rolling-minute budget leaves headroom under the selected tier, without automatic retries. Admission checks identity fields, dates, duplicates and OHLCV consistency. Current-session bars, incomplete pagination and invalid observations do not become zero returns. The historical connection is verified; an end-to-end return feed remains uncommissioned.
 
 The provider's adjusted aggregate field covers splits, not automatically dividend-adjusted total returns. Daily aggregate data also do not, by themselves, establish a regular-session execution price. All resulting bar output therefore remains ineligible for performance claims pending the source, identity, session and corporate-action work. [Bar specification](https://massive.com/docs/rest/stocks/aggregates/custom-bars)
 
@@ -25,7 +25,7 @@ Independent review identified two further measurement risks: splicing adjusted o
 
 The calculation primitive checks model identity, timing, finite values, complete horizons and matching benchmarks, and reports an arithmetic residual with explicit cost sensitivity. It does not produce compounded portfolio P&L. Live registered evaluation remains deliberately disabled until a source-to-bar provenance bridge is commissioned; caller-set flags cannot stand in for that missing bridge. The 69 passing local and research-machine tests use isolated mathematical fixtures, not observed market performance.
 
-At the first CPU-watch checkpoint, 1,674 metadata observation rows corresponded to 159 distinct URLs. The licensed-bar store contained zero observations; the earlier single issuer UI quote remains separate. The new work has produced no return series, new AI recommendations, human trades or validated alpha. Activation of an appropriate price source is the remaining external input; further simulations cannot replace it.
+The earlier single issuer UI quote remains separate from the 24 API bars. No forecast, return label, new AI recommendation, human trade or validated alpha was produced by these connection checks. The next bottleneck is the admitted provenance, security-identity, session and corporate-action bridge; more synthetic sampling cannot substitute for that work.
 
 
 ## Completed mechanism audit — 29 October 2026
@@ -267,7 +267,7 @@ The target is a feasible residual return:
 
 Betas are fitted using pre-event data. Alternative benchmarks are reported because market and sector hedges can overlap and the residual depends on the specification. Entry occurs no earlier than signal completion plus modeled execution delay. Transaction costs include spreads, slippage, fees, financing, and borrow where relevant.
 
-The pipeline can record delayed, unadjusted price snapshots with market dates and observation times, but no permitted systematic price source is commissioned. One manually recorded issuer UI observation is stored, as described in the current research note. Such snapshots alone would not support reliable intraday backtesting or split/dividend-adjusted return attribution. A point-in-time corporate-action-aware price feed and security master are required before performance claims.
+The pipeline can record delayed, unadjusted price snapshots and has now admitted three bounded batches of split-adjusted historical API bars for personal internal research. An end-to-end return feed remains uncommissioned. One manually recorded issuer UI observation is stored, as described in the current research note. Such snapshots alone would not support reliable intraday backtesting or split/dividend-adjusted return attribution. A point-in-time corporate-action-aware price feed and security master are required before performance claims.
 
 ## 9. Statistical model and what would falsify it
 
@@ -356,7 +356,7 @@ Historical model replays can debug the pipeline but cannot establish clean prosp
 
 | Component | Current implementation boundary |
 |---|---|
-| Public source collection | Implemented bounded RSS metadata; quote adapter present but no permitted price feed commissioned |
+| Public source collection | Implemented bounded RSS metadata and verified personal-use historical API ingestion; return evaluation remains disabled |
 | Local investor simulation | Implemented paired branches and follow-ups through the local Qwen endpoint |
 | Three/four consumer-product sampling | 25 retained responses across three products in separate protocols; new Gemini cells pending; daily systematic consumer sampling remains an extension |
 | Database and provenance | Implemented transactional schema, content hashes, availability times, and reports |
@@ -392,6 +392,7 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 
 ## Research record
 
+- **2026-10-29, v0.7.1:** Verified the owner-activated free individual source with three historical requests and 24 admitted bars. CPU collection completed; no return labels or alpha claims.
 - **2026-10-29, v0.7:** Prepared a disabled licensed-data adapter, quarantined an ineligible source probe, and added coherent-vintage and exact-interval calculation checks. Source activation and the live provenance bridge remain pending; no performance is claimed.
 
 - **2026-10-29, v0.6:** Completed all 128 v6 primary responses after an 8/8 commissioning sample; reported relative ranking separately from explicit purchase decisions. Early native recovery verified. No market alpha claimed.

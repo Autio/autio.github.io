@@ -1,7 +1,7 @@
 {
-  "version": "0.7",
+  "version": "0.7.1",
   "status_date": "2026-10-29",
-  "stage": "v7_market_source_readiness_cpu_watch",
+  "stage": "v7_historical_connection_verified_returns_uncommissioned",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -816,20 +816,47 @@
     "authorized_start": "2026-10-29T18:32:32+00:00",
     "deadline": "2026-10-29T20:32:32+00:00",
     "collection_cutoff": "2026-10-29T20:30:32+00:00",
-    "observed_scheduled_worker": "running",
+    "observed_scheduled_worker": "complete",
     "salad_observed": "running",
-    "verified_at": "2026-10-29T19:22:19+00:00"
+    "verified_at": "2026-10-29T20:36:46.3689550Z"
   },
   "market_source_preparation": {
     "provider": "Massive",
     "owner_selected": "prepare free personal-research connection",
-    "activation": "not confirmed; sign-up left with account owner",
-    "source_enabled": false,
-    "licensed_bars": 0,
+    "activation": "owner activated; authenticated Stocks Basic Individual $0/month verified",
+    "source_enabled": true,
+    "licensed_bars": 24,
     "quarantined_probe": "Nasdaq website captures excluded from operational data, modeling and backups",
     "key_storage": "private owner configuration; never project files or public output",
     "price_basis": "split-adjusted price bars; not total return",
     "live_performance_evaluation": "disabled until admitted bar-reference bridge is commissioned",
-    "tests": "69 isolated tests passed; fixtures are not market evidence"
+    "tests": "69 isolated tests passed; fixtures are not market evidence",
+    "symbols_checked": [
+      "FSLR",
+      "SPY",
+      "TAN"
+    ],
+    "retrieval_batches": 3,
+    "usage_scope": "personal internal research only",
+    "last_received_at": "2026-10-29T20:41:59.557185+00:00",
+    "performance_eligible": false
+  },
+  "cpu_readiness_window": {
+    "observed_scheduled_worker": "complete",
+    "salad_observed": "running",
+    "verification_note": "completed worker, no lock; final publisher counts 1930 observations / 164 distinct URLs",
+    "verified_at": "2026-10-29T20:36:46.3689550Z"
+  },
+  "current_data_counts": {
+    "publisher_metadata_observations": 1930,
+    "distinct_publisher_urls": 164,
+    "licensed_daily_bars": 24,
+    "licensed_batches": 3,
+    "legacy_ui_quotes": 1,
+    "consumer_records": 28,
+    "consumer_substantive": 26,
+    "consumer_service_errors": 2,
+    "v6_cells_including_canaries": 136,
+    "validated_return_labels": 0
   }
 }
