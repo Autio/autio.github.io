@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 121,
+    "unit_tests_passed_on_mac_and_imt": 122,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -1053,10 +1053,13 @@
     "scheduled_first_round_utc": "2026-10-30T06:45:00Z",
     "stop_new_rounds_utc": "2026-10-30T09:20:00Z",
     "finish_by_utc": "2026-10-30T09:30:00Z",
-    "first_round_observed": false,
+    "first_round_observed": true,
     "model_calls": 0,
     "gpu_pause": false,
     "paid_api": false,
-    "trading": false
+    "trading": false,
+    "first_completed_utc": "2026-10-30T06:45:02.760866+00:00",
+    "first_round_status": "complete",
+    "first_round_market_requests": 0
   }
 }
