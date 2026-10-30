@@ -3,11 +3,23 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.9 · Updated 30 October 2026 (Europe/Istanbul)
+Research white paper · Version 0.10 · Updated 30 October 2026 (Europe/Istanbul)
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
+
+## Overnight completion and rolling-source controls — 30 October 2026
+
+All 24 scheduled CPU rounds completed between 02:00 and 07:45 Istanbul. They made no model calls and did not pause Salad. The 07:30 round retrieved three new coherent histories through 29 October; the 07:45 round correctly made zero repeat requests. The store contains 531 daily-bar rows across nine retrieval batches. The latest histories comprise 255 bars: 85 matching dates per security, or 84 potential transitions. Overlapping retrieval vintages are retained for provenance and do not create independent observations.
+
+The completed checkpoint contains 3,170 metadata versions but only 176 distinct URLs. Consumer coverage remains 31 records, including two service errors. There are no typed numerical prospective forecasts, evaluated return labels or human trades. All 1,575 archive members passed checksum verification, the restored database passed integrity checks, and the 5,310,113-byte private backup downloaded from Drive matched the original SHA-256. Earlier transfer failures were resolved by recovering this later completed snapshot.
+
+A rolling-source audit found two distinct controls to improve. The original calendar comparison stopped at 28 October and therefore rejected the new day. The comparison now uses the retained batch window against the already observed published calendar. Separately, the diagnostic now requires each verified corporate-action interval to contain the entire price window. The retained action requests stop at 28 October, so the updated diagnostic correctly rejects the 29 October extension. An empty action response does not certify dates outside its request. Original data, reports and validation outcomes remain unchanged; a versioned audit records both code paths. The combined implementation passes 121 tests on both machines.
+
+Provider documentation also distinguishes its computed daily-bar close from the listing exchange's official closing print. Matching two fields on a few dates would not establish closing-auction execution for every date. Public performance evaluation therefore remains disabled. The earlier 83-interval private descriptive diagnostic is a historical checkpoint, not an updated 84-interval forecast or performance result. [Provider stock-data explanations](https://massive.com/knowledge-base/categories/stocks)
+
+A separately authorized CPU continuation runs this morning, with new rounds stopping at 12:20 Istanbul and a hard finish by 12:30. It preserves Salad priority and the existing three-security source scope. No additional consumer experiment, paid API call or trade is scheduled. Registration of that continuation does not establish that its first round has completed.
 
 ## FSLR underwriting: credits, cash and comparable periods — 30 October 2026
 
@@ -23,7 +35,7 @@ The Q3 underutilization addback is $9.997 million **excluding depreciation and a
 
 These source checks update one earnings-event family. They do not add another independent event, alter the original three consumer prompts or establish an AI trading edge. Structured facts, source pages and actual capture times are retained; the full filings are excluded from the research archive.
 
-Overnight continuation is scheduled on CPU only, with no new model inference or Salad pause. Short rounds begin at 02:00 Istanbul, stop new work at 07:50 and finish by 08:00 on 30 October. The existing bounded price refresh is gated until after 07:30, allowing time for free end-of-day availability. The first scheduled overnight round remains unobserved at this publication checkpoint. The combined code passes 116 tests on both machines.
+At the v0.9 publication checkpoint, overnight continuation was scheduled on CPU only, with no new model inference or Salad pause. Short rounds begin at 02:00 Istanbul, stop new work at 07:50 and finish by 08:00 on 30 October. The existing bounded price refresh is gated until after 07:30, allowing time for free end-of-day availability. Its first scheduled round was unobserved at that checkpoint; verified completion is reported above. The combined code passes 116 tests on both machines.
 
 ## Actual earnings and targeted consumer advice — 30 October 2026
 
@@ -440,6 +452,7 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 
 ## Research record
 
+- **2026-10-30, v0.10:** Verified all 24 overnight CPU rounds and the final private backup; added rolling calendar and explicit corporate-action coverage controls. 121 tests pass. No forecast or alpha claim.
 - **2026-10-30, v0.9:** Added primary 10-Q period/denominator checks for credits, cash conversion and underutilization; bounded overnight CPU rounds scheduled, with 116 tests passing. No new forecast or alpha claim.
 - **2026-10-30, v0.8.1:** Configured a bounded daily historical refresh; zero duplicate requests in the smoke check and 112 tests passing. Automatic daily GPU sampling is disabled.
 - **2026-10-30, v0.8:** Added longer source-linked histories, explicit corporate-action revalidation, private proxy calibration, typed immutable receipts and a frozen future observation plan. No forecast or alpha is claimed.

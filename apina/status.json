@@ -1,7 +1,7 @@
 {
-  "version": "0.9",
+  "version": "0.10",
   "status_date": "2026-10-30",
-  "stage": "v9_primary_underwriting_audit_and_overnight_cpu_data",
+  "stage": "v10_verified_overnight_and_rolling_source_controls",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -19,7 +19,7 @@
     "interpretation": "Engineering commissioning sample; not an investment signal"
   },
   "verification": {
-    "unit_tests_passed_on_mac_and_imt": 116,
+    "unit_tests_passed_on_mac_and_imt": 121,
     "database_restore_integrity": "ok",
     "archive_sha256_manifest": "verified",
     "google_drive_upload": "completed; archive downloaded and restored successfully",
@@ -1008,11 +1008,55 @@
     "interval_minutes": 15,
     "execution_limit_minutes": 4,
     "native_schedule_registered_and_next_time_verified": true,
-    "first_round_observed": false,
+    "first_round_observed": true,
     "gpu_inference": false,
     "salad_observed_running": true,
     "additional_api_market_gate_utc": "2026-10-30T04:30:00Z",
     "new_consumer_studies": false,
-    "closing_review_istanbul": "2026-10-30T08:10:00+03:00"
+    "closing_review_istanbul": "2026-10-30T08:10:00+03:00",
+    "completed_rounds": 24,
+    "last_completed_utc": "2026-10-30T04:45:03.315337+00:00",
+    "model_calls": 0,
+    "market_requests": 3,
+    "closing_review_status": "Completed manually after connectivity returned; expired one-time follow-ups removed"
+  },
+  "latest_completed_overnight_checkpoint": {
+    "asof_utc": "2026-10-30T04:45:03.315337+00:00",
+    "metadata_versions": 3170,
+    "distinct_source_urls": 176,
+    "stored_bar_rows": 531,
+    "retrieval_batches": 9,
+    "latest_coherent_bar_rows": 255,
+    "matched_dates": 85,
+    "potential_date_transitions": 84,
+    "consumer_records": 31,
+    "typed_forecasts": 0,
+    "return_labels": 0,
+    "human_trades": 0,
+    "backup_bytes": 5310113,
+    "manifest_members_verified": 1575,
+    "sqlite_restore_integrity": "ok",
+    "drive_download_sha256_matches": true,
+    "performance_eligible": false
+  },
+  "rolling_source_audit": {
+    "original_calendar_fixed_end": "2026-10-28",
+    "current_calendar_comparison": "retained price batch window",
+    "action_coverage_end": "2026-10-28",
+    "price_coverage_end": "2026-10-29",
+    "extended_diagnostic_status": "rejected: action interval does not contain price window",
+    "original_records_overwritten": false,
+    "daily_aggregate_close_is_not_certified_official_exchange_close": true,
+    "performance_eligible": false
+  },
+  "morning_cpu_continuation": {
+    "scheduled_first_round_utc": "2026-10-30T06:45:00Z",
+    "stop_new_rounds_utc": "2026-10-30T09:20:00Z",
+    "finish_by_utc": "2026-10-30T09:30:00Z",
+    "first_round_observed": false,
+    "model_calls": 0,
+    "gpu_pause": false,
+    "paid_api": false,
+    "trading": false
   }
 }
