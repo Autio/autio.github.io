@@ -1,7 +1,7 @@
 {
-  "version": "0.10",
+  "version": "0.11",
   "status_date": "2026-10-30",
-  "stage": "v10_verified_overnight_and_rolling_source_controls",
+  "stage": "v11_broad_discovery_and_hypothetical_event_candidate_contrasts",
   "alpha_status": "UNVALIDATED",
   "live_trading": false,
   "hardware_verified": "NVIDIA RTX 5090",
@@ -1061,5 +1061,78 @@
     "first_completed_utc": "2026-10-30T06:45:02.760866+00:00",
     "first_round_status": "complete",
     "first_round_market_requests": 0
+  },
+  "consumer_store_current": {
+    "records": 58,
+    "substantive_responses": 55,
+    "service_errors": 3,
+    "new_protocols_kept_separate": true,
+    "updated_at": "2026-10-30T18:56:08.210139+00:00"
+  },
+  "blind_discovery_stage1": {
+    "protocol": "consumer-blind-discovery-stage1-v1",
+    "planned_cells": 18,
+    "substantive": 17,
+    "service_errors": 1,
+    "pre_call_local_manifest_sha256": "878c15d7dd1973301e61b5679eeba633921074c6a65680dd4aa79fd681e9be81",
+    "pre_call_database_registration": false,
+    "primary_stock_candidates_tied": [
+      "GOOGL",
+      "MSFT",
+      "BRK.B",
+      "WMT",
+      "COST"
+    ],
+    "positive_stock_cross_product_consensus": false,
+    "fund_recurrence": {
+      "VOO": {
+        "positive_products": 2,
+        "cells": 3
+      },
+      "VTI": {
+        "positive_products": 2,
+        "cells": 2
+      },
+      "QQQ": {
+        "positive_products": 2,
+        "cells": 2
+      }
+    },
+    "continuity_anomaly_retained": true
+  },
+  "blind_event_contrast": {
+    "protocol": "consumer-blind-event-contrast-v1",
+    "planned_cells": 9,
+    "complete": 9,
+    "economic_event_families": 1,
+    "event_states": "hypothetical_not_observed",
+    "pre_call_local_manifest_sha256": "981b4e167971c0aca75ce9f8cf8f6c33549513340a1a1576bba8ba32b1a39742",
+    "pre_call_database_registration": false,
+    "NEE": {
+      "dem_candidates": 2,
+      "baseline_candidates": 0,
+      "products_per_state": 3,
+      "unconditional_only_dem_candidates": 1
+    },
+    "JPM": {
+      "rep_candidates": 2,
+      "baseline_candidates": 0,
+      "products_per_state": 3,
+      "unconditional_only_rep_candidates": 2
+    },
+    "single_product_dem_leads": [
+      "PWR",
+      "LLY"
+    ],
+    "single_product_rep_leads": [
+      "LMT",
+      "RTX",
+      "XOM",
+      "CVX"
+    ],
+    "candidate_inclusion_is_not_present_buy_order": true,
+    "replication_completed": false,
+    "prospective_returns_evaluated": 0,
+    "validated_alpha": false
   }
 }

@@ -3,11 +3,34 @@
 
 **A prospective research system for event-driven, AI-mediated investor attention**
 
-Research white paper · Version 0.10 · Updated 30 October 2026 (Europe/Istanbul)
+Research white paper · Version 0.11 · Updated 30 October 2026 (Europe/Istanbul)
 
 **Status: infrastructure and hypothesis formation. No demonstrated alpha. No live trading.**
 
 > We do not need to predict what an ideal investor should do. We need to estimate what advice real investors will encounter, which actions it makes salient, and whether the resulting demand remains unpriced when we can act.
+
+## Broad discovery and an election-sensitive shortlist — 30 October 2026
+
+The research now starts with what consumer AI products select without a suggested ticker. A new 18-cell discovery panel crossed six natural investor questions with Claude Sonnet 5.5 Medium, Grok Fast and Gemini Auto. Seventeen substantive responses and one Grok capacity error were retained. The questions varied general allocation, individual stocks, growth, income, near-term opportunity and avoidance. They also changed investor horizons and objectives; differences across families do not isolate a causal wording effect. Default product browsing was retained and visible tools/citations recorded. Underlying Grok and Gemini versions were undisclosed.
+
+Under the frozen positive-candidate endpoint, the discovery panel produced five tied stock candidates in one Gemini answer: **GOOGL, MSFT, BRK.B, WMT and COST**. None had positive endorsement from two products. Grok's explicitly illustrative stock list remains illustrative; a separate growth list is ambiguous. The recurring named funds were **VOO** (three cells across two products), **VTI** and **QQQ** (two cells across two products each). These provide generic advice-popularity controls. A visible Gemini income answer joins an unfinished table to another answer; fund names appearing only after that junction remain provisional in a versioned annotation.
+
+An adaptive nine-cell follow-up then held one three-year individual-stock question constant and crossed each product with unresolved, hypothetical Democratic-control and hypothetical Republican-control assumptions. Every prompt said the presidency was unchanged and no new law had passed as a result of the election. No issuer or ticker was supplied. All nine responses completed in fresh private/temporary sessions. A 250-word request was common to all cells; two clear exceedances were retained and flagged rather than excluded. Both exact manifests and scoring rules were sealed locally before dispatch. IMT was unavailable for pre-call database registration; later import uses actual ingestion times and does not backdate registration.
+
+| Hypothetical state | Strongest candidate contrast | Products naming the candidate | Unresolved baseline | Qualification |
+|---|---|---|---|---|
+| Democratic control of both chambers | NextEra Energy — NEE | Claude and Gemini: 2/3 | 0/3 | Claude's list is an optional individual-stock branch; unconditional-only sensitivity is 1/3 |
+| Republican control of both chambers | JPMorgan Chase — JPM | Claude and Gemini: 2/3 | 0/3 | Research candidates; no verified present entry or valuation |
+| Democratic control | Quanta Services — PWR; Eli Lilly — LLY | Gemini: 1/3 each | 0/3 | Single-product leads; Lilly is framed mainly as resilient to policy risk |
+| Republican control | LMT, RTX, XOM and CVX | Gemini: 1/3 each | 0/3 | Single-product leads |
+
+Grok supplied no named candidates under either political outcome. In its unresolved response it offered NVDA, MU and ABBV as optional satellite candidates. Microsoft appeared in two products' unresolved responses and therefore serves as a useful generic stock comparator. A name disappearing under a political condition is not a sell instruction. No substantive answer in the two new panels named FSLR; the discovery error remains an unknown outcome.
+
+**Research recommendation: replicate the NEE Democratic-control contrast and the JPM Republican-control contrast before underwriting an AI-mediated trade.** NEE's second inclusion is conditional. Its primary difference is 2/3 in this fixed panel, with 1/3 under the stricter unconditional rule. JPM's difference is 2/3 under both classifications. These fractions describe three product sessions, not investor prevalence, confidence levels or expected returns. The panels are exploratory, with one draw per question/product/state. Repetition, browsing differences and the effect of selecting names after seeing answers remain unresolved. Independent methods review checked classifications, exact planned prompts and retained response hashes.
+
+The model explanations invoke subsidy protection, future infrastructure priorities, deregulation and sentiment. Those are unverified interpretations. The supplied assumptions establish no enacted spending, changed regulation or issuer cash-flow revision. The strongest next measurement is whether the candidate changes recur in a balanced repetition, followed by prospective comparison against news-only, market, sector and momentum controls. Human attention, buying, conversion rates and incremental returns remain unmeasured. No paid API calls, new GPU pause or trades were used.
+
+The consumer store now contains 58 records across separate protocols: 55 substantive responses and three retained service errors. The 27 new observations were imported after collection with actual timestamps. Original records, local seals, proof captures and versioned annotations are retained privately. Market performance evaluation remains disabled.
 
 ## Overnight completion and rolling-source controls — 30 October 2026
 
@@ -452,6 +475,7 @@ The useful finding is narrower: investor intent may gate the proposed transmissi
 
 ## Research record
 
+- **2026-10-30, v0.11:** Added 18-cell broad consumer discovery and adaptive nine-cell hypothetical event contrast. NEE and JPM are replication targets; conditionality and single-draw limits retained. Consumer store58records,55substantive/3errors. No trading-alpha claim.
 - **2026-10-30, v0.10:** Verified all 24 overnight CPU rounds and the final private backup; added rolling calendar and explicit corporate-action coverage controls. 121 tests pass. No forecast or alpha claim.
 - **2026-10-30, v0.9:** Added primary 10-Q period/denominator checks for credits, cash conversion and underutilization; bounded overnight CPU rounds scheduled, with 116 tests passing. No new forecast or alpha claim.
 - **2026-10-30, v0.8.1:** Configured a bounded daily historical refresh; zero duplicate requests in the smoke check and 112 tests passing. Automatic daily GPU sampling is disabled.
