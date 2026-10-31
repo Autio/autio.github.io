@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>From checked change to necessary loss — Petri Mikael Autio</title>
+  <meta name="description" content="Hegelese research on preservation, necessary loss, and reconstruction: proofs, counterexamples, runnable experiments, and an exact criterion for compatible process views.">
+  <meta name="author" content="Petri Mikael Autio">
+  <link rel="canonical" href="https://autio.github.io/ai-science/hegelese-reconstruction/">
+  <meta property="og:title" content="From checked change to necessary loss">
+  <meta property="og:description" content="When a reconstruction demand determines a least-loss successor, and when it leaves incomparable choices.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="/stylesheets/portfolio.css">
+  <link rel="stylesheet" href="/stylesheets/ai-science.css">
+  <style>
+    .view-demo{margin:24px 0;padding:22px;border:1px solid #cfdee8;border-radius:12px;background:#f7fafc}
+    .view-presets{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+    .view-presets button{padding:10px 14px;border:1px solid #7b94a7;border-radius:7px;background:white;color:#123651;font:inherit;cursor:pointer}
+    .view-presets button[aria-pressed="true"]{background:#143b59;color:white;border-color:#143b59}
+    .view-presets button:focus-visible{outline:3px solid #d68c00;outline-offset:3px}
+    .view-matrix{border-collapse:separate;border-spacing:5px;width:100%;max-width:480px;margin:18px 0}
+    .view-matrix th{font-size:.9rem;text-align:center;padding:8px;color:#143b59}
+    .view-matrix td{text-align:center;padding:18px 10px;border:1px solid #b6c9d6;border-radius:6px;background:white}
+    .view-matrix td.present{background:#e0f2eb;border-color:#9acbb8;color:#175c46}
+    .view-matrix td.absent{background:#fff2df;border:1px dashed #bc8b45;color:#6d490e}
+    .demo-status{padding:14px 16px;border-left:4px solid #a77226;background:#fff5e6;line-height:1.5}
+    .demo-status.universal{border-left-color:#128273;background:#e9f5f0}
+    @media(max-width:500px){.view-demo{padding:14px}.view-presets button{flex:1 1 120px}.view-matrix td{padding:14px 6px;font-size:.88rem}}
+  </style>
+</head>
+<body class="science-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation"><div class="container nav-inner"><a href="/" class="nav-brand">Petri Mikael Autio</a><ul class="nav-links" id="navLinks"><li><a href="/index.html#work">Work</a></li><li><a href="/blog/">Writing</a></li><li><a href="/side-projects.html#independent-projects">Projects</a></li><li><a href="/ai-science/" aria-current="page">AI Science</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main"><div class="science-wrap">
+<header class="science-intro">
+  <p><a href="/ai-science/">← AI Science Experiments</a></p>
+  <span class="science-kicker">Experiment 04 · Mathematics and language design</span>
+  <h1>From checked change to necessary loss</h1>
+  <span class="research-state">Research note · proofs and executable experiments</span>
+  <p><a href="https://github.com/Mikael-Codes/hegelese">Hegelese</a> checks what a proposed change preserves and computes what it loses. This research asks a further question: which losses are forced by a reconstruction demand, and when does that demand leave several incomparable choices?</p>
+  <p class="science-note">1 November 2026 · Petri Mikael Autio · AI-assisted research and internal mathematical review. Classical mechanisms are credited; external review remains open.</p>
+  <div class="science-links"><a href="https://github.com/Autio/hegelese/tree/research/reconstruction/experiments/reconstruction">Read the research and proofs</a><a href="research-source.zip" download>Download code, proofs and checks</a></div>
+</header>
+
+<section class="science-section" aria-labelledby="bridge-title">
+  <h2 id="bridge-title">A connection that runs through the checker</h2>
+  <p>The <a href="/ai-science/binary-cut-reconstruction/">binary-cut reconstruction preprint</a> identifies the largest natural linear quotient of the full binary-cut diagram that a specified collection of small observations can recover. To connect that theorem to Hegelese, the experiment treats the 128 vectors of a four-label binary-cut space as process states. Inputs add basis vectors; three linear observations must survive.</p>
+  <div class="science-table-wrap"><table class="science-table"><caption>Three maps pass the same preservation checks</caption><thead><tr><th scope="col">Representation</th><th scope="col">States</th><th scope="col">Hegelese result</th><th scope="col">Reconstruction from three-label probes</th></tr></thead><tbody><tr><th scope="row">Full binary-cut space J</th><td>128</td><td>1,281 equations pass</td><td>Fails</td></tr><tr><th scope="row">J/J³</th><td>64</td><td>1,281 equations pass</td><td>Fails</td></tr><tr><th scope="row">J/J²</th><td>8</td><td>1,281 equations pass</td><td>Works in ordinary degree</td></tr></tbody></table></div>
+  <p>The reconstruction theorem determines that the eight-state quotient retains the most information compatible with that additional demand. A false claim that it also preserves exact state identity is refuted by 120 failed equations.</p>
+  <p>These are separate kinds of evidence. Hegelese checks the finite process maps. Exact matrices check the four-label reconstruction comparison. The published proof supplies the uniform theorem over all finite label sets. The probe bound counts labels; it does not count process states, execution steps, or revisions.</p>
+  <div class="science-links"><a href="https://github.com/Autio/hegelese/blob/research/reconstruction/experiments/reconstruction/bridge/README.md">Full connection note</a><a href="source/bridge/results/summary.json">Recorded checker results</a></div>
+</section>
+
+<section class="science-section" aria-labelledby="answer-title">
+  <h2 id="answer-title">The first answer to the research question</h2>
+  <p>For a finite deterministic process, consider several views, each of which represents every state declared in that view. The views may be independent, or they may share one protected common overlap. We allow the process and the views to be quotiented, and demand exact reconstruction from the resulting views.</p>
+  <p class="science-summary"><strong>A universal least-loss quotient exists exactly when every compatible tuple of original view states is already realized by a global state.</strong> Under these hypotheses, this is also exactly when intersections of feasible quotient kernels remain feasible.</p>
+  <p>When the condition holds, the universal quotient preserves all view states and merges precisely the global states with identical joint views. When it fails, the quotients that retain different individual views expose the obstruction to a universal choice.</p>
+  <p>The proof applies to arbitrary deterministic transitions with a common input alphabet and compatible initial states. For shared-overlap views, each view maps onto the common overlap, which remains fixed. Additional protected observations or permissions that rule out the competing quotients need a separate analysis.</p>
+  <div class="science-links"><a href="https://github.com/Autio/hegelese/blob/research/reconstruction/experiments/reconstruction/demands/positive-theory.md">Theorems, hypotheses and proofs</a><a href="https://github.com/Autio/hegelese/blob/research/reconstruction/experiments/reconstruction/demands/counterexample-proof.md">A smaller right-Kan counterexample</a></div>
+
+  <div class="view-demo" aria-labelledby="demo-title">
+    <h3 id="demo-title">Two views can each be complete while their combinations are missing</h3>
+    <p>Both views have states 0 and 1. Green cells are realized global states; amber cells are combinations allowed by the two independent views but absent globally.</p>
+    <div class="view-presets" role="group" aria-label="Choose an example">
+      <button type="button" data-example="diagonal" aria-pressed="true">Two correlated states</button>
+      <button type="button" data-example="corners" aria-pressed="false">Three corners</button>
+      <button type="button" data-example="full" aria-pressed="false">Every combination</button>
+    </div>
+    <table class="view-matrix"><caption id="matrix-caption">Two correlated global states</caption><thead><tr><th scope="col">View A / View B</th><th scope="col">B = 0</th><th scope="col">B = 1</th></tr></thead><tbody><tr><th scope="row">A = 0</th><td id="cell-00" class="present">Realized · (0, 0)</td><td id="cell-01" class="absent">Missing · (0, 1)</td></tr><tr><th scope="row">A = 1</th><td id="cell-10" class="absent">Missing · (1, 0)</td><td id="cell-11" class="present">Realized · (1, 1)</td></tr></tbody></table>
+    <div id="demo-result" class="demo-status" aria-live="polite"><strong>No universal least-loss choice.</strong> Keeping A and collapsing B works; keeping B and collapsing A also works. The two choices are incomparable. Their common refinement retains both views and still misses two combinations.</div>
+    <p class="science-note">These are three fixed examples from the exact finite enumeration. The diagonal example also supports an input that flips both bits; the three-corner example supports a reset to zero. A missing universal choice does not mean that no qualifying quotient exists.</p>
+  </div>
+</section>
+
+<section class="science-section" aria-labelledby="research-title">
+  <h2 id="research-title">What this adds, and what is classical</h2>
+  <p>Reconstruction by compatible views is closely related to the classical <em>lossless join</em> condition in relational databases. The quotient and factorization arguments are also established mathematics. The notes credit <a href="https://s3.us.cloud-object-storage.appdomain.cloud/res-files/500-tods82.pdf">Fagin, Mendelzon and Ullman</a>, <a href="https://ir.cwi.nl/pub/48/">Rutten</a>, and the comparison with <a href="https://www.sci.unich.it/~scozzari/paper/JACM00.pdf">complete abstractions</a>.</p>
+  <p>The result of this investigation is a precise criterion for the proposed Hegelese interface, including proofs, examples, and limits. It is not presented as a new discovery of lossless joins or a newly established general principle of abstraction. The separate binary-cut preprint has its own unresolved priority assessment.</p>
+  <p>Even one arrow can obstruct uniqueness. Two source states map into a three-state observation space. Exact reconstruction requires merging the unused observation with a represented one, but either attachment works. The <a href="https://github.com/Autio/hegelese/blob/research/reconstruction/experiments/reconstruction/demands/counterexample-proof.md">complete analysis of this shape</a> explains when a universal quotient exists, and why its classification with identity transitions must not be applied unchanged to arbitrary dynamics.</p>
+</section>
+
+<section class="science-section" aria-labelledby="hegel-title">
+  <h2 id="hegel-title">Making criticism consequential</h2>
+  <p>The Hegelian motivation is to make the content and limitations of a representation constrain what follows. A failed proposal supplies more useful content when its obstruction explains an entire class of failures. A successful change supplies stronger evidence when its retained distinctions are characterized universally.</p>
+  <p>This remains conditional on the source, observations, admissible transformations, and demand. The mathematics also identifies cases where those conditions do not determine one successor. That ambiguity is part of the result. A proof that a loss is unavoidable does not authorize accepting it.</p>
+  <p>The connection note also examines revision history. A later deterministic operation cannot recover information already erased from its input. A repair across installed representations must identify the retained residual information, original state, or external evidence that makes recovery possible. Hegelese's current lineage protocol works against a fixed source; migration across changing sources is a further design problem.</p>
+</section>
+
+<section class="science-section" aria-labelledby="evidence-title">
+  <h2 id="evidence-title">Proofs, checks and publication</h2>
+  <p>The follow-up computations enumerate 327 two-view relations, 193 three-view relations, 194 cases with repeated joint fibers, 121 arrow maps up to source-state permutation, and 49 cases over a protected common overlap. Independent full searches examine 305,184 congruence tuples. Six further examples specify actual process transitions. Every recorded assertion passes.</p>
+  <p>The original bridge and the follow-up are proposed for <code>experiments/reconstruction/</code> in Hegelese through <a href="https://github.com/Mikael-Codes/hegelese/pull/4">pull request #4</a>. The public fork contains the source; the existing language and checker are unchanged. The proposed CI addition runs the new experiments alongside the repository's existing checks.</p>
+  <div class="science-links"><a href="https://github.com/Autio/hegelese/tree/research/reconstruction/experiments/reconstruction">Source in the public fork</a><a href="research-source.zip" download>Complete research archive</a><a href="source/demands/results.json">Results summary</a><a href="https://github.com/Autio/hegelese/blob/research/reconstruction/experiments/reconstruction/demands/COMPUTATIONAL-CHECKS.md">Exact computational coverage</a></div>
+  <p>The broader research problem remains open for different overlap diagrams and additional protected observations or authorization rules. A useful implementation should distinguish a universal quotient, incomparable alternatives, impossibility, and an unfinished check.</p>
+  <p class="science-note">I directed this research. AI assistants helped develop arguments, code, literature comparisons, and separate internal mathematical critiques. The finite checks support the proofs; they do not replace them or establish novelty. External human review and measured benefits for AI-assisted programming remain open.</p>
+</section>
+</div></main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product, data, and public services.</div></div><ul class="footer-links"><li><a href="/ai-science/">AI Science Experiments</a></li><li><a href="https://github.com/Autio/autio.github.io">Website source</a></li><li><a href="/">Home</a></li></ul></div></footer>
+<script src="/ai-science/navigation.js" defer></script>
+<script src="examples.js" defer></script>
+</body>
+</html>
