@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>When do small views determine the whole? — Petri Mikael Autio</title>
+  <meta name="description" content="A mathematical preprint computing exactly how much local information reconstructs a family of binary-cut diagrams, with proofs, reproducible checks and explicit prior work.">
+  <meta name="author" content="Petri Mikael Autio">
+  <link rel="canonical" href="https://autio.github.io/ai-science/binary-cut-reconstruction/">
+  <meta property="og:title" content="When do small views determine the whole?">
+  <meta property="og:description" content="An exact reconstruction calculation for binary-cut diagrams, with a research preprint and reproducible checks.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="/stylesheets/portfolio.css">
+  <link rel="stylesheet" href="/stylesheets/ai-science.css">
+</head>
+<body class="science-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation"><div class="container nav-inner"><a href="/" class="nav-brand">Petri Mikael Autio</a><ul class="nav-links" id="navLinks"><li><a href="/index.html#work">Work</a></li><li><a href="/blog/">Writing</a></li><li><a href="/side-projects.html#independent-projects">Projects</a></li><li><a href="/ai-science/" aria-current="page">AI Science</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main"><div class="science-wrap">
+<header class="science-intro">
+  <p><a href="/ai-science/">← AI Science Experiments</a></p>
+  <span class="science-kicker">Experiment 03 · Mathematics</span>
+  <h1>When do small views determine the whole?</h1>
+  <span class="research-state">Research preprint · priority unconfirmed</span>
+  <p>A structure can look consistent in every small view and still fail to fit together globally. This paper computes exactly when that stops happening for a particular family built from ways of dividing a finite set into two parts.</p>
+  <p class="science-note">31 October 2026 · Petri Mikael Autio · AI-assisted research and internal mathematical critique. External human review pending.</p>
+  <div class="science-links"><a href="binary-cut-reconstruction.pdf">Read the preprint (PDF, 11 pages)</a><a href="research-source.zip" download>Source, checks and prior work</a></div>
+</header>
+
+<section class="science-section" aria-labelledby="question-title">
+  <h2 id="question-title">Seeing every small part can still leave something missing</h2>
+  <p>Start with a finite collection of labels. A cut divides them into two nonempty groups, without choosing which group comes first. Restricting to a smaller collection gives a smaller cut, or nothing if one group disappears.</p>
+  <p>The paper forms linear combinations of these cuts over a field where adding a quantity to itself gives zero. It then discards terms beyond a specified algebraic degree. The resulting family has a precise restriction rule for every function between finite sets, including functions that identify labels.</p>
+  <p>Suppose we know this family only on sets with at most <em>r</em> labels. There are three possible failures of reconstruction: different global values can have the same local views; compatible local values can lack a global source; and higher compatibility can carry additional obstructions. The calculation identifies all three.</p>
+</section>
+
+<section class="science-section" aria-labelledby="result-title">
+  <h2 id="result-title">An exact threshold</h2>
+  <p>Two parameters control the answer. The integer <em>d</em> specifies where the algebraic filtration is cut off. The integer <em>h</em> places the resulting vector space in homotopy degree <em>h</em>, forming an Eilenberg–Mac Lane space. For this family, knowing all sets with at most <strong>d + h + 1</strong> labels is sufficient. One fewer is insufficient.</p>
+  <div class="science-table-wrap"><table class="science-table"><caption>The sharp threshold when d = 3</caption><thead><tr><th scope="col">Homotopy degree h</th><th scope="col">Smallest sufficient size</th><th scope="col">Failure one size earlier</th></tr></thead><tbody><tr><th scope="row">0</th><td>4 labels</td><td>Compatible values need not glue.</td></tr><tr><th scope="row">1</th><td>5 labels</td><td>The reconstructed space has extra components.</td></tr><tr><th scope="row">2</th><td>6 labels</td><td>The reconstructed space has extra components.</td></tr></tbody></table></div>
+  <p>The threshold holds for arbitrarily large ambient sets. It is proved by identifying the obstruction groups, rather than inferred from the finite checks below.</p>
+  <details><summary>The mathematical statement</summary>
+    <p>For a nonempty finite set S, let E<sub>S</sub> = 𝔽₂<sup>S</sup>/⟨1⟩, let J<sub>S</sub> be the augmentation ideal of k[E<sub>S</sub>], and set F<sub>d</sub>(S) = J<sub>S</sub>/J<sub>S</sub><sup>d</sup>, with char(k) = 2 and d ≥ 2. The least cardinality cutoff for the homotopy right-Kan reconstruction of K(F<sub>d</sub>, h) is d + h + 1.</p>
+    <p>For 2 ≤ r &lt; |S|, the positive derived groups are Λ<sup>r</sup>(k<sup>S</sup>/k1) in exactly the degrees max(1, r − d) through r − 2. The ordinary unit has kernel J<sub>S</sub><sup>r</sup>/J<sub>S</sub><sup>d</sup> when r &lt; d and zero otherwise; its cokernel is Λ<sup>r</sup>(k<sup>S</sup>/k1) when r ≤ d and zero otherwise.</p>
+    <p>The dual complement-invariant Boolean module W<sub>d−1</sub> also has an exact FI-homology calculation: H<sub>i</sub><sup>FI</sup>(W<sub>d−1</sub>) on n labels is one trivial representation for i + 2 ≤ n ≤ i + d, and zero otherwise.</p>
+  </details>
+</section>
+
+<section class="science-section" aria-labelledby="prior-title">
+  <h2 id="prior-title">What is already known?</h2>
+  <p>The coefficient family has established predecessors. Richter studied its pointed version in <a href="https://doi.org/10.5802/aif.1842">Taylor towers for Γ-modules</a>. The Boolean polynomial filtration is classical, and Powell describes it in <a href="https://www.numdam.org/article/AIF_2000__50_3_781_0.pdf">work on functors between finite vector spaces</a>. General FI presentation and homology methods also predate this calculation.</p>
+  <p>The proposed contribution is the explicit calculation at every cardinality cutoff, its natural obstruction modules, and the sharp reconstruction bound. The literature comparison has not established priority for these exact results. Equivalent formulas may exist in another language.</p>
+  <p>The <a href="source/PRIOR-WORK.md">prior-work report</a> gives theorem-level comparisons and names the full texts that could not be inspected. This is a research preprint, with external review and priority still open.</p>
+</section>
+
+<section class="science-section" aria-labelledby="hegel-title">
+  <h2 id="hegel-title">How the question began</h2>
+  <p>The project grew out of reading Hegel on induction, analogy and necessity. Collecting examples and establishing why a connection must hold are different tasks. That distinction suggested a mathematical question: what specified relations make bounded observations enough to determine the whole?</p>
+  <p>Here the answer depends on an algebraic filtration and a homotopy degree. Once those choices are made, exact sequences establish the threshold. The calculation does not establish that these choices capture Hegel’s account of necessity.</p>
+  <p>My <a href="/hegel-reader/">running commentary on the Science of Logic</a> explores the philosophical question. The <a href="/ai-science/determinate-preservation/">earlier preservation experiment</a> gives more of the route into the mathematics.</p>
+</section>
+
+<section class="science-section" aria-labelledby="checks-title">
+  <h2 id="checks-title">Proofs and reproducible checks</h2>
+  <p>The preprint contains the proofs. Three independent or complementary matrix calculations provide finite checks over 𝔽₂:</p>
+  <ul>
+    <li>27 ordinary reconstruction cases, on up to seven labels.</li>
+    <li>55 derived reconstruction cases, on up to five labels, and 504 checks of maps between cochain complexes.</li>
+    <li>54 FI-homology cases, on up to eight labels, including 104,139 chain-equivariance checks and 385 checks of the induced permutation action on homology.</li>
+  </ul>
+  <p>All recorded checks pass. The programs use exact arithmetic and the Python standard library. These finite computations support the proofs; they do not prove the universal statements or settle priority.</p>
+  <p>I directed the research. AI assistants helped develop the arguments, write code and text, compare literature, and conduct separate internal mathematical critiques. No external peer review or proof-assistant verification is claimed.</p>
+  <div class="science-links"><a href="binary-cut-reconstruction.pdf">Preprint</a><a href="research-source.zip" download>Complete source archive</a><a href="source/README.md">Build and reproduce</a><a href="source/checks/README.md">Check definitions and limits</a></div>
+</section>
+</div></main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product, data, and public services.</div></div><ul class="footer-links"><li><a href="/ai-science/">AI Science Experiments</a></li><li><a href="https://github.com/Autio/autio.github.io">Source on GitHub</a></li><li><a href="/">Home</a></li></ul></div></footer>
+<script src="/ai-science/navigation.js" defer></script>
+</body>
+</html>

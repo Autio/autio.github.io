@@ -1,0 +1,492 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=29mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype,booktabs,array,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdfauthor={Petri Mikael Autio},pdftitle={Sharp reconstruction for truncated binary-cut diagrams},pdfsubject={Right Kan extension, Boolean polynomials, and FI homology in characteristic two}}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{enumitem}
+\setlist{nosep}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathsf F}
+\newcommand{\FI}{\mathsf{FI}}
+\newcommand{\Rr}{\mathcal R_r}
+\newcommand{\Kpos}{\mathcal K_r(S)}
+\newcommand{\kk}{k}
+\newcommand{\Ftwo}{\mathbb F_2}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\holim}{\operatorname*{holim}}
+\newcommand{\colim}{\operatorname*{colim}}
+\newcommand{\limm}{\operatorname*{lim}}
+\newcommand{\Lcolim}{\operatorname*{Lcolim}}
+\newcommand{\Rlim}{\operatorname*{Rlim}}
+\newcommand{\Cut}{\operatorname{Cut}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\one}{\mathbf 1}
+\DeclareMathOperator{\cofib}{cofib}
+\DeclareMathOperator{\fib}{fib}
+\title{Sharp reconstruction for truncated binary-cut diagrams}
+\author{Petri Mikael Autio}
+\date{31 October 2026\\\small Research preprint, version 1}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $k$ have characteristic two, let $E_S=\Ftwo^S/\langle\one\rangle$ for a nonempty finite set $S$, and let $J_S$ be the augmentation ideal of $k[E_S]$. We compute the ordinary and derived right Kan extensions of $F_d(S)=J_S/J_S^d$ from sets of cardinality at most $r$, retaining all functions between finite sets. For $2\le r<|S|$, every nonzero positive derived group is the natural module $\Lambda^r(k^S/k\one)$, and it occurs precisely in degrees $\max(1,r-d),\ldots,r-2$. The ordinary kernel and cokernel are also explicit. Consequently $S\mapsto K(F_d(S),h)$ has least uniform reconstruction cutoff $d+h+1$. A second calculation gives the full FI homology of the dual Boolean-polynomial module: one trivial representation in cardinalities $i+2,\ldots,i+d$ in homological degree $i$. The proofs use a filtered complement-norm sequence and standard simplex and FI homology. The underlying binary-complement functor and the polynomial filtration have established antecedents; the subject here is their specific modular reconstruction calculation.
+\end{abstract}
+\noindent\textbf{Keywords.} Right Kan extension; FI homology; Boolean polynomials; augmentation ideal; symmetric simplicial diagram.
+
+\section{The reconstruction question and the results}
+
+Restriction to small finite sets supplies local information about a diagram. Recovery of the whole diagram asks for more than detection of a nonzero element: compatible local data must have a global source, and a homotopy limit also records higher compatibility. This note computes all three effects for one concrete family.
+
+Let $\F$ be a small skeleton of the category of nonempty finite sets and all functions. Fix a field $k$ of characteristic two. For $S\in\F$ put
+\[
+ E_S=\Ftwo^S/\langle\one\rangle,
+ \qquad J_S=\ker\bigl(k[E_S]\xrightarrow{\epsilon}k\bigr),
+ \qquad F_d(S)=J_S/J_S^d\quad(d\ge2).
+\]
+A function $f:T\to S$ induces pullback $E_S\to E_T$, hence maps on group algebras, augmentation ideals, and their quotients. Thus $F_d$ is a contravariant functor on \emph{all} functions. The parameter $d$ is an augmentation-filtration cutoff; it is not a left-Kan generating degree or a homotopy truncation.
+
+Write $i_r:\F_{\le r}^{\op}\hookrightarrow\F^{\op}$ for the full inclusion on cardinalities $1,\ldots,r$, and set
+\[
+ \Rr X=\Ran_{i_r}(i_r^*X),\qquad
+ \eta_r:X\longrightarrow\Rr X.
+\]
+For vector spaces, $\Rr$ initially denotes the ordinary right Kan functor and $\mathrm R^q\Rr$ its right-derived functors. For spaces we use homotopy right Kan extension. The cutoff $r$ is a \emph{cardinality}; the conventional symmetric-simplicial coskeletal dimension is $r-1$.
+
+Define the covariant zero-sum module and its contravariant dual by
+\[
+ U_S=\ker(k^S\xrightarrow{\sum}k),\qquad
+ Q_S=k^S/k\one=U_S^*.
+\]
+The covariant map on $U$ sums along fibers; the map on $Q$ is pullback. These conventions fix the variance of the representations below.
+
+\begin{theorem}[The reconstruction groups]\label{thm:groups}
+Let $d\ge2$ and $2\le r<n=|S|$. The ordinary unit has
+\[
+ \ker\eta_r(S)=
+ \begin{cases}J_S^r/J_S^d,&r<d,\\0,&r\ge d,\end{cases}
+ \qquad
+ \coker\eta_r(S)=
+ \begin{cases}\Lambda^r Q_S,&r\le d,\\0,&r>d.\end{cases}
+\]
+Its positive derived groups are naturally
+\begin{equation}\label{eq:derived-strip}
+ (\mathrm R^q\Rr F_d)(S)\cong
+ \begin{cases}
+ \Lambda^r Q_S,&\max(1,r-d)\le q\le r-2,\\
+ 0,&\text{otherwise},
+ \end{cases}\qquad q\ge1.
+\end{equation}
+The isomorphisms respect all finite-set maps, in particular all symmetric-group actions. For $n\le r$ the unit is an isomorphism and the positive derived groups vanish. At $r=1$, every restricted value is zero.
+\end{theorem}
+
+Here and below a displayed cokernel identification means a natural isomorphism. Since $\dim Q_S=n-1$, the exterior module has dimension $\binom{n-1}{r}$. The theorem does not assert that the derived object splits equivariantly into its cohomology groups.
+
+\begin{theorem}[Sharp homotopy reconstruction]\label{thm:sharp}
+For $d\ge2$ and $h\ge0$, the space-valued diagram
+\[
+ X_{d,h}(S)=K(F_d(S),h)
+\]
+has least uniform homotopy right-Kan cardinality cutoff
+\[
+ \boxed{r=d+h+1.}
+\]
+Here $K(A,0)$ is the discrete underlying additive group. Equivalently, the least coskeletal dimension is $d+h$.
+\end{theorem}
+
+At the preceding cutoff $r=d+h$, failure already occurs on a set of size $r+1$. For $h=0$ it is a one-dimensional ordinary cokernel. For $h\ge1$ the target has a nonzero group of connected components while the source is connected. This lower bound tests the comparison map itself.
+
+\begin{theorem}[Exact FI homology]\label{thm:fi-intro}
+Let $W_a$ be the covariant FI-module of complement-invariant Boolean polynomials of degree at most $a$, modulo constants, with value zero at the empty set. For $a=d-1\ge1$,
+\[
+ H_i^{\FI}(W_{d-1})([n])\cong
+ \begin{cases}
+ k_{\mathrm{triv}},&i+2\le n\le i+d,\\
+ 0,&\text{otherwise},
+ \end{cases}\qquad i,n\ge0.
+\]
+Writing $t_i(M)=\sup\{n:H_i^{\FI}(M)([n])\ne0\}$ and
+$\operatorname{reg}(M)=\sup_{i\ge0}(t_i(M)-i)$, we have
+$t_i(W_{d-1})=i+d$ and $\operatorname{reg}(W_{d-1})=d$.
+\end{theorem}
+
+The duality $W_{d-1}(S)^*=F_d(S)$ will be established below. The FI calculation provides an independent algebraic description of the full proper-subset obstruction. It is not used to equate a proper-subset cube with an arbitrary smaller cutoff.
+
+\subsection{Antecedents and scope}
+
+Finite-set reconstruction and polynomial classification are established subjects. Hora--Kamio--Maehara's Lemma~2.3.6 and Proposition~2.3.7 express ordinary symmetric-simplicial reconstruction through compatible subset data and cycle filling \cite{HKM}. Church--Ellenberg's Theorem~C identifies the least ordinary FI presentation cutoff with the maximum of the generating and first relation degrees \cite{CE}. The ordinary bound here is a calculation for a particular module within that theory.
+
+The binary-complement symmetric diagram already occurs in Greene--Welker--Wille, Section~5.1 \cite{GWW}. Its reduced linearization is the cut module considered here. Powell's deletion-kernel filtration is also an antecedent: Definition~3.3 and Theorem~4.5 of \cite{PowellFilter} treat that filtration and labeled-surjection layers in characteristic zero. Powell--Vespa's Theorem~6.15 and Corollary~7.4 compute related labeled deletion complexes \cite{PV}. Passing to unordered cuts in characteristic two cannot be justified by assuming exactness of target-permutation coinvariants.
+
+The augmentation/Boolean-degree correspondence is classical; see the Berman--Charpin theorem in the form proved in \cite[Theorem~3.6]{Andriatahiny}. More precisely, over $\Ftwo$ the module $W_a$ is the classical polynomial truncation $p_a\bar I$ of the reduced Boolean injective, composed with $S\mapsto\ker(\Ftwo[S]\to\Ftwo)$; extension of scalars gives arbitrary $k$. Powell describes that polynomial filtration and its exterior factors in \cite[Section~2]{Powell2000}.
+
+There is also an exact pointed antecedent. On finite pointed sets and root-preserving maps, the rooted monomials $\prod_{s\in A}(x_s+x_0)$ identify $W_a$ with Richter's $B_a$, defined in Section~4.3 of \cite{Richter}. Its objectwise linear dual is her $t^a$. Richter's Lemmas~4.3--4.4 and Theorem~4.5 establish its polynomial degree and its role in a derived Taylor approximation. The calculation below retains arbitrary maps between unpointed finite sets and computes their cardinality right-Kan unit; it is not a claim that the pointed coefficient family is new.
+
+The contribution claimed in this note is the explicit modular all-cutoff calculation, its natural modules, and the resulting sharp bound for $X_{d,h}$. No new general polynomial-recognition principle, new filtration, or new binary-complement functor is asserted. Additional rank-filtration comparisons and remaining access limitations are recorded in the accompanying priority report.
+
+\section{All probes and the subset matching tower}
+
+Let $\Kpos$ be the poset of nonempty actual subsets $T\subseteq S$ with $|T|\le r$. Its arrows are inclusions. Pointwise right Kan extension is indexed by
+\[
+ (\F_{\le r}/S)^{\op},
+\]
+whose objects are functions $B\to S$ with $|B|\le r$. Thus noninjective probes are present in the definition.
+
+\begin{lemma}[Image reduction]\label{lem:image}
+For every contravariant diagram $X$ in a complete ordinary or infinity-category,
+\[
+ (\Rr X)(S)\simeq\limm_{T\in\Kpos^{\op}}X(T).
+\]
+For homotopy coefficients the limit on the right is a homotopy limit.
+\end{lemma}
+\begin{proof}
+In $\F_{\le r}/S$, the image operation is left adjoint to the inclusion of $\Kpos$. Indeed, a map over $S$ from $f:B\to S$ to an inclusion $T\hookrightarrow S$ exists uniquely exactly when $\im f\subseteq T$. Taking opposites makes the subset inclusion a left adjoint, hence initial for limits. This proves the assertion for arbitrary diagrams. The factorization through the image supplies the relevant contractible comma category; it accounts for identifications and automorphisms of noninjective probes. An inclusion over $S$ has no nontrivial automorphism. Relabeling $S$ preserves this construction.
+\end{proof}
+
+Put $L_rX(S)=\holim_{\Kpos^{\op}}X(T)$ and
+\[
+ M_X(T)=\holim_{\varnothing\ne U\subsetneq T}X(U).
+\]
+At the first omitted cardinality $r=|S|-1$, the right-Kan comparison is exactly the proper-subset matching map. At a smaller cutoff it is a different map.
+
+\begin{proposition}[Matching attachment]\label{prop:tower}
+For $r\ge2$ there is a homotopy-cartesian square, natural in $X$ and under ambient injections,
+\[
+\begin{array}{ccc}
+ L_rX(S)&\longrightarrow&\displaystyle\prod_{|T|=r}X(T)\\
+ \downarrow&&\downarrow\\
+ L_{r-1}X(S)&\longrightarrow&\displaystyle\prod_{|T|=r}M_X(T).
+\end{array}
+\]
+In stable coefficients, with $\delta_X(T)=\fib(X(T)\to M_X(T))$,
+\[
+ \fib(L_rX(S)\to L_{r-1}X(S))\simeq\bigoplus_{|T|=r}\delta_X(T).
+\]
+\end{proposition}
+\begin{proof}
+The new objects in the inverse subset category have cardinality $r$ and no arrows between distinct new objects. Their outgoing categories are their proper nonempty subsets. Extending a cone therefore consists precisely of choosing a value at each new object together with its compatibility over that outgoing category. This is the displayed pullback. Taking fibers gives the stable formula. The actual subsets index the factors; relabeling permutes them, and no extra fixed-point factor is introduced.
+\end{proof}
+
+This is standard matching-object attachment. It gives a filtration with connecting maps, not a canonical splitting of the reconstruction obstruction. In spaces, moreover, a contractible fiber at one chosen basepoint does not rule out missed components. The sharpness proof will use such components directly.
+
+\section{Boolean duality and the filtered norm sequence}
+
+For a nonempty finite set $S$, let
+\[
+ P(S)=k[x_s:s\in S]/(x_s^2-x_s),
+\]
+with degree filtration $P_b$. The squarefree monomials form a basis. A set map $f:S\to S'$ acts covariantly by $x_s\mapsto x_{f(s)}$; collisions may lower degree. Simultaneous complementation $\tau(x_s)=x_s+1$ commutes with these substitutions. Set
+\[
+ \Delta=1+\tau,\quad H_b=\ker(\Delta|P_b),\quad
+ W_b=\{g\in H_b:g(0)=0\}.
+\]
+Evaluation at zero gives a natural splitting $H_b=k\oplus W_b$.
+
+Choose a root $s_0\in S$ and put $y_s=x_s+x_{s_0}$ for $s\ne s_0$. The change to the $y_s$ and $x_{s_0}$ preserves degree filtrations in both directions. Complementation fixes every $y_s$ and sends $x_{s_0}$ to $x_{s_0}+1$. Writing a function uniquely as $g(y)+x_{s_0}h(y)$ shows that it is invariant exactly when $h=0$. Consequently
+\begin{equation}\label{eq:boolean-dim}
+ \dim H_b(S)=\sum_{j=0}^{\min(b,n-1)}\binom{n-1}{j},
+ \qquad \gr_b H(S)\cong\Lambda^b U_S.
+\end{equation}
+For the second assertion, degree-one invariants form $U_S$, and the associated graded Boolean algebra has square-zero generators. Multiplication induces the exterior-power map; the rooted monomial basis proves it is an isomorphism. The construction is independent of the root.
+
+\begin{lemma}[Augmentation duality]\label{lem:dual}
+The group-algebra pairing with functions induces naturally
+\[
+ W_{d-1}(S)^*\cong J_S/J_S^d.
+\]
+The reduced cut module $V(S)=k[\Cut(S)]$ is naturally $J_S$, by sending a nonzero complement class $e\in E_S$ to $[e]-[0]$.
+\end{lemma}
+\begin{proof}
+A nonzero element of $E_S$ is an unordered nontrivial cut. Pullback of a constant cut gives $[0]-[0]=0$, proving the last naturality assertion. In rooted coordinates choose the dual additive basis $g_s$ of $E_S$ and put $t_s=[g_s]-1$. Then
+\[
+ k[E_S]\cong k[t_s:s\ne s_0]/(t_s^2),\qquad
+ \langle t_B,y_A\rangle=\delta_{A,B}.
+\]
+Indeed the pairing is a finite-difference sum over subsets of $B$, equal to zero unless $A\subseteq B$, and then to $2^{|B|-|A|}$. Thus the annihilator of $J_S^d$ consists of functions of degree at most $d-1$. Dualizing $J_S/J_S^d$ removes constants. The intrinsic pairing proves naturality beyond the chosen coordinates.
+\end{proof}
+
+\begin{lemma}[Filtered norm]\label{lem:norm}
+For $b\ge1$ there is a natural exact sequence on nonempty finite sets
+\begin{equation}\label{eq:norm}
+ 0\longrightarrow W_b\longrightarrow P_b/k
+ \xrightarrow{\Delta}k\oplus W_{b-1}\longrightarrow0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Complementation cancels the highest-degree part, so $\Delta P_b\subseteq H_{b-1}$. Its image is invariant because $\Delta^2=0$. For invariant $g\in H_{b-1}$ and any $s\in S$,
+\[
+ \Delta(x_sg)=g.
+\]
+This proves surjectivity without putting a coordinate choice into the definition of the map. Its kernel is $H_b$. Quotient constants in the first two terms and use the evaluation splitting of $H_{b-1}$.
+\end{proof}
+
+\section{The ordinary cut obstruction}
+
+Let $H(S)=\ker\Delta\subseteq P(S)$ and $W(S)=H(S)/k=V(S)^*$. As vector spaces, the complement action has free two-element orbits on the point basis of the Boolean cube. In characteristic two this gives
+\begin{equation}\label{eq:full-norm}
+ 0\longrightarrow H\longrightarrow P\xrightarrow{\Delta}H\longrightarrow0.
+\end{equation}
+
+\begin{lemma}\label{lem:colim-poly}
+For $2\le r<n$,
+\[
+ \colim_{T\in\Kpos}P(T)=P_r(S),\qquad
+ \sum_{T\in\Kpos}H(T)=H_{r-1}(S)\subseteq P_r(S).
+\]
+\end{lemma}
+\begin{proof}
+A nonconstant monomial has a unique support. Its occurrences in the subset diagram are identified through that support whenever its size is at most $r$. Constants are identified through pairs, since $r\ge2$. This proves the first statement.
+
+An invariant on $T$ has degree at most $|T|-1$, using a root in $T$. Thus the displayed sum is contained in $H_{r-1}(S)$. Conversely, fix a root $s_0$ of $S$. Every rooted monomial $\prod_{s\in A}(x_s+x_{s_0})$ of degree at most $r-1$ comes from $A\cup\{s_0\}$, a set of size at most $r$. Those monomials span $H_{r-1}(S)$.
+\end{proof}
+
+\begin{proposition}[Untruncated ordinary calculation]\label{prop:ordinaryV}
+For $2\le r<n$ the cut module $V=J$ satisfies
+\[
+ \ker(V(S)\to\Rr V(S))=J_S^r,
+ \qquad \coker(V(S)\to\Rr V(S))\cong\Lambda^r Q_S.
+\]
+\end{proposition}
+\begin{proof}
+Right exactness of colimit applied to \eqref{eq:full-norm}, followed by \cref{lem:colim-poly}, gives
+\[
+ \colim_{\Kpos}H(T)\cong P_r(S)/H_{r-1}(S).
+\]
+The comparison with $H(S)$ is induced by $\Delta$. Its image is $H_{r-1}(S)$: degree drops by one, and $\Delta(x_{s_0}g)=g$ supplies every invariant of that degree. Its kernel is $H_r(S)/H_{r-1}(S)\cong\Lambda^rU_S$.
+
+The constant summands split naturally and compare isomorphically, so the same kernel appears for $\colim W(T)\to W(S)$. Its cokernel is $W(S)/W_{r-1}(S)$. Finite-dimensional duality identifies $\Rr V(S)$ with $(\colim W(T))^*$. By \cref{lem:dual}, the annihilator of $W_{r-1}(S)$ is $J_S^r$. Dualizing the other kernel gives $\Lambda^rQ_S$.
+\end{proof}
+
+In particular
+\[
+ \dim\ker\eta_r=\sum_{j=r}^{n-1}\binom{n-1}{j},\qquad
+ \dim\Rr V(S)=\sum_{j=1}^{r}\binom{n-1}{j}.
+\]
+For three labels and pair probes, the restriction matrix in the singleton-cut bases is
+\[
+ \begin{pmatrix}1&1&0\\1&0&1\\0&1&1\end{pmatrix}.
+\]
+Its kernel and cokernel are both one-dimensional. The general calculation determines what this small example alone cannot: all cutoff sizes and their natural module structure.
+
+\section{All higher derived groups and the filtered unit}
+
+\begin{lemma}[Acyclic support diagrams]\label{lem:acyclic}
+On the covariant category $\Kpos$, the diagram $P_b/k$ is colimit-acyclic for every $b\ge1$. Its colimit is $P_{\min(b,r)}(S)/k$.
+\end{lemma}
+\begin{proof}
+For each nonempty support $A$ of size at most $\min(b,r)$, its monomial contributes the representable diagram
+\[
+ T\longmapsto k[\operatorname{Hom}_{\Kpos}(A,T)].
+\]
+These diagrams are projective, and their direct sum is $P_b/k$. The support description also computes the ordinary colimit. No equivariance of the chosen projective decomposition under arbitrary ambient maps is needed for acyclicity.
+\end{proof}
+
+The nerve of $\Kpos$ is the barycentric subdivision of the $(r-1)$-skeleton of the simplex on $S$. For $2\le r<n$, its reduced homology is concentrated in degree $r-1$. There is a canonical identification
+\begin{equation}\label{eq:skeleton}
+ \widetilde H_{r-1}(|\Kpos|;k)\cong\Lambda^r U_S.
+\end{equation}
+To see both facts algebraically, identify simplex chains in degree $j-1$ with $\Lambda^j(k^S)$ and their boundary with contraction by the sum functional $\lambda$. If $\lambda(e)=1$, then $k^S=ke\oplus U_S$, and contraction sends $e\wedge u$ to $u$ while vanishing on $\Lambda^jU_S$. The augmented simplex complex is exact; truncation leaves precisely its degree-$r$ kernel.
+
+\begin{proof}[Proof of the positive-degree assertion in \cref{thm:groups}]
+Write $L_j$ for the $j$th left-derived colimit over $\Kpos$. From \eqref{eq:norm} and \cref{lem:acyclic}, for $j\ge1$,
+\[
+ L_jW_b\cong L_{j+1}W_{b-1}\oplus L_{j+1}k.
+\]
+Starting with $W_0=0$ gives
+\begin{equation}\label{eq:shift}
+ L_jW_{d-1}\cong\bigoplus_{t=1}^{d-1}L_{j+t}k.
+\end{equation}
+The only positive derived colimit of the constant diagram is \eqref{eq:skeleton}. Exactly one summand contributes when $1\le r-1-j\le d-1$, equivalently
+\[
+ \max(1,r-d)\le j\le r-2.
+\]
+Finite-dimensional duality turns these derived colimits into the right-derived limits of $F_d=W_{d-1}^*$. This proves \eqref{eq:derived-strip}.
+\end{proof}
+
+\begin{proof}[Proof of the ordinary assertions in \cref{thm:groups}]
+If $d\ge r$, then $J_T^d=0$ for every $|T|\le r$, since $\dim_{\Ftwo}E_T\le r-1$. Thus the restricted $F_d$ diagram agrees with $V$. Factoring the unit of \cref{prop:ordinaryV} through $V(S)/J_S^d$ yields the asserted kernel and cokernel.
+
+Suppose $r>d$, and put $a=d-1$. Apply ordinary colimits to
+\[
+ 0\to H_{a+1}\to P_{a+1}\xrightarrow{\Delta}H_a\to0.
+\]
+All monomial supports in $P_{a+1}$ fit into the cutoff, so its colimit is $P_{a+1}(S)$. The image of $\colim H_{a+1}(T)$ is all of $H_{a+1}(S)$: a rooted invariant monomial of degree at most $a+1$ uses at most $a+2=d+1\le r$ labels. Hence the colimit comparison for $H_a$ is an isomorphism. Remove the naturally split constants and dualize to obtain the ordinary reconstruction isomorphism for $F_d$.
+
+If $n\le r$, the subset diagram has $S$ as a terminal object before taking opposites, so the comparison is an isomorphism and the higher groups vanish. For $r=1$ the coefficient values are zero.
+\end{proof}
+
+\subsection{Naturality, including identifications}
+
+For $f:S\to S'$, the image-subset functor $T\mapsto f(T)$ maps $\mathcal K_r(S)$ to $\mathcal K_r(S')$. Together with coefficient pullback along $T\to f(T)$, it induces the contravariant map on the derived-limit models. In normalized chain models, repetitions in the image of a strict chain are degeneracies. The norm sequence, the splitting by evaluation at zero, and their connecting homomorphisms commute with these comparisons.
+
+For constant coefficients the comparison is the simplicial map of simplex skeleta induced by $f$. On chains it is the exterior power of $e_s\mapsto e_{f(s)}$; repeated vertices give zero. It preserves $U$ and therefore induces the expected map on $\Lambda^rU$. Dualizing yields the all-map module $\Lambda^rQ$. This verifies that the isomorphisms in the theorem are not merely separate permutation-equivariant rank calculations.
+
+\subsection{The reconstruction fiber}
+
+Place $F_d$ in cohomological degree zero and set
+\[
+ \mathcal E_{r,d}(S)=\fib\bigl(F_d(S)\to\Rlim_{\Kpos^{\op}}F_d(T)\bigr).
+\]
+For $2\le r<n$, the calculation gives
+\[
+ H^0\mathcal E_{r,d}(S)=(J_S^r+J_S^d)/J_S^d,
+\]
+and, for $j\ge1$,
+\begin{equation}\label{eq:fiber-strip}
+ H^j\mathcal E_{r,d}(S)\cong
+ \begin{cases}\Lambda^rQ_S,&\max(1,r-d+1)\le j\le r-1,\\0,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+These are the cohomology modules of the full finite cochain model. Possible equivariant extension data are not suppressed by asserting a splitting.
+
+\begin{example}[The moving obstruction]\label{ex:moving}
+For $d=3$ and $n>r$, the following table lists the degrees of the nonzero positive groups in \eqref{eq:fiber-strip}. Each entry is a copy of $\Lambda^rQ_S$.
+\begin{center}
+\begin{tabular}{@{}ccl@{}}
+\toprule
+Cutoff $r$ & Ordinary comparison & Positive fiber degrees\\
+\midrule
+2 & kernel and cokernel & 1\\
+3 & injective, non-surjective & 1, 2\\
+4 & isomorphism & 2, 3\\
+5 & isomorphism & 3, 4\\
+6 & isomorphism & 4, 5\\
+\bottomrule
+\end{tabular}
+\end{center}
+Ordinary recovery has already occurred at $r=4$, but the derived obstruction persists in a moving pair of degrees. The next section explains why a fixed homotopy truncation eventually ceases to see it.
+\end{example}
+
+\section{Eilenberg--Mac Lane reconstruction}
+
+\begin{proof}[Proof of \cref{thm:sharp}]
+Use $K(A,h)=\Omega^\infty\Sigma^hHA$. The functor $\Omega^\infty$ preserves limits, and suspension is an equivalence in spectra. The spectral limit may be nonconnective. Its single nonzero coefficient row and the finite cohomological dimension of the subset indexing category give
+\begin{equation}\label{eq:EM}
+ \pi_i\holim_{\Kpos^{\op}}K(F_d(T),h)
+ \cong \mathrm R^{h-i}\limm_{\Kpos^{\op}}F_d(T),
+ \qquad 0\le i\le h.
+\end{equation}
+This follows as well from the finite derived-limit cochain complex followed by the Eilenberg--Mac Lane construction. At $i=0$ it identifies the naturally abelian group of components. Higher homotopy groups vanish.
+
+If $r\ge d+h+1$, ordinary reconstruction is an isomorphism, while \eqref{eq:derived-strip} is zero in degrees $1,\ldots,h$. Thus the comparison is an equivalence for every $S$.
+
+For $h=0$, take $r=d$ and $|S|=d+1$. The cokernel is $\Lambda^dQ_S\cong k$, so the comparison fails. For $h\ge1$, take $r=d+h$ and $|S|=r+1$. The degree-$h$ term lies in \eqref{eq:derived-strip}, and is $\Lambda^rQ_S\cong k$. By \eqref{eq:EM} the target is disconnected, whereas the source is connected.
+
+Finally, recovery from a smaller full cutoff implies recovery from every larger cutoff: restrict the right-Kan presentation to the intermediate full subcategory and compose right Kan extensions. Hence failure at $d+h$ rules out every smaller candidate. This proves leastness.
+\end{proof}
+
+\begin{example}[A first homotopy failure]
+For $d=2$, $F_2(S)=Q_S$. Ordinary reconstruction works from triples. On four labels, however, the triplewise homotopy reconstruction of $K(Q,1)$ has
+\[
+ \pi_1\cong k^3,\qquad \pi_0\cong k.
+\]
+The unit reaches the base component only. Thus $K(Q,1)$ needs cardinality four, exactly as \cref{thm:sharp} states. Checking only the fundamental group of the distinguished component would miss this failure.
+\end{example}
+
+\section{An independent FI-homology calculation}
+
+Include the empty set in $\FI$, whose morphisms are injections, and put $W_a(\varnothing)=0$. For an FI-module $M$, let
+\[
+ H_0^{\FI}(M)(S)=M(S)\Big/\sum_{T\subsetneq S}\im(M(T)\to M(S)),
+\]
+and let $H_i^{\FI}$ denote its left-derived functors. We use the established Koszul complex
+\begin{equation}\label{eq:FI-Koszul}
+ C_i(M)(S)=\bigoplus_{I\subseteq S,\ |I|=i}M(S\setminus I)\otimes\det(kI),
+\end{equation}
+whose differential is the signed sum of inclusion maps. Gan--Li, Theorem~1 and Section~2, equation~(2), prove that it computes FI homology \cite{GanLi}.
+
+Let $M_j(S)$ be the permutation module on $j$-element subsets of $S$. For fixed $S$, \eqref{eq:FI-Koszul} splits over supports $A$ of size $j$. The support summand is the exterior contraction complex on $k(S\setminus A)$. If the complement is nonempty, wedging with one of its basis vectors contracts the complex. If $S=A$, only $k$ in degree zero remains. Hence $M_j$ is FI-acyclic in positive degrees and $H_0^{\FI}(M_j)$ is one trivial representation in cardinality $j$.
+
+Let $C$ be $k$ on nonempty sets and zero on the empty set, with identity maps between nonempty sets. For $n\ge1$, its Koszul complex on $n$ labels is the full exterior contraction complex with its top term deleted. It has homology only in degree $n-1$, where the image of the deleted differential is the sign representation. In characteristic two this is trivial. For $n=0$ the complex is zero. Therefore
+\begin{equation}\label{eq:C-homology}
+ H_i^{\FI}(C)([n])=
+ \begin{cases}k_{\mathrm{triv}},&n=i+1,\\0,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+The value $C(\varnothing)=0$ is essential; $C$ is not the constant FI-module.
+
+\begin{proof}[Proof of \cref{thm:fi-intro}]
+Put $A_a=P_a/k$. Monomial supports give
+\[
+ A_a=\bigoplus_{j=1}^a M_j.
+\]
+Thus $A_a$ is FI-acyclic and $H_0^{\FI}(A_a)$ is one-dimensional in each cardinality $1,\ldots,a$. The filtered norm sequence, extended by zero at the empty set, is
+\[
+ 0\to W_a\to A_a\to C\oplus W_{a-1}\to0.
+\]
+For $i\ge1$ its long exact sequence gives
+\[
+ H_i^{\FI}(W_a)\cong H_{i+1}^{\FI}(C)\oplus H_{i+1}^{\FI}(W_{a-1}).
+\]
+Starting with $W_0=0$ and applying \eqref{eq:C-homology} yields one trivial representation in each of the distinct cardinalities $i+2,\ldots,i+a+1$.
+
+For $i=0$, induction says that $H_0^{\FI}(C\oplus W_{a-1})$ is one-dimensional in cardinalities $1,\ldots,a$. The surjection from $H_0^{\FI}(A_a)$ is therefore an isomorphism in each cardinality. The adjacent exact sequence gives
+\[
+ H_0^{\FI}(W_a)\cong H_1^{\FI}(C)\oplus H_1^{\FI}(W_{a-1}),
+\]
+which has the required support $2,\ldots,a+1$. Substituting $a=d-1$ proves the theorem, including all empty and singleton cases.
+\end{proof}
+
+The proof gives $t_0=d$ and $t_1=d+1$. Church--Ellenberg's Theorem~C consequently recovers the ordinary cutoff $d+1$. Their Theorem~A applied to those two numbers gives the general bound $t_i\le i+2d$; the exact computation here gives $t_i=i+d$ instead. The generic presentation theorem is not being claimed anew.
+
+The Koszul complex is also the total cofiber of the covariant cube $T\mapsto W_a(T)$ on all subsets of a fixed $S$. Equivalently it is the cofiber of the derived colimit over proper subsets mapping to $W_a(S)$. Since the empty value is zero, finite duality identifies it with the full proper-subset reconstruction fiber of $F_{a+1}$. This applies at $r=|S|-1$; smaller cutoffs require the separate comparison of \cref{prop:tower}.
+
+\section{Checks, limitations, and motivation}
+
+\subsection{Reproducible finite calculations}
+
+The accompanying source archive contains three standard-library Python programs using exact binary elimination. They supply complementary checks:
+\begin{itemize}
+ \item \texttt{verify-cut.py} builds cut restrictions and compatibility equations for 27 ordinary cases through seven labels.
+ \item \texttt{verify-derived.py} builds normalized Roos cochain complexes for 55 cases through five labels and verifies 504 cochain naturality cases, including noninjective maps.
+ \item \texttt{verify-fi-independent.py} solves complement-invariance equations directly in Boolean coordinates and builds FI Koszul complexes independently. It checks 54 cases through eight labels, 104,139 chain-equivariance equations, and 385 induced homology-action tests.
+\end{itemize}
+The scripts construct matrices before comparing their homology with the formulas. They check that differentials square to zero. The independent FI implementation does not reuse the reconstruction matrices. These finite checks corroborate the proofs; they do not certify universal naturality or priority. No proof-assistant verification or external peer review is claimed.
+
+\subsection{What finite reconstruction means here}
+
+The cutoff in \cref{thm:sharp} is a theorem for the specified augmentation quotient. It does not imply that arbitrary abelian-valued, finite-valued, or one-truncated diagrams reconstruct from bounded cardinality. Already the unquotiented cut module has a nonzero kernel at arbitrarily large cutoffs. Nor is a bound on ordinary deletion kernels sufficient for gluing: $F_d$ has zero proper-deletion kernels for $|S|>d$, while the cutoff-$d$ comparison still has a nonzero cokernel at $|S|=d+1$.
+
+Allowing a different \emph{full} selection of cardinalities does not supply a separate structural escape. Every smaller nonempty set retracts from a larger one. The unit for restriction and right Kan extension is an equivalence on every selected object, and therefore on its retracts. By Kan composition, a bounded full selection has the same reconstruction power as its maximum cardinality; an unbounded full selection reconstructs every diagram. This observation is elementary retract-density, not an additional novelty claim.
+
+\subsection{The philosophical question}
+
+The question arose from Hegel's discussion of induction, analogy, and necessity in the \emph{Science of Logic}, especially the passage from collected instances to a connection grounded in the nature of the terms \cite{Hegel}. It suggested asking which specified relations make bounded observations sufficient. Here the augmentation filtration and homotopy degree supply such specifications, and the exact sequences prove the consequence. The theorem neither formalizes Hegel's entire account of necessity nor receives mathematical justification from that account. The philosophical motivation and the priority of the calculation are separate from proof validity.
+
+\subsection*{Research and authorship disclosure}
+The author directed the research. AI assistants helped develop arguments, implement calculations, search and compare literature, draft the text, and conduct separate internal mathematical critiques. These critiques are not external peer review. The specific computation is presented for examination with its literature comparisons and reproducibility material; no guarantee of first discovery is claimed.
+
+\begin{thebibliography}{99}
+\small
+\bibitem{HKM} R. Hora, Y. Kamio and Y. Maehara, \emph{Lawvere's fourth open problem: Levels in the topos of symmetric simplicial sets}, arXiv:2503.03439v2. \url{https://arxiv.org/abs/2503.03439v2}.
+\bibitem{CE} T. Church and J. S. Ellenberg, \emph{Homology of FI-modules}, Geometry \& Topology 21 (2017), 2373--2418. \url{https://doi.org/10.2140/gt.2017.21.2373}.
+\bibitem{GWW} C. Greene, V. Welker and G. Wille, \emph{On the homology of simplicial and cubical sets with symmetries}, arXiv:2508.14639v1. \url{https://arxiv.org/abs/2508.14639v1}.
+\bibitem{PowellFilter} G. Powell, \emph{Filtering the linearization of the category of surjections}, arXiv:2407.11627v6. \url{https://arxiv.org/abs/2407.11627v6}.
+\bibitem{PV} G. Powell and C. Vespa, \emph{A Pirashvili-type theorem for functors on non-empty finite sets}, arXiv:2009.10966. \url{https://arxiv.org/abs/2009.10966}.
+\bibitem{Andriatahiny} H. Andriatahiny, \emph{The Generalized Reed--Muller codes and the radical powers of a modular algebra}, arXiv:1601.07633. \url{https://arxiv.org/abs/1601.07633}.
+\bibitem{Powell2000} G. M. L. Powell, \emph{The structure of the tensor product of $\Ftwo[-]$ with a finite functor between $\Ftwo$-vector spaces}, Annales de l'Institut Fourier 50 (2000), 781--805. \url{https://www.numdam.org/article/AIF_2000__50_3_781_0.pdf}.
+\bibitem{Richter} B. Richter, \emph{Taylor towers for $\Gamma$-modules}, Annales de l'Institut Fourier 51 (2001), 995--1023. \url{https://doi.org/10.5802/aif.1842}.
+\bibitem{GanLi} W. L. Gan and L. Li, \emph{A remark on FI-module homology}, Michigan Mathematical Journal 65 (2016), 855--861. \url{https://doi.org/10.1307/mmj/1480734023}.
+\bibitem{Hegel} G. W. F. Hegel, \emph{Science of Logic},
+\href{https://www.marxists.org/reference/archive/hegel/works/hl/hl687.htm}{``The syllogism of reflection''} and
+\href{https://www.marxists.org/reference/archive/hegel/works/hl/hlsyllog.htm}{``The syllogism of necessity,''}
+sections 1491--1505 in the Marxists Internet Archive online edition.
+\end{thebibliography}
+\end{document}

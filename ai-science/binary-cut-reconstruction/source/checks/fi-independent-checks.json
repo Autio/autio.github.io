@@ -1,0 +1,2175 @@
+{
+  "field": "F_2",
+  "implementation": "translation-kernel Boolean basis + FI Koszul matrices",
+  "imports_prior_reconstruction_code": false,
+  "max_n": 8,
+  "max_polynomial_degree": 5,
+  "cases": [
+    {
+      "n": 0,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0
+      ],
+      "differential_ranks": [
+        0
+      ],
+      "homology_dimensions": [
+        0
+      ],
+      "expected_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 2.6e-05,
+      "pass": true
+    },
+    {
+      "n": 0,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0
+      ],
+      "differential_ranks": [
+        0
+      ],
+      "homology_dimensions": [
+        0
+      ],
+      "expected_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 1.6e-05,
+      "pass": true
+    },
+    {
+      "n": 0,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0
+      ],
+      "differential_ranks": [
+        0
+      ],
+      "homology_dimensions": [
+        0
+      ],
+      "expected_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 9e-06,
+      "pass": true
+    },
+    {
+      "n": 0,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0
+      ],
+      "differential_ranks": [
+        0
+      ],
+      "homology_dimensions": [
+        0
+      ],
+      "expected_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 8e-06,
+      "pass": true
+    },
+    {
+      "n": 0,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0
+      ],
+      "differential_ranks": [
+        0
+      ],
+      "homology_dimensions": [
+        0
+      ],
+      "expected_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 7e-06,
+      "pass": true
+    },
+    {
+      "n": 0,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0
+      ],
+      "differential_ranks": [
+        0
+      ],
+      "homology_dimensions": [
+        0
+      ],
+      "expected_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 7e-06,
+      "pass": true
+    },
+    {
+      "n": 1,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 1.5e-05,
+      "pass": true
+    },
+    {
+      "n": 1,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 2.1e-05,
+      "pass": true
+    },
+    {
+      "n": 1,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 2.5e-05,
+      "pass": true
+    },
+    {
+      "n": 1,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 2.2e-05,
+      "pass": true
+    },
+    {
+      "n": 1,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 2.9e-05,
+      "pass": true
+    },
+    {
+      "n": 1,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 2.5e-05,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 4e-05,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 1,
+      "chain_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 1,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000219,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 1,
+      "chain_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 1,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 6.6e-05,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 1,
+      "chain_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 1,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 4.5e-05,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 1,
+      "chain_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 1,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 4e-05,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 1,
+      "chain_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 1,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 5.5e-05,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 4.9e-05,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 2,
+      "chain_dimensions": [
+        2,
+        3,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 6,
+      "homology_generator_action_checks": 2,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000142,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 3,
+      "chain_dimensions": [
+        3,
+        3,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 6,
+      "homology_generator_action_checks": 4,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000134,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 3,
+      "chain_dimensions": [
+        3,
+        3,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 6,
+      "homology_generator_action_checks": 4,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.00014,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 3,
+      "chain_dimensions": [
+        3,
+        3,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 6,
+      "homology_generator_action_checks": 4,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000167,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 3,
+      "chain_dimensions": [
+        3,
+        3,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 6,
+      "homology_generator_action_checks": 4,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000134,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 7.7e-05,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 3,
+      "chain_dimensions": [
+        3,
+        8,
+        6,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        3,
+        5,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 42,
+      "homology_generator_action_checks": 3,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000422,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 6,
+      "chain_dimensions": [
+        6,
+        12,
+        6,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        6,
+        5,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 54,
+      "homology_generator_action_checks": 6,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000498,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 7,
+      "chain_dimensions": [
+        7,
+        12,
+        6,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        6,
+        5,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 54,
+      "homology_generator_action_checks": 9,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000525,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 7,
+      "chain_dimensions": [
+        7,
+        12,
+        6,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        6,
+        5,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 54,
+      "homology_generator_action_checks": 9,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000336,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 7,
+      "chain_dimensions": [
+        7,
+        12,
+        6,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        6,
+        5,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 54,
+      "homology_generator_action_checks": 9,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000586,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000127,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 4,
+      "chain_dimensions": [
+        4,
+        15,
+        20,
+        10,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        4,
+        11,
+        9,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 180,
+      "homology_generator_action_checks": 4,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000815,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 10,
+      "chain_dimensions": [
+        10,
+        30,
+        30,
+        10,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        10,
+        20,
+        9,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 280,
+      "homology_generator_action_checks": 8,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.001303,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 14,
+      "chain_dimensions": [
+        14,
+        35,
+        30,
+        10,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        14,
+        20,
+        9,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 300,
+      "homology_generator_action_checks": 12,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.001548,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 15,
+      "chain_dimensions": [
+        15,
+        35,
+        30,
+        10,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        14,
+        20,
+        9,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 300,
+      "homology_generator_action_checks": 16,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.001665,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 15,
+      "chain_dimensions": [
+        15,
+        35,
+        30,
+        10,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        14,
+        20,
+        9,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 300,
+      "homology_generator_action_checks": 16,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.00218,
+      "pass": true
+    },
+    {
+      "n": 6,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000125,
+      "pass": true
+    },
+    {
+      "n": 6,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 5,
+      "chain_dimensions": [
+        5,
+        24,
+        45,
+        40,
+        15,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        5,
+        19,
+        26,
+        14,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 620,
+      "homology_generator_action_checks": 5,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.002803,
+      "pass": true
+    },
+    {
+      "n": 6,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 15,
+      "chain_dimensions": [
+        15,
+        60,
+        90,
+        60,
+        15,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        15,
+        45,
+        45,
+        14,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 1125,
+      "homology_generator_action_checks": 10,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.005866,
+      "pass": true
+    },
+    {
+      "n": 6,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 25,
+      "chain_dimensions": [
+        25,
+        84,
+        105,
+        60,
+        15,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        25,
+        59,
+        45,
+        14,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 1320,
+      "homology_generator_action_checks": 15,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.00765,
+      "pass": true
+    },
+    {
+      "n": 6,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 30,
+      "chain_dimensions": [
+        30,
+        90,
+        105,
+        60,
+        15,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        30,
+        59,
+        45,
+        14,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 1350,
+      "homology_generator_action_checks": 20,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.010058,
+      "pass": true
+    },
+    {
+      "n": 6,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 31,
+      "chain_dimensions": [
+        31,
+        90,
+        105,
+        60,
+        15,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        30,
+        59,
+        45,
+        14,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 1350,
+      "homology_generator_action_checks": 25,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.01022,
+      "pass": true
+    },
+    {
+      "n": 7,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.000279,
+      "pass": true
+    },
+    {
+      "n": 7,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 6,
+      "chain_dimensions": [
+        6,
+        35,
+        84,
+        105,
+        70,
+        21,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        6,
+        29,
+        55,
+        50,
+        20,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 1890,
+      "homology_generator_action_checks": 6,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.007788,
+      "pass": true
+    },
+    {
+      "n": 7,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 21,
+      "chain_dimensions": [
+        21,
+        105,
+        210,
+        210,
+        105,
+        21,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        21,
+        84,
+        126,
+        84,
+        20,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 3906,
+      "homology_generator_action_checks": 12,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.022875,
+      "pass": true
+    },
+    {
+      "n": 7,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 41,
+      "chain_dimensions": [
+        41,
+        175,
+        294,
+        245,
+        105,
+        21,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        41,
+        134,
+        160,
+        84,
+        20,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 5040,
+      "homology_generator_action_checks": 18,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.03862,
+      "pass": true
+    },
+    {
+      "n": 7,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 56,
+      "chain_dimensions": [
+        56,
+        210,
+        315,
+        245,
+        105,
+        21,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        56,
+        154,
+        160,
+        84,
+        20,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 5376,
+      "homology_generator_action_checks": 24,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.045576,
+      "pass": true
+    },
+    {
+      "n": 7,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 62,
+      "chain_dimensions": [
+        62,
+        217,
+        315,
+        245,
+        105,
+        21,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        62,
+        154,
+        160,
+        84,
+        20,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 5418,
+      "homology_generator_action_checks": 30,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.077518,
+      "pass": true
+    },
+    {
+      "n": 8,
+      "polynomial_degree_a": 0,
+      "augmentation_cutoff_d": 1,
+      "invariant_space_dimension": 0,
+      "chain_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 0,
+      "homology_generator_action_checks": 0,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.001992,
+      "pass": true
+    },
+    {
+      "n": 8,
+      "polynomial_degree_a": 1,
+      "augmentation_cutoff_d": 2,
+      "invariant_space_dimension": 7,
+      "chain_dimensions": [
+        7,
+        48,
+        140,
+        224,
+        210,
+        112,
+        28,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        7,
+        41,
+        99,
+        125,
+        85,
+        27,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 5334,
+      "homology_generator_action_checks": 7,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.071986,
+      "pass": true
+    },
+    {
+      "n": 8,
+      "polynomial_degree_a": 2,
+      "augmentation_cutoff_d": 3,
+      "invariant_space_dimension": 28,
+      "chain_dimensions": [
+        28,
+        168,
+        420,
+        560,
+        420,
+        168,
+        28,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        28,
+        140,
+        280,
+        280,
+        140,
+        27,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 12348,
+      "homology_generator_action_checks": 14,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.157833,
+      "pass": true
+    },
+    {
+      "n": 8,
+      "polynomial_degree_a": 3,
+      "augmentation_cutoff_d": 4,
+      "invariant_space_dimension": 63,
+      "chain_dimensions": [
+        63,
+        328,
+        700,
+        784,
+        490,
+        168,
+        28,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        63,
+        265,
+        435,
+        349,
+        140,
+        27,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 17486,
+      "homology_generator_action_checks": 21,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.212091,
+      "pass": true
+    },
+    {
+      "n": 8,
+      "polynomial_degree_a": 4,
+      "augmentation_cutoff_d": 5,
+      "invariant_space_dimension": 98,
+      "chain_dimensions": [
+        98,
+        448,
+        840,
+        840,
+        490,
+        168,
+        28,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        98,
+        350,
+        490,
+        349,
+        140,
+        27,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 19698,
+      "homology_generator_action_checks": 28,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.375638,
+      "pass": true
+    },
+    {
+      "n": 8,
+      "polynomial_degree_a": 5,
+      "augmentation_cutoff_d": 6,
+      "invariant_space_dimension": 119,
+      "chain_dimensions": [
+        119,
+        496,
+        868,
+        840,
+        490,
+        168,
+        28,
+        0,
+        0
+      ],
+      "differential_ranks": [
+        0,
+        119,
+        377,
+        490,
+        349,
+        140,
+        27,
+        0,
+        0
+      ],
+      "homology_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "expected_dimensions": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "adjacent_transposition_chain_commutations": 20230,
+      "homology_generator_action_checks": 35,
+      "homology_action_is_trivial": true,
+      "elapsed_seconds": 0.336228,
+      "pass": true
+    }
+  ],
+  "case_count": 54,
+  "adjacent_transposition_chain_commutations": 104139,
+  "homology_generator_action_checks": 385,
+  "all_pass": true,
+  "elapsed_seconds": 1.403096,
+  "script_sha256": "30b03388767fc4beff31f5f7c0f832d98ccc9b5b7d76728997b56678ef52d806"
+}

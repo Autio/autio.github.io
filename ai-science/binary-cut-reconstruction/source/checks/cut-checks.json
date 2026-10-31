@@ -1,0 +1,275 @@
+{
+  "arithmetic": "exact GF(2)",
+  "checks": [
+    {
+      "n": 2,
+      "r": 1,
+      "source_dim": 1,
+      "limit_dim": 0,
+      "rank": 0,
+      "kernel_dim": 1,
+      "cokernel_dim": 0,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 2,
+      "r": 2,
+      "source_dim": 1,
+      "limit_dim": 1,
+      "rank": 1,
+      "kernel_dim": 0,
+      "cokernel_dim": 0,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 3,
+      "r": 1,
+      "source_dim": 3,
+      "limit_dim": 0,
+      "rank": 0,
+      "kernel_dim": 3,
+      "cokernel_dim": 0,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 3,
+      "r": 2,
+      "source_dim": 3,
+      "limit_dim": 3,
+      "rank": 2,
+      "kernel_dim": 1,
+      "cokernel_dim": 1,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 3,
+      "r": 3,
+      "source_dim": 3,
+      "limit_dim": 3,
+      "rank": 3,
+      "kernel_dim": 0,
+      "cokernel_dim": 0,
+      "compatibility_equations": 3
+    },
+    {
+      "n": 4,
+      "r": 1,
+      "source_dim": 7,
+      "limit_dim": 0,
+      "rank": 0,
+      "kernel_dim": 7,
+      "cokernel_dim": 0,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 4,
+      "r": 2,
+      "source_dim": 7,
+      "limit_dim": 6,
+      "rank": 3,
+      "kernel_dim": 4,
+      "cokernel_dim": 3,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 4,
+      "r": 3,
+      "source_dim": 7,
+      "limit_dim": 7,
+      "rank": 6,
+      "kernel_dim": 1,
+      "cokernel_dim": 1,
+      "compatibility_equations": 12
+    },
+    {
+      "n": 4,
+      "r": 4,
+      "source_dim": 7,
+      "limit_dim": 7,
+      "rank": 7,
+      "kernel_dim": 0,
+      "cokernel_dim": 0,
+      "compatibility_equations": 24
+    },
+    {
+      "n": 5,
+      "r": 1,
+      "source_dim": 15,
+      "limit_dim": 0,
+      "rank": 0,
+      "kernel_dim": 15,
+      "cokernel_dim": 0,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 5,
+      "r": 2,
+      "source_dim": 15,
+      "limit_dim": 10,
+      "rank": 4,
+      "kernel_dim": 11,
+      "cokernel_dim": 6,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 5,
+      "r": 3,
+      "source_dim": 15,
+      "limit_dim": 14,
+      "rank": 10,
+      "kernel_dim": 5,
+      "cokernel_dim": 4,
+      "compatibility_equations": 30
+    },
+    {
+      "n": 5,
+      "r": 4,
+      "source_dim": 15,
+      "limit_dim": 15,
+      "rank": 14,
+      "kernel_dim": 1,
+      "cokernel_dim": 1,
+      "compatibility_equations": 90
+    },
+    {
+      "n": 5,
+      "r": 5,
+      "source_dim": 15,
+      "limit_dim": 15,
+      "rank": 15,
+      "kernel_dim": 0,
+      "cokernel_dim": 0,
+      "compatibility_equations": 125
+    },
+    {
+      "n": 6,
+      "r": 1,
+      "source_dim": 31,
+      "limit_dim": 0,
+      "rank": 0,
+      "kernel_dim": 31,
+      "cokernel_dim": 0,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 6,
+      "r": 2,
+      "source_dim": 31,
+      "limit_dim": 15,
+      "rank": 5,
+      "kernel_dim": 26,
+      "cokernel_dim": 10,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 6,
+      "r": 3,
+      "source_dim": 31,
+      "limit_dim": 25,
+      "rank": 15,
+      "kernel_dim": 16,
+      "cokernel_dim": 10,
+      "compatibility_equations": 60
+    },
+    {
+      "n": 6,
+      "r": 4,
+      "source_dim": 31,
+      "limit_dim": 30,
+      "rank": 25,
+      "kernel_dim": 6,
+      "cokernel_dim": 5,
+      "compatibility_equations": 240
+    },
+    {
+      "n": 6,
+      "r": 5,
+      "source_dim": 31,
+      "limit_dim": 31,
+      "rank": 30,
+      "kernel_dim": 1,
+      "cokernel_dim": 1,
+      "compatibility_equations": 450
+    },
+    {
+      "n": 6,
+      "r": 6,
+      "source_dim": 31,
+      "limit_dim": 31,
+      "rank": 31,
+      "kernel_dim": 0,
+      "cokernel_dim": 0,
+      "compatibility_equations": 540
+    },
+    {
+      "n": 7,
+      "r": 1,
+      "source_dim": 63,
+      "limit_dim": 0,
+      "rank": 0,
+      "kernel_dim": 63,
+      "cokernel_dim": 0,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 7,
+      "r": 2,
+      "source_dim": 63,
+      "limit_dim": 21,
+      "rank": 6,
+      "kernel_dim": 57,
+      "cokernel_dim": 15,
+      "compatibility_equations": 0
+    },
+    {
+      "n": 7,
+      "r": 3,
+      "source_dim": 63,
+      "limit_dim": 41,
+      "rank": 21,
+      "kernel_dim": 42,
+      "cokernel_dim": 20,
+      "compatibility_equations": 105
+    },
+    {
+      "n": 7,
+      "r": 4,
+      "source_dim": 63,
+      "limit_dim": 56,
+      "rank": 41,
+      "kernel_dim": 22,
+      "cokernel_dim": 15,
+      "compatibility_equations": 525
+    },
+    {
+      "n": 7,
+      "r": 5,
+      "source_dim": 63,
+      "limit_dim": 62,
+      "rank": 56,
+      "kernel_dim": 7,
+      "cokernel_dim": 6,
+      "compatibility_equations": 1260
+    },
+    {
+      "n": 7,
+      "r": 6,
+      "source_dim": 63,
+      "limit_dim": 63,
+      "rank": 62,
+      "kernel_dim": 1,
+      "cokernel_dim": 1,
+      "compatibility_equations": 1890
+    },
+    {
+      "n": 7,
+      "r": 7,
+      "source_dim": 63,
+      "limit_dim": 63,
+      "rank": 63,
+      "kernel_dim": 0,
+      "cokernel_dim": 0,
+      "compatibility_equations": 2107
+    }
+  ]
+}

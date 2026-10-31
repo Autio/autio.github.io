@@ -1,0 +1,1247 @@
+{
+  "field": "F_2",
+  "method": "normalized Roos cochain complex; exact bitset Gaussian elimination",
+  "cases": [
+    {
+      "n": 1,
+      "r": 1,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "r": 1,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "r": 2,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        1
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 1,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 2,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        3
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        3,
+        0
+      ],
+      "predicted_dimensions": [
+        3,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 3,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        6,
+        3
+      ],
+      "differential_ranks": [
+        3
+      ],
+      "cohomology_dimensions": [
+        3,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        3,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 1,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 2,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        6
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        6,
+        0
+      ],
+      "predicted_dimensions": [
+        6,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 3,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        18,
+        12
+      ],
+      "differential_ranks": [
+        11
+      ],
+      "cohomology_dimensions": [
+        7,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        7,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 4,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        25,
+        30,
+        12
+      ],
+      "differential_ranks": [
+        18,
+        12
+      ],
+      "cohomology_dimensions": [
+        7,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        7,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 1,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 2,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        10
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        10,
+        0
+      ],
+      "predicted_dimensions": [
+        10,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 3,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        40,
+        30
+      ],
+      "differential_ranks": [
+        26
+      ],
+      "cohomology_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "predicted_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 4,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        75,
+        120,
+        60
+      ],
+      "differential_ranks": [
+        60,
+        59
+      ],
+      "cohomology_dimensions": [
+        15,
+        1,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        15,
+        1,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 5,
+      "augmentation_cutoff_d": null,
+      "cochain_dimensions": [
+        90,
+        195,
+        180,
+        60
+      ],
+      "differential_ranks": [
+        75,
+        120,
+        60
+      ],
+      "cohomology_dimensions": [
+        15,
+        0,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        15,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "r": 1,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 2,
+      "r": 2,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        1
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 1,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 1,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 2,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        3
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        3,
+        0
+      ],
+      "predicted_dimensions": [
+        3,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 2,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        3
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        3,
+        0
+      ],
+      "predicted_dimensions": [
+        3,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 3,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        5,
+        3
+      ],
+      "differential_ranks": [
+        3
+      ],
+      "cohomology_dimensions": [
+        2,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        2,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 3,
+      "r": 3,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        6,
+        3
+      ],
+      "differential_ranks": [
+        3
+      ],
+      "cohomology_dimensions": [
+        3,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        3,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 1,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 1,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 1,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 2,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        6
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        6,
+        0
+      ],
+      "predicted_dimensions": [
+        6,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 2,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        6
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        6,
+        0
+      ],
+      "predicted_dimensions": [
+        6,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 2,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        6
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        6,
+        0
+      ],
+      "predicted_dimensions": [
+        6,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 3,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        14,
+        12
+      ],
+      "differential_ranks": [
+        11
+      ],
+      "cohomology_dimensions": [
+        3,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        3,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 3,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        18,
+        12
+      ],
+      "differential_ranks": [
+        11
+      ],
+      "cohomology_dimensions": [
+        7,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        7,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 3,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        18,
+        12
+      ],
+      "differential_ranks": [
+        11
+      ],
+      "cohomology_dimensions": [
+        7,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        7,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 4,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        17,
+        26,
+        12
+      ],
+      "differential_ranks": [
+        14,
+        12
+      ],
+      "cohomology_dimensions": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 4,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        24,
+        30,
+        12
+      ],
+      "differential_ranks": [
+        18,
+        12
+      ],
+      "cohomology_dimensions": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        6,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 4,
+      "r": 4,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        25,
+        30,
+        12
+      ],
+      "differential_ranks": [
+        18,
+        12
+      ],
+      "cohomology_dimensions": [
+        7,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        7,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 1,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 1,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 1,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 1,
+      "augmentation_cutoff_d": 5,
+      "cochain_dimensions": [
+        0
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        0
+      ],
+      "predicted_dimensions": [
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 2,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        10
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        10,
+        0
+      ],
+      "predicted_dimensions": [
+        10,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 2,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        10
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        10,
+        0
+      ],
+      "predicted_dimensions": [
+        10,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 2,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        10
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        10,
+        0
+      ],
+      "predicted_dimensions": [
+        10,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 2,
+      "augmentation_cutoff_d": 5,
+      "cochain_dimensions": [
+        10
+      ],
+      "differential_ranks": [],
+      "cohomology_dimensions": [
+        10,
+        0
+      ],
+      "predicted_dimensions": [
+        10,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 3,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        30,
+        30
+      ],
+      "differential_ranks": [
+        26
+      ],
+      "cohomology_dimensions": [
+        4,
+        4,
+        0
+      ],
+      "predicted_dimensions": [
+        4,
+        4,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 3,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        40,
+        30
+      ],
+      "differential_ranks": [
+        26
+      ],
+      "cohomology_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "predicted_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 3,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        40,
+        30
+      ],
+      "differential_ranks": [
+        26
+      ],
+      "cohomology_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "predicted_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 3,
+      "augmentation_cutoff_d": 5,
+      "cochain_dimensions": [
+        40,
+        30
+      ],
+      "differential_ranks": [
+        26
+      ],
+      "cohomology_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "predicted_dimensions": [
+        14,
+        4,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 4,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        45,
+        100,
+        60
+      ],
+      "differential_ranks": [
+        41,
+        59
+      ],
+      "cohomology_dimensions": [
+        4,
+        0,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        4,
+        0,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 4,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        70,
+        120,
+        60
+      ],
+      "differential_ranks": [
+        60,
+        59
+      ],
+      "cohomology_dimensions": [
+        10,
+        1,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        10,
+        1,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 4,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        75,
+        120,
+        60
+      ],
+      "differential_ranks": [
+        60,
+        59
+      ],
+      "cohomology_dimensions": [
+        15,
+        1,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        15,
+        1,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 4,
+      "augmentation_cutoff_d": 5,
+      "cochain_dimensions": [
+        75,
+        120,
+        60
+      ],
+      "differential_ranks": [
+        60,
+        59
+      ],
+      "cohomology_dimensions": [
+        15,
+        1,
+        1,
+        0
+      ],
+      "predicted_dimensions": [
+        15,
+        1,
+        1,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 5,
+      "augmentation_cutoff_d": 2,
+      "cochain_dimensions": [
+        49,
+        145,
+        160,
+        60
+      ],
+      "differential_ranks": [
+        45,
+        100,
+        60
+      ],
+      "cohomology_dimensions": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 5,
+      "augmentation_cutoff_d": 3,
+      "cochain_dimensions": [
+        80,
+        190,
+        180,
+        60
+      ],
+      "differential_ranks": [
+        70,
+        120,
+        60
+      ],
+      "cohomology_dimensions": [
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 5,
+      "augmentation_cutoff_d": 4,
+      "cochain_dimensions": [
+        89,
+        195,
+        180,
+        60
+      ],
+      "differential_ranks": [
+        75,
+        120,
+        60
+      ],
+      "cohomology_dimensions": [
+        14,
+        0,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        14,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    },
+    {
+      "n": 5,
+      "r": 5,
+      "augmentation_cutoff_d": 5,
+      "cochain_dimensions": [
+        90,
+        195,
+        180,
+        60
+      ],
+      "differential_ranks": [
+        75,
+        120,
+        60
+      ],
+      "cohomology_dimensions": [
+        15,
+        0,
+        0,
+        0,
+        0
+      ],
+      "predicted_dimensions": [
+        15,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d_squared_zero": true,
+      "pass": true
+    }
+  ],
+  "naturality": {
+    "all_set_maps_between_sizes": [
+      1,
+      2,
+      3
+    ],
+    "cutoffs": [
+      1,
+      2,
+      3
+    ],
+    "modules": [
+      "V",
+      "F_2",
+      "F_3"
+    ],
+    "cases": 504,
+    "d_commutes_with_pullback": true
+  },
+  "all_pass": true
+}
