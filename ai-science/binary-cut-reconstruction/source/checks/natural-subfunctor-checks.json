@@ -1,0 +1,240 @@
+{
+  "field": "F_2",
+  "method": "exhaustive RREF subspaces in cut coordinates; actual all-map matrices",
+  "cases": [
+    {
+      "maximum_cardinality": 1,
+      "ambient_module_dimension": 0,
+      "all_linear_subspaces_enumerated": 1,
+      "self_maps": 1,
+      "subspace_counts_by_dimension": [
+        1
+      ],
+      "gaussian_binomial_enumeration_count_verified": true,
+      "early_filter_survivors": 1,
+      "all_endomorphism_invariant_subspaces": 1,
+      "survivors": [
+        {
+          "ambient_dimension": 0,
+          "ambient_rref_basis_cut_coordinates": [],
+          "matching_augmentation_power": 1,
+          "restricted_dimensions": {
+            "1": 0
+          }
+        }
+      ],
+      "all_injection_image_agreement_checks": 1,
+      "all_truncated_category_map_checks": 1,
+      "ideal_hypothesis_imposed": false,
+      "all_survivors_are_augmentation_powers": true,
+      "cut_basis_masks": [],
+      "elapsed_seconds": 3.9e-05
+    },
+    {
+      "maximum_cardinality": 2,
+      "ambient_module_dimension": 1,
+      "all_linear_subspaces_enumerated": 2,
+      "self_maps": 4,
+      "subspace_counts_by_dimension": [
+        1,
+        1
+      ],
+      "gaussian_binomial_enumeration_count_verified": true,
+      "early_filter_survivors": 2,
+      "all_endomorphism_invariant_subspaces": 2,
+      "survivors": [
+        {
+          "ambient_dimension": 0,
+          "ambient_rref_basis_cut_coordinates": [],
+          "matching_augmentation_power": 2,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 0
+          }
+        },
+        {
+          "ambient_dimension": 1,
+          "ambient_rref_basis_cut_coordinates": [
+            1
+          ],
+          "matching_augmentation_power": 1,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 1
+          }
+        }
+      ],
+      "all_injection_image_agreement_checks": 8,
+      "all_truncated_category_map_checks": 16,
+      "ideal_hypothesis_imposed": false,
+      "all_survivors_are_augmentation_powers": true,
+      "cut_basis_masks": [
+        2
+      ],
+      "elapsed_seconds": 0.000135
+    },
+    {
+      "maximum_cardinality": 3,
+      "ambient_module_dimension": 3,
+      "all_linear_subspaces_enumerated": 16,
+      "self_maps": 27,
+      "subspace_counts_by_dimension": [
+        1,
+        7,
+        7,
+        1
+      ],
+      "gaussian_binomial_enumeration_count_verified": true,
+      "early_filter_survivors": 3,
+      "all_endomorphism_invariant_subspaces": 3,
+      "survivors": [
+        {
+          "ambient_dimension": 0,
+          "ambient_rref_basis_cut_coordinates": [],
+          "matching_augmentation_power": 3,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          }
+        },
+        {
+          "ambient_dimension": 1,
+          "ambient_rref_basis_cut_coordinates": [
+            7
+          ],
+          "matching_augmentation_power": 2,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 0,
+            "3": 1
+          }
+        },
+        {
+          "ambient_dimension": 3,
+          "ambient_rref_basis_cut_coordinates": [
+            1,
+            2,
+            4
+          ],
+          "matching_augmentation_power": 1,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 1,
+            "3": 3
+          }
+        }
+      ],
+      "all_injection_image_agreement_checks": 45,
+      "all_truncated_category_map_checks": 168,
+      "ideal_hypothesis_imposed": false,
+      "all_survivors_are_augmentation_powers": true,
+      "cut_basis_masks": [
+        2,
+        4,
+        6
+      ],
+      "elapsed_seconds": 0.001112
+    },
+    {
+      "maximum_cardinality": 4,
+      "ambient_module_dimension": 7,
+      "all_linear_subspaces_enumerated": 29212,
+      "self_maps": 256,
+      "subspace_counts_by_dimension": [
+        1,
+        127,
+        2667,
+        11811,
+        11811,
+        2667,
+        127,
+        1
+      ],
+      "gaussian_binomial_enumeration_count_verified": true,
+      "early_filter_survivors": 4,
+      "all_endomorphism_invariant_subspaces": 4,
+      "survivors": [
+        {
+          "ambient_dimension": 0,
+          "ambient_rref_basis_cut_coordinates": [],
+          "matching_augmentation_power": 4,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0
+          }
+        },
+        {
+          "ambient_dimension": 1,
+          "ambient_rref_basis_cut_coordinates": [
+            127
+          ],
+          "matching_augmentation_power": 3,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "ambient_dimension": 4,
+          "ambient_rref_basis_cut_coordinates": [
+            97,
+            82,
+            52,
+            120
+          ],
+          "matching_augmentation_power": 2,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 0,
+            "3": 1,
+            "4": 4
+          }
+        },
+        {
+          "ambient_dimension": 7,
+          "ambient_rref_basis_cut_coordinates": [
+            1,
+            2,
+            4,
+            8,
+            16,
+            32,
+            64
+          ],
+          "matching_augmentation_power": 1,
+          "restricted_dimensions": {
+            "1": 0,
+            "2": 1,
+            "3": 3,
+            "4": 7
+          }
+        }
+      ],
+      "all_injection_image_agreement_checks": 256,
+      "all_truncated_category_map_checks": 1976,
+      "ideal_hypothesis_imposed": false,
+      "all_survivors_are_augmentation_powers": true,
+      "cut_basis_masks": [
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "elapsed_seconds": 0.097191
+    }
+  ],
+  "total_subspaces_enumerated": 29231,
+  "total_injection_image_agreement_checks": 310,
+  "total_truncated_category_map_checks": 2161,
+  "all_pass": true,
+  "elapsed_seconds": 0.098516,
+  "script_sha256": "91c9fff612eb6bb5964db2a519d79c4a75b51c21f67f4df937a14ea9c69d5054"
+}

@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>When do small views determine the whole? — Petri Mikael Autio</title>
-  <meta name="description" content="A mathematical preprint computing exactly how much local information reconstructs a family of binary-cut diagrams, with proofs, reproducible checks and explicit prior work.">
+  <meta name="description" content="A mathematical preprint proving the largest natural quotient of a binary-cut diagram that finite observations can recover, with proofs, exact checks and explicit prior work.">
   <meta name="author" content="Petri Mikael Autio">
   <link rel="canonical" href="https://autio.github.io/ai-science/binary-cut-reconstruction/">
   <meta property="og:title" content="When do small views determine the whole?">
-  <meta property="og:description" content="An exact reconstruction calculation for binary-cut diagrams, with a research preprint and reproducible checks.">
+  <meta property="og:description" content="What must be relinquished, and what can be preserved? A sharp universal reconstruction theorem for binary-cut diagrams.">
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="/stylesheets/portfolio.css">
   <link rel="stylesheet" href="/stylesheets/ai-science.css">
@@ -22,9 +22,9 @@
   <span class="science-kicker">Experiment 03 · Mathematics</span>
   <h1>When do small views determine the whole?</h1>
   <span class="research-state">Research preprint · priority unconfirmed</span>
-  <p>A structure can look consistent in every small view and still fail to fit together globally. This paper computes exactly when that stops happening for a particular family built from ways of dividing a finite set into two parts.</p>
-  <p class="science-note">31 October 2026 · Petri Mikael Autio · AI-assisted research and internal mathematical critique. External human review pending.</p>
-  <div class="science-links"><a href="binary-cut-reconstruction.pdf">Read the preprint (PDF, 11 pages)</a><a href="research-source.zip" download>Source, checks and prior work</a></div>
+  <p>A structure can look consistent in every small view and still fail to fit together globally. This paper computes exactly when that happens for binary-cut diagrams. It also proves which information must be relinquished to make finite reconstruction possible, and identifies the largest quotient that can be preserved.</p>
+  <p class="science-note">31 October 2026 · Version 2 · Petri Mikael Autio · AI-assisted research and internal mathematical critique. External human review pending.</p>
+  <div class="science-links"><a href="binary-cut-reconstruction.pdf">Read the preprint (PDF, 14 pages)</a><a href="research-source.zip" download>Source, checks and prior work</a></div>
 </header>
 
 <section class="science-section" aria-labelledby="question-title">
@@ -46,31 +46,44 @@
   </details>
 </section>
 
+<section class="science-section" aria-labelledby="necessity-title">
+  <h2 id="necessity-title">What must be given up?</h2>
+  <p>Finding a quotient that works leaves an important question unanswered: could another quotient preserve more information and still reconstruct from the same small views? Version 2 answers that question for every natural linear quotient of the cut diagram.</p>
+  <p>Fix the largest size <em>r</em> we can observe and the homotopy degree <em>h</em>, with r ≥ h + 3. The theorem proves that every successful quotient must kill augmentation products of degree <strong>r − h − 1</strong> and higher. Killing exactly those products is sufficient. Every other successful quotient discards at least as much.</p>
+  <div class="science-table-wrap"><table class="science-table"><caption>Fix the observations at four labels: what is the largest quotient we can retain?</caption><thead><tr><th scope="col">Homotopy degree h</th><th scope="col">Largest quotient</th><th scope="col">Information retained</th></tr></thead><tbody><tr><th scope="row">0</th><td>J/J³</td><td>Linear and quadratic augmentation terms.</td></tr><tr><th scope="row">1</th><td>J/J²</td><td>Linear augmentation terms.</td></tr><tr><th scope="row">2</th><td>0</td><td>No nonzero natural quotient qualifies.</td></tr></tbody></table></div>
+  <p>The proof first classifies every linear subfunctor compatible with all finite-set maps. They are precisely the augmentation powers and zero; an ideal condition does not need to be assumed. This classification is an elementary consequence of classical pointed cross-effect theory. Combining it with the exact reconstruction threshold gives the universal result.</p>
+  <details><summary>The universal statement</summary><p>For every natural objectwise surjection q: J → A and r ≥ h + 3, the diagram K(A,h) reconstructs from cardinality r if and only if J<sup>r−h−1</sup> is contained in ker(q). Equivalently, q factors uniquely as J → J/J<sup>r−h−1</sup> → A. For 1 ≤ r &lt; h + 3, only A = 0 qualifies. This concerns quotients of the fixed cut diagram, rather than all possible mathematical structures.</p></details>
+</section>
+
 <section class="science-section" aria-labelledby="prior-title">
   <h2 id="prior-title">What is already known?</h2>
   <p>The coefficient family has established predecessors. Richter studied its pointed version in <a href="https://doi.org/10.5802/aif.1842">Taylor towers for Γ-modules</a>. The Boolean polynomial filtration is classical, and Powell describes it in <a href="https://www.numdam.org/article/AIF_2000__50_3_781_0.pdf">work on functors between finite vector spaces</a>. General FI presentation and homology methods also predate this calculation.</p>
-  <p>The proposed contribution is the explicit calculation at every cardinality cutoff, its natural obstruction modules, and the sharp reconstruction bound. The literature comparison has not established priority for these exact results. Equivalent formulas may exist in another language.</p>
+  <p>The subfunctor classification used in version 2 follows from <a href="https://doi.org/10.1016/S0012-9593(00)00107-5">Pirashvili’s classical pointed cross-effect equivalence</a>. It is included with a direct proof and is not claimed as a new classification method.</p>
+  <p>The proposed contribution is the explicit calculation at every cardinality cutoff, its natural obstruction modules, the sharp reconstruction bound, and the resulting largest quotient theorem. The literature comparison has not established priority for these exact results. Equivalent formulas may exist in another language.</p>
   <p>The <a href="source/PRIOR-WORK.md">prior-work report</a> gives theorem-level comparisons and names the full texts that could not be inspected. This is a research preprint, with external review and priority still open.</p>
 </section>
 
 <section class="science-section" aria-labelledby="hegel-title">
   <h2 id="hegel-title">How the question began</h2>
   <p>The project grew out of reading Hegel on induction, analogy and necessity. Collecting examples and establishing why a connection must hold are different tasks. That distinction suggested a mathematical question: what specified relations make bounded observations enough to determine the whole?</p>
-  <p>Here the answer depends on an algebraic filtration and a homotopy degree. Once those choices are made, exact sequences establish the threshold. The calculation does not establish that these choices capture Hegel’s account of necessity.</p>
+  <p>The first version selected an algebraic quotient and proved that it worked. The stronger question is whether the requirement itself determines that modification. Version 2 proves that it does within this family: once the initial diagram, its maps, the observation size and the homotopy degree are fixed, the theorem determines the least information loss that permits reconstruction.</p>
+  <p>This makes the connection more precise. We can prove what must be relinquished and what can be preserved under a stated demand. The theorem still presupposes its initial diagram and observational requirements; it does not derive those choices or establish a mathematical formalization of Hegel’s entire account of necessity.</p>
   <p>My <a href="/hegel-reader/">running commentary on the Science of Logic</a> explores the philosophical question. The <a href="/ai-science/determinate-preservation/">earlier preservation experiment</a> gives more of the route into the mathematics.</p>
 </section>
 
 <section class="science-section" aria-labelledby="checks-title">
   <h2 id="checks-title">Proofs and reproducible checks</h2>
-  <p>The preprint contains the proofs. Three independent or complementary matrix calculations provide finite checks over 𝔽₂:</p>
+  <p>The preprint contains the proofs. Four independent or complementary matrix calculations provide finite checks over 𝔽₂:</p>
   <ul>
     <li>27 ordinary reconstruction cases, on up to seven labels.</li>
     <li>55 derived reconstruction cases, on up to five labels, and 504 checks of maps between cochain complexes.</li>
     <li>54 FI-homology cases, on up to eight labels, including 104,139 chain-equivariance checks and 385 checks of the induced permutation action on homology.</li>
+    <li>Every linear subspace of the cut modules through four labels, without assuming ideality: 29,231 subspaces in total. At four labels, exactly the four predicted subspaces survive all 256 endomorphisms. The program also checks 310 injection-image agreements and 2,161 maps between the resulting smaller diagrams.</li>
   </ul>
   <p>All recorded checks pass. The programs use exact arithmetic and the Python standard library. These finite computations support the proofs; they do not prove the universal statements or settle priority.</p>
   <p>I directed the research. AI assistants helped develop the arguments, write code and text, compare literature, and conduct separate internal mathematical critiques. No external peer review or proof-assistant verification is claimed.</p>
   <div class="science-links"><a href="binary-cut-reconstruction.pdf">Preprint</a><a href="research-source.zip" download>Complete source archive</a><a href="source/README.md">Build and reproduce</a><a href="source/checks/README.md">Check definitions and limits</a></div>
+  <p class="science-note">Version history: <a href="source/CHANGELOG.md">changes in version 2</a>. The original version remains available as an <a href="versions/v1/binary-cut-reconstruction.pdf">11-page PDF</a> and <a href="versions/v1/research-source.zip" download>source archive</a>.</p>
 </section>
 </div></main>
 <footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product, data, and public services.</div></div><ul class="footer-links"><li><a href="/ai-science/">AI Science Experiments</a></li><li><a href="https://github.com/Autio/autio.github.io">Source on GitHub</a></li><li><a href="/">Home</a></li></ul></div></footer>

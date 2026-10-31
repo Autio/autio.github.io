@@ -42,12 +42,12 @@
 \DeclareMathOperator{\fib}{fib}
 \title{Sharp reconstruction for truncated binary-cut diagrams}
 \author{Petri Mikael Autio}
-\date{31 October 2026\\\small Research preprint, version 1}
+\date{31 October 2026\\\small Research preprint, version 2}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-Let $k$ have characteristic two, let $E_S=\Ftwo^S/\langle\one\rangle$ for a nonempty finite set $S$, and let $J_S$ be the augmentation ideal of $k[E_S]$. We compute the ordinary and derived right Kan extensions of $F_d(S)=J_S/J_S^d$ from sets of cardinality at most $r$, retaining all functions between finite sets. For $2\le r<|S|$, every nonzero positive derived group is the natural module $\Lambda^r(k^S/k\one)$, and it occurs precisely in degrees $\max(1,r-d),\ldots,r-2$. The ordinary kernel and cokernel are also explicit. Consequently $S\mapsto K(F_d(S),h)$ has least uniform reconstruction cutoff $d+h+1$. A second calculation gives the full FI homology of the dual Boolean-polynomial module: one trivial representation in cardinalities $i+2,\ldots,i+d$ in homological degree $i$. The proofs use a filtered complement-norm sequence and standard simplex and FI homology. The underlying binary-complement functor and the polynomial filtration have established antecedents; the subject here is their specific modular reconstruction calculation.
+Let $k$ be a field of characteristic two, let $E_S=\Ftwo^S/\langle\one\rangle$ for a nonempty finite set $S$, and let $J_S$ be the augmentation ideal of $k[E_S]$. We compute the ordinary and derived right Kan extensions of $F_d(S)=J_S/J_S^d$ from sets of cardinality at most $r$, retaining all functions between finite sets. For $2\le r<|S|$, every nonzero positive derived group is $\Lambda^r(k^S/k\one)$, occurring precisely in degrees $\max(1,r-d),\ldots,r-2$. Thus $K(F_d,h)$ has least reconstruction cutoff $d+h+1$. We also give an elementary subfunctor classification: every nonzero natural linear subfunctor of $J$ is an augmentation power. Combined with the sharp cutoff, this proves that $J/J^{r-h-1}$ is the universal largest natural linear quotient whose degree-$h$ Eilenberg--Mac Lane diagram reconstructs from cardinality $r\ge h+3$; below that range only the zero quotient works. A separate calculation gives the complete FI homology of the dual Boolean module. The coefficient family, polynomial filtration, and pointed cross-effect machinery are established; the subject is their explicit modular reconstruction calculation and its universal quotient consequence.
 \end{abstract}
 \noindent\textbf{Keywords.} Right Kan extension; FI homology; Boolean polynomials; augmentation ideal; symmetric simplicial diagram.
 
@@ -129,6 +129,18 @@ $t_i(W_{d-1})=i+d$ and $\operatorname{reg}(W_{d-1})=d$.
 
 The duality $W_{d-1}(S)^*=F_d(S)$ will be established below. The FI calculation provides an independent algebraic description of the full proper-subset obstruction. It is not used to equate a proper-subset cube with an arbitrary smaller cutoff.
 
+\begin{theorem}[Universal finite-reconstruction quotient]\label{thm:universal}
+Fix $h\ge0$ and $r\ge h+3$, and put $N=r-h-1$. For every natural objectwise surjection $q:J\twoheadrightarrow A$ of $k$-linear diagrams, the following are equivalent:
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item The diagram $S\mapsto K(A(S),h)$ reconstructs from cardinality at most $r$.
+ \item $J^N\subseteq\ker q$.
+ \item $q$ factors uniquely through the canonical quotient $J\twoheadrightarrow J/J^N$.
+\end{enumerate}
+Consequently $J/J^N$ is the largest such quotient, meaning that every qualifying quotient is a further quotient of it. No assumption that $\ker q$ is an ideal is needed. If $1\le r<h+3$, the zero quotient is the only qualifying quotient.
+\end{theorem}
+
+This necessity assertion is about all specified natural linear quotients of $J$, rather than a preselected list of powers. Its proof combines \cref{thm:sharp} with an elementary rigidity statement, proved in \cref{sec:universal}. The observation size $r$, homotopy degree $h$, and initial diagram are fixed data; the largest permissible quotient is then determined.
+
 \subsection{Antecedents and scope}
 
 Finite-set reconstruction and polynomial classification are established subjects. Hora--Kamio--Maehara's Lemma~2.3.6 and Proposition~2.3.7 express ordinary symmetric-simplicial reconstruction through compatible subset data and cycle filling \cite{HKM}. Church--Ellenberg's Theorem~C identifies the least ordinary FI presentation cutoff with the maximum of the generating and first relation degrees \cite{CE}. The ordinary bound here is a calculation for a particular module within that theory.
@@ -139,7 +151,9 @@ The augmentation/Boolean-degree correspondence is classical; see the Berman--Cha
 
 There is also an exact pointed antecedent. On finite pointed sets and root-preserving maps, the rooted monomials $\prod_{s\in A}(x_s+x_0)$ identify $W_a$ with Richter's $B_a$, defined in Section~4.3 of \cite{Richter}. Its objectwise linear dual is her $t^a$. Richter's Lemmas~4.3--4.4 and Theorem~4.5 establish its polynomial degree and its role in a derived Taylor approximation. The calculation below retains arbitrary maps between unpointed finite sets and computes their cardinality right-Kan unit; it is not a claim that the pointed coefficient family is new.
 
-The contribution claimed in this note is the explicit modular all-cutoff calculation, its natural modules, and the resulting sharp bound for $X_{d,h}$. No new general polynomial-recognition principle, new filtration, or new binary-complement functor is asserted. Additional rank-filtration comparisons and remaining access limitations are recorded in the accompanying priority report.
+The subfunctor rigidity used for \cref{thm:universal} is an elementary consequence of classical pointed cross-effect theory. Pirashvili defines the subset module and its cardinality filtration in \cite[Section~1.4]{Pirashvili}, and gives the $\Gamma$--$\Omega$ equivalence in Section~1.10. Under that equivalence, restated in \cite[Theorem~3.7]{PV}, the reduced pointed module $B_\infty$ has a one-dimensional cross-effect in each positive arity, and every surjection acts as the identity. Its submodules therefore correspond to initial segments of arities, giving the $B_a$. Richter also describes the cross-effect in \cite[Section~2.4]{Richter}. We supply a direct coordinate proof for the unpointed characteristic-two diagram, rather than claim a new classification method.
+
+The contribution claimed in this note is the explicit modular all-cutoff calculation, its natural modules, the sharp bound for $X_{d,h}$, and its universal quotient consequence. No new general polynomial-recognition principle, new filtration, or new binary-complement functor is asserted. Additional rank-filtration comparisons and remaining access limitations are recorded in the accompanying priority report.
 
 \section{All probes and the subset matching tower}
 
@@ -448,15 +462,108 @@ The proof gives $t_0=d$ and $t_1=d+1$. Church--Ellenberg's Theorem~C consequentl
 
 The Koszul complex is also the total cofiber of the covariant cube $T\mapsto W_a(T)$ on all subsets of a fixed $S$. Equivalently it is the cofiber of the derived colimit over proper subsets mapping to $W_a(S)$. Since the empty value is zero, finite duality identifies it with the full proper-subset reconstruction fiber of $F_{a+1}$. This applies at $r=|S|-1$; smaller cutoffs require the separate comparison of \cref{prop:tower}.
 
+\section{Necessity and the universal quotient}\label{sec:universal}
+
+\begin{proposition}[Subfunctor rigidity]\label{prop:rigidity}
+Every $k$-linear natural subfunctor $L\subseteq J$ is either zero or $J^d$ for a unique integer $d\ge1$.
+\end{proposition}
+\begin{proof}
+Choose a root $0\in S$ and use the augmentation coordinates
+$t_i=[\delta_i]-1$ for $i\ne0$. Thus
+\[
+ k[E_S]\cong k[t_i:i\ne0]/(t_i^2),
+ \qquad t_B=\prod_{i\in B}t_i
+\]
+gives the squarefree basis, with $B\ne\varnothing$ for $J_S$.
+Let $c_i:S\to S$ send $i$ to $0$ and fix every other label. Pullback
+$p_i=J(c_i)$ kills $t_i$ and fixes the other generators. The commuting
+operators
+\[
+ e_B=\prod_{i\in B}(1-p_i)\prod_{i\in S\setminus(B\cup\{0\})}p_i
+\]
+project onto the individual monomial lines $k t_B$. Naturality and
+linearity make $L(S)$ stable under these operators. Hence $L(S)$ is
+spanned by a subset of this monomial basis: applying $e_B$ extracts a
+coefficient, and a nonzero coefficient is invertible in $k$.
+
+Membership in degree $j$ is independent of ambient cardinality. If
+$t_B\in L(S)$ with $|B|=j$, restriction to $\{0\}\cup B$ gives the full
+degree-$j$ monomial on a $(j+1)$-element set. Conversely, map any desired
+$j$ labels of a larger rooted set bijectively to the nonroot labels of
+the $(j+1)$-element set, and send all remaining labels to the root. Pullback gives
+the desired degree-$j$ monomial. Relabeling gives every monomial of
+that degree.
+
+The occurring degrees are upward closed, even though no ideal
+hypothesis was imposed. Duplicate one nonroot label $a$ into two
+labels $b,c$. The corresponding pullback sends
+\[
+ t_a\longmapsto (1+t_b)(1+t_c)-1=t_b+t_c+t_bt_c.
+\]
+Pulling back a degree-$j$ monomial involving $a$ and applying the
+full-support projector extracts the degree-$(j+1)$ monomial. Thus
+degree $j$ forces degree $j+1$.
+
+If $L\ne0$, let $d$ be the least occurring degree. The preceding
+arguments show that $L(S)$ is exactly the span of monomials of degree
+at least $d$, which is $J_S^d$. If no degree occurs, $L=0$. Distinct
+powers are distinct as functors, since the degree-$d$ monomial is
+nonzero on a $(d+1)$-element set. The root was only a device for the
+proof; the resulting power of the augmentation ideal is intrinsic.
+\end{proof}
+
+Equivalently, all natural linear subfunctors of $W_\infty=J^*$ are
+$0,W_1,W_2,\ldots,W_\infty$. In Boolean coordinates, the same
+projectors extract monomials, while identifying two variables lowers
+degree because $y_i^2=y_i$. This is the elementary form of the pointed
+cross-effect argument described above. Characteristic two ensures
+that each $W_a$ is independent of the root.
+
+\begin{proof}[Proof of \cref{thm:universal}]
+Apply \cref{prop:rigidity} to $L=\ker q$. If $L=J$, then $A=0$ and
+reconstruction holds at every cutoff. If $L=J^d$ for $d\ge2$, then
+$A\cong F_d$, and \cref{thm:sharp} says that reconstruction at $r$
+holds exactly when $d+h+1\le r$, or $d\le N$. This is equivalent to
+$J^N\subseteq J^d$.
+
+The remaining case $L=0$ never has a finite cutoff. For $r\ge2$,
+\cref{prop:ordinaryV} gives a nonzero kernel $J_S^r$ on a set of size
+$r+1$. This ordinary unit is the map on $\pi_h$ of the homotopy
+comparison (on $\pi_0$ when $h=0$), so the latter cannot be an
+equivalence. At $r=1$, all probes are zero while $J$ on a pair is
+nonzero. This exhausts the classification. The equivalence of
+\textup{(ii)} and \textup{(iii)} is the unique quotient factorization
+\[
+ J\twoheadrightarrow J/J^N\twoheadrightarrow A.
+\]
+For $r<h+3$, no integer $d\ge2$ satisfies the required inequality,
+so only the zero quotient remains.
+\end{proof}
+
+\begin{example}[A fixed observational bound]
+With observations on at most four labels, the largest quotients are
+\[
+\begin{array}{c|ccc}
+ h&0&1&2\\ \hline
+ \text{largest quotient}&J/J^3&J/J^2&0.
+\end{array}
+\]
+Thus requiring degree-one homotopy reconstruction at that same
+observational bound forces every quadratic augmentation product to
+vanish. This conclusion concerns every natural linear quotient,
+including ones not initially specified by an algebraic filtration.
+\end{example}
+
 \section{Checks, limitations, and motivation}
 
 \subsection{Reproducible finite calculations}
 
-The accompanying source archive contains three standard-library Python programs using exact binary elimination. They supply complementary checks:
+The accompanying source archive contains four standard-library Python programs using exact binary elimination. They supply complementary checks:
 \begin{itemize}
  \item \texttt{verify-cut.py} builds cut restrictions and compatibility equations for 27 ordinary cases through seven labels.
  \item \texttt{verify-derived.py} builds normalized Roos cochain complexes for 55 cases through five labels and verifies 504 cochain naturality cases, including noninjective maps.
  \item \texttt{verify-fi-independent.py} solves complement-invariance equations directly in Boolean coordinates and builds FI Koszul complexes independently. It checks 54 cases through eight labels, 104,139 chain-equivariance equations, and 385 induced homology-action tests.
+ \item \texttt{verify-natural-subfunctors.py} enumerates every linear subspace of the cut modules through four labels, without assuming ideality. Among all 29,212 subspaces at four labels, exactly $0,J^3,J^2,J$ are invariant under all 256 endomorphisms. Across cardinalities one through four it checks 29,231 subspaces, 310 injection-image agreements, and 2,161 maps of the truncated diagrams.
 \end{itemize}
 The scripts construct matrices before comparing their homology with the formulas. They check that differentials square to zero. The independent FI implementation does not reuse the reconstruction matrices. These finite checks corroborate the proofs; they do not certify universal naturality or priority. No proof-assistant verification or external peer review is claimed.
 
@@ -468,7 +575,25 @@ Allowing a different \emph{full} selection of cardinalities does not supply a se
 
 \subsection{The philosophical question}
 
-The question arose from Hegel's discussion of induction, analogy, and necessity in the \emph{Science of Logic}, especially the passage from collected instances to a connection grounded in the nature of the terms \cite{Hegel}. It suggested asking which specified relations make bounded observations sufficient. Here the augmentation filtration and homotopy degree supply such specifications, and the exact sequences prove the consequence. The theorem neither formalizes Hegel's entire account of necessity nor receives mathematical justification from that account. The philosophical motivation and the priority of the calculation are separate from proof validity.
+The question arose from Hegel's discussion of induction, analogy, and necessity in the \emph{Science of Logic}, especially the passage from collected instances to a connection grounded in the nature of the terms \cite{Hegel}. A sufficient algebraic hypothesis answers only part of that question: one can select a quotient and prove that it reconstructs without explaining why that modification is required.
+
+\Cref{thm:universal} supplies a stronger, precisely delimited answer.
+Once the cut diagram, its all-map naturality, the observational bound
+$r\ge h+3$, and the homotopy degree $h$ are fixed, finite reconstruction
+forces the kernel to contain $J^{r-h-1}$, and killing exactly that
+power suffices. Thus the alteration preserves the largest possible
+quotient under the stated requirement. The power is determined by
+the reconstruction demand rather than independently selected as a
+successful example.
+Below that range the only reconstructed quotient is zero.
+
+The theorem does not derive the initial diagram or the choices of
+$r$ and $h$ without presuppositions, identify its exact sequences with
+Hegel's syllogistic figures, or turn a bound over finite sets into
+Hegel's account of infinity. It supplies a mathematical example in
+which a specified requirement determines what must be relinquished
+and what can be preserved. The philosophical motivation and the
+priority of the calculation remain separate from proof validity.
 
 \subsection*{Research and authorship disclosure}
 The author directed the research. AI assistants helped develop arguments, implement calculations, search and compare literature, draft the text, and conduct separate internal mathematical critiques. These critiques are not external peer review. The specific computation is presented for examination with its literature comparisons and reproducibility material; no guarantee of first discovery is claimed.
@@ -483,6 +608,7 @@ The author directed the research. AI assistants helped develop arguments, implem
 \bibitem{Andriatahiny} H. Andriatahiny, \emph{The Generalized Reed--Muller codes and the radical powers of a modular algebra}, arXiv:1601.07633. \url{https://arxiv.org/abs/1601.07633}.
 \bibitem{Powell2000} G. M. L. Powell, \emph{The structure of the tensor product of $\Ftwo[-]$ with a finite functor between $\Ftwo$-vector spaces}, Annales de l'Institut Fourier 50 (2000), 781--805. \url{https://www.numdam.org/article/AIF_2000__50_3_781_0.pdf}.
 \bibitem{Richter} B. Richter, \emph{Taylor towers for $\Gamma$-modules}, Annales de l'Institut Fourier 51 (2001), 995--1023. \url{https://doi.org/10.5802/aif.1842}.
+\bibitem{Pirashvili} T. Pirashvili, \emph{Hodge decomposition for higher order Hochschild homology}, Annales scientifiques de l'\'Ecole Normale Sup\'erieure 33 (2000), 151--179. \url{https://doi.org/10.1016/S0012-9593(00)00107-5}.
 \bibitem{GanLi} W. L. Gan and L. Li, \emph{A remark on FI-module homology}, Michigan Mathematical Journal 65 (2016), 855--861. \url{https://doi.org/10.1307/mmj/1480734023}.
 \bibitem{Hegel} G. W. F. Hegel, \emph{Science of Logic},
 \href{https://www.marxists.org/reference/archive/hegel/works/hl/hl687.htm}{``The syllogism of reflection''} and
