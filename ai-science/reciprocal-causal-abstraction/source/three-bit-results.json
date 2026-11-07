@@ -1,0 +1,17 @@
+{
+  "bounds": "All 4096 no-self three-bit networks; all 8 identity/erasure quotient tuples; all 27 fine interventions",
+  "counts": {
+    "compatible_pairs": 10496,
+    "network_quotient_pairs": 32768,
+    "networks": 4096,
+    "safe_simple_pairs": 2928,
+    "simple_compatible_pairs": 2928,
+    "simple_networks": 744
+  },
+  "simple_compatible_by_erased_coordinates": {
+    "0": 744,
+    "1": 576,
+    "2": 864,
+    "3": 744
+  }
+}

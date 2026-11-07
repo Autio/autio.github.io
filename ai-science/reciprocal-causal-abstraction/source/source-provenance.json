@@ -1,0 +1,24 @@
+{
+  "checked_on": "2026-11-07",
+  "public_url": "https://autio.github.io/hegel-reader/",
+  "repository": "Autio/hegel-reader",
+  "path": "commentary.md",
+  "git_blob_sha": "03000e79012b76e815841360faef8eea254c7872",
+  "characters": 843226,
+  "latest_numbered_entry": 133,
+  "selected_entries": [
+    {
+      "number": 93,
+      "heading": "Day 93 — September 04, 2026"
+    },
+    {
+      "number": 97,
+      "heading": "Day 97 — September 08, 2026"
+    }
+  ],
+  "primary_hegel": [
+    "https://www.marxists.org/reference/archive/hegel/works/sl/slactual.htm",
+    "https://www.marxists.org/reference/archive/hegel/works/hl/hlnotion.htm"
+  ],
+  "interpretation_status": "Reader supplied the question; primary Hegel text controls the interpretation. The mathematical modeling assumptions are ours."
+}

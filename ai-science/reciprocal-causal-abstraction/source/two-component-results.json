@@ -1,0 +1,450 @@
+{
+  "bounds": "Every no-self two-component function, domain sizes 1..3; every set partition once",
+  "cases": [
+    {
+      "by_quotient_types": {
+        "injective/injective": {
+          "compatible_simple": 1,
+          "safe": 1
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 1,
+        "compatible_pairs": 1,
+        "network_quotient_pairs": 1,
+        "networks": 1,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 1,
+        "simple_compatible_pairs": 1,
+        "simple_networks": 1
+      },
+      "sizes": [
+        1,
+        1
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "injective/constant": {
+          "compatible_simple": 2,
+          "safe": 2
+        },
+        "injective/injective": {
+          "compatible_simple": 2,
+          "safe": 2
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 4,
+        "compatible_pairs": 4,
+        "network_quotient_pairs": 4,
+        "networks": 2,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 4,
+        "simple_compatible_pairs": 4,
+        "simple_networks": 2
+      },
+      "sizes": [
+        1,
+        2
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "injective/constant": {
+          "compatible_simple": 3,
+          "safe": 3
+        },
+        "injective/injective": {
+          "compatible_simple": 3,
+          "safe": 3
+        },
+        "injective/partial": {
+          "compatible_simple": 9,
+          "safe": 9
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 15,
+        "compatible_pairs": 15,
+        "network_quotient_pairs": 15,
+        "networks": 3,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 15,
+        "simple_compatible_pairs": 15,
+        "simple_networks": 3
+      },
+      "sizes": [
+        1,
+        3
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "constant/injective": {
+          "compatible_simple": 2,
+          "safe": 2
+        },
+        "injective/injective": {
+          "compatible_simple": 2,
+          "safe": 2
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 4,
+        "compatible_pairs": 4,
+        "network_quotient_pairs": 4,
+        "networks": 2,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 4,
+        "simple_compatible_pairs": 4,
+        "simple_networks": 2
+      },
+      "sizes": [
+        2,
+        1
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "constant/constant": {
+          "compatible_simple": 12,
+          "safe": 12
+        },
+        "constant/injective": {
+          "compatible_simple": 8,
+          "safe": 8
+        },
+        "injective/constant": {
+          "compatible_simple": 8,
+          "safe": 8
+        },
+        "injective/injective": {
+          "compatible_simple": 12,
+          "safe": 12
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 40,
+        "compatible_pairs": 48,
+        "network_quotient_pairs": 64,
+        "networks": 16,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 40,
+        "simple_compatible_pairs": 40,
+        "simple_networks": 12
+      },
+      "sizes": [
+        2,
+        2
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "constant/constant": {
+          "compatible_simple": 48,
+          "safe": 48
+        },
+        "constant/injective": {
+          "compatible_simple": 24,
+          "safe": 24
+        },
+        "constant/partial": {
+          "compatible_simple": 96,
+          "safe": 96
+        },
+        "injective/constant": {
+          "compatible_simple": 18,
+          "safe": 18
+        },
+        "injective/injective": {
+          "compatible_simple": 48,
+          "safe": 48
+        },
+        "injective/partial": {
+          "compatible_simple": 84,
+          "safe": 84
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 318,
+        "compatible_pairs": 414,
+        "network_quotient_pairs": 720,
+        "networks": 72,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 318,
+        "simple_compatible_pairs": 318,
+        "simple_networks": 48
+      },
+      "sizes": [
+        2,
+        3
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "constant/injective": {
+          "compatible_simple": 3,
+          "safe": 3
+        },
+        "injective/injective": {
+          "compatible_simple": 3,
+          "safe": 3
+        },
+        "partial/injective": {
+          "compatible_simple": 9,
+          "safe": 9
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 15,
+        "compatible_pairs": 15,
+        "network_quotient_pairs": 15,
+        "networks": 3,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 15,
+        "simple_compatible_pairs": 15,
+        "simple_networks": 3
+      },
+      "sizes": [
+        3,
+        1
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "constant/constant": {
+          "compatible_simple": 48,
+          "safe": 48
+        },
+        "constant/injective": {
+          "compatible_simple": 18,
+          "safe": 18
+        },
+        "injective/constant": {
+          "compatible_simple": 24,
+          "safe": 24
+        },
+        "injective/injective": {
+          "compatible_simple": 48,
+          "safe": 48
+        },
+        "partial/constant": {
+          "compatible_simple": 96,
+          "safe": 96
+        },
+        "partial/injective": {
+          "compatible_simple": 84,
+          "safe": 84
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 318,
+        "compatible_pairs": 414,
+        "network_quotient_pairs": 720,
+        "networks": 72,
+        "quotient_pairs_with_unsafe_simple_witness": 0,
+        "safe_simple_pairs": 318,
+        "simple_compatible_pairs": 318,
+        "simple_networks": 48
+      },
+      "sizes": [
+        3,
+        2
+      ]
+    },
+    {
+      "by_quotient_types": {
+        "constant/constant": {
+          "compatible_simple": 423,
+          "safe": 423
+        },
+        "constant/injective": {
+          "compatible_simple": 81,
+          "safe": 81
+        },
+        "constant/partial": {
+          "compatible_simple": 513,
+          "safe": 513
+        },
+        "injective/constant": {
+          "compatible_simple": 81,
+          "safe": 81
+        },
+        "injective/injective": {
+          "compatible_simple": 423,
+          "safe": 423
+        },
+        "injective/partial": {
+          "compatible_simple": 513,
+          "safe": 513
+        },
+        "partial/constant": {
+          "compatible_simple": 513,
+          "safe": 513
+        },
+        "partial/injective": {
+          "compatible_simple": 513,
+          "safe": 513
+        },
+        "partial/partial": {
+          "compatible_simple": 1431,
+          "safe": 1413,
+          "unsafe": 18
+        }
+      },
+      "counts": {
+        "certified_simple_pairs": 3789,
+        "compatible_pairs": 6561,
+        "network_quotient_pairs": 18225,
+        "networks": 729,
+        "quotient_pairs_with_unsafe_simple_witness": 9,
+        "safe_simple_pairs": 4473,
+        "simple_compatible_pairs": 4491,
+        "simple_networks": 423,
+        "unsafe_simple_pairs": 18
+      },
+      "sizes": [
+        3,
+        3
+      ]
+    }
+  ],
+  "retention_checks": {
+    "counts": {
+      "base_pairs_with_graph_vs_descent_cost_gap": 324,
+      "compatible_base_pairs": 7476,
+      "descending_candidates": 17980,
+      "refinement_candidates_checked": 23276,
+      "simple_base_pairs_with_cost_gap": 18
+    },
+    "first_simple_cost_gap_example": {
+      "candidates": [
+        {
+          "closed": true,
+          "descends": true,
+          "graph_safe": false,
+          "retained": []
+        },
+        {
+          "closed": false,
+          "descends": false,
+          "graph_safe": true,
+          "retained": [
+            1
+          ]
+        },
+        {
+          "closed": false,
+          "descends": false,
+          "graph_safe": true,
+          "retained": [
+            0
+          ]
+        },
+        {
+          "closed": true,
+          "descends": true,
+          "graph_safe": true,
+          "retained": [
+            0,
+            1
+          ]
+        }
+      ],
+      "descending_certificate_minimum": 2,
+      "f_A_from_B": [
+        0,
+        1,
+        2
+      ],
+      "f_B_from_A": [
+        0,
+        2,
+        1
+      ],
+      "graph_minimum": 1,
+      "hidden_dependency_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "quotients": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "sizes": [
+        3,
+        3
+      ]
+    }
+  },
+  "smallest_unsafe_simple_pair": {
+    "coarse_equilibria": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "f_A_from_B": [
+      0,
+      1,
+      2
+    ],
+    "f_B_from_A": [
+      0,
+      2,
+      1
+    ],
+    "fine_equilibria": [
+      [
+        0,
+        0
+      ]
+    ],
+    "quotients": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "sizes": [
+      3,
+      3
+    ]
+  },
+  "totals": {
+    "certified_simple_pairs": 4504,
+    "compatible_pairs": 7476,
+    "network_quotient_pairs": 19768,
+    "networks": 900,
+    "quotient_pairs_with_unsafe_simple_witness": 9,
+    "safe_simple_pairs": 5188,
+    "simple_compatible_pairs": 5206,
+    "simple_networks": 542,
+    "unsafe_simple_pairs": 18
+  }
+}

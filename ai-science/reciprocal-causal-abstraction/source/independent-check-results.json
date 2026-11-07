@@ -1,0 +1,992 @@
+{
+  "checker": "Independent direct-equation enumeration; no imports from the main checker.",
+  "checker_sha256": "fa0fa04bece8012412faf39d65f3afb45059a1e7939ef75f9a60e8ad4da352fb",
+  "explicit_examples": {
+    "equilibrium_not_fair_asynchronous_convergence": {
+      "clamped_solution_sets": [
+        {
+          "clamp": [
+            -1,
+            -1,
+            -1
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            -1,
+            0
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            -1,
+            1
+          ],
+          "solutions": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            0,
+            -1
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            0,
+            0
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            0,
+            1
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            1,
+            -1
+          ],
+          "solutions": [
+            [
+              1,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            1,
+            0
+          ],
+          "solutions": [
+            [
+              1,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            -1,
+            1,
+            1
+          ],
+          "solutions": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            -1,
+            -1
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            -1,
+            0
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            -1,
+            1
+          ],
+          "solutions": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            0,
+            -1
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            0,
+            0
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            0,
+            1
+          ],
+          "solutions": [
+            [
+              0,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            1,
+            -1
+          ],
+          "solutions": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            1,
+            0
+          ],
+          "solutions": [
+            [
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            0,
+            1,
+            1
+          ],
+          "solutions": [
+            [
+              0,
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            -1,
+            -1
+          ],
+          "solutions": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            -1,
+            0
+          ],
+          "solutions": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            -1,
+            1
+          ],
+          "solutions": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            0,
+            -1
+          ],
+          "solutions": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            0,
+            0
+          ],
+          "solutions": [
+            [
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            0,
+            1
+          ],
+          "solutions": [
+            [
+              1,
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            1,
+            -1
+          ],
+          "solutions": [
+            [
+              1,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            1,
+            0
+          ],
+          "solutions": [
+            [
+              1,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "clamp": [
+            1,
+            1,
+            1
+          ],
+          "solutions": [
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        }
+      ],
+      "cycle": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "mechanisms": [
+        "y*(1-z)",
+        "z*(1-x)",
+        "x*(1-y)"
+      ],
+      "periodic_schedule_is_fair": true,
+      "zero_based_update_coordinates": [
+        1,
+        2,
+        0,
+        1,
+        2,
+        0
+      ]
+    },
+    "three_by_three_simple_counterexample": {
+      "all_fine_interventions_uniquely_solvable": true,
+      "f_B_to_A": [
+        0,
+        1,
+        2
+      ],
+      "failures": [
+        {
+          "coarse_intervention": [
+            -1,
+            -1
+          ],
+          "coarse_solutions": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "fine_intervention": [
+            -1,
+            -1
+          ],
+          "fine_solutions": [
+            [
+              0,
+              0
+            ]
+          ],
+          "projected_solutions": [
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      ],
+      "fine_interventions": 16,
+      "full_retention_audit": {
+        "candidates": [
+          {
+            "actual_descent": true,
+            "partial_graph_acyclic": false,
+            "predecessor_closed": true,
+            "retained": []
+          },
+          {
+            "actual_descent": false,
+            "partial_graph_acyclic": true,
+            "predecessor_closed": false,
+            "retained": [
+              0
+            ]
+          },
+          {
+            "actual_descent": false,
+            "partial_graph_acyclic": true,
+            "predecessor_closed": false,
+            "retained": [
+              1
+            ]
+          },
+          {
+            "actual_descent": true,
+            "partial_graph_acyclic": true,
+            "predecessor_closed": true,
+            "retained": [
+              0,
+              1
+            ]
+          }
+        ],
+        "descending_certificate_minimum": 2,
+        "graph_minimum": 1,
+        "hidden_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "g_A_to_B": [
+        0,
+        2,
+        1
+      ],
+      "quotients": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    "unique_unintervened_equilibrium_does_not_replace_simplicity": {
+      "fine_intervention_solution_count_distribution": {
+        "0": 1,
+        "1": 33,
+        "2": 2
+      },
+      "fine_solutions_after_do_i_1": [],
+      "fine_unintervened_solutions": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "macro_unintervened_solutions": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "mechanisms": [
+        "0 if i=0 else 1+c",
+        "indicator(p=1)",
+        "indicator(p!=0)"
+      ],
+      "ordinary_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "partial_coordinates": [
+        0
+      ],
+      "partial_graph_acyclic": true,
+      "quotients": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "sizes": [
+        3,
+        2,
+        2
+      ]
+    }
+  },
+  "python_version": "3.14.7",
+  "reporting_convention": "A map on a singleton is classified as injective; it is also constant. Partial means neither.",
+  "three_bit": {
+    "bounds": "All 4096 no-self-dependence three-bit networks and all 8 identity/erasure quotient products.",
+    "by_quotient_mask_I_identity_E_erasure": {
+      "EEE": {
+        "compatible_pairs": 4096,
+        "matched_micro_interventions_checked": 20088,
+        "safe_simple_pairs": 744,
+        "simple_compatible_pairs": 744,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "EEI": {
+        "compatible_pairs": 512,
+        "matched_micro_interventions_checked": 7776,
+        "safe_simple_pairs": 288,
+        "simple_compatible_pairs": 288,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "EIE": {
+        "compatible_pairs": 512,
+        "matched_micro_interventions_checked": 7776,
+        "safe_simple_pairs": 288,
+        "simple_compatible_pairs": 288,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "EII": {
+        "compatible_pairs": 256,
+        "matched_micro_interventions_checked": 5184,
+        "safe_simple_pairs": 192,
+        "simple_compatible_pairs": 192,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "IEE": {
+        "compatible_pairs": 512,
+        "matched_micro_interventions_checked": 7776,
+        "safe_simple_pairs": 288,
+        "simple_compatible_pairs": 288,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "IEI": {
+        "compatible_pairs": 256,
+        "matched_micro_interventions_checked": 5184,
+        "safe_simple_pairs": 192,
+        "simple_compatible_pairs": 192,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "IIE": {
+        "compatible_pairs": 256,
+        "matched_micro_interventions_checked": 5184,
+        "safe_simple_pairs": 192,
+        "simple_compatible_pairs": 192,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "III": {
+        "compatible_pairs": 4096,
+        "matched_micro_interventions_checked": 20088,
+        "safe_simple_pairs": 744,
+        "simple_compatible_pairs": 744,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      }
+    },
+    "compatible_pairs": 10496,
+    "matched_micro_interventions_checked": 79056,
+    "raw_systems": 4096,
+    "safe_simple_pairs": 2928,
+    "simple_compatible_pairs": 2928,
+    "simple_raw_systems": 744,
+    "spurious_macro_solutions_across_matched_interventions": 0,
+    "unsafe_simple_pairs": 0
+  },
+  "two_component": {
+    "bounds": "All 1 <= |A|, |B| <= 3, all f:B->A and g:A->B, all canonical set partitions.",
+    "by_domain": [
+      {
+        "canonical_partition_pairs": 1,
+        "compatible_pairs": 1,
+        "matched_micro_interventions_checked": 4,
+        "raw_systems": 1,
+        "safe_simple_pairs": 1,
+        "simple_compatible_pairs": 1,
+        "simple_raw_systems": 1,
+        "sizes": [
+          1,
+          1
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 2,
+        "compatible_pairs": 4,
+        "matched_micro_interventions_checked": 24,
+        "raw_systems": 2,
+        "safe_simple_pairs": 4,
+        "simple_compatible_pairs": 4,
+        "simple_raw_systems": 2,
+        "sizes": [
+          1,
+          2
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 2,
+        "compatible_pairs": 4,
+        "matched_micro_interventions_checked": 24,
+        "raw_systems": 2,
+        "safe_simple_pairs": 4,
+        "simple_compatible_pairs": 4,
+        "simple_raw_systems": 2,
+        "sizes": [
+          2,
+          1
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 5,
+        "compatible_pairs": 15,
+        "matched_micro_interventions_checked": 120,
+        "raw_systems": 3,
+        "safe_simple_pairs": 15,
+        "simple_compatible_pairs": 15,
+        "simple_raw_systems": 3,
+        "sizes": [
+          1,
+          3
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 5,
+        "compatible_pairs": 15,
+        "matched_micro_interventions_checked": 120,
+        "raw_systems": 3,
+        "safe_simple_pairs": 15,
+        "simple_compatible_pairs": 15,
+        "simple_raw_systems": 3,
+        "sizes": [
+          3,
+          1
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 4,
+        "compatible_pairs": 48,
+        "matched_micro_interventions_checked": 360,
+        "raw_systems": 16,
+        "safe_simple_pairs": 40,
+        "simple_compatible_pairs": 40,
+        "simple_raw_systems": 12,
+        "sizes": [
+          2,
+          2
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 10,
+        "compatible_pairs": 414,
+        "matched_micro_interventions_checked": 3816,
+        "raw_systems": 72,
+        "safe_simple_pairs": 318,
+        "simple_compatible_pairs": 318,
+        "simple_raw_systems": 48,
+        "sizes": [
+          2,
+          3
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 10,
+        "compatible_pairs": 414,
+        "matched_micro_interventions_checked": 3816,
+        "raw_systems": 72,
+        "safe_simple_pairs": 318,
+        "simple_compatible_pairs": 318,
+        "simple_raw_systems": 48,
+        "sizes": [
+          3,
+          2
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      {
+        "canonical_partition_pairs": 25,
+        "compatible_pairs": 6561,
+        "matched_micro_interventions_checked": 71856,
+        "raw_systems": 729,
+        "safe_simple_pairs": 4473,
+        "simple_compatible_pairs": 4491,
+        "simple_raw_systems": 423,
+        "sizes": [
+          3,
+          3
+        ],
+        "spurious_macro_solutions_across_matched_interventions": 18,
+        "unsafe_simple_pairs": 18
+      }
+    ],
+    "by_quotient_type": {
+      "constant/constant": {
+        "compatible_pairs": 889,
+        "matched_micro_interventions_checked": 8028,
+        "safe_simple_pairs": 531,
+        "simple_compatible_pairs": 531,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "constant/injective": {
+        "compatible_pairs": 136,
+        "matched_micro_interventions_checked": 1908,
+        "safe_simple_pairs": 136,
+        "simple_compatible_pairs": 136,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "constant/partial": {
+        "compatible_pairs": 849,
+        "matched_micro_interventions_checked": 9360,
+        "safe_simple_pairs": 609,
+        "simple_compatible_pairs": 609,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "injective/constant": {
+        "compatible_pairs": 136,
+        "matched_micro_interventions_checked": 1908,
+        "safe_simple_pairs": 136,
+        "simple_compatible_pairs": 136,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "injective/injective": {
+        "compatible_pairs": 900,
+        "matched_micro_interventions_checked": 8104,
+        "safe_simple_pairs": 542,
+        "simple_compatible_pairs": 542,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "injective/partial": {
+        "compatible_pairs": 846,
+        "matched_micro_interventions_checked": 9288,
+        "safe_simple_pairs": 606,
+        "simple_compatible_pairs": 606,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "partial/constant": {
+        "compatible_pairs": 849,
+        "matched_micro_interventions_checked": 9360,
+        "safe_simple_pairs": 609,
+        "simple_compatible_pairs": 609,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "partial/injective": {
+        "compatible_pairs": 846,
+        "matched_micro_interventions_checked": 9288,
+        "safe_simple_pairs": 606,
+        "simple_compatible_pairs": 606,
+        "spurious_macro_solutions_across_matched_interventions": 0,
+        "unsafe_simple_pairs": 0
+      },
+      "partial/partial": {
+        "compatible_pairs": 2025,
+        "matched_micro_interventions_checked": 22896,
+        "safe_simple_pairs": 1413,
+        "simple_compatible_pairs": 1431,
+        "spurious_macro_solutions_across_matched_interventions": 18,
+        "unsafe_simple_pairs": 18
+      }
+    },
+    "compatible_pairs": 7476,
+    "full_retention_checks": {
+      "base_pairs_with_graph_vs_descent_cost_gap": 324,
+      "compatible_base_pairs": 7476,
+      "descending_candidates": 17980,
+      "refinement_candidates_checked": 23276,
+      "simple_base_pairs_with_cost_gap": 18
+    },
+    "matched_micro_interventions_checked": 80140,
+    "minimal_failure_classification": {
+      "all_unsafe_pairs_checked_against_identity_swap_shape": 18,
+      "canonical_quotient_pairs_with_failure": 9,
+      "isomorphism_classes_at_size_3_by_3": 1,
+      "meaning_of_isomorphism": "Independent relabellings of each fine coordinate and the induced coarse labels, preserving both mechanisms and quotient maps.",
+      "unsafe_systems_per_such_quotient_pair": 2
+    },
+    "raw_systems": 900,
+    "safe_simple_pairs": 5188,
+    "simple_compatible_pairs": 5206,
+    "simple_raw_systems": 542,
+    "smallest_failure_in_search": {
+      "f_B_to_A": [
+        0,
+        1,
+        2
+      ],
+      "failures": [
+        {
+          "coarse_intervention": [
+            -1,
+            -1
+          ],
+          "coarse_solutions": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "fine_intervention": [
+            -1,
+            -1
+          ],
+          "fine_solutions": [
+            [
+              0,
+              0
+            ]
+          ],
+          "projected_solutions": [
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      ],
+      "g_A_to_B": [
+        0,
+        2,
+        1
+      ],
+      "quotients": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "sizes": [
+        3,
+        3
+      ]
+    },
+    "spurious_macro_solutions_across_matched_interventions": 18,
+    "unsafe_simple_pairs": 18
+  }
+}

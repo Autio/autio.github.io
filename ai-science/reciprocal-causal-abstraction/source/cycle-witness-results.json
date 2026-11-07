@@ -1,0 +1,121 @@
+{
+  "bounds": "All 64 loopless digraphs on 3 labelled vertices and all 27 injective/constant/partial quotient-type tuples",
+  "counts": {
+    "acyclic_partial_subgraph": 1593,
+    "cyclic_partial_subgraph": 135,
+    "graph_quotient_type_pairs": 1728,
+    "simple_micro_witnesses_verified": 135
+  },
+  "examples": [
+    {
+      "coarse_equilibria": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "fine_equilibria": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "obstruction_cycle": [
+        0,
+        1
+      ],
+      "quotients": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "coarse_equilibria": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "fine_equilibria": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "obstruction_cycle": [
+        0,
+        1,
+        2
+      ],
+      "quotients": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "scope": "Witnesses checked for every cyclic case; acyclic universal direction is a theorem, not an exhaustive enumeration of ternary networks"
+}

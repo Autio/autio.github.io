@@ -1,0 +1,36 @@
+{
+  "browser_demo": {
+    "cases": 64,
+    "descending": 32,
+    "exact": 31,
+    "orbit_checked": true,
+    "spurious": 1
+  },
+  "byte_identical_fresh_reproduction": {
+    "cycle-witness-results.json": "f766597b613bc5b51c4d4399455988263ac7fc187c957415bf86d2de992f70c4",
+    "independent-check-results.json": "c24464ccc625a11e8179e242c1afe8bdb68f20128186ab63862ab91440f2f791",
+    "three-bit-results.json": "74719ee93be606761494d560ec56c10c0b52e9b0ba3a595c738712cc132d4b91",
+    "two-component-results.json": "c7e9ee56974144daba77c7d84326984ab52113c6c780d80ce87de36528653793",
+    "worked-examples.json": "f8da4174fade5ba6950b2d236d9cd8748391046e947e13940aedfaa22b9e611b"
+  },
+  "citations_and_equation_references_resolve": true,
+  "corrected_review_finding": "Measurability added to optional exogenous distribution corollary",
+  "date": "2026-11-07",
+  "earlier_brief": {
+    "file": "research-brief.pdf",
+    "pages": 3,
+    "status": "Unchanged first-pass brief; full preprint is authoritative"
+  },
+  "pdf": {
+    "build": "Tectonic 0.17.0, cached local TeX resources; no TeX box, citation or reference warnings",
+    "file": "reciprocity-preprint.pdf",
+    "pages": 9,
+    "sha256": "e373b85ac0bc294188b3c1424f29ba94ea0437a928c01e4617056d5eb09ec38f",
+    "source_sha256": "d5e05f390b54836839282910427a1aacc2ee282658e8c0d87661ab3ec7f6b489",
+    "visual_check": "All nine final pages inspected at 100 dpi; pages 1-8 unchanged from inspected renders and page 9 re-inspected after compacting bibliography"
+  },
+  "publication": "Pre-deployment validation snapshot for the authorized version 1 release; live deployment evidence is recorded separately",
+  "python_checks": "Both programs rerun with Python 3.14.7; all assertions pass",
+  "review": "Internal AI proof, literature, code and source audits with reviewer roles disclosed; not proof-assistant or external peer review",
+  "status": "Ready for publication as a research preprint; priority and external review open"
+}

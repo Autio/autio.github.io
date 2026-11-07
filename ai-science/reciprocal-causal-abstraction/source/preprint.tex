@@ -1,0 +1,314 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype,booktabs,array,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\cl}{cl}
+\newcommand{\id}{\mathrm{id}}
+\hypersetup{pdfauthor={Petri Mikael Autio},pdftitle={Reciprocity without losing causality},pdfsubject={A sharp graph criterion for finite causal value quotients; Hegelian motivation}}
+\title{Reciprocity without losing causality\\[5pt]\large A sharp graph criterion for finite causal value quotients}
+\author{Petri Mikael Autio}
+\date{7 November 2026\\\small Research preprint, version 1}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $D$ be a finite loopless allowed dependency graph and let $q=\prod_i q_i$ be a product of surjections between finite nonempty state sets. Call a deterministic mechanism system simple if every point intervention has exactly one solution. We classify those pairs $(D,q)$ for which every compatible simple fine system induces a simple coarse system: the necessary and sufficient condition is that the graph induced by coordinates whose maps are neither injective nor constant is acyclic. Under this condition every matched point intervention has exact solution transport. A cycle of partial value quotients admits a simple fine system with one equilibrium and a coarse system with exactly two. The smallest loopless obstruction has nine states; all minimum two-component obstructions are isomorphic. For a fixed mechanism system, full-coordinate retention preserves descent exactly when the upgraded coordinates are closed under hidden-input predecessors, giving an exact optimization for the resulting certificate. Complete proofs are supported by two separately written finite enumerators. Hegel's critique of unexplained reciprocity motivates the question of whether a change of description preserves the mediation it claims to express. The formal assumptions are our own. Priority and external mathematical review remain open.
+\end{abstract}
+\noindent\textbf{Keywords.} Causal abstraction; cyclic structural equations; unique solvability; value quotient; information retention; Hegel.
+
+\section{Question, motivation and contribution}
+
+A mechanism can be well-defined through a simplified description while its interaction with other mechanisms is misrepresented. In particular, a coarse equilibrium can describe a fine system that never satisfies its own simultaneous equations. This paper asks when a local commuting condition, together with unique fine solutions under intervention, rules out that failure uniformly over all permitted mechanisms.
+
+\subsection{The Hegelian question}
+
+The project began with the \emph{Hegel Reader}, particularly its Day 93 discussion of formal causality and Day 97 discussion of the universal concept \cite{reader}. The primary textual anchor is the conclusion of the Doctrine of Essence. In the \emph{Encyclopaedia}, \S\S154--156, cause and effect develop into reciprocal action. The addition to \S156 then argues that citing mutual dependence is insufficient for comprehension: the reciprocally related sides must themselves be understood through the whole of which they are moments \cite{hegel-encyclopaedia}. This supplies a question about the adequacy of a description, beyond merely drawing arrows in both directions.
+
+The \emph{Science of Logic}'s direct discussion of reciprocity likewise develops the transition from externally presupposed causal sides to their mediated unity; the opening account of the Notion recalls that transition \cite{hegel-reciprocity,hegel-logic}. Our finite interpretation is explicit: when a description represents interacting components as one coherent system, does it preserve their joint causal solutions under intervention? A counterexample can expose a failure internal to that preservation demand. The discussion of immanent criticism supplies a related methodological inspiration: evaluate a position through its own content and commitments \cite{hegel-logic}. Here, the initially plausible claim that local commutation suffices is corrected by a counterexample and replaced by a sharp conditional theorem.
+
+The intervention operation, finite state sets and all-intervention uniqueness are mathematical modelling choices; they are not extracted from Hegel. Neither feedback nor equilibrium is identified with the Concept or freedom. The repaired representation also need not be uniquely determined. The retention result below specifies exactly what a chosen certificate requires, while leaving broader choices of observation and acceptable information loss to the application. These limits keep the philosophical source visible without treating it as a substitute for proof.
+
+\subsection{What is established, and what is being claimed}
+
+Causal abstraction already studies preservation under interventions. Beckers and Halpern develop abstraction relations and induced interventions \cite{beckers-halpern}. Geiger et al. formulate cyclic, solution-set semantics and componentwise value merging \cite{geiger}. Our local commuting equation is weaker than their exact semantic requirement: the theorem identifies when a structural hypothesis bridges that gap for simple finite systems.
+
+Bongers et al. develop simple structural causal models, including unique solvability on every subset and stability properties under intervention and marginalization \cite{bongers}. We work with their deterministic fixed-context solvability condition, but our operation is a quotient of each coordinate's values, not elimination of variables. Lorenz and Tull develop compositional abstraction and identify cyclic structures with intervention consistency as further work \cite{lorenz-tull}. The result here treats a restricted finite case, not their full categorical problem.
+
+Finite-network abstraction also predates this work. Banks and Steggles study componentwise state abstraction and translated mechanism tables \cite{banks-steggles}; Steggles explicitly allows a coarse point attractor to represent a fine cycle inside one abstract fibre \cite{steggles}. Thus hiding motion behind apparent stationarity is not claimed as a new phenomenon. Acyclic fixed-point arguments and categorical fixed-point uniformity are classical \cite{richard,simpson-plotkin}.
+
+Hereditary unique fixed-point solvability is established for Boolean networks, including Ruet's equivalence with hereditary bijectivity \cite{ruet}. Grid unique-sink orientations also admit projections that solve away whole coordinates \cite{gaertner}. These are relevant precedents for the fine uniqueness assumption and coordinate elimination. They do not, in the inspected results, classify arbitrary partial merges of values within coordinates. A Boolean coordinate has no partial surjection, and grid subfaces impose additional conditions beyond fixing coordinates to points.
+
+The proposed contribution is the exact universal classification by the graph of \emph{partial} value quotients, together with the minimum-obstruction classification and its concrete retention consequences. A targeted primary-source audit did not locate this classification. This is a priority statement about the search, not a proof of novelty. The accompanying audit records the comparisons and remaining risks.
+
+\section{Finite mechanisms, interventions and value quotients}
+
+Let $V$ be finite. For each $i\in V$, let $X_i,Y_i$ be finite nonempty sets and $q_i:X_i\twoheadrightarrow Y_i$ a surjection. Put $X=\prod_iX_i$, $Y=\prod_iY_i$ and $q=\prod_iq_i$. Let $D$ be a loopless directed graph on $V$. A system $F:X\to X$ \emph{respects $D$} if $F_i$ depends only on coordinates $j$ with $j\to i$ in $D$. Allowed edges need not be used. In particular, there is no self-dependence.
+
+Assume the local mechanisms \emph{descend} through the interface:
+\begin{equation}\label{eq:descent}
+ q_iF_i=G_iq\qquad(i\in V).
+\end{equation}
+Surjectivity makes $G:Y\to Y$ unique. It also makes $G$ respect $D$: changing a macro non-parent can be lifted to changing only that fine coordinate, which does not affect $F_i$.
+
+For $B\subseteq V$ and $b\in X_B$, the point intervention $F^{B=b}$ replaces $F_i$ by the constant $b_i$ for $i\in B$ and leaves other equations in force. Its matched macro intervention is $G^{B=q_B(b)}$. Equation \eqref{eq:descent} continues to hold after these matched interventions. We use simultaneous-equation solutions, or fixed points; no update schedule is specified.
+
+\begin{definition}
+A system $F$ is \emph{simple} if $\Fix(F^{B=b})$ has exactly one element for every $B,b$, including $B=\varnothing$.
+\end{definition}
+
+Equivalently, for every subset of un-clamped equations and every assignment to the remaining coordinates, there is exactly one solution for those equations. In finite deterministic models this is unique solvability on every subset. Observational uniqueness alone is weaker.
+
+Partition the coordinates into
+\begin{align}
+ I&=\{i:q_i\text{ is injective}\},\nonumber\\
+ C&=\{i:q_i\text{ is constant but not injective}\},\label{eq:types}\\
+ P&=\{i:q_i\text{ is neither injective nor constant}\}.\nonumber
+\end{align}
+Singleton coordinates belong to $I$. Coordinates in $I$ retain every distinction; those in $C$ erase every distinction; those in $P$ retain some and merge others. For $i\in P$, $|X_i|\ge3$ and $|Y_i|\ge2$. Write $D[P]$ for the induced directed graph.
+
+\section{The universal preservation theorem}
+
+\begin{theorem}\label{thm:main}
+For fixed $D$ and $(q_i)$ as above, the following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $D[P]$ is acyclic.
+\item Every simple $D$-respecting system $F$ satisfying \eqref{eq:descent} induces a simple system $G$.
+\item For every such $F$ and every fine point intervention, $q$ restricts to a bijection
+\begin{equation}\label{eq:exact}
+ \Fix(F^{B=b})\ \xrightarrow{\ q\ }\ \Fix(G^{B=q_B(b)}).
+\end{equation}
+\end{enumerate}
+If $D[P]$ contains a directed cycle, there is a compatible simple $F$ with exactly one un-intervened equilibrium whose induced $G$ has exactly two.
+\end{theorem}
+
+The quantifier ranges over all compatible $F$; $G$ varies with $F$. A failed graph test does not establish failure of a particular installed system. For example, constant mechanisms can be harmless on a cyclic allowed graph. The theorem transfers an existing simplicity guarantee and does not establish fine simplicity.
+
+\subsection{Sufficiency: lift a proposed coarse solution}
+
+\begin{proof}[Proof of (i)$\Rightarrow$(iii)$\Rightarrow$(ii)]
+Fix a compatible simple $F$, an intervention $B=b$, and any
+$y\in\Fix(G^{B=q_B(b)})$. For each $i\in I\setminus B$, let $a_i$ be the unique fine representative of $y_i$. In addition to the original clamps on $B$, clamp all these injective coordinates to $a_i$. Simplicity supplies a unique solution $x$ to the auxiliary fine system.
+
+Set $z=q(x)$. Then $z_i=y_i$ on $B\cup I\cup C$. The equality on $C$ holds because each $Y_i$ there is a singleton. For $i\in P\setminus B$, the auxiliary intervention has left $F_i$ unchanged, so
+\[
+ z_i=q_iF_i(x)=G_i(z).
+\]
+Both $z_{P\setminus B}$ and $y_{P\setminus B}$ therefore solve the same equations with all other macro coordinates fixed. These equations respect the acyclic graph $D[P\setminus B]$. Evaluating them in topological order gives one solution, so $z=y$.
+
+For $i\in I\setminus B$, we now have
+\[
+ q_iF_i(x)=G_i(y)=y_i=q_i(x_i).
+\]
+Injectivity gives $F_i(x)=x_i$. The auxiliary clamps can thus be removed: $x$ solves the original intervention $F^{B=b}$.
+
+Every macro solution has lifted to the unique original fine solution. Conversely, the fine solution projects to a macro solution by \eqref{eq:descent}. This proves \eqref{eq:exact}. Every macro clamp value has a fine representative, so $G$ is simple.
+\end{proof}
+
+Wholly erased coordinates need not form an acyclic graph: simplicity solves their fine equations during the auxiliary intervention. This is why the criterion uses $P$, not all noninjective coordinates.
+
+\subsection{Necessity: a hidden reversal around a partial cycle}
+
+\begin{proof}[Proof that (ii)$\Rightarrow$(i)]
+Suppose $D[P]$ has a simple directed cycle of length $m\ge2$. For each cycle vertex $i$, choose distinct $a_i^0,a_i^1,c_i\in X_i$ with
+\[
+ q_i(a_i^0)=q_i(a_i^1)=u_i,\qquad q_i(c_i)=v_i\ne u_i.
+\]
+This is possible for every partial coordinate. Define, on its whole domain,
+\[
+ \kappa_i(x_i)=
+ \begin{cases}
+ *&q_i(x_i)\ne u_i,\\
+ 1&x_i=a_i^1,\\
+ 0&q_i(x_i)=u_i\text{ and }x_i\ne a_i^1.
+ \end{cases}
+\]
+Let $p(i)$ be the cycle predecessor. Choose bits $\epsilon_i$ with exactly one equal to $1$. Define the fine cycle mechanisms by
+\[
+ F_i(x)=
+ \begin{cases}
+ c_i&\kappa_{p(i)}(x_{p(i)})=*,\\
+ a_i^{\,\kappa_{p(i)}(x_{p(i)})\,\oplus\,\epsilon_i}&\text{otherwise}.
+ \end{cases}
+\]
+Here $\oplus$ is addition modulo two. Set every off-cycle mechanism to an arbitrary constant. The system respects $D$ because allowed edges may remain unused. Its induced macro mechanisms on the cycle are
+\begin{equation}\label{eq:macro-cycle}
+ G_i(y)=\begin{cases}u_i&y_{p(i)}=u_{p(i)},\\v_i&y_{p(i)}\ne u_{p(i)}.\end{cases}
+\end{equation}
+Thus descent holds, including for inputs outside the three selected states.
+
+At a fine fixed point every cycle coordinate lies among its three selected states. If any is $c_i$, this forces all to be $c_i$, giving one fixed point. Otherwise all are of the form $a_i^{t_i}$, and their bits must satisfy $t_i=t_{p(i)}\oplus\epsilon_i$. One reversal around a cycle makes that impossible.
+
+The fine system is simple. If no cycle coordinate is clamped, the same unique cycle solution remains. If one or more cycle coordinates are clamped, the remaining cycle equations form directed chains and have unique values determined by their clamped predecessors. Arbitrary clamp values are covered because every classifier is total. Off-cycle coordinates are constant or clamped.
+
+The macro fixed points have cycle coordinates all $u_i$ or all $v_i$; these are exactly the two solutions of \eqref{eq:macro-cycle}. Only the all-$v_i$ solution lifts. Consequently $G$ is not simple.
+\end{proof}
+
+\section{The smallest failure and its classification}
+
+Take $X_1=X_2=\{0,1,2\}$, $q_i(0)=0$ and $q_i(1)=q_i(2)=1$. Let
+\begin{equation}\label{eq:minimal}
+ s=(0,2,1),\qquad F(a,b)=(b,s(a)),\qquad G(u,v)=(v,u).
+\end{equation}
+Then $qF=Gq$. The fine equations force $a=b=s(a)$, so $(0,0)$ is the sole equilibrium. Every nonempty intervention fixes one coordinate and determines the other, or fixes both. The fine system is simple. The coarse equilibria are $(0,0)$ and $(1,1)$, but the latter has no fine equilibrium lift. Under synchronous iteration, its fine fibre is the four-cycle
+\[
+ (1,1)\longrightarrow(1,2)\longrightarrow(2,2)
+ \longrightarrow(2,1)\longrightarrow(1,1).
+\]
+The abstract description is stationary throughout this orbit.
+
+\begin{proposition}\label{prop:minimal}
+Every failure under the hypotheses of Theorem~\ref{thm:main} has at least nine fine product states. Among systems with exactly two loopless components, every failure attaining this bound is isomorphic to \eqref{eq:minimal}, including its component quotient maps.
+\end{proposition}
+\begin{proof}
+Failure requires a cycle in $D[P]$. Since $D$ is loopless, there are at least two partial coordinates, each with at least three fine states. Thus $|X|\ge9$.
+
+At the two-component minimum, both domains have size three and both quotients have a singleton fibre and a double fibre. Write $F(a,b)=(f(b),g(a))$. All nonempty interventions are automatically uniquely solvable at both levels, so failure requires two un-intervened coarse equilibria. On two binary coordinates there can be at most two. Their existence forces the coarse maps $\bar f,\bar g$ to be inverse bijections.
+
+There are two possible arrangements of fixed-point fibres: singleton-by-singleton together with double-by-double, or singleton-by-double together with double-by-singleton. Any such fibre with a singleton coordinate contains exactly one fine equilibrium: fix its unique state, use the other mechanism, and check the remaining equation using descent into the singleton. The second arrangement would give two fine equilibria and is impossible.
+
+The double-by-double fibre in the first arrangement contains no fine equilibrium. The restricted maps $f_1:B_1\to A_1$ and $g_1:A_1\to B_1$ therefore have a fixed-point-free composite $f_1g_1$ on a two-element set. That composite must be the transposition, so both maps are bijective. Relabel the two double fibres so that $f_1$ is the identity; then $g_1$ is the transposition. Label the singleton states by zero. This is \eqref{eq:minimal}.
+\end{proof}
+
+There are three canonical partial partitions of a three-element set and therefore nine pairs. For each pair there are exactly two labelled fine mechanisms of this form. The resulting $9\cdot2=18$ failures agree with exhaustive enumeration.
+
+The example also distinguishes general value merging from linear quotients. Its fine map is linear over $\mathbb F_3$, namely $(a,b)\mapsto(b,-a)$, but $q$ is nonlinear. If $A$ is linear on a finite-dimensional vector space and $W$ is invariant, invertibility of $1-A$ passes to the quotient: its restriction to $W$ is injective, hence bijective, so the induced quotient map is invertible. The value merge in \eqref{eq:minimal} falls outside that classical argument.
+
+\section{Retention that preserves the mechanisms}
+
+Fix an installed $F,q,D$ satisfying descent. Let $N=P\cup C$ be the noninjective coordinates. An upgrade set $R\subseteq N$ replaces each $q_i$ for $i\in R$ by $\id_{X_i}$ and leaves the others unchanged. Denote the resulting product map by $r^R$. These are whole-coordinate upgrades; intermediate partitions are not optimized here.
+
+Define the \emph{hidden-dependency graph} $H=H(F,q)$ by $j\to i$ when there exist $x,x'\in X$ differing only at coordinate $j$ such that
+\begin{equation}\label{eq:hidden}
+ q_j(x_j)=q_j(x'_j),\qquad F_i(x)\ne F_i(x').
+\end{equation}
+Thus a full output distinguishes input values merged by the old interface. This graph is a subgraph of $D$. There are no edges from $I$, by injectivity, and no edges into $I$, by injectivity together with the original descent equation. It may therefore be viewed as a graph on $N$.
+
+\begin{proposition}\label{prop:descent}
+Mechanisms $K$ with $r^RF=Kr^R$ exist exactly when $R$ is predecessor-closed in $H$: if $i\in R$ and $j\to i$ in $H$, then $j\in R$.
+\end{proposition}
+\begin{proof}
+If $i\in R$, $j\notin R$, and $j\to i$, a witnessing pair in \eqref{eq:hidden} has equal refined inputs but distinct observed outputs at $i$. Factorization is impossible.
+
+Conversely suppose $R$ is predecessor-closed. At un-upgraded outputs $q_iF_i$ already factors through $q$, and $q$ factors through $r^R$. For an upgraded output, connect any two points of an $r^R$-fibre by changing un-upgraded coordinates one at a time, within their original $q_j$-fibres. None of these coordinates has a hidden edge into $i$, so each change leaves $F_i$ unchanged. The full output is constant on every refined fibre and hence factors. Surjectivity makes $K$ unique; as before it respects $D$.
+\end{proof}
+
+The partial set after upgrading is $P\setminus R$. Thus the two requirements of mechanism descent and the universal graph guarantee are exactly
+\begin{equation}\label{eq:repair}
+ R\text{ is predecessor-closed in }H,
+ \qquad D[P\setminus R]\text{ is acyclic}.
+\end{equation}
+If $F$ is simple, these conditions imply exact unique solutions under every matched point intervention.
+
+\begin{proposition}\label{prop:cost}
+For nonnegative coordinate costs $w_i$, write $\cl_H(S)$ for $S$ together with all its ancestors in $H$. The minimum cost of a set satisfying \eqref{eq:repair} is
+\begin{equation}\label{eq:cost}
+ \min_{\substack{S\subseteq P\\D[P\setminus S]\ \mathrm{acyclic}}}
+ \ \sum_{i\in\cl_H(S)}w_i.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Any such $S$ has a predecessor-closed ancestor closure $R$ containing $S$, so $D[P\setminus R]$ is acyclic. Conversely, for any feasible $R$, the set $S=R\cap P$ meets all partial cycles and $\cl_H(S)\subseteq R$. Nonnegative costs ensure that its closure costs no more than $R$. Taking minima gives equality.
+\end{proof}
+
+Ancestor closures may overlap; the union is counted once. Replacing each vertex weight by its individual closure cost can double-count and need not solve \eqref{eq:cost}. This is an exact finite formulation, not a polynomial-time algorithm or an optimum over every semantically valid abstraction. The factorization proposition is elementary; its role is to make the graph certificate implementable for fixed mechanisms.
+
+In \eqref{eq:minimal}, both $D$ and $H$ are the two-cycle. One full upgrade breaks the partial cycle, but it reveals an output distinction whose input remains merged. Both coordinates must be upgraded for descent. With unit costs the graph-only lower bound is one, while the descending certificate costs two.
+
+\section{Limits and counterexamples to stronger claims}
+
+\paragraph{Observational uniqueness is insufficient.}
+Let $p\in\{0,1,2\}$ and $c,i\in\{0,1\}$, with $q_p=(0,1,1)$, $q_c$ constant and $q_i=\id$. Define
+\[
+ F_p=\begin{cases}0&i=0,\\1+c&i=1,\end{cases}
+ \qquad F_c=\mathbf1_{p=1},\qquad F_i=\mathbf1_{p\ne0}.
+\]
+There is no self-dependence, and the one-vertex partial graph is acyclic. The fine system has only $(0,0,0)$, but the macro equations $y_p=i$, $i=y_p$ have two equilibria. The intervention $i=1$ requires $c=1-c$ and is inconsistent. Hence the system is not simple. The auxiliary clamps in the main proof cannot be discarded.
+
+\paragraph{Simplicity is not convergence.}
+The Boolean system
+\[
+ F(x,y,z)=\bigl(y(1-z),\ z(1-x),\ x(1-y)\bigr)
+\]
+is simple. Its sole un-clamped solution is $000$: setting any coordinate to one in a putative fixed point forces contradictory values around the cycle. Clamping any one coordinate to zero gives a two-equation chain, while clamping it to one fixes one remaining output to zero and then determines the other. Cyclic symmetry covers all one-coordinate clamps; further clamps also determine the remaining coordinate. Nevertheless there is a fair asynchronous cycle
+\[
+ 001\to011\to010\to110\to100\to101\to001,
+\]
+updating every coordinate infinitely often when repeated. This is a scope example, with no priority claim.
+
+\paragraph{Composition and replacement.}
+For interconnected modules, test the graph of the connected system and justify its fine simplicity separately. Certificates for isolated modules do not establish these hypotheses after feedback connections are added. General mechanism replacements are covered only when each resulting fine system is simple, still descends and respects an allowed graph with acyclic partial subgraph. Arbitrary stochastic mechanisms, overlapping variable alignments and dynamic convergence are outside the theorem. With exogenous contexts, the theorem may be applied pointwise if its hypotheses hold in every context with common $q,D$. For a finite context space this gives the corresponding pushforward of interventional distributions. More generally, measurable dependence of the mechanisms on the context makes the unique finite-state solution maps measurable and gives the same consequence.
+
+\paragraph{Which graph and which information?}
+$D$ bounds actual dependencies of the specified mechanism tables; it is not automatically the causal graph defined modulo equation equivalence in structural causal-model theory. Whole erasure can discard observations required by an application. The theorem preserves the selected coarse solution semantics, not all fine causal distinctions. If self-loops are allowed for raw fixed-point equations, the same proof works with a length-one obstruction; the nine-state minimality claim specifically requires the loopless class.
+
+\section{Computational evidence and reproducibility}
+
+Two separately written standard-library Python programs determine solution sets directly and then compare them with the proposed criteria. The independent checker uses different partition and graph routines and explicit state-pair witnesses for hidden dependencies. Neither imports the other. The results are:
+
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.29\linewidth}>{\raggedright\arraybackslash}p{.32\linewidth}>{\raggedright\arraybackslash}p{.31\linewidth}@{}}
+\toprule
+Family & Exhaustive coverage & Result\\
+\midrule
+Two components, sizes $1$ through $3$ & 900 systems; 19,768 system/partition pairs & 5,206 simple descending pairs: 5,188 safe, 18 unsafe\\[4pt]
+Three Boolean components & 4,096 systems; eight identity/erasure interfaces each & 2,928 simple descending pairs, all safe\\[4pt]
+Three-vertex cycle construction & 64 loopless graphs; 27 representative type assignments each & All 135 cyclic partial cases have verified simple witnesses\\[4pt]
+Full-retention upgrades & 23,276 refinements of 7,476 descending pairs & 17,980 descend; exact agreement with predecessor closure\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+There are 324 base pairs where a graph-only upgrade minimum is cheaper than the minimum descending certificate, including 18 with simple fine systems. The independent checker verifies 80,140 matched fine intervention instances in the two-component search and 79,056 in the Boolean search. Both programs agree on all overlapping counts and two-component domain subtotals.
+
+The Boolean search has no partial coordinates; it checks only the injective/constant portion of the theorem. The three-vertex sweep verifies constructed witnesses in 135 obstructed cases; it does not enumerate all mechanisms in the 1,593 unobstructed cases. The general assertion rests on the proof.
+
+The archive contains source, JSON results, a prior-work audit, internal review reports and a SHA-256 manifest. Run:
+\begin{verbatim}
+python enumerate_models.py --output-dir check-results
+python independent_check.py --output independent-results.json
+\end{verbatim}
+Python 3.10 or later suffices; the recorded runs used 3.14.7. Interpreter-version and source-hash metadata can affect byte comparisons across environments. The five original result files were reproduced byte-for-byte in a fresh output directory on the recorded interpreter. These are exact finite checks, not proof-assistant verification or external peer review.
+
+\section{A concrete prospect for Hegelese}
+
+Hegelese investigates checked changes of representation \cite{hegelese}. This theorem suggests an additional certificate for interacting components. A proposed implementation would check the component maps and commuting equations, require separate evidence of fine simplicity, and test $D[P]$. An ill-defined retention upgrade could return the two input states witnessing \eqref{eq:hidden}. A forbidden partial cycle would report the absence of a universal guarantee; diagnosing an actual semantic failure would require an installed-system witness.
+
+The philosophical connection becomes consequential at this point. A proposed higher-level description makes a definite claim about what it preserves. Failure reveals which distinctions and dependencies that claim neglected. A correction must account for these dependencies, and the retention proposition specifies one finite form of that obligation. This is a method of testing and repairing a representation under explicit commitments. The present research does not implement a new Hegelese language feature or establish that such certificates improve programming outcomes.
+
+Two questions remain. Can one certify an installed system with cyclic $D[P]$ without globally enumerating all interventional solutions? Can one optimize intermediate partitions of coordinate values, beyond the full-coordinate upgrades considered here? The universal theorem answers neither; both are concrete next research problems.
+
+\paragraph{Research process and status.}
+The author directed the question and publication preparation. AI assistants developed arguments, wrote code, compared literature and conducted separate internal mathematical critiques. Those reviews found no unresolved mathematical gap in the stated results. Human external review and priority assessment remain open.
+
+\begin{thebibliography}{15}\small\raggedright\setlength{\itemsep}{1pt}
+\bibitem{reader} P. M. Autio. \emph{Hegel Reader}, Day 93 and Day 97. Source inspected 7 November 2026; provenance recorded in the archive. \href{https://autio.github.io/hegel-reader/}{autio.github.io/hegel-reader}.
+\bibitem{hegel-encyclopaedia} G. W. F. Hegel. \emph{Encyclopaedia of the Philosophical Sciences}, Part I, \S\S154--159, especially \S156 and its addition. Online text: \href{https://www.marxists.org/reference/archive/hegel/works/sl/slactual.htm}{The Doctrine of Essence: Actuality}.
+\bibitem{hegel-reciprocity} G. W. F. Hegel. \emph{Science of Logic}, Book II, Section III, Chapter 3, C. Reciprocity, online paragraph numbers 1272--1276. \href{https://www.marxists.org/reference/archive/hegel/works/hl/hlessenc.htm}{Online text}.
+\bibitem{hegel-logic} G. W. F. Hegel. \emph{Science of Logic}, ``The Notion in General,'' online paragraph numbers 1281--1288. \href{https://www.marxists.org/reference/archive/hegel/works/hl/hlnotion.htm}{Online text}.
+\bibitem{beckers-halpern} S. Beckers and J. Y. Halpern. Abstracting causal models. \emph{AAAI} 33 (2019), 2678--2685. \href{https://www.cs.cornell.edu/home/halpern/papers/abstraction.pdf}{Author PDF}.
+\bibitem{bongers} S. Bongers, P. Forr\'e, J. Peters and J. M. Mooij. Foundations of structural causal models with cycles and latent variables. \emph{Annals of Statistics} 49(5) (2021), 2885--2915. \href{https://arxiv.org/abs/1611.06221}{arXiv:1611.06221}.
+\bibitem{geiger} A. Geiger et al. Causal abstraction: A theoretical foundation for mechanistic interpretability. \emph{JMLR} 26(83) (2025), 1--64. \href{https://jmlr.org/papers/v26/23-0058.html}{Journal article}. See Definitions 25 and 38.
+\bibitem{lorenz-tull} R. Lorenz and S. Tull. Causal and compositional abstraction. Preprint (2026). \href{https://arxiv.org/abs/2602.16612}{arXiv:2602.16612v1}. See Sections 6 and 8.
+\bibitem{banks-steggles} R. Banks and L. J. Steggles. An abstraction theory for qualitative models of biological systems. \emph{EPTCS} 40 (2010), 23--38. \href{https://arxiv.org/abs/1011.0489}{arXiv:1011.0489}.
+\bibitem{steggles} L. J. Steggles. Abstracting asynchronous multi-valued networks. \emph{Scientific Annals of Computer Science} 21(2) (2011), 249--282. \href{https://publications.info.uaic.ro/files/sacs/XXI2/XXI2_3.pdf}{Journal PDF}. See Definition 15.
+\bibitem{richard} A. Richard. Fixed point theorems for Boolean networks expressed in terms of forbidden subnetworks. \href{https://arxiv.org/abs/1302.6346}{arXiv:1302.6346}. See Theorem 1 and Corollary 2.
+\bibitem{ruet} P. Ruet. Asynchronous Boolean networks and hereditarily bijective maps. \emph{Natural Computing} 14 (2015), 545--553. \href{https://www.irif.fr/~ruet/papiers/naco.pdf}{Author manuscript}, Definition 4 and Theorem 1.
+\bibitem{gaertner} B. G\"artner, W. D. Morris Jr. and L. R\"ust. Unique sink orientations of grids. \emph{Algorithmica} 51 (2008), 200--235. \href{https://doi.org/10.1007/s00453-007-9090-x}{Journal article}. See the full manuscript's Definition 2.10 and Lemma 2.11; version details are in the accompanying prior-work audit.
+\bibitem{simpson-plotkin} A. Simpson and G. Plotkin. Complete axioms for categorical fixed-point operators. \emph{LICS} (2000), 30--41. \href{https://homepages.inf.ed.ac.uk/gdp/publications/fixpoints.pdf}{Author PDF}.
+\bibitem{hegelese} Hegelese contributors. \emph{Hegelese}. \href{https://github.com/Mikael-Codes/hegelese}{Source repository}.
+\end{thebibliography}
+\end{document}

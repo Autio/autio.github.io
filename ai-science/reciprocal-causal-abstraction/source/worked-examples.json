@@ -1,0 +1,538 @@
+{
+  "full_retention_requires_hidden_dependency_closure": {
+    "candidates": [
+      {
+        "closed": true,
+        "descends": true,
+        "graph_safe": false,
+        "retained": []
+      },
+      {
+        "closed": false,
+        "descends": false,
+        "graph_safe": true,
+        "retained": [
+          1
+        ]
+      },
+      {
+        "closed": false,
+        "descends": false,
+        "graph_safe": true,
+        "retained": [
+          0
+        ]
+      },
+      {
+        "closed": true,
+        "descends": true,
+        "graph_safe": true,
+        "retained": [
+          0,
+          1
+        ]
+      }
+    ],
+    "descending_certificate_minimum": 2,
+    "graph_minimum": 1,
+    "hidden_dependency_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  "minimal_two_component_counterexample": {
+    "coarse_simple": false,
+    "coarse_sizes": [
+      2,
+      2
+    ],
+    "dependency_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "fine_simple": true,
+    "fine_sizes": [
+      3,
+      3
+    ],
+    "formula": "F(a,b)=(b,s(a)), s=(0,2,1); q_A=q_B=(0,1,1)",
+    "interventions": [
+      {
+        "coarse_clamp": [
+          null,
+          null
+        ],
+        "coarse_solutions": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          null,
+          null
+        ],
+        "fine_solutions": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          null,
+          0
+        ],
+        "coarse_solutions": [
+          [
+            0,
+            0
+          ]
+        ],
+        "fine_clamp": [
+          null,
+          0
+        ],
+        "fine_solutions": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          null,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          null,
+          1
+        ],
+        "fine_solutions": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          null,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          null,
+          2
+        ],
+        "fine_solutions": [
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          0,
+          null
+        ],
+        "coarse_solutions": [
+          [
+            0,
+            0
+          ]
+        ],
+        "fine_clamp": [
+          0,
+          null
+        ],
+        "fine_solutions": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          0,
+          0
+        ],
+        "coarse_solutions": [
+          [
+            0,
+            0
+          ]
+        ],
+        "fine_clamp": [
+          0,
+          0
+        ],
+        "fine_solutions": [
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          0,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            0,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          0,
+          1
+        ],
+        "fine_solutions": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          0,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            0,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          0,
+          2
+        ],
+        "fine_solutions": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          null
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          1,
+          null
+        ],
+        "fine_solutions": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          0
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            0
+          ]
+        ],
+        "fine_clamp": [
+          1,
+          0
+        ],
+        "fine_solutions": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          1,
+          1
+        ],
+        "fine_solutions": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          1,
+          2
+        ],
+        "fine_solutions": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          null
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          2,
+          null
+        ],
+        "fine_solutions": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          0
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            0
+          ]
+        ],
+        "fine_clamp": [
+          2,
+          0
+        ],
+        "fine_solutions": [
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          2,
+          1
+        ],
+        "fine_solutions": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "coarse_clamp": [
+          1,
+          1
+        ],
+        "coarse_solutions": [
+          [
+            1,
+            1
+          ]
+        ],
+        "fine_clamp": [
+          2,
+          2
+        ],
+        "fine_solutions": [
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ],
+    "minimality_scope": "Two nonempty components, no self-dependencies; both quotient maps noninjective and nonconstant require at least3 fine states each",
+    "partial_coordinates": [
+      0,
+      1
+    ],
+    "structural_certificate": false
+  },
+  "unique_equilibrium_does_not_imply_convergence": {
+    "each_solution_count": 1,
+    "fair_asynchronous_cycle": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    "formula": "F(x,y,z)=(y(1-z),z(1-x),x(1-y))",
+    "interventions_checked": 27,
+    "priority": "Classical-type scope example; no novelty claim",
+    "unintervened_equilibrium": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "updated_coordinates": [
+      1,
+      2,
+      0,
+      1,
+      2,
+      0
+    ]
+  },
+  "why_all_interventions_matter": {
+    "fine_simple": false,
+    "fine_sizes": [
+      3,
+      2,
+      2
+    ],
+    "fine_solutions_after_do_i_1": [],
+    "fine_unintervened_solutions": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "formula": "F(p,c,i)=(0 if i=0 else 1+c, indicator(p=1), indicator(p!=0))",
+    "macro_unintervened_solutions": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    "meaning": "Unique observational equilibrium cannot replace simplicity in the theorem",
+    "partial_coordinates": [
+      0
+    ],
+    "quotients": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "structural_graph_condition": true
+  }
+}

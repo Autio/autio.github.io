@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reciprocity without losing causality — Petri Mikael Autio</title>
+  <meta name="description" content="A Hegel-inspired mathematics preprint: when can interacting components be simplified without inventing causal equilibria? Complete proofs, a nine-state example, and reproducible checks.">
+  <meta name="author" content="Petri Mikael Autio">
+  <link rel="canonical" href="https://autio.github.io/ai-science/reciprocal-causal-abstraction/">
+  <meta property="og:title" content="Reciprocity without losing causality">
+  <meta property="og:description" content="A sharp theorem about simplifying finite feedback systems, inspired by Hegel's account of reciprocal causation.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="/stylesheets/portfolio.css">
+  <link rel="stylesheet" href="/stylesheets/ai-science.css">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body class="science-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation"><div class="container nav-inner"><a href="/" class="nav-brand">Petri Mikael Autio</a><ul class="nav-links" id="navLinks"><li><a href="/index.html#work">Work</a></li><li><a href="/blog/">Writing</a></li><li><a href="/side-projects.html#independent-projects">Projects</a></li><li><a href="/ai-science/" aria-current="page">AI Science</a></li></ul><button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button></div></nav>
+<main id="main"><div class="science-wrap">
+<header class="science-intro">
+  <p><a href="/ai-science/">← AI Science Experiments</a></p>
+  <span class="science-kicker">Experiment 05 · Hegel-inspired mathematics</span>
+  <h1>Reciprocity without losing causality</h1>
+  <span class="research-state">Research preprint · version 1</span>
+  <p>When parts of a system affect each other, can we simplify each part and still describe what the whole can do? We found a sharp rule for a finite class of systems — and a small example in which simplification invents an equilibrium that the original system cannot occupy.</p>
+  <p class="science-note">7 November 2026 · Petri Mikael Autio · AI-assisted research and internal review. Priority and external mathematical review remain open.</p>
+  <div class="science-links"><a href="reciprocity-preprint.pdf">Read the preprint (PDF)</a><a href="research-source.zip" download>Download proofs, source and checks</a><a href="#hegel">Read the Hegelian inspiration</a></div>
+</header>
+
+<section class="science-section" aria-labelledby="hegel">
+  <h2 id="hegel">The question drawn from Hegel</h2>
+  <p>The project began with the <a href="https://autio.github.io/hegel-reader/#day-93">Hegel Reader's discussion of formal causality</a>. Its primary anchor is the end of Hegel's Doctrine of Essence. In <a href="https://www.marxists.org/reference/archive/hegel/works/sl/slactual.htm">the <em>Encyclopaedia</em>, §§154–156 and the Addition to §156</a>, cause and effect develop into reciprocal action. Hegel then asks for more: saying that two things cause each other still leaves the relation unexplained. The sides must be understood through the whole of which they are parts.</p>
+  <p>That suggested a testable question. If a higher-level description claims to express the unity of interacting parts, does it preserve their actual causal possibilities? Or has it made the parts appear to agree by concealing the distinctions through which their interaction occurs?</p>
+  <p>The mathematics below is our finite interpretation of that question. Its state spaces, interventions and uniqueness assumptions are explicit modelling choices. A feedback graph does not by itself express Hegel's Concept, and a fixed point is not a mathematical definition of freedom.</p>
+</section>
+
+<section class="science-section" aria-labelledby="example-title">
+  <h2 id="example-title">Two parts, nine states, one false equilibrium</h2>
+  <p>Each component has three states: 0, 1 and 2. A copies B. B responds to A by keeping 0 and swapping 1 with 2. Only <strong>(0, 0)</strong> satisfies both rules at once. Fixing either component externally also leaves exactly one solution.</p>
+  <p>Now report 0 as <strong>OFF</strong> and merge 1 and 2 into <strong>ON</strong>. Each simplified rule copies the other component. The simplified system therefore appears to allow both (OFF, OFF) and (ON, ON). The second has no fine equilibrium behind it.</p>
+  <div class="causal-demo" aria-labelledby="orbit-title">
+    <h3 id="orbit-title">An unchanging description can hide continuing change</h3>
+    <ol class="orbit-list" aria-label="Four-step synchronous cycle">
+      <li data-orbit="0" class="current" aria-current="step">(1, 1)</li><li data-orbit="1">(1, 2)</li><li data-orbit="2">(2, 2)</li><li data-orbit="3">(2, 1)</li>
+    </ol>
+    <p>The last state returns to the first. Every state in this cycle is described as <strong>(ON, ON)</strong>.</p>
+    <button type="button" id="next-step">Take one simultaneous step</button>
+    <p id="orbit-status" class="science-note" aria-live="polite">Fine state (1, 1). Coarse description (ON, ON).</p>
+    <p class="science-note">This displays one synchronous orbit. The theorem concerns simultaneous-equation solutions under interventions, not convergence of an update process.</p>
+  </div>
+
+  <div class="causal-demo" aria-labelledby="intervention-title">
+    <h3 id="intervention-title">Try an intervention or retain more detail</h3>
+    <p>A point intervention fixes a chosen component and replaces its equation. The other equation stays in force. Coarse clamps use the labels of the selected fine values.</p>
+    <div class="demo-controls">
+      <label>Fix A<select id="clamp-a"><option value="-1">Leave its equation</option><option value="0">A = 0</option><option value="1">A = 1</option><option value="2">A = 2</option></select></label>
+      <label>Fix B<select id="clamp-b"><option value="-1">Leave its equation</option><option value="0">B = 0</option><option value="1">B = 1</option><option value="2">B = 2</option></select></label>
+      <label>Representation<select id="retention"><option value="none">Simplify A and B</option><option value="a">Retain all of A</option><option value="b">Retain all of B</option><option value="both">Retain both fully</option></select></label>
+    </div>
+    <div id="solution-report" class="solution-report" aria-live="polite">
+      <p><strong>Fine equilibrium:</strong> (0, 0).</p>
+      <p><strong>Coarse equilibria:</strong> (OFF, OFF); (ON, ON).</p>
+      <p><strong>One coarse equilibrium has no fine lift.</strong> Local mechanism commutation holds, but the causal solution sets disagree.</p>
+    </div>
+    <p class="science-note">Retaining only one component exposes a distinction whose input still merges 1 and 2. Its mechanism then ceases to be well-defined through that interface. In this example both components must be retained for a descending repair.</p>
+    <noscript><p>JavaScript enables the controls. The default result is shown above; the same calculations are included in the downloadable Python checks.</p></noscript>
+  </div>
+  <p>Two three-state components are the smallest possible failure in the stated class with no self-dependence. All minimum two-component failures are this example up to relabelling. That classification is proved in the paper.</p>
+</section>
+
+<section class="science-section" aria-labelledby="theorem-title">
+  <h2 id="theorem-title">The sharp rule</h2>
+  <p>Assume that the fine system has exactly one solution after <em>every</em> point intervention, including no intervention. Assume also that each simplified rule agrees exactly with its fine rule through the component maps. Classify each component's map:</p>
+  <div class="science-table-wrap"><table class="science-table"><caption>Three kinds of representation</caption><thead><tr><th scope="col">Kind</th><th scope="col">Retained distinctions</th><th scope="col">Example</th></tr></thead><tbody><tr><th scope="row">Fully retained</th><td>Every fine distinction</td><td>0, 1, 2 → 0, 1, 2</td></tr><tr><th scope="row">Wholly erased</th><td>No distinction</td><td>0, 1, 2 → *</td></tr><tr><th scope="row">Partially simplified</th><td>Some retained, others merged</td><td>0, 1, 2 → OFF, ON, ON</td></tr></tbody></table></div>
+  <p class="science-summary"><strong>For fixed component maps and a loopless allowed dependency graph, every compatible simple fine system preserves its unique solutions under all matched point interventions if and only if there is no directed cycle entirely among the partially simplified components.</strong></p>
+  <p>The whole system may contain feedback cycles. A cycle of partial components means that the universal guarantee is unavailable; a particular installed system may still work. The graph condition transfers a fine solvability guarantee that must be established separately.</p>
+  <p>The proof starts from any proposed coarse solution, temporarily fixes the fully retained components, and uses fine simplicity to solve the rest. The partial components can then be evaluated in order because their graph is acyclic. Injectivity restores the temporarily replaced equations. Conversely, a partial cycle can hide one reversal around the loop, creating the obstruction.</p>
+</section>
+
+<section class="science-section" aria-labelledby="repair-title">
+  <h2 id="repair-title">A repair must retain the inputs its outputs need</h2>
+  <p>Keeping more output detail can require keeping more input detail. The second result makes that requirement exact for upgrades that either retain a whole component or leave its map unchanged.</p>
+  <p>Draw a hidden-input edge from B to A when A's full output distinguishes two B values that the old interface merges. The upgraded coordinates must include every hidden-input predecessor of every upgraded output. Repeating this requirement gives the complete set of forced upgrades.</p>
+  <p>A certified repair must both satisfy that closure and break every cycle among the remaining partial components. With nonnegative costs, the paper proves an exact minimum-cost formulation. It is an optimum for these certificates and whole-coordinate upgrades; intermediate partitions and all semantically valid abstractions are broader problems.</p>
+</section>
+
+<section class="science-section" aria-labelledby="evidence-title">
+  <h2 id="evidence-title">What has been checked</h2>
+  <div class="science-table-wrap"><table class="science-table"><caption>Exact finite searches supporting the proofs</caption><thead><tr><th scope="col">Family</th><th scope="col">Coverage</th><th scope="col">Result</th></tr></thead><tbody><tr><th scope="row">Two components</th><td>900 systems; every partition for sizes 1–3</td><td>5,206 simple descending pairs; 18 failures, all the minimum example up to relabelling</td></tr><tr><th scope="row">Three Boolean components</th><td>4,096 systems; eight identity/erasure interfaces each</td><td>2,928 simple descending pairs; all safe</td></tr><tr><th scope="row">Cycle construction</th><td>64 graphs × 27 representative interface assignments</td><td>A simple counterexample verified in all 135 cases with a partial cycle</td></tr><tr><th scope="row">Retention</th><td>23,276 full-coordinate upgrades</td><td>Direct factorization agrees exactly with hidden-predecessor closure</td></tr></tbody></table></div>
+  <p>Two separately written Python programs agree on all overlapping counts. They evaluate the actual equations before comparing the answers with the graph criteria. The Boolean search has no partial maps, so it tests the retained/erased cases. The cycle search checks constructed obstructions; it does not exhaust every three-component ternary system. The general result rests on the proofs.</p>
+  <div class="science-links"><a href="source/PRIOR-WORK.md">Prior-work audit</a><a href="source/PROOF-REVIEW.md">Independent internal proof review</a><a href="source/independent-check-results.json">Independent computational results</a><a href="source/SHA256SUMS">Source checksums</a></div>
+</section>
+
+<section class="science-section" aria-labelledby="novelty-title">
+  <h2 id="novelty-title">What may be new, and what is already known</h2>
+  <p>Cyclic causal abstraction and value merging already have a substantial literature, including <a href="https://jmlr.org/papers/v26/23-0058.html">Geiger and colleagues</a>. <a href="https://publications.info.uaic.ro/files/sacs/XXI2/XXI2_3.pdf">Steggles's work on finite networks</a> already recognizes that a coarse fixed point may represent hidden fine motion. Unique solvability and acyclic fixed-point arguments are also established.</p>
+  <p>The strongest candidate contribution is the exact universal classification by cycles of <em>partial</em> maps, together with the smallest-obstruction classification. We found no matching theorem in the targeted sources. That does not establish priority. The paper presents complete arguments and a reproducible record so that other researchers can assess the claim.</p>
+</section>
+
+<section class="science-section" aria-labelledby="language-title">
+  <h2 id="language-title">The promise for Hegelese</h2>
+  <p><a href="https://github.com/Mikael-Codes/hegelese">Hegelese</a> asks what a change of representation preserves, what it relinquishes, and what evidence supports those claims. This research suggests a further check when components interact: does a revision preserve causal solutions after feedback connections are made?</p>
+  <p>A future checker could combine local mechanism equations, separate evidence of fine simplicity and the partial-cycle test. If an upgrade fails, it could return the two input states that expose the missing distinction. If a partial cycle remains, it should report that the universal guarantee is unavailable, rather than declaring the actual system incorrect.</p>
+  <p>This is where the Hegelian inspiration becomes operational. The proposed description is tested against its own preservation claim. Its failure identifies what the claim overlooked, and a repair must account for that content. This is a research proposal for Hegelese; the present package does not change the language or its checker.</p>
+  <div class="science-links"><a href="https://github.com/Autio/hegelese/blob/research/reciprocal-causality/docs/reciprocal-causal-abstraction.md">Read the connection note proposed for Hegelese</a></div>
+  <p>The next question is how to certify an installed system when its partial graph has cycles, without enumerating all interventional equilibria. Another is how to optimize intermediate value partitions. Both remain open here.</p>
+  <p class="science-note">I directed this research. AI assistants developed arguments, code, literature comparisons and separate internal critiques. The checks support the proofs; they do not replace them, establish novelty, or constitute external peer review.</p>
+</section>
+</div></main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product, data, and public services.</div></div><ul class="footer-links"><li><a href="/ai-science/">AI Science Experiments</a></li><li><a href="https://github.com/Autio/autio.github.io">Website source</a></li><li><a href="/">Home</a></li></ul></div></footer>
+<script src="/ai-science/navigation.js" defer></script>
+<script src="model.js" defer></script>
+<script src="demo.js" defer></script>
+</body>
+</html>
