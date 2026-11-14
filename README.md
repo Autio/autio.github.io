@@ -1,6 +1,12 @@
 # Petri Autio
 A collection of my work:
 
+Page views are tracked with [GoatCounter](https://autio.goatcounter.com/). Include this script in new standalone HTML pages; the blog layout templates already include it:
+
+```html
+<script data-goatcounter="https://autio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+```
+
 ![Image of Hegel Wheel](https://github.com/Autio/autio.github.io/blob/master/images/thumbnail1.png)
 
 Interactive visualisation of the Science of Logic (1812-1816) by GWF Hegel
