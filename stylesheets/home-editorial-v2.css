@@ -280,3 +280,14 @@
   .editorial-variant .site-footer .footer-links { gap: 12px 20px; }
   .editorial-variant .home-contact .button-link { min-width: 0; }
 }
+
+/* Compact commercial proof, without presenting programme value as product revenue. */
+.editorial-variant .commercial-proof {
+  max-width: 72ch;
+  margin-top: 22px;
+  padding: 14px 0 14px 20px;
+  border-left: 3px solid #28786f;
+  color: #36535a;
+  line-height: 1.65;
+}
+.editorial-variant .commercial-proof strong { color: #172b32; }
