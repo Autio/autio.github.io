@@ -291,3 +291,11 @@
   line-height: 1.65;
 }
 .editorial-variant .commercial-proof strong { color: #172b32; }
+
+/* Shorter homepage: selected reading without an unnecessary side panel. */
+.editorial-variant .essay-list-compact { max-width: 850px; margin-bottom: 12px; }
+.editorial-variant .essay-list-compact > a { padding-block: 16px; }
+.editorial-variant .essay-list-compact h3 { margin-block: 4px 5px; }
+.editorial-variant .essay-list-compact p { max-width: 68ch; }
+.editorial-variant .work-more { margin: 36px 0 8px; max-width: 75ch; line-height: 1.7; }
+.editorial-variant .work-more a { font-weight: 600; }
