@@ -146,3 +146,46 @@
 @media (prefers-reduced-motion: reduce) {
   .editorial-variant * { scroll-behavior: auto; }
 }
+
+/* Second-pass editorial refinements */
+.editorial-variant .intro-grid { align-items: center; }
+.editorial-variant .intro-portrait { align-self: center; }
+.editorial-variant .intro-portrait img { aspect-ratio: 4 / 5; }
+.editorial-variant .product-lens a {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+  min-height: 44px;
+  border: 1px solid var(--editorial-line);
+  border-radius: 100px;
+  text-decoration: none;
+  background: #f2f5ef;
+  color: #23555a;
+  font-size: .85rem;
+  font-weight: 600;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.editorial-variant .product-lens a:hover { background: #e3eee8; border-color: #8aa9a2; }
+.editorial-variant .product-lens a:focus-visible { outline-offset: 3px; }
+.editorial-variant .work-feature { margin-bottom: 42px; padding-bottom: 12px; }
+.editorial-variant .work-feature h3 { max-width: 28ch; }
+.editorial-variant .evidence-note { font-size: .83rem; color: var(--editorial-muted); }
+.editorial-variant .practice-section { margin-top: 44px; padding-top: 38px; border-top: 1px solid var(--editorial-line); }
+.editorial-variant .practice-intro { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 35px; align-items: start; margin-bottom: 34px; }
+.editorial-variant .practice-intro h3 { font-size: clamp(1.8rem,3vw,2.6rem); letter-spacing: -.045em; line-height: 1.15; text-wrap: balance; }
+.editorial-variant .practice-intro p { max-width: 60ch; color: var(--editorial-muted); }
+.editorial-variant .practice-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.editorial-variant .practice-card { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 24px; border: 1px solid var(--editorial-line); background: #fff; }
+.editorial-variant .practice-card .case-number { margin-bottom: 2px; font-size: .76rem; }
+.editorial-variant .practice-card h4 { font-size: 1.22rem; color: var(--editorial-ink); line-height: 1.25; letter-spacing: -.025em; }
+.editorial-variant .practice-card p { font-size: .95rem; line-height: 1.65; color: var(--editorial-muted); }
+.editorial-variant .practice-card a { margin-top: auto; padding-top: 6px; font-weight: 600; color: var(--editorial-accent); }
+.editorial-variant .research-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(24px,5vw,60px); }
+.editorial-variant .site-footer { border-top: 1px solid var(--editorial-line); padding-block: 48px; }
+@media (max-width: 900px) { .editorial-variant .practice-grid { grid-template-columns: minmax(0,1fr); } .editorial-variant .practice-card { padding: 22px; } }
+@media (max-width: 768px) {
+  .editorial-variant .intro-portrait { align-self: start; }
+  .editorial-variant .intro-portrait img { aspect-ratio: 1; }
+  .editorial-variant .practice-intro, .editorial-variant .research-grid { grid-template-columns: minmax(0,1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .editorial-variant .product-lens a { transition: none; } }
