@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Independent AI work | Petri Mikael Autio</title>
+  <meta name="description" content="Petri Autio’s independent AI work, led by UpBeam Science: a research reflection network spanning approximately 10,000 scientific articles.">
+  <meta name="author" content="Petri Mikael Autio">
+  <meta property="og:title" content="Independent AI work | Petri Mikael Autio">
+  <meta property="og:description" content="UpBeam Science and independent experiments in AI-assisted research and programming.">
+  <meta property="og:image" content="https://autio.github.io/images/petri-autio.jpg">
+  <link rel="canonical" href="https://autio.github.io/ai-work.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://autio.github.io/ai-work.html">
+  <link rel="stylesheet" href="stylesheets/portfolio.css?v=20260911d">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Petri Mikael Autio",
+    "jobTitle": "Head of Product, mWater and Solstice",
+    "description": "Product leader who has led development of mWater and Solstice since 2018.",
+    "url": "https://autio.github.io",
+    "sameAs": ["https://linkedin.com/in/petriautio", "https://github.com/Autio"],
+    "worksFor": {"@type": "Organization", "name": "mWater", "url": "https://mwater.co"},
+    "knowsAbout": ["WASH", "SDG 6", "Product Management", "Data Management", "GIS", "AI Strategy", "Responsible AI", "AI-assisted Programming", "Formal Verification"]
+  }
+  </script>
+  <link rel="stylesheet" href="stylesheets/home.css?v=20261117a">
+  <link rel="stylesheet" href="stylesheets/home-editorial-v2.css">
+  <script data-goatcounter="https://autio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body class="personal-home editorial-variant">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" id="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">Petri Mikael Autio</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#work">Work</a></li><li><a href="blog/">Writing</a></li><li><a href="side-projects.html#independent-projects">Projects</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<main id="main">
+  <header class="home-intro ai-work-intro"><div class="container"><p class="eyebrow">Independent work</p><h1>AI research and development</h1><p class="intro-text">AI is a sustained personal interest as well as part of my product work. I learn by building: applying it to scientific literature, testing mathematical ideas, and examining how we can check the behaviour of AI-generated software.</p><p><a href="index.html">← Back to my product and leadership work</a></p></div></header>
+  <section class="home-section" id="upbeam-science"><div class="container ai-work-content"><div class="home-section-heading"><span class="eyebrow">Featured project</span><h2>UpBeam Science</h2><p class="intro-text">A research reflection network spanning approximately 10,000 scientific articles.</p></div><p>UpBeam Science is my main independent AI project. It explores how ideas across scientific literature connect, bringing individual articles into a wider network for research and reflection.</p><p>The project brings together my interests in software, scientific inquiry and the practical uses of AI. It gives me a sustained setting in which to explore what these tools make possible and where careful judgment is still needed.</p><p><a href="index.html#contact">Get in touch about UpBeam Science →</a></p></div></section>
+  <section class="home-section home-reading"><div class="container"><div class="home-section-heading"><span class="eyebrow">Further experiments</span><h2>Questions I explore by building</h2></div><div class="work-examples">
+    <article class="work-example"><span class="case-number">AI Science</span><h3>AI-assisted mathematical research</h3><p>An experiment in faster exact network checks, with an interactive comparison against an exact reference method and inspectable arguments and code.</p><p>These are preliminary research results; novelty and independent review remain open.</p><a href="ai-science/">Explore AI Science →</a></article>
+    <article class="work-example" id="hegelese"><span class="case-number">Hegelese</span><h3>Checking changes proposed by AI</h3><p>An experimental functional language and finite-process checker exploring semantic drift in AI-assisted programming. It checks whether a proposed rewrite preserves explicitly stated behaviours and can return a counterexample when a preservation claim fails.</p><p>This is a narrow, executable check, with clear limits on what it can establish.</p><a href="https://github.com/Autio/hegelese">Code and runnable examples ↗</a><p><a href="ai-science/hegelese-reconstruction/">Associated research →</a></p></article>
+  </div></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product strategy, data, AI, and public services.</div></div><ul class="footer-links"><li><a href="blog/">Writing</a></li><li><a href="talks.html">Talks</a></li><li><a href="experience.html">Experience</a></li><li><a href="https://github.com/Autio">GitHub</a></li><li><a href="index.html#contact">Contact</a></li></ul></div></footer>
+<script>
+const nav = document.getElementById('nav'), navToggle = document.getElementById('navToggle'), navLinks = document.getElementById('navLinks');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive: true });
+function closeNav() { navLinks.classList.remove('active'); navToggle.setAttribute('aria-expanded', 'false'); }
+navToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('active'); navToggle.setAttribute('aria-expanded', String(open)); });
+document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', closeNav));
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && navLinks.classList.contains('active')) { closeNav(); navToggle.focus(); } });
+</script>
+</body>
+</html>
