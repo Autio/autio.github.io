@@ -1,0 +1,35 @@
+[
+  {
+    "job": {
+      "opening": [],
+      "target": 0,
+      "depth": 13,
+      "budget": 30000000
+    },
+    "answer": false,
+    "nodes": 7290368,
+    "seconds": 4.757
+  },
+  {
+    "job": {
+      "opening": [],
+      "target": 1,
+      "depth": 14,
+      "budget": 30000000
+    },
+    "answer": false,
+    "nodes": 5108379,
+    "seconds": 3.764
+  },
+  {
+    "job": {
+      "opening": [],
+      "target": 0,
+      "depth": 15,
+      "budget": 30000000
+    },
+    "answer": null,
+    "nodes": 30000001,
+    "seconds": 33.651
+  }
+]

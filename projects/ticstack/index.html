@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TicStack — Petri Mikael Autio</title>
+  <meta name="description" content="Play TicStack, a small four-in-a-row strategy game with stackable pieces and a one-turn rest rule. A browser experiment in tactics, timing and commitment.">
+  <link rel="canonical" href="https://autio.github.io/projects/ticstack/">
+  <meta property="og:title" content="TicStack — a small stacking strategy game">
+  <meta property="og:description" content="Four in a row, four pieces high. Play against a computer or a friend, then explore the rules and depth testing.">
+  <meta property="og:image" content="https://autio.github.io/projects/ticstack/assets/preview.png">
+  <meta property="og:url" content="https://autio.github.io/projects/ticstack/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="../../stylesheets/portfolio.css">
+  <link rel="stylesheet" href="page.css">
+  <script src="page.js" defer></script>
+  <script data-goatcounter="https://autio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<a class="skip-game" href="#play">Skip to game</a>
+<nav class="site-nav" id="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand">Petri Mikael Autio</a>
+    <ul class="nav-links" id="navLinks"><li><a href="../../index.html#work">Work</a></li><li><a href="../../blog/">Writing</a></li><li><a href="../../talks.html">Talks</a></li><li><a href="../../side-projects.html#independent-projects">Projects</a></li><li><a href="../../index.html#about">About</a></li><li><a href="../../index.html#contact">Contact</a></li></ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<main>
+  <section class="play-area" aria-labelledby="game-title">
+    <div class="game-intro">
+      <h1 id="game-title">TicStack</h1>
+      <p>A small game about stacking, timing, and four in a row.</p>
+    </div>
+    <div class="game-stage">
+      <iframe id="play" src="game.html" title="Play TicStack: a four-by-four stacking strategy game" width="640" height="680" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="play-links"><a href="game.html">Open game on its own ↗</a><a href="#about-game">About the game ↓</a></div>
+  </section>
+
+  <article class="game-notes" id="about-game" aria-labelledby="about-title">
+    <section>
+      <span class="section-label">A small experiment</span>
+      <h2 id="about-title">A familiar goal, a few extra decisions</h2>
+      <p>TicStack starts with noughts and crosses and adds a little room to manoeuvre. The board is four by four, pieces can stack up to four high, and only the visible top colours count. Four matching tops in a row, column, or either main diagonal wins.</p>
+      <p>The cell just played rests for one opponent turn: you cannot immediately cover the newest piece. If it is the only cell with room, you may use it. There is no passing or moving pieces. A full board without a winning line is a draw.</p>
+      <p>The computer plays by default. The cogwheel has a baby robot for the original opponent, a robot for the stronger version, and a two-person option for local play. It also holds three visual and sound styles and an optional Facepalm mode that reacts to exceptional moves and serious blunders. Sound starts off.</p>
+    </section>
+
+    <section aria-labelledby="timing-title">
+      <h2 id="timing-title">Timing and commitment</h2>
+      <p>A shallow stack can change hands. A full stack fixes its top colour for the rest of the round. That creates a choice between developing new threats, covering an opponent’s piece, and securing something you already hold.</p>
+      <p>The resting rule gives a newly placed top one turn of protection. Building a permanent anchor can be useful, but spending four turns on the same cell can also give your opponent time to win elsewhere. Leaving a stack three high carries its own risk: the other player may get the final layer.</p>
+    </section>
+
+    <section aria-labelledby="depth-title">
+      <h2 id="depth-title">What do we know about the depth?</h2>
+      <p>There are more decisions to work through than in ordinary tic-tac-toe, but the full game has not been solved. I used AI-assisted simulations and experimental exact-search programs to test obvious routines and look for short forced wins.</p>
+      <dl class="findings">
+        <div><dt>Completed searches</dt><dd>From the empty board, the experimental solver found no first-player strategy that forces a finished win by total placement 19, and no second-player strategy that forces one by total placement 20.</dd></div>
+        <div><dt>Independent cross-check</dt><dd>A separate search implementation, sharing the rules engine, agreed through placement 15 for the first player and 14 for the second. It did not independently certify the longer bounds.</dd></div>
+        <div><dt>Still open</dt><dd>The first-player probe through placement 21 exhausted a 100-million-node budget. The perfect-play outcome, first-player advantage, and possibility of a longer simple winning strategy remain unknown.</dd></div>
+      </dl>
+      <p>Those bounds concern <em>finishing</em> a forced win. They do not rule out reaching a winning position earlier and converting it later. They also do not mean a game cannot end quickly after a mistake. This is experimental search evidence, not a formal proof-assistant result or a measurement of how much people will enjoy the game.</p>
+      <p>Every move adds a piece, so play ends within 64 placements. That makes this a finite game of perfect information: an optimal strategy exists and the game is solvable in principle. Finding that strategy is a different matter; these tests have not done so.</p>
+      <h3>Beating the computer is a different question</h3>
+      <p>A playtester found that repeatedly building a central stack troubled the original AI. Scripted follow-up tests reproduced the weakness: one covering policy won 13 games, drew one, and lost two in a 16-game sample. The stronger opponent finds a direct counter: if the player insists on completing that stack, it can finish a line elsewhere on placement eight.</p>
+      <p>That finding improved the opponent; it did not solve the game. Both robots use bounded search and can still make mistakes. Finding a reliable way to beat them is useful feedback about the AI, rather than a proof of a winning strategy against every possible defence.</p>
+      <p class="resource-links"><a href="research/">Read the test notes and inspect the results →</a><a href="research/ticstack-search-evidence.zip" download>Download the search code and records</a></p>
+    </section>
+
+    <section aria-labelledby="comparison-title">
+      <h2 id="comparison-title">An informal comparison</h2>
+      <p>This is my working design assessment, not a player-study result. TicStack’s proposed gain is more planning and tactical variety while retaining fairly simple rules. The GTA VI overlay is a deliberately loose, series-informed projection; it is not a review.</p>
+      <figure class="comparison-figure">
+        <a href="assets/comparison.svg" aria-label="Open the full-size spider chart comparing Tic-Tac-Toe, TicStack and a speculative GTA VI profile"><img src="assets/comparison.svg" width="1000" height="1000" alt="Spider chart. Tic-Tac-Toe scores highest for ease and speed; TicStack is rated higher for planning, tactics, comeback potential and replay value. GTA VI is shown as a speculative cross-genre comparison." loading="lazy" decoding="async"></a>
+        <figcaption>Subjective scores out of 10. Higher means more of the named quality, not necessarily a better game. These axes omit narrative, exploration, and audiovisual craft; polygon area is not an overall score. <a href="assets/comparison.svg">Open full-size chart ↗</a></figcaption>
+      </figure>
+      <table class="comparison-table">
+        <caption>Chart values, on a subjective 0–10 scale</caption>
+        <thead><tr><th scope="col">Dimension</th><th scope="col">Tic-Tac-Toe</th><th scope="col">TicStack</th><th scope="col">GTA VI*</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Planning depth</th><td>2</td><td>6</td><td>5</td></tr>
+          <tr><th scope="row">Tactical variety</th><td>3</td><td>7</td><td>8</td></tr>
+          <tr><th scope="row">Comeback potential</th><td>2</td><td>7</td><td>6</td></tr>
+          <tr><th scope="row">Replay value</th><td>2</td><td>7</td><td>9</td></tr>
+          <tr><th scope="row">Ease of learning</th><td>10</td><td>8</td><td>6</td></tr>
+          <tr><th scope="row">Speed of play</th><td>10</td><td>6</td><td>2</td></tr>
+        </tbody>
+      </table>
+      <p class="chart-note">*Speculative projection. “Speed” means a short, complete play cycle; rounds and missions do not provide an identical unit across genres. Comeback potential and replay value still need human playtesting. <a href="assets/ratings.csv" download>Download the values</a> · <a href="assets/comparison-notes.md">Assumptions</a></p>
+    </section>
+
+    <section aria-labelledby="take-title">
+      <h2 id="take-title">Take it for a spin</h2>
+      <p>The interesting test is whether it stays enjoyable once the first few tricks become familiar. Try both sides with a friend, or see what the robots overlook.</p>
+      <p class="resource-links"><a href="#play">Back to the board ↑</a><a href="game.html" download="ticstack.html">Download the single-file game</a></p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand">Petri Mikael Autio</div><div class="footer-tagline">Product, data, and public services.</div></div><ul class="footer-links"><li><a href="../../side-projects.html#independent-projects">All projects</a></li><li><a href="https://github.com/Autio/autio.github.io/tree/master/projects/ticstack">Source</a></li><li><a href="/">Home</a></li></ul></div></footer>
+</body>
+</html>

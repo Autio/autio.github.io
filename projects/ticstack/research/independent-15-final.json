@@ -1,0 +1,12 @@
+{
+  "job": {
+    "opening": [],
+    "target": 0,
+    "depth": 15,
+    "budget": 100000000
+  },
+  "answer": false,
+  "nodes": 16388450,
+  "seconds": 16.738,
+  "method": "Separate unpruned AND/OR implementation; only root D4 opening classes merged"
+}

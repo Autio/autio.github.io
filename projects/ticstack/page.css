@@ -1,0 +1,47 @@
+html{scroll-padding-block-start:80px}
+body{overflow-x:visible}
+a{color:var(--blue-700);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,iframe:focus-visible{outline:2px solid var(--blue-700);outline-offset:4px}
+.skip-game{position:absolute;left:1rem;top:-5rem;z-index:1100;background:var(--white);padding:.75rem 1rem}
+.skip-game:focus{top:.5rem}
+.play-area{min-block-size:100dvh;padding:92px 20px 32px;background:var(--gray-50)}
+.game-intro{max-inline-size:640px;margin:0 auto 18px}
+.game-intro h1{font-size:clamp(1.75rem,1.4rem + 1.2vw,2.25rem);line-height:1.15;color:var(--blue-900);letter-spacing:-.035em;margin-block-end:8px}
+.game-intro p{font-size:1rem;line-height:1.55;color:var(--gray-700)}
+.game-stage{max-inline-size:640px;margin-inline:auto;background:#343b39;border-radius:6px;overflow:hidden}
+.game-stage iframe{display:block;inline-size:100%;block-size:680px;border:0}
+.play-links{max-inline-size:640px;margin:14px auto 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-size:.8125rem;line-height:1.6}
+.game-notes{max-inline-size:800px;margin-inline:auto;padding:64px 24px 72px;overflow-wrap:break-word}
+.game-notes section{margin-block-end:52px;scroll-margin-top:90px}
+.game-notes h2{font-size:clamp(1.4rem,1.1rem + .9vw,1.8rem);font-weight:700;line-height:1.25;color:var(--blue-900);letter-spacing:-.025em;margin-block-end:20px}
+.game-notes h3{font-size:1.125rem;line-height:1.4;color:var(--blue-900);margin-block:30px 14px}
+.game-notes p{font-size:1rem;line-height:1.8;margin-block-end:18px;color:var(--gray-700)}
+.game-notes .section-label{margin-block-end:12px}
+.findings{border-block:1px solid var(--gray-300);margin-block:28px}
+.findings>div{display:grid;grid-template-columns:155px minmax(0,1fr);gap:20px;padding-block:20px}
+.findings>div+div{border-block-start:1px solid var(--gray-200)}
+.findings dt{font-weight:600;font-size:.875rem;color:var(--blue-900)}
+.findings dd{font-size:.9375rem;line-height:1.75;color:var(--gray-700)}
+.game-notes .resource-links{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:.875rem}
+.comparison-figure{margin-block:24px}
+.comparison-figure img{display:block;inline-size:100%;block-size:auto;aspect-ratio:1}
+.comparison-figure figcaption{font-size:.8125rem;line-height:1.7;color:var(--gray-700);margin-block-start:14px}
+.comparison-table{inline-size:100%;border-collapse:collapse;table-layout:fixed;margin-block:24px}
+.comparison-table caption{text-align:start;font-size:.875rem;font-weight:600;margin-block-end:12px;color:var(--blue-900)}
+.comparison-table th,.comparison-table td{text-align:center;font-size:.875rem;padding:12px 6px;border-block-end:1px solid var(--gray-200);overflow-wrap:normal}
+.comparison-table th:first-child{inline-size:40%;text-align:start}
+.comparison-table th{font-weight:600;color:var(--blue-900)}
+.game-notes .chart-note{font-size:.8125rem;line-height:1.75}
+.site-footer{padding-block:36px}
+@media(max-width:550px){.play-area{padding:88px 12px 28px}.game-intro{padding-inline:4px}.game-notes{padding:44px 20px 40px}.findings>div{grid-template-columns:1fr;gap:8px}.comparison-table th,.comparison-table td{font-size:.75rem;padding:10px 3px}.comparison-table th:first-child{inline-size:37%}.nav-brand{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.nav-links a,.site-nav{transition:none}}
+.game-notes h1{font-size:clamp(1.75rem,1.4rem + 1vw,2.25rem);line-height:1.2;color:var(--blue-900);margin-block:24px}
+.game-notes ul{padding-inline-start:22px;line-height:1.8}.game-notes li{margin-block-end:12px}
+/* Let enlarged text reflow the navigation and chart labels without clipping. */
+html{scroll-padding-block-start:calc(var(--nav-height,64px) + 16px)}
+.nav-inner{gap:16px;min-block-size:64px;height:auto;padding-block:12px}
+.nav-brand{min-inline-size:0;overflow-wrap:anywhere}.nav-toggle{flex-shrink:0}
+.play-area{padding-block-start:calc(var(--nav-height,64px) + 28px)}
+.footer-links{flex-wrap:wrap;justify-content:center}
+.comparison-table th{overflow-wrap:anywhere}
+@media(max-width:768px){.nav-links{top:100%}}
