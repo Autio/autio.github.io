@@ -122,3 +122,14 @@
 .ai-work-intro h1 { font-size: clamp(2rem, 4vw, 3.3rem); margin-bottom: 24px; }
 .ai-work-intro .intro-text, .ai-work-content { max-width: 780px; }
 .ai-work-content p + p { margin-top: 18px; }
+
+/* Product wordmarks accompany the case studies without competing with the copy. */
+.editorial-variant .branded-work { display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, 280px); gap: 40px; align-items: center; }
+.branded-work-copy { min-width: 0; }
+.branded-work-copy > a { color: #185d76; font-weight: 600; }
+.work-brand { display: flex; align-items: center; justify-content: center; padding: 28px 20px; background: #fff; border-radius: 3px; }
+.work-brand img { display: block; width: 100%; height: auto; object-fit: contain; }
+@media (max-width: 760px) {
+  .editorial-variant .branded-work { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .work-brand { grid-row: 1; justify-self: start; width: min(220px, 100%); box-sizing: border-box; padding: 20px; }
+}
