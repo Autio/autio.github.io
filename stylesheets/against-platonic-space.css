@@ -173,23 +173,41 @@
 .xenobot-return { stroke-dasharray: 3 5; }
 .xenobot-arrowhead { stroke-linecap: round; stroke-linejoin: round; }
 
-.bridge-switch {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: fit-content;
-  font-size: 0.8rem;
-  font-weight: 500;
+.bridge-build {
+  min-height: 34px;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid #a0bcb5;
+  border-radius: 4px;
+  background: #f2f7f5;
+  color: #326961;
+  font: 500 0.8rem var(--font);
   cursor: pointer;
 }
 
-.bridge-switch input { accent-color: #397d77; }
+.bridge-build:hover { background: #e6efeb; }
 
-.bridge-plan { fill: none; stroke: #a0bcb5; stroke-width: 1.2; stroke-dasharray: 4 5; }
-.bridge-built[hidden], .bridge-load-arrow[hidden] { display: none; }
-.bridge-supports { fill: #e6efeb; stroke: #52726e; stroke-width: 1.15; stroke-linejoin: round; }
-.bridge-beam { fill: none; stroke: #397d77; stroke-width: 4; stroke-linecap: round; }
-.bridge-load-arrow { fill: none; stroke: #a36b46; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.bridge-built {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 250ms, visibility 0s 250ms;
+}
+.bridge[data-built] .bridge-built {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 250ms;
+}
+.bridge[data-built] .bridge-plan { opacity: 0.7; }
+.bridge-supports, .bridge-bearings {
+  fill: #e6efeb;
+  stroke: #52726e;
+  stroke-width: 1.15;
+  stroke-linejoin: round;
+}
+.bridge-bearings { fill: #8aa9a3; }
+.bridge-beam { fill: #c0dcd4; stroke: #397d77; stroke-width: 1.5; stroke-linejoin: round; }
+.bridge-load-arrow { fill: none; stroke: #a36b46; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.bridge-load-arrow[hidden] { display: none; }
+.bridge-controls[hidden] { display: none; }
 
 .salamander-leg {
   fill: none;
@@ -236,10 +254,9 @@
 }
 
 .salamander-controls button:hover { color: #397d77; text-decoration: underline; }
-.bridge-switch { min-height: 32px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .salamander-leg, .salamander-toes, .salamander-root { transition: none; }
+  .salamander-leg, .salamander-toes, .salamander-root, .bridge-built { transition: none; }
 }
 
 @media (max-width: 520px) {
