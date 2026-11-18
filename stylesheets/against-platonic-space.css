@@ -191,12 +191,12 @@
   opacity: 0;
   transition: opacity 250ms, visibility 0s 250ms;
 }
-.bridge[data-built] .bridge-built {
+.bridge:not([data-state="plan"]) .bridge-built {
   visibility: visible;
   opacity: 1;
   transition: opacity 250ms;
 }
-.bridge[data-built] .bridge-plan { opacity: 0.7; }
+.bridge:not([data-state="plan"]) .bridge-plan { opacity: 0.7; }
 .bridge-supports, .bridge-bearings {
   fill: #e6efeb;
   stroke: #52726e;
@@ -204,9 +204,27 @@
   stroke-linejoin: round;
 }
 .bridge-bearings { fill: #8aa9a3; }
-.bridge-beam { fill: #c0dcd4; stroke: #397d77; stroke-width: 1.5; stroke-linejoin: round; }
+.bridge-beam {
+  fill: #c0dcd4;
+  stroke: #397d77;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  transform-origin: 133px 126px;
+}
+.bridge-pivot { fill: var(--white); stroke: #52726e; stroke-width: 1.2; }
 .bridge-load-arrow { fill: none; stroke: #a36b46; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.bridge-load-arrow[hidden] { display: none; }
+.bridge-withdrawable, .bridge-beam, .bridge-load-arrow { transition: transform 410ms ease-in, opacity 280ms; }
+.bridge[data-state="unsupported"] .bridge-withdrawable { transform: translateY(50px); opacity: 0; }
+.bridge[data-state="unsupported"] .bridge-beam { transform: rotate(13deg); }
+.bridge[data-state="unsupported"] .bridge-load-arrow { transform: translateY(43px); }
+.bridge-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1rem;
+  padding: 0 1.25rem 0.9rem;
+}
+.bridge-note { color: var(--gray-700); font-size: 0.8rem; }
 .bridge-controls[hidden] { display: none; }
 
 .salamander-leg {
@@ -234,7 +252,7 @@
 .salamander-limb.is-missing .salamander-leg { opacity: 0; stroke-dashoffset: 1; transition: none; }
 .salamander-limb.is-missing .salamander-toes { opacity: 0; transition: none; }
 
-.salamander-controls, .bridge-controls {
+.salamander-controls {
   display: grid;
   grid-template-columns: minmax(0, 15rem) auto;
   justify-content: space-between;
@@ -257,6 +275,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .salamander-leg, .salamander-toes, .salamander-root, .bridge-built { transition: none; }
+  .bridge-withdrawable, .bridge-beam, .bridge-load-arrow { transition: none; }
 }
 
 @media (max-width: 520px) {

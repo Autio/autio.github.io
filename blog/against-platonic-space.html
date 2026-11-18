@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://autio.github.io/blog/against-platonic-space.html">
   <link rel="stylesheet" href="../stylesheets/portfolio.css">
   <link rel="stylesheet" href="../stylesheets/blog.css">
-  <link rel="stylesheet" href="../stylesheets/against-platonic-space.css?v=bridge-plan">
+  <link rel="stylesheet" href="../stylesheets/against-platonic-space.css?v=bridge-support">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,7 +33,7 @@
   <script src="../javascripts/whirlpool.js" defer></script>
   <script src="../javascripts/xenobots.js" defer></script>
   <script src="../javascripts/salamander.js" defer></script>
-  <script src="../javascripts/bridge.js?v=bridge-plan" defer></script>
+  <script src="../javascripts/bridge.js?v=bridge-support" defer></script>
 </head>
 <body>
   <nav class="site-nav scrolled" aria-label="Main">
@@ -101,13 +101,14 @@
 
     <p>Mathematical form can be understood without pointing to one particular empirical instance. That independence of a particular instance does not make the form a self-sufficient being, nor reduce its necessity to the physical circumstances in which we encounter it. An unbuilt bridge can be mathematically described; the possible structure has objective determinations. But those determinations do not assemble steel, and the steel does not manufacture mathematical necessity. In an actual bridge, the mathematical relations become determinations of a structure whose materials, loads and construction conditions give them a particular existence. We must understand this determinate unity of form and actuality without assigning either a separate residence and subsequently inventing a passage between them. Levin's two addresses turn a distinction within intelligibility into a transaction between supposed occupants.</p>
 
-    <figure class="bridge" aria-labelledby="bridge-question">
-      <figcaption id="bridge-question">When can a span carry weight?</figcaption>
+    <figure class="bridge" aria-labelledby="bridge-question" data-state="plan">
+      <figcaption id="bridge-question">What carries the weight?</figcaption>
       <svg class="bridge-view" viewBox="0 0 640 255" role="img" aria-labelledby="bridge-title" aria-describedby="bridge-desc">
-        <title id="bridge-title">Bridge drawing and loaded structure</title>
-        <desc id="bridge-desc">A dashed drawing shows the deck and two piers before construction. Build the bridge to give it a solid deck and supports. Increase the load to see the deck bend while the dashed drawing stays fixed.</desc>
+        <title id="bridge-title">A fixed bridge plan with a removable support</title>
+        <desc id="bridge-desc">A dashed elevation shows a deck and two piers. Build a span carrying a weight, then withdraw the right pier. The deck tips about the remaining bearing as the dashed plan stays in place.</desc>
         <defs>
-          <path id="bridge-piers" d="M115 130h36l-5 8v48l10 12v7h-46v-7l10-12v-48zM489 130h36l-5 8v48l10 12v7h-46v-7l10-12v-48z"/>
+          <path id="bridge-pier" d="M115 130h36l-5 8v48l10 12v7h-46v-7l10-12v-48z"/>
+          <path id="bridge-bearing" d="M127 126h12v4h-12z"/>
         </defs>
         <g fill="none" stroke="#a1b4b2">
           <path d="M133 61H507m-380-6 12 12m362-12 12 12m-380 4v35m374-35v35"/>
@@ -115,28 +116,27 @@
         </g>
         <g class="bridge-plan" fill="none" stroke="#5d7f7b" stroke-width="1.55" stroke-dasharray="5 4" stroke-linejoin="round">
           <path d="M103 112h434v14H103z"/>
-          <use href="#bridge-piers"/>
-          <path d="M127 126h12v4h-12zm374 0h12v4h-12z"/>
+          <use href="#bridge-pier"/>
+          <use href="#bridge-pier" x="374"/>
+          <use href="#bridge-bearing"/>
+          <use href="#bridge-bearing" x="374"/>
         </g>
         <g class="bridge-built" visibility="hidden">
-          <use class="bridge-supports" href="#bridge-piers"/>
-          <path class="bridge-bearings" d="M127 126h12v4h-12zm374 0h12v4h-12z"/>
-          <path class="bridge-beam"/>
-          <path class="bridge-load-arrow" hidden/>
+          <use class="bridge-supports" href="#bridge-pier"/>
+          <use class="bridge-bearings" href="#bridge-bearing"/>
+          <g class="bridge-withdrawable">
+            <use class="bridge-supports" href="#bridge-pier" x="374"/>
+            <use class="bridge-bearings" href="#bridge-bearing" x="374"/>
+          </g>
+          <path class="bridge-beam" d="M103 109L133 112Q320 124 507 112L537 109v14l-30 3Q320 138 133 126l-30-3z"/>
+          <circle class="bridge-pivot" cx="133" cy="126" r="3.5"/>
+          <path class="bridge-load-arrow" d="M320 80v31m-5-6 5 6 5-6"/>
         </g>
       </svg>
       <div class="bridge-controls" hidden>
-        <div class="vortex-slider">
-          <label for="bridge-load">Load</label>
-          <input type="range" id="bridge-load" min="0" max="100" value="0" disabled>
-        </div>
         <button class="bridge-build" type="button">Build bridge</button>
+        <span class="bridge-note" role="status"></span>
       </div>
-    </figure>
-
-    <figure class="essay-photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Magicicada_species.jpg" alt="A red-eyed periodical cicada resting on foliage" width="1416" height="1062" loading="lazy" decoding="async">
-      <figcaption>Seventeen-year periodical cicada (Magicicada), Brood XIII. Photograph: Bruce Marlin (2007), <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Source: <a href="https://commons.wikimedia.org/wiki/File:Magicicada_species.jpg">Wikimedia Commons</a></figcaption>
     </figure>
 
     <h2 id="when-mathematics-becomes-causal">When mathematics becomes causal</h2>
@@ -144,6 +144,11 @@
     <p>Once mathematics has been assigned a distinct domain, Levin asks that it do explanatory work: “if they were different, facts in the physical world would be different.” It is an argument from mathematical constraint and counterfactual dependence to a distinct kind of causation. Its force deserves examination, since the leap from formal necessity to independent cause supports the rest of the architecture. [1]</p>
 
     <p>In his example, a different distribution of primes would have altered the familiar 13- and 17-year cycles of periodical cicadas. This is a serious point about explanatory relevance. The mathematics helps specify which periodicities could reduce encounters with predators or competing cycles. Levin also argues that mathematical relations can enable biological capacities, rather than merely constrain them. We should grant both claims without smuggling in the conclusion about an independent causal realm.</p>
+
+    <figure class="essay-photo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Magicicada_species.jpg" alt="A red-eyed periodical cicada resting on foliage" width="1416" height="1062" loading="lazy" decoding="async">
+      <figcaption>Seventeen-year periodical cicada (Magicicada), Brood XIII. Photograph: Bruce Marlin (2007), <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Source: <a href="https://commons.wikimedia.org/wiki/File:Magicicada_species.jpg">Wikimedia Commons</a></figcaption>
+    </figure>
 
     <p>The counterfactual concerning primes is not an ordinary intervention of the sort contemplated in <a href="https://archive.illc.uva.nl/cil/uploaded_files/inlineitem/Pearl_2009_Causality.pdf">Pearl's causal modelling</a>. Levin himself acknowledges that nothing physical can change their distribution, while his engineer's notion of cause appeals to what one can “intervene on, understand, and exploit”. His additional criterion treats the most illuminating reason for research as causal. Such explanatory relevance is genuine, but depends partly on the question the investigator asks. It does not establish an additional causal agent. Levin recognizes that the term 'cause' may need revision and defers a fuller account to another paper. The inferential burden remains: what turns the mathematical determination of possible periodicities into an input from a separately constituted domain? [1; 2, §1, second lettered list (c); 4]</p>
 
@@ -181,10 +186,6 @@
     <blockquote class="pull-quote">“Are the patterns unchanging and eternal? I don’t commit to that.” — Michael Levin, A Short Argument on Platonic Space</blockquote>
 
     <p>Levin's strongest reply distinguishes the kind from its occurrence. The closing discussion of Ingressing Minds suggests that a kind of mind may be available beforehand, while an individual instance emerges and is moulded by embodied experience. But a universal kind does not act as an individual, nor is the individual a merely accidental container for an already complete universal. The living particular gives the universal determinate actuality, and in turn its activity is intelligible through the kind of whole it constitutes. What must be explained is this becoming-individual, not a pre-existing mind selecting a temporary scratchpad. [2, Fig. 10C, §7.3]</p>
-
-    <p>The static and the mutable must be kept apart. The value of e raises the question whether mathematical necessity entails an independently existing cause. A developing mind raises another: what individuates a pattern through changes that partly constitute it? We gain nothing by forcing both cases into a single refutation.</p>
-
-    <p>One might insist that the general kind remains independently real and the individual merely instantiates it. But instantiation is exactly the relation requiring explanation. An abstract type cannot determine which individual exists, what it does or how it changes merely by remaining abstract. The organism's self-maintenance, differentiation of parts and environment, and capacity to transform its own conditions are determinations of the agent itself. Where Levin gives the pattern priority over its embodied 'scratchpad', he mistakes a moment abstracted from the living whole for that whole's source.</p>
 
     <figure class="salamander" aria-labelledby="salamander-question" hidden>
       <figcaption id="salamander-question">Where will the limb grow back?</figcaption>
@@ -225,6 +226,10 @@
         <button type="button" data-limb-action>Remove limb</button>
       </div>
     </figure>
+
+    <p>The static and the mutable must be kept apart. The value of e raises the question whether mathematical necessity entails an independently existing cause. A developing mind raises another: what individuates a pattern through changes that partly constitute it? We gain nothing by forcing both cases into a single refutation.</p>
+
+    <p>One might insist that the general kind remains independently real and the individual merely instantiates it. But instantiation is exactly the relation requiring explanation. An abstract type cannot determine which individual exists, what it does or how it changes merely by remaining abstract. The organism's self-maintenance, differentiation of parts and environment, and capacity to transform its own conditions are determinations of the agent itself. Where Levin gives the pattern priority over its embodied 'scratchpad', he mistakes a moment abstracted from the living whole for that whole's source.</p>
 
     <h2 id="can-the-research-programme-save-the-metaphysics">Can the research programme save the metaphysics?</h2>
 
