@@ -2,30 +2,28 @@
   const figure = document.querySelector('.salamander');
   if (!figure) return;
 
-  const limbs = Array.from(figure.querySelectorAll('.salamander-limb'));
-  const sites = Array.from(figure.querySelectorAll('.salamander-sites circle'));
+  const limb = figure.querySelector('[data-movable-limb]');
+  const root = figure.querySelector('.salamander-root');
+  const slider = figure.querySelector('#salamander-root');
+  const action = figure.querySelector('[data-limb-action]');
+  let missing = false;
 
-  function setMissing(limb, index, missing) {
-    limb.setAttribute('aria-pressed', String(missing));
-    limb.classList.toggle('is-missing', missing);
-    sites[index].classList.toggle('is-missing', missing);
+  function updateRoot() {
+    const x = slider.valueAsNumber;
+    const y = 94 + 4 * ((x - 280) / 50) ** 2;
+    limb.setAttribute('transform', `translate(${x} ${y})`);
+    root.setAttribute('cx', x);
+    root.setAttribute('cy', y);
   }
 
-  limbs.forEach((limb, index) => {
-    const toggle = () => setMissing(limb, index, limb.getAttribute('aria-pressed') !== 'true');
-    limb.addEventListener('click', toggle);
-    limb.addEventListener('keydown', event => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      event.preventDefault();
-      if (!event.repeat) toggle();
-    });
+  slider.addEventListener('input', updateRoot);
+  action.addEventListener('click', () => {
+    missing = !missing;
+    limb.classList.toggle('is-missing', missing);
+    root.classList.toggle('is-missing', missing);
+    slider.disabled = !missing;
+    action.textContent = missing ? 'Regrow limb' : 'Remove limb';
   });
-  figure.querySelector('[data-remove-limbs]').addEventListener('click', () => {
-    limbs.forEach((limb, index) => setMissing(limb, index, true));
-  });
-  figure.querySelector('[data-regrow-limbs]').addEventListener('click', () => {
-    limbs.forEach((limb, index) => setMissing(limb, index, false));
-  });
-
+  updateRoot();
   figure.hidden = false;
 })();

@@ -7,7 +7,7 @@
   height: auto;
 }
 
-.platonic-essay :is(h2, #vortex-title, #xenobot-question, #salamander-question) {
+.platonic-essay :is(h2, #vortex-title, #xenobot-question, #salamander-question, #bridge-question) {
   scroll-margin-top: 84px;
 }
 
@@ -55,7 +55,7 @@
   font-size: 1rem;
 }
 
-.article :is(.vortex, .xenobots, .salamander) {
+.article :is(.vortex, .xenobots, .salamander, .bridge) {
   margin: 2.4rem 0;
   border: 1px solid var(--gray-300);
   border-radius: 6px;
@@ -148,9 +148,9 @@
 [data-playing="true"] .vortex-play,
 [data-playing="false"] .vortex-pause { display: none; }
 
-:is(.vortex, .xenobots, .salamander) :focus-visible { outline: 2px solid #397d77; outline-offset: 2px; }
+:is(.vortex, .xenobots, .salamander, .bridge) :focus-visible { outline: 2px solid #397d77; outline-offset: 2px; }
 
-.article :is(.xenobots, .salamander) figcaption {
+.article :is(.xenobots, .salamander, .bridge) figcaption {
   margin: 1.05rem 1.25rem 0;
   color: var(--gray-800);
   font: 1.14rem/1.4 Georgia, serif;
@@ -163,42 +163,43 @@
   font: 0.85rem/1.55 var(--font);
 }
 
-.xenobot-stage { position: relative; }
-
-.xenobot-view {
-  display: block;
-  width: 100%;
-  cursor: crosshair;
-}
-
-.xenobot-stage .vortex-actions { inset-block-start: 0; }
-.xenobot-body, .xenobot-target { cursor: grab; touch-action: none; }
-.xenobot-body:active, .xenobot-target:active { cursor: grabbing; }
+.xenobot-view, .bridge-view, .salamander svg { display: block; width: 100%; }
+.xenobot-body { cursor: grab; touch-action: none; }
+.xenobot-body:active { cursor: grabbing; }
 .xenobot-hit { fill: transparent; }
 .xenobot-silhouette { fill: #dbece9; stroke: #397d77; stroke-width: 1.15; }
 .xenobot-detail { fill: none; stroke: #5a918b; stroke-width: 0.85; stroke-linecap: round; }
-.xenobot-center { fill: #a36b46; stroke: var(--white); stroke-width: 1.2; pointer-events: none; }
-.xenobot-ring { fill: none; stroke: #52726e; stroke-width: 1.35; stroke-dasharray: 2.5 2; }
-.xenobot-feedback { visibility: hidden; stroke: #a36b46; stroke-opacity: 0.55; stroke-dasharray: 3 4; pointer-events: none; }
-.xenobots[data-steering] .xenobot-feedback { visibility: visible; }
-.xenobots[data-steering] .xenobot-ring { stroke-dasharray: none; }
+.xenobot-trail { fill: none; stroke: #a0bcb5; stroke-width: 1.2; stroke-dasharray: 3 4; }
+.xenobot-link { visibility: hidden; stroke: #a36b46; stroke-width: 1.35; }
+.xenobots[data-joined] .xenobot-link { visibility: visible; }
 
-.xenobot-switch {
+.xenobot-switch, .bridge-switch {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   width: fit-content;
-  margin: 0 1.25rem 1.05rem;
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
 }
 
-.xenobot-switch input { accent-color: #397d77; }
+.xenobot-switch input, .bridge-switch input { accent-color: #397d77; }
+.xenobot-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  padding: 0 1.25rem 1.05rem;
+}
+.xenobot-controls small { color: var(--gray-700); font-size: 0.75rem; }
 
-.salamander svg { display: block; width: 100%; }
-.salamander-limb { cursor: pointer; }
-.salamander-hit { fill: transparent; }
+.bridge-plan { fill: none; stroke: #a0bcb5; stroke-width: 1.2; stroke-dasharray: 4 5; }
+.bridge-built[hidden] { display: none; }
+.bridge-supports { fill: #e6efeb; stroke: #52726e; stroke-width: 1.15; stroke-linejoin: round; }
+.bridge-beam { fill: none; stroke: #397d77; stroke-width: 4; stroke-linecap: round; }
+.bridge-load { fill: #a36b46; }
+
 .salamander-leg {
   fill: none;
   stroke: #78a69d;
@@ -219,16 +220,17 @@
 .salamander-body { fill: #e6efeb; stroke: #397d77; stroke-width: 1.2; pointer-events: none; }
 .salamander-spine { fill: none; stroke: #a0bcb5; stroke-width: 1; pointer-events: none; }
 .salamander-eye { fill: #52726e; pointer-events: none; }
-.salamander-sites { fill: #a36b46; pointer-events: none; }
-.salamander-sites circle { opacity: 0; transition: opacity 450ms; }
-.salamander-sites .is-missing { opacity: 1; transition: none; }
+.salamander-root { fill: #a36b46; opacity: 0; pointer-events: none; transition: opacity 450ms; }
+.salamander-root.is-missing { opacity: 1; transition: none; }
 .salamander-limb.is-missing .salamander-leg { opacity: 0; stroke-dashoffset: 1; transition: none; }
 .salamander-limb.is-missing .salamander-toes { opacity: 0; transition: none; }
 
-.salamander-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1.2rem;
+.salamander-controls, .bridge-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) auto;
+  justify-content: space-between;
+  align-items: end;
+  gap: 0.5rem 1.2rem;
   padding: 0 1.25rem 0.85rem;
 }
 
@@ -243,9 +245,10 @@
 }
 
 .salamander-controls button:hover { color: #397d77; text-decoration: underline; }
+.bridge-switch { min-height: 32px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .salamander-leg, .salamander-toes, .salamander-sites circle { transition: none; }
+  .salamander-leg, .salamander-toes, .salamander-root { transition: none; }
 }
 
 @media (max-width: 520px) {

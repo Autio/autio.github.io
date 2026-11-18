@@ -33,6 +33,7 @@
   <script src="../javascripts/whirlpool.js" defer></script>
   <script src="../javascripts/xenobots.js" defer></script>
   <script src="../javascripts/salamander.js" defer></script>
+  <script src="../javascripts/bridge.js" defer></script>
 </head>
 <body>
   <nav class="site-nav scrolled" aria-label="Main">
@@ -60,25 +61,18 @@
     <p>Levin's challenge to reductionism deserves an answer that does not return biology to an inventory of mute physical parts. His interactionism is explicit, provisional and experimentally ambitious; he even allows that the two spaces might prove to be aspects of a deeper reality. For a pragmatist, if Platonic Space is a useful way to investigate forms, its value is measured by what it reveals. And if patterns supply causal input from elsewhere, we must understand how the purported source, the embodiment and their relation are determined. We shall see that Levin's own experiments provide the grounds for questioning the separation proposed by Platonic Space. They reveal living wholes whose parts make and remake the relations through which the whole takes shape and acts. With the sciences now sailing so freely across their old borders, someone might do well to deliver biology the long-overdue obituary of the separation of thought and being from the black forest of philosophy. Let us see whether it survives the crossing.</p>
 
     <figure class="xenobots" aria-labelledby="xenobot-question" hidden>
-      <figcaption id="xenobot-question">Can the Xenobots’ center steer them?</figcaption>
+      <figcaption id="xenobot-question">What changes when two Xenobots are joined?</figcaption>
       <div role="status">
-        <p class="xenobot-charge" hidden>Their motion gives the center its position. Only a feedback loop gives it a role in steering.</p>
+        <p class="xenobot-charge" hidden>The same bodies can now move together because the link carries motion between them.</p>
       </div>
-      <div class="xenobot-stage">
-        <svg class="xenobot-view" viewBox="0 0 640 300" role="group" aria-labelledby="xenobot-svg-title" aria-describedby="xenobot-svg-desc">
-          <title id="xenobot-svg-title">Model Xenobots, their center, and a steering target</title>
-          <desc id="xenobot-svg-desc">Teal shapes represent Xenobots. The copper dot marks their average position. Move a Xenobot to see the average change. Place the hollow target by clicking the drawing or dragging the ring. Connect feedback to steer the group by the difference between its center and the target. Use the arrow keys to move a focused Xenobot or target.</desc>
-        </svg>
-        <div class="vortex-actions">
-          <button type="button" data-motion aria-label="Pause motion">
-            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-              <path class="vortex-play" d="M7 4.5 15.5 10 7 15.5Z" fill="currentColor" stroke="none"/>
-              <path class="vortex-pause" d="M7 5v10m6-10v10"/>
-            </svg>
-          </button>
-        </div>
+      <svg class="xenobot-view" viewBox="0 0 640 250" role="group" aria-labelledby="xenobot-svg-title" aria-describedby="xenobot-svg-desc">
+        <title id="xenobot-svg-title">Two schematic Xenobots</title>
+        <desc id="xenobot-svg-desc">Drag either Xenobot or focus it and move it with the arrow keys. Join the pair to make moving either Xenobot move both. Faint lines trace their paths.</desc>
+      </svg>
+      <div class="xenobot-controls">
+        <label class="xenobot-switch"><input type="checkbox"> Join the pair</label>
+        <small>Drag either Xenobot</small>
       </div>
-      <label class="xenobot-switch"><input type="checkbox"> Connect feedback</label>
     </figure>
 
     <h2 id="the-abstract-universal-what-does-the-common-name-pattern-explain">The abstract universal: what does the common name ‘pattern’ explain?</h2>
@@ -98,6 +92,27 @@
     <p>Levin can reply that the word 'realm' is optional. He expressly sets aside the question whether Platonic Space is ontologically real and, in a footnote to Ingressing Minds, declines to distinguish fully its status as metaphysical entity from epistemic framework. Even his suggestion that mathematics might be folded into an enlarged physics preserves two distinguishable domains of inquiry. Fair enough. What cannot remain merely verbal is the claim of information or causal input <em>from</em> an independently constituted space. If no extra input is meant, the second address contributes no ontological explanation; if it is meant, the distinction must make a discoverable difference. [1; 2, §1(e), n. 1]</p>
 
     <p>Mathematical form can be understood without pointing to one particular empirical instance. That independence of a particular instance does not make the form a self-sufficient being, nor reduce its necessity to the physical circumstances in which we encounter it. An unbuilt bridge can be mathematically described; the possible structure has objective determinations. But those determinations do not assemble steel, and the steel does not manufacture mathematical necessity. In an actual bridge, the mathematical relations become determinations of a structure whose materials, loads and construction conditions give them a particular existence. We must understand this determinate unity of form and actuality without assigning either a separate residence and subsequently inventing a passage between them. Levin's two addresses turn a distinction within intelligibility into a transaction between supposed occupants.</p>
+
+    <figure class="bridge" aria-labelledby="bridge-question" hidden>
+      <figcaption id="bridge-question">What carries the load?</figcaption>
+      <svg class="bridge-view" viewBox="0 0 640 230" role="img" aria-labelledby="bridge-title bridge-desc">
+        <title id="bridge-title">An unbuilt bridge and a loaded beam</title>
+        <desc id="bridge-desc">A dashed line marks the proposed span. Build the bridge to see a beam, its supports, and a load whose position can be moved along the span.</desc>
+        <path class="bridge-plan" d="M105 108H535"/>
+        <g class="bridge-built" hidden>
+          <path class="bridge-supports" d="M105 110l-18 34h36zM535 110l-18 34h36zM78 151h54m376 0h54"/>
+          <path class="bridge-beam"/>
+          <circle class="bridge-load" r="6"/>
+        </g>
+      </svg>
+      <div class="bridge-controls">
+        <div class="vortex-slider">
+          <label for="bridge-position">Load position</label>
+          <input type="range" id="bridge-position" min="0" max="100" value="50" disabled>
+        </div>
+        <label class="bridge-switch"><input type="checkbox"> Build bridge</label>
+      </div>
+    </figure>
 
     <figure class="essay-photo">
       <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Magicicada_species.jpg" alt="A red-eyed periodical cicada resting on foliage" width="1416" height="1062" loading="lazy" decoding="async">
@@ -218,31 +233,27 @@
     <p>In the lab, a salamander jolts. Observe it regrow a severed limb. The whirlpool maintains its form through moving matter, but it cannot repair itself according to the requirements of its own life. The salamander reorganizes cells, tissues and signals to restore a limb whose parts acquire their functions through the developing whole. We marvel at discoveries in bioelectric field manipulation, but no intact limb is here fetched from a celestial catalogue. The question is how the organism determines what counts as damage and restoration, and reconstitutes the conditions of its own existence. Here lies the deeper promise of Levin's biology. Beyond life, reflective agency introduces another transformation: a subject can examine and revise its own ends. Neither regeneration nor freedom is explained by climbing a ladder of pattern complexity.</p>
 
     <figure class="salamander" aria-labelledby="salamander-question" hidden>
-      <figcaption id="salamander-question">What makes a missing limb grow back here?</figcaption>
+      <figcaption id="salamander-question">Where will the limb grow back?</figcaption>
       <svg viewBox="0 0 560 235" role="group" aria-labelledby="salamander-title" aria-describedby="salamander-desc">
         <title id="salamander-title">Salamander limb regeneration</title>
-        <desc id="salamander-desc">Schematic view from above. Select an individual limb to remove it or regrow it from its attachment point. The two buttons act on all four limbs.</desc>
+        <desc id="salamander-desc">Schematic view from above. Remove one forelimb, move its attachment point along the body, then regrow it from the new point.</desc>
         <defs>
           <path id="salamander-leg-shape" pathLength="1" d="M0 0Q-11-14-10-25Q-9-35-30-43"/>
           <path id="salamander-toes-shape" d="M-29-42l-13-2m12 1-9-8m10 9-4-12"/>
         </defs>
-        <g class="salamander-limb" transform="translate(230 98)" role="button" tabindex="0" aria-label="Remove near forelimb" aria-pressed="false">
-          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+        <g class="salamander-limb" data-movable-limb transform="translate(230 98)">
           <use class="salamander-leg" href="#salamander-leg-shape"/>
           <use class="salamander-toes" href="#salamander-toes-shape"/>
         </g>
-        <g class="salamander-limb" transform="translate(230 142) scale(1 -1)" role="button" tabindex="0" aria-label="Remove far forelimb" aria-pressed="false">
-          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+        <g class="salamander-limb" transform="translate(230 142) scale(1 -1)">
           <use class="salamander-leg" href="#salamander-leg-shape"/>
           <use class="salamander-toes" href="#salamander-toes-shape"/>
         </g>
-        <g class="salamander-limb" transform="translate(324 100) scale(-1 1)" role="button" tabindex="0" aria-label="Remove near hind limb" aria-pressed="false">
-          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+        <g class="salamander-limb" transform="translate(324 100) scale(-1 1)">
           <use class="salamander-leg" href="#salamander-leg-shape"/>
           <use class="salamander-toes" href="#salamander-toes-shape"/>
         </g>
-        <g class="salamander-limb" transform="translate(324 140) scale(-1 -1)" role="button" tabindex="0" aria-label="Remove far hind limb" aria-pressed="false">
-          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+        <g class="salamander-limb" transform="translate(324 140) scale(-1 -1)">
           <use class="salamander-leg" href="#salamander-leg-shape"/>
           <use class="salamander-toes" href="#salamander-toes-shape"/>
         </g>
@@ -250,14 +261,14 @@
         <path class="salamander-spine" d="M218 119C258 114 301 116 340 122C369 127 405 134 442 120"/>
         <circle class="salamander-eye" cx="153" cy="110" r="3"/>
         <circle class="salamander-eye" cx="153" cy="130" r="3"/>
-        <g class="salamander-sites" aria-hidden="true">
-          <circle cx="230" cy="98" r="4"/><circle cx="230" cy="142" r="4"/>
-          <circle cx="324" cy="100" r="4"/><circle cx="324" cy="140" r="4"/>
-        </g>
+        <circle class="salamander-root" cx="230" cy="98" r="4" aria-hidden="true"/>
       </svg>
       <div class="salamander-controls">
-        <button type="button" data-remove-limbs>Remove limbs</button>
-        <button type="button" data-regrow-limbs>Regrow limbs</button>
+        <div class="vortex-slider">
+          <label for="salamander-root">Limb root</label>
+          <input type="range" id="salamander-root" min="218" max="282" value="230" disabled>
+        </div>
+        <button type="button" data-limb-action>Remove limb</button>
       </div>
     </figure>
 
