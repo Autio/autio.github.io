@@ -7,7 +7,7 @@
   height: auto;
 }
 
-.platonic-essay :is(h2, #vortex-title) {
+.platonic-essay :is(h2, #vortex-title, #flock-question) {
   scroll-margin-top: 84px;
 }
 
@@ -55,7 +55,7 @@
   font-size: 1rem;
 }
 
-.article .vortex {
+.article :is(.vortex, .flock) {
   margin: 2.4rem 0;
   border: 1px solid var(--gray-300);
   border-radius: 6px;
@@ -148,7 +148,50 @@
 [data-playing="true"] .vortex-play,
 [data-playing="false"] .vortex-pause { display: none; }
 
-.vortex :focus-visible { outline: 2px solid #397d77; outline-offset: 2px; }
+:is(.vortex, .flock) :focus-visible { outline: 2px solid #397d77; outline-offset: 2px; }
+
+.article .flock figcaption {
+  margin: 1.05rem 1.25rem 0;
+  color: var(--gray-800);
+  font: 1.14rem/1.4 Georgia, serif;
+  text-align: left;
+}
+
+.article .flock .flock-charge {
+  margin: 0.3rem 1.25rem 0;
+  color: var(--gray-700);
+  font: 0.85rem/1.55 var(--font);
+}
+
+.flock-stage { position: relative; }
+
+.flock-view {
+  display: block;
+  width: 100%;
+  cursor: crosshair;
+}
+
+.flock-stage .vortex-actions { inset-block-start: 0; }
+.flock-bird, .flock-target { cursor: grab; touch-action: none; }
+.flock-bird:active, .flock-target:active { cursor: grabbing; }
+.flock-hit { fill: transparent; }
+.flock-dot { fill: #397d77; }
+.flock-center { fill: #a36b46; stroke: var(--white); stroke-width: 1.2; pointer-events: none; }
+.flock-ring { fill: none; stroke: #52726e; stroke-width: 1.35; stroke-dasharray: 2.5 2; }
+.flock[data-steering] .flock-ring { stroke-dasharray: none; }
+
+.flock-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 0 1.25rem 1.05rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.flock-switch input { accent-color: #397d77; }
 
 @media (max-width: 520px) {
   .vortex-controls { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
