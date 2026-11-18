@@ -31,7 +31,8 @@
   </script>
   <script src="../javascripts/vendor/d3.v7.min.js" defer></script>
   <script src="../javascripts/whirlpool.js" defer></script>
-  <script src="../javascripts/flock.js" defer></script>
+  <script src="../javascripts/xenobots.js" defer></script>
+  <script src="../javascripts/salamander.js" defer></script>
 </head>
 <body>
   <nav class="site-nav scrolled" aria-label="Main">
@@ -58,15 +59,15 @@
 
     <p>Levin's challenge to reductionism deserves an answer that does not return biology to an inventory of mute physical parts. His interactionism is explicit, provisional and experimentally ambitious; he even allows that the two spaces might prove to be aspects of a deeper reality. For a pragmatist, if Platonic Space is a useful way to investigate forms, its value is measured by what it reveals. And if patterns supply causal input from elsewhere, we must understand how the purported source, the embodiment and their relation are determined. We shall see that Levin's own experiments provide the grounds for questioning the separation proposed by Platonic Space. They reveal living wholes whose parts make and remake the relations through which the whole takes shape and acts. With the sciences now sailing so freely across their old borders, someone might do well to deliver biology the long-overdue obituary of the separation of thought and being from the black forest of philosophy. Let us see whether it survives the crossing.</p>
 
-    <figure class="flock" aria-labelledby="flock-question" hidden>
-      <figcaption id="flock-question">Can the center of a flock steer it?</figcaption>
+    <figure class="xenobots" aria-labelledby="xenobot-question" hidden>
+      <figcaption id="xenobot-question">Can the Xenobots’ center steer them?</figcaption>
       <div role="status">
-        <p class="flock-charge" hidden>Treating the flock’s center as its pilot mistakes a description of its motion for a cause.</p>
+        <p class="xenobot-charge" hidden>Their motion gives the center its position. Only a feedback loop gives it a role in steering.</p>
       </div>
-      <div class="flock-stage">
-        <svg class="flock-view" viewBox="0 0 640 300" role="group" aria-labelledby="flock-svg-title" aria-describedby="flock-svg-desc">
-          <title id="flock-svg-title">A flock, its center, and a steering target</title>
-          <desc id="flock-svg-desc">Teal dots are birds. The copper dot marks their average position. Drag a bird to see the average move. Place the hollow target by clicking the drawing or dragging the ring. It steers the birds when the switch is on. You can also focus a bird or the target and move it with the arrow keys.</desc>
+      <div class="xenobot-stage">
+        <svg class="xenobot-view" viewBox="0 0 640 300" role="group" aria-labelledby="xenobot-svg-title" aria-describedby="xenobot-svg-desc">
+          <title id="xenobot-svg-title">Model Xenobots, their center, and a steering target</title>
+          <desc id="xenobot-svg-desc">Teal shapes represent Xenobots. The copper dot marks their average position. Move a Xenobot to see the average change. Place the hollow target by clicking the drawing or dragging the ring. Connect feedback to steer the group by the difference between its center and the target. Use the arrow keys to move a focused Xenobot or target.</desc>
         </svg>
         <div class="vortex-actions">
           <button type="button" data-motion aria-label="Pause motion">
@@ -77,7 +78,7 @@
           </button>
         </div>
       </div>
-      <label class="flock-switch"><input type="checkbox"> Steer toward target</label>
+      <label class="xenobot-switch"><input type="checkbox"> Connect feedback</label>
     </figure>
 
     <h2 id="the-abstract-universal-what-does-the-common-name-pattern-explain">The abstract universal: what does the common name ‘pattern’ explain?</h2>
@@ -215,6 +216,50 @@
     </figure>
 
     <p>In the lab, a salamander jolts. Observe it regrow a severed limb. The whirlpool maintains its form through moving matter, but it cannot repair itself according to the requirements of its own life. The salamander reorganizes cells, tissues and signals to restore a limb whose parts acquire their functions through the developing whole. We marvel at discoveries in bioelectric field manipulation, but no intact limb is here fetched from a celestial catalogue. The question is how the organism determines what counts as damage and restoration, and reconstitutes the conditions of its own existence. Here lies the deeper promise of Levin's biology. Beyond life, reflective agency introduces another transformation: a subject can examine and revise its own ends. Neither regeneration nor freedom is explained by climbing a ladder of pattern complexity.</p>
+
+    <figure class="salamander" aria-labelledby="salamander-question" hidden>
+      <figcaption id="salamander-question">What makes a missing limb grow back here?</figcaption>
+      <svg viewBox="0 0 560 235" role="group" aria-labelledby="salamander-title" aria-describedby="salamander-desc">
+        <title id="salamander-title">Salamander limb regeneration</title>
+        <desc id="salamander-desc">Schematic view from above. Select an individual limb to remove it or regrow it from its attachment point. The two buttons act on all four limbs.</desc>
+        <defs>
+          <path id="salamander-leg-shape" pathLength="1" d="M0 0Q-11-14-10-25Q-9-35-30-43"/>
+          <path id="salamander-toes-shape" d="M-29-42l-13-2m12 1-9-8m10 9-4-12"/>
+        </defs>
+        <g class="salamander-limb" transform="translate(230 98)" role="button" tabindex="0" aria-label="Remove near forelimb" aria-pressed="false">
+          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <g class="salamander-limb" transform="translate(230 142) scale(1 -1)" role="button" tabindex="0" aria-label="Remove far forelimb" aria-pressed="false">
+          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <g class="salamander-limb" transform="translate(324 100) scale(-1 1)" role="button" tabindex="0" aria-label="Remove near hind limb" aria-pressed="false">
+          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <g class="salamander-limb" transform="translate(324 140) scale(-1 -1)" role="button" tabindex="0" aria-label="Remove far hind limb" aria-pressed="false">
+          <circle class="salamander-hit" cx="-16" cy="-24" r="30"/>
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <path class="salamander-body" d="M124 117C124 100 157 87 181 90C198 91 203 102 224 97C254 89 289 91 321 96C347 100 365 108 385 114C416 124 447 120 475 104C456 127 420 143 382 139C354 136 339 141 314 144C281 148 249 148 224 142C205 137 194 150 177 150C149 150 123 137 124 117Z"/>
+        <path class="salamander-spine" d="M218 119C258 114 301 116 340 122C369 127 405 134 442 120"/>
+        <circle class="salamander-eye" cx="153" cy="110" r="3"/>
+        <circle class="salamander-eye" cx="153" cy="130" r="3"/>
+        <g class="salamander-sites" aria-hidden="true">
+          <circle cx="230" cy="98" r="4"/><circle cx="230" cy="142" r="4"/>
+          <circle cx="324" cy="100" r="4"/><circle cx="324" cy="140" r="4"/>
+        </g>
+      </svg>
+      <div class="salamander-controls">
+        <button type="button" data-remove-limbs>Remove limbs</button>
+        <button type="button" data-regrow-limbs>Regrow limbs</button>
+      </div>
+    </figure>
 
     <p>Levin rightly refuses to let <em>emergence</em> become a ceremonial name for ignorance. His own ontology deserves the same scrutiny. Mathematical necessity and unforeseen competence establish no independent causal residence for form. If Platonic Space names objective possibilities, we can investigate them through the development of concrete systems. If it supplies an additional cause, let that contribution be demonstrated. Levin abstracts intelligible form from actuality, grants the abstraction an independent address, and summons it back to explain the actuality from which it was taken. His experiments reveal something richer than this metaphysical round trip: <strong>a world whose forms become intelligible through the very activity by which they become what they are.</strong></p>
 

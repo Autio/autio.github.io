@@ -7,7 +7,7 @@
   height: auto;
 }
 
-.platonic-essay :is(h2, #vortex-title, #flock-question) {
+.platonic-essay :is(h2, #vortex-title, #xenobot-question, #salamander-question) {
   scroll-margin-top: 84px;
 }
 
@@ -55,7 +55,7 @@
   font-size: 1rem;
 }
 
-.article :is(.vortex, .flock) {
+.article :is(.vortex, .xenobots, .salamander) {
   margin: 2.4rem 0;
   border: 1px solid var(--gray-300);
   border-radius: 6px;
@@ -148,39 +148,42 @@
 [data-playing="true"] .vortex-play,
 [data-playing="false"] .vortex-pause { display: none; }
 
-:is(.vortex, .flock) :focus-visible { outline: 2px solid #397d77; outline-offset: 2px; }
+:is(.vortex, .xenobots, .salamander) :focus-visible { outline: 2px solid #397d77; outline-offset: 2px; }
 
-.article .flock figcaption {
+.article :is(.xenobots, .salamander) figcaption {
   margin: 1.05rem 1.25rem 0;
   color: var(--gray-800);
   font: 1.14rem/1.4 Georgia, serif;
   text-align: left;
 }
 
-.article .flock .flock-charge {
+.article .xenobots .xenobot-charge {
   margin: 0.3rem 1.25rem 0;
   color: var(--gray-700);
   font: 0.85rem/1.55 var(--font);
 }
 
-.flock-stage { position: relative; }
+.xenobot-stage { position: relative; }
 
-.flock-view {
+.xenobot-view {
   display: block;
   width: 100%;
   cursor: crosshair;
 }
 
-.flock-stage .vortex-actions { inset-block-start: 0; }
-.flock-bird, .flock-target { cursor: grab; touch-action: none; }
-.flock-bird:active, .flock-target:active { cursor: grabbing; }
-.flock-hit { fill: transparent; }
-.flock-dot { fill: #397d77; }
-.flock-center { fill: #a36b46; stroke: var(--white); stroke-width: 1.2; pointer-events: none; }
-.flock-ring { fill: none; stroke: #52726e; stroke-width: 1.35; stroke-dasharray: 2.5 2; }
-.flock[data-steering] .flock-ring { stroke-dasharray: none; }
+.xenobot-stage .vortex-actions { inset-block-start: 0; }
+.xenobot-body, .xenobot-target { cursor: grab; touch-action: none; }
+.xenobot-body:active, .xenobot-target:active { cursor: grabbing; }
+.xenobot-hit { fill: transparent; }
+.xenobot-silhouette { fill: #dbece9; stroke: #397d77; stroke-width: 1.15; }
+.xenobot-detail { fill: none; stroke: #5a918b; stroke-width: 0.85; stroke-linecap: round; }
+.xenobot-center { fill: #a36b46; stroke: var(--white); stroke-width: 1.2; pointer-events: none; }
+.xenobot-ring { fill: none; stroke: #52726e; stroke-width: 1.35; stroke-dasharray: 2.5 2; }
+.xenobot-feedback { visibility: hidden; stroke: #a36b46; stroke-opacity: 0.55; stroke-dasharray: 3 4; pointer-events: none; }
+.xenobots[data-steering] .xenobot-feedback { visibility: visible; }
+.xenobots[data-steering] .xenobot-ring { stroke-dasharray: none; }
 
-.flock-switch {
+.xenobot-switch {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -191,7 +194,59 @@
   cursor: pointer;
 }
 
-.flock-switch input { accent-color: #397d77; }
+.xenobot-switch input { accent-color: #397d77; }
+
+.salamander svg { display: block; width: 100%; }
+.salamander-limb { cursor: pointer; }
+.salamander-hit { fill: transparent; }
+.salamander-leg {
+  fill: none;
+  stroke: #78a69d;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 800ms ease-out;
+}
+.salamander-toes {
+  fill: none;
+  stroke: #397d77;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 1;
+  transition: opacity 240ms 700ms ease-out;
+}
+.salamander-body { fill: #e6efeb; stroke: #397d77; stroke-width: 1.2; pointer-events: none; }
+.salamander-spine { fill: none; stroke: #a0bcb5; stroke-width: 1; pointer-events: none; }
+.salamander-eye { fill: #52726e; pointer-events: none; }
+.salamander-sites { fill: #a36b46; pointer-events: none; }
+.salamander-sites circle { opacity: 0; transition: opacity 450ms; }
+.salamander-sites .is-missing { opacity: 1; transition: none; }
+.salamander-limb.is-missing .salamander-leg { opacity: 0; stroke-dashoffset: 1; transition: none; }
+.salamander-limb.is-missing .salamander-toes { opacity: 0; transition: none; }
+
+.salamander-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.2rem;
+  padding: 0 1.25rem 0.85rem;
+}
+
+.salamander-controls button {
+  min-height: 32px;
+  padding: 0 0.15rem;
+  border: 0;
+  background: transparent;
+  color: var(--gray-800);
+  font: 500 0.8rem var(--font);
+  cursor: pointer;
+}
+
+.salamander-controls button:hover { color: #397d77; text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .salamander-leg, .salamander-toes, .salamander-sites circle { transition: none; }
+}
 
 @media (max-width: 520px) {
   .vortex-controls { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
