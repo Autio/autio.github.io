@@ -157,23 +157,22 @@
   text-align: left;
 }
 
-.article .xenobots .xenobot-charge {
-  margin: 0.3rem 1.25rem 0;
-  color: var(--gray-700);
-  font: 0.85rem/1.55 var(--font);
-}
-
+.xenobot-stage { position: relative; }
 .xenobot-view, .bridge-view, .salamander svg { display: block; width: 100%; }
-.xenobot-body { cursor: grab; touch-action: none; }
-.xenobot-body:active { cursor: grabbing; }
-.xenobot-hit { fill: transparent; }
 .xenobot-silhouette { fill: #dbece9; stroke: #397d77; stroke-width: 1.15; }
 .xenobot-detail { fill: none; stroke: #5a918b; stroke-width: 0.85; stroke-linecap: round; }
-.xenobot-trail { fill: none; stroke: #a0bcb5; stroke-width: 1.2; stroke-dasharray: 3 4; }
-.xenobot-link { visibility: hidden; stroke: #a36b46; stroke-width: 1.35; }
-.xenobots[data-joined] .xenobot-link { visibility: visible; }
+.xenobot-trail { fill: none; stroke: #78a69d; stroke-width: 1.3; stroke-opacity: 0.56; }
+.xenobot-contour, .xenobot-lift, .xenobot-return, .xenobot-arrowhead {
+  fill: none;
+  stroke: #a36b46;
+  stroke-width: 1.2;
+}
+.xenobot-contour { stroke-opacity: 0.36; }
+.xenobot-lift { fill: #a36b4608; }
+.xenobot-return { stroke-dasharray: 3 5; }
+.xenobot-arrowhead { stroke-linecap: round; stroke-linejoin: round; }
 
-.xenobot-switch, .bridge-switch {
+.bridge-switch {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -183,22 +182,13 @@
   cursor: pointer;
 }
 
-.xenobot-switch input, .bridge-switch input { accent-color: #397d77; }
-.xenobot-controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.4rem 1rem;
-  padding: 0 1.25rem 1.05rem;
-}
-.xenobot-controls small { color: var(--gray-700); font-size: 0.75rem; }
+.bridge-switch input { accent-color: #397d77; }
 
 .bridge-plan { fill: none; stroke: #a0bcb5; stroke-width: 1.2; stroke-dasharray: 4 5; }
-.bridge-built[hidden] { display: none; }
+.bridge-built[hidden], .bridge-load-arrow[hidden] { display: none; }
 .bridge-supports { fill: #e6efeb; stroke: #52726e; stroke-width: 1.15; stroke-linejoin: round; }
 .bridge-beam { fill: none; stroke: #397d77; stroke-width: 4; stroke-linecap: round; }
-.bridge-load { fill: #a36b46; }
+.bridge-load-arrow { fill: none; stroke: #a36b46; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
 .salamander-leg {
   fill: none;

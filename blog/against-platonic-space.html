@@ -61,17 +61,25 @@
     <p>Levin's challenge to reductionism deserves an answer that does not return biology to an inventory of mute physical parts. His interactionism is explicit, provisional and experimentally ambitious; he even allows that the two spaces might prove to be aspects of a deeper reality. For a pragmatist, if Platonic Space is a useful way to investigate forms, its value is measured by what it reveals. And if patterns supply causal input from elsewhere, we must understand how the purported source, the embodiment and their relation are determined. We shall see that Levin's own experiments provide the grounds for questioning the separation proposed by Platonic Space. They reveal living wholes whose parts make and remake the relations through which the whole takes shape and acts. With the sciences now sailing so freely across their old borders, someone might do well to deliver biology the long-overdue obituary of the separation of thought and being from the black forest of philosophy. Let us see whether it survives the crossing.</p>
 
     <figure class="xenobots" aria-labelledby="xenobot-question" hidden>
-      <figcaption id="xenobot-question">What changes when two Xenobots are joined?</figcaption>
-      <div role="status">
-        <p class="xenobot-charge" hidden>The same bodies can now move together because the link carries motion between them.</p>
-      </div>
-      <svg class="xenobot-view" viewBox="0 0 640 250" role="group" aria-labelledby="xenobot-svg-title" aria-describedby="xenobot-svg-desc">
-        <title id="xenobot-svg-title">Two schematic Xenobots</title>
-        <desc id="xenobot-svg-desc">Drag either Xenobot or focus it and move it with the arrow keys. Join the pair to make moving either Xenobot move both. Faint lines trace their paths.</desc>
-      </svg>
-      <div class="xenobot-controls">
-        <label class="xenobot-switch"><input type="checkbox"> Join the pair</label>
-        <small>Drag either Xenobot</small>
+      <figcaption id="xenobot-question">Can a pattern drawn from motion return as its cause?</figcaption>
+      <div class="xenobot-stage">
+        <svg class="xenobot-view" viewBox="0 0 640 320" role="img" aria-labelledby="xenobot-svg-title xenobot-svg-desc">
+          <title id="xenobot-svg-title">A pattern separated from the motion that produces it</title>
+          <desc id="xenobot-svg-desc">Moving Xenobots continually form a changing contour. A copy of the contour lifts away and a dashed arrow points back toward the bodies, suggesting the reversal from description to supposed cause. The bodies keep moving as the copy fades.</desc>
+          <defs>
+            <marker id="xenobot-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+              <path d="M1 1l5 2.5L1 6" class="xenobot-arrowhead"/>
+            </marker>
+          </defs>
+        </svg>
+        <div class="vortex-actions">
+          <button type="button" data-motion aria-label="Pause motion">
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+              <path class="vortex-play" d="M7 4.5 15.5 10 7 15.5Z" fill="currentColor" stroke="none"/>
+              <path class="vortex-pause" d="M7 5v10m6-10v10"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </figure>
 
@@ -80,6 +88,46 @@
     <p>In A Short Argument, and more extensively in Ingressing Minds, Levin brings mathematical invariants, dynamical systems, organisms and minds under the capacious designation of <em>pattern</em>. His continuum of agency invites us to investigate what these very different things can do, from preserving an invariant to learning and revising a goal. But a prime number, a whirlpool, a salamander and a thinking subject do not become intelligible merely by receiving the same surname. Their common designation <em>is</em> an abstract universal: it gathers them together precisely by leaving their decisive differences outside the account. A <em>concrete</em> universal would have to be discovered in the development of those differences themselves. The aforementioned family resemblance leaves us with many questions: Why does the whirlpool maintain a recognizable form without maintaining itself as a living organism does? Why can the salamander regenerate a limb without asking whether it ought to grow one? And what happens when a being can make its own purposes an object of thought? Registering and arranging these distinctions does not explain their necessity. [1, 2]</p>
 
     <p>A mathematical constant has no enemies. It does not struggle to be itself, to preserve itself against a hostile environment. The salamander has a more demanding existence. It must continually reproduce its own life, drawing its surroundings into a metabolism whose organs acquire their functions through the activity of the organism as a whole, an activity sustained in turn through those organs. In a thinking subject, even the purposes governing activity can themselves become objects of examination and transformation. We have encountered differences in the very manner of being, and the universal can be grasped concretely only as we comprehend their necessity and the transformations through which these forms of activity arise. Classification alone does no work to show necessity.</p>
+
+    <figure class="salamander" aria-labelledby="salamander-question" hidden>
+      <figcaption id="salamander-question">Where will the limb grow back?</figcaption>
+      <svg viewBox="0 0 560 235" role="group" aria-labelledby="salamander-title" aria-describedby="salamander-desc">
+        <title id="salamander-title">Salamander limb regeneration</title>
+        <desc id="salamander-desc">Schematic view from above. Remove one forelimb, move its attachment point along the body, then regrow it from the new point.</desc>
+        <defs>
+          <path id="salamander-leg-shape" pathLength="1" d="M0 0Q-11-14-10-25Q-9-35-30-43"/>
+          <path id="salamander-toes-shape" d="M-29-42l-13-2m12 1-9-8m10 9-4-12"/>
+        </defs>
+        <g class="salamander-limb" data-movable-limb transform="translate(230 98)">
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <g class="salamander-limb" transform="translate(230 142) scale(1 -1)">
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <g class="salamander-limb" transform="translate(324 100) scale(-1 1)">
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <g class="salamander-limb" transform="translate(324 140) scale(-1 -1)">
+          <use class="salamander-leg" href="#salamander-leg-shape"/>
+          <use class="salamander-toes" href="#salamander-toes-shape"/>
+        </g>
+        <path class="salamander-body" d="M124 117C124 100 157 87 181 90C198 91 203 102 224 97C254 89 289 91 321 96C347 100 365 108 385 114C416 124 447 120 475 104C456 127 420 143 382 139C354 136 339 141 314 144C281 148 249 148 224 142C205 137 194 150 177 150C149 150 123 137 124 117Z"/>
+        <path class="salamander-spine" d="M218 119C258 114 301 116 340 122C369 127 405 134 442 120"/>
+        <circle class="salamander-eye" cx="153" cy="110" r="3"/>
+        <circle class="salamander-eye" cx="153" cy="130" r="3"/>
+        <circle class="salamander-root" cx="230" cy="98" r="4" aria-hidden="true"/>
+      </svg>
+      <div class="salamander-controls">
+        <div class="vortex-slider">
+          <label for="salamander-root">Limb root</label>
+          <input type="range" id="salamander-root" min="218" max="282" value="230" disabled>
+        </div>
+        <button type="button" data-limb-action>Remove limb</button>
+      </div>
+    </figure>
 
     <p>Levin's more radical claim takes us beyond classification. In §6.4 of <em>Ingressing Minds</em>, a pattern may appear as the agent, with the embodied machine serving as its scratchpad. The division between machine and data can itself shift with the observer. We can inspect the same organized process under different descriptions, foregrounding now the computational pattern, now its physical implementation. The freedom to reverse our descriptions, however, grants no corresponding freedom to reverse the conditions of existence. The mathematical pattern remains available for study apart from this particular machine; that is its richness and poverty. The actual agent must still acquire its powers through a determinate organization, and the question of how that organization constitutes its activity has not disappeared merely because we have moved the scratchpad to the other side of the desk. [2, §6.4]</p>
 
@@ -94,21 +142,21 @@
     <p>Mathematical form can be understood without pointing to one particular empirical instance. That independence of a particular instance does not make the form a self-sufficient being, nor reduce its necessity to the physical circumstances in which we encounter it. An unbuilt bridge can be mathematically described; the possible structure has objective determinations. But those determinations do not assemble steel, and the steel does not manufacture mathematical necessity. In an actual bridge, the mathematical relations become determinations of a structure whose materials, loads and construction conditions give them a particular existence. We must understand this determinate unity of form and actuality without assigning either a separate residence and subsequently inventing a passage between them. Levin's two addresses turn a distinction within intelligibility into a transaction between supposed occupants.</p>
 
     <figure class="bridge" aria-labelledby="bridge-question" hidden>
-      <figcaption id="bridge-question">What carries the load?</figcaption>
+      <figcaption id="bridge-question">When can a span carry weight?</figcaption>
       <svg class="bridge-view" viewBox="0 0 640 230" role="img" aria-labelledby="bridge-title bridge-desc">
         <title id="bridge-title">An unbuilt bridge and a loaded beam</title>
-        <desc id="bridge-desc">A dashed line marks the proposed span. Build the bridge to see a beam, its supports, and a load whose position can be moved along the span.</desc>
+        <desc id="bridge-desc">A dashed line marks the proposed span. Build the bridge to add the beam and its supports, then add load to see the beam deflect below the plan.</desc>
         <path class="bridge-plan" d="M105 108H535"/>
         <g class="bridge-built" hidden>
           <path class="bridge-supports" d="M105 110l-18 34h36zM535 110l-18 34h36zM78 151h54m376 0h54"/>
           <path class="bridge-beam"/>
-          <circle class="bridge-load" r="6"/>
+          <path class="bridge-load-arrow" d="M320 63v29m-4-5 4 5 4-5" hidden/>
         </g>
       </svg>
       <div class="bridge-controls">
         <div class="vortex-slider">
-          <label for="bridge-position">Load position</label>
-          <input type="range" id="bridge-position" min="0" max="100" value="50" disabled>
+          <label for="bridge-load">Load</label>
+          <input type="range" id="bridge-load" min="0" max="100" value="0" disabled>
         </div>
         <label class="bridge-switch"><input type="checkbox"> Build bridge</label>
       </div>
@@ -231,46 +279,6 @@
     </figure>
 
     <p>In the lab, a salamander jolts. Observe it regrow a severed limb. The whirlpool maintains its form through moving matter, but it cannot repair itself according to the requirements of its own life. The salamander reorganizes cells, tissues and signals to restore a limb whose parts acquire their functions through the developing whole. We marvel at discoveries in bioelectric field manipulation, but no intact limb is here fetched from a celestial catalogue. The question is how the organism determines what counts as damage and restoration, and reconstitutes the conditions of its own existence. Here lies the deeper promise of Levin's biology. Beyond life, reflective agency introduces another transformation: a subject can examine and revise its own ends. Neither regeneration nor freedom is explained by climbing a ladder of pattern complexity.</p>
-
-    <figure class="salamander" aria-labelledby="salamander-question" hidden>
-      <figcaption id="salamander-question">Where will the limb grow back?</figcaption>
-      <svg viewBox="0 0 560 235" role="group" aria-labelledby="salamander-title" aria-describedby="salamander-desc">
-        <title id="salamander-title">Salamander limb regeneration</title>
-        <desc id="salamander-desc">Schematic view from above. Remove one forelimb, move its attachment point along the body, then regrow it from the new point.</desc>
-        <defs>
-          <path id="salamander-leg-shape" pathLength="1" d="M0 0Q-11-14-10-25Q-9-35-30-43"/>
-          <path id="salamander-toes-shape" d="M-29-42l-13-2m12 1-9-8m10 9-4-12"/>
-        </defs>
-        <g class="salamander-limb" data-movable-limb transform="translate(230 98)">
-          <use class="salamander-leg" href="#salamander-leg-shape"/>
-          <use class="salamander-toes" href="#salamander-toes-shape"/>
-        </g>
-        <g class="salamander-limb" transform="translate(230 142) scale(1 -1)">
-          <use class="salamander-leg" href="#salamander-leg-shape"/>
-          <use class="salamander-toes" href="#salamander-toes-shape"/>
-        </g>
-        <g class="salamander-limb" transform="translate(324 100) scale(-1 1)">
-          <use class="salamander-leg" href="#salamander-leg-shape"/>
-          <use class="salamander-toes" href="#salamander-toes-shape"/>
-        </g>
-        <g class="salamander-limb" transform="translate(324 140) scale(-1 -1)">
-          <use class="salamander-leg" href="#salamander-leg-shape"/>
-          <use class="salamander-toes" href="#salamander-toes-shape"/>
-        </g>
-        <path class="salamander-body" d="M124 117C124 100 157 87 181 90C198 91 203 102 224 97C254 89 289 91 321 96C347 100 365 108 385 114C416 124 447 120 475 104C456 127 420 143 382 139C354 136 339 141 314 144C281 148 249 148 224 142C205 137 194 150 177 150C149 150 123 137 124 117Z"/>
-        <path class="salamander-spine" d="M218 119C258 114 301 116 340 122C369 127 405 134 442 120"/>
-        <circle class="salamander-eye" cx="153" cy="110" r="3"/>
-        <circle class="salamander-eye" cx="153" cy="130" r="3"/>
-        <circle class="salamander-root" cx="230" cy="98" r="4" aria-hidden="true"/>
-      </svg>
-      <div class="salamander-controls">
-        <div class="vortex-slider">
-          <label for="salamander-root">Limb root</label>
-          <input type="range" id="salamander-root" min="218" max="282" value="230" disabled>
-        </div>
-        <button type="button" data-limb-action>Remove limb</button>
-      </div>
-    </figure>
 
     <p>Levin rightly refuses to let <em>emergence</em> become a ceremonial name for ignorance. His own ontology deserves the same scrutiny. Mathematical necessity and unforeseen competence establish no independent causal residence for form. If Platonic Space names objective possibilities, we can investigate them through the development of concrete systems. If it supplies an additional cause, let that contribution be demonstrated. Levin abstracts intelligible form from actuality, grants the abstraction an independent address, and summons it back to explain the actuality from which it was taken. His experiments reveal something richer than this metaphysical round trip: <strong>a world whose forms become intelligible through the very activity by which they become what they are.</strong></p>
 
