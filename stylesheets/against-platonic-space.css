@@ -159,16 +159,17 @@
 
 .xenobot-stage { position: relative; }
 .xenobot-view, .bridge-view, .salamander svg { display: block; width: 100%; }
-.xenobot-silhouette { fill: #dbece9; stroke: #397d77; stroke-width: 1.15; }
-.xenobot-detail { fill: none; stroke: #5a918b; stroke-width: 0.85; stroke-linecap: round; }
+.xenobot-silhouette { fill: #dbece5; stroke: #33756e; stroke-width: 1.15; }
+.xenobot-detail { fill: none; stroke: #658f81; stroke-width: 0.7; stroke-linecap: round; }
 .xenobot-trail { fill: none; stroke: #78a69d; stroke-width: 1.3; stroke-opacity: 0.56; }
 .xenobot-contour, .xenobot-lift, .xenobot-return, .xenobot-arrowhead {
   fill: none;
   stroke: #a36b46;
   stroke-width: 1.2;
 }
-.xenobot-contour { stroke-opacity: 0.36; }
-.xenobot-lift { fill: #a36b4608; }
+.xenobot-contour { fill: #a36b4605; stroke-opacity: 0.52; }
+.xenobot-lift { fill: #a36b460f; stroke-width: 1.45; }
+.xenobot-landmark { fill: #a36b46; }
 .xenobot-return { stroke-dasharray: 3 5; }
 .xenobot-arrowhead { stroke-linecap: round; stroke-linejoin: round; }
 
