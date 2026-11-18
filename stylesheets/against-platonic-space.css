@@ -1,0 +1,156 @@
+.platonic-essay .essay-photo {
+  margin-inline: auto;
+  max-width: 520px;
+}
+
+.platonic-essay .essay-photo img {
+  height: auto;
+}
+
+.platonic-essay :is(h2, #vortex-title) {
+  scroll-margin-top: 84px;
+}
+
+.essay-photo figcaption,
+.essay-references a {
+  overflow-wrap: anywhere;
+}
+
+.essay-table-wrap {
+  overflow-x: auto;
+  margin: 2em 0;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+}
+
+.essay-table {
+  width: 100%;
+  min-width: 510px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.essay-table th,
+.essay-table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.essay-table thead {
+  background: var(--gray-50);
+}
+
+.essay-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.essay-references ol {
+  padding-inline-start: 1.5rem;
+}
+
+.essay-references li {
+  font-size: 1rem;
+}
+
+.article .vortex {
+  margin: 2.4rem 0;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.vortex-stage {
+  position: relative;
+}
+
+.vortex-flow {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.vortex-guide,
+.vortex-rim,
+.vortex-trace {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.vortex-guide { stroke: #cbdad8; stroke-dasharray: 2 5; }
+.vortex-rim { stroke: #b8cbca; }
+.vortex-trace { stroke: #397d77; stroke-opacity: 0.68; stroke-width: 1.05; }
+.vortex-trace.vortex-warm { stroke: #a36b46; }
+.vortex-drain { fill: none; stroke: #52726e; stroke-width: 0.9; }
+.vortex-particle { fill: #27645e; }
+.vortex-particle.vortex-warm { fill: #a36b46; }
+
+.vortex-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+  padding: 0 1.25rem 1.1rem;
+}
+
+.vortex-slider {
+  display: grid;
+  min-width: 0;
+}
+
+.vortex-slider label {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.vortex-slider input {
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  accent-color: #397d77;
+  cursor: pointer;
+}
+
+.vortex-actions {
+  position: absolute;
+  inset-block-start: 0.4rem;
+  inset-inline-end: 0.4rem;
+  display: flex;
+  gap: 0.15rem;
+}
+
+.vortex-actions button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 4px;
+  color: var(--gray-700);
+  background: transparent;
+  cursor: pointer;
+}
+
+.vortex-actions button:hover { background: var(--gray-100); }
+
+.vortex-actions svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+[data-playing="true"] .vortex-play,
+[data-playing="false"] .vortex-pause { display: none; }
+
+.vortex :focus-visible { outline: 2px solid #397d77; outline-offset: 2px; }
+
+@media (max-width: 520px) {
+  .vortex-controls { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .vortex-flow { width: 115%; max-width: none; margin-inline: -7.5%; }
+}
