@@ -65,8 +65,8 @@
   margin-top: 0;
 }
 
-#immanent-ai-coda iframe {
-  display: block;
+#immanent-ai-figure-host {
+  scroll-margin-top: 84px;
 }
 
 .article :is(.vortex, .xenobots, .salamander) {

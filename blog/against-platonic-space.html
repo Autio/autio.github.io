@@ -33,6 +33,7 @@
   <script src="../javascripts/whirlpool.js" defer></script>
   <script src="../javascripts/xenobots.js" defer></script>
   <script src="../javascripts/salamander.js" defer></script>
+  <script src="../javascripts/immanent-ai-figure.js" defer></script>
 </head>
 <body>
   <nav class="site-nav scrolled" aria-label="Main">
@@ -284,12 +285,179 @@
         then testing those predictions against its actual development.
       </p>
 
-      <iframe
-        src="/blog/figure_4_the_immanent_ai_research_programme.html"
-        title="The Immanent AI Research Programme"
-        style="width:100%;height:850px;border:0;"
-        loading="lazy">
-      </iframe>
+      <div id="immanent-ai-figure-host">
+        <template>
+          <link rel="stylesheet" href="../stylesheets/immanent-ai-figure.css">
+          <div class="paper-surface px-3 sm:px-6 py-4">
+            <!-- Concluding Section Transition -->
+                <section class="mb-6 border-b border-[#dcd7cc] pb-4">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-[#7a766c] font-mono-tech mb-1.5">
+                    Coda: An Immanent Research Programme
+                  </p>
+                  <h2 class="font-serif-editorial text-2xl sm:text-3xl font-medium tracking-tight text-[#1c1b18] leading-snug">
+                    From Second Addresses to Relational Prediction
+                  </h2>
+                  <p class="font-serif-editorial text-base sm:text-[17px] text-[#4e4b43] mt-2 leading-relaxed">
+                    Once we abandon the idea that form resides at a separate address, experimental biology does not lose its predictive reach. Instead, we model how parts make and remake their own relations, using machine learning to map those transitions directly from within the system's concrete dynamics.
+                  </p>
+                </section>
+
+                <!-- Main Academic Figure Block -->
+                <figure id="immanent-ai-figure" class="bg-[#fcfbf8] editorial-border rounded-xl shadow-[0_2px_18px_rgba(28,27,24,0.035)] overflow-hidden">
+      
+                  <!-- Top Control Bar: Narrative Stages -->
+                  <div class="bg-[#f3f0ea] border-b border-[#dcd7cc] p-3 sm:p-4 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full lg:w-auto" role="group" aria-label="Conceptual stages">
+                      <button type="button" data-stage="0" id="tab-0" class="stage-tab active text-left px-3 py-2 rounded-lg border border-[#dcd7cc] text-xs font-medium leading-snug">
+                        <span class="block font-mono-tech text-[10px] opacity-75">STAGE I</span>
+                        The Split
+                      </button>
+                      <button type="button" data-stage="1" id="tab-1" class="stage-tab text-left px-3 py-2 rounded-lg border border-[#dcd7cc] bg-[#faf8f5] text-xs font-medium leading-snug">
+                        <span class="block font-mono-tech text-[10px] opacity-75">STAGE II</span>
+                        Immanent Loop
+                      </button>
+                      <button type="button" data-stage="2" id="tab-2" class="stage-tab text-left px-3 py-2 rounded-lg border border-[#dcd7cc] bg-[#faf8f5] text-xs font-medium leading-snug">
+                        <span class="block font-mono-tech text-[10px] opacity-75">STAGE III</span>
+                        Relational Model
+                      </button>
+                      <button type="button" data-stage="3" id="tab-3" class="stage-tab text-left px-3 py-2 rounded-lg border border-[#dcd7cc] bg-[#faf8f5] text-xs font-medium leading-snug">
+                        <span class="block font-mono-tech text-[10px] opacity-75">STAGE IV</span>
+                        Shared Invariants
+                      </button>
+                    </div>
+
+                    <!-- Loop Playback Controls -->
+                    <div class="flex items-center justify-between sm:justify-end gap-2 pt-1 lg:pt-0 border-t lg:border-t-0 border-[#dcd7cc]">
+                      <button type="button" data-action="play" id="autoplay-btn" class="px-3 py-1.5 rounded-lg border border-[#dcd7cc] bg-[#faf8f5] hover:bg-[#ebe7de] text-xs font-medium text-[#1c1b18] flex items-center gap-1.5">
+                        <span id="autoplay-dot" class="w-2 h-2 rounded-full bg-[#3d6b58] animate-pulse"></span>
+                        <span id="autoplay-label">Loop: Playing</span>
+                      </button>
+                      <button type="button" data-action="next" class="px-3 py-1.5 rounded-lg bg-[#39496b] hover:bg-[#2d3b57] text-white text-xs font-medium flex items-center gap-1">
+                        <span>Step</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Thin Progress Bar for Continuous Loop -->
+                  <div class="w-full h-1 bg-[#ebe7de] overflow-hidden">
+                    <div id="loop-progress-bar" class="h-full bg-[#39496b] transition-all duration-100 ease-linear" style="width: 0%;"></div>
+                  </div>
+
+                  <!-- Stage Narrative Banner -->
+                  <div class="px-4 sm:px-6 py-3.5 bg-[#faf8f5] border-b border-[#dcd7cc] flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div>
+                      <h3 id="stage-title" class="font-serif-editorial text-xl sm:text-[22px] font-medium text-[#1c1b18]">
+                        1. The Split: Separate Residences
+                      </h3>
+                      <p id="stage-desc" class="text-xs sm:text-[13.5px] text-[#4e4b43] mt-1 max-w-2xl leading-relaxed">
+                        Assigning form to a separate address turns a distinction within intelligibility into an unexplained transaction between pre-existing patterns above and passive matter below.
+                      </p>
+                    </div>
+                    <div class="shrink-0 flex items-center gap-2">
+                      <span id="stage-badge" class="font-mono-tech text-[11px] px-2.5 py-1 rounded bg-[#f3f0ea] border border-[#dcd7cc] text-[#b85038]">
+                        Two Addresses
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Interactive Canvas Viewport -->
+                  <div class="relative w-full h-[390px] sm:h-[440px] bg-[#fcfbf8] select-none">
+                    <canvas id="schematicCanvas" role="img" aria-label="Animated schematic of the selected research stage"></canvas>
+
+                    <!-- Compact State Readout -->
+                    <div id="telemetry-panel" class="hidden sm:flex flex-col gap-1.5 absolute top-3 right-3 bg-[#faf8f5]/95 backdrop-blur-sm border border-[#dcd7cc] rounded-lg p-3 shadow-sm w-56 text-xs">
+                      <div class="flex items-center justify-between border-b border-[#dcd7cc] pb-1">
+                        <span class="font-mono-tech text-[10px] uppercase tracking-wider text-[#7a766c]">System State</span>
+                        <span id="telemetry-status" class="w-2 h-2 rounded-full bg-[#3d6b58]"></span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-[#4e4b43]">Organization:</span>
+                        <span id="tel-attractor" class="font-mono-tech font-medium text-[#1c1b18]">Native Whole</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-[#4e4b43]">Coupling:</span>
+                        <span id="tel-coupling" class="font-mono-tech font-medium text-[#39496b]">0.12 (Passive)</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-[#4e4b43]">Prediction:</span>
+                        <span id="tel-horizon" class="font-mono-tech font-medium text-[#3d6b58]">Retrospective</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-[#4e4b43]">Medium:</span>
+                        <span id="tel-substrate" class="font-mono-tech font-medium text-[#b07d2b]">Cellular</span>
+                      </div>
+                    </div>
+
+                    <!-- Subtle Click Hint on Canvas -->
+                    <div class="absolute bottom-3 left-3 pointer-events-none bg-[#faf8f5]/90 border border-[#dcd7cc] px-2.5 py-1 rounded text-[11px] text-[#7a766c] font-mono-tech">
+                      Click any node cluster to perturb local coupling
+                    </div>
+                  </div>
+
+                  <!-- Interactive Perturbation Bar -->
+                  <div class="bg-[#f3f0ea] border-t border-[#dcd7cc] px-4 sm:px-6 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="text-[11px] font-mono-tech uppercase tracking-wider text-[#7a766c] mr-1">Perturbations:</span>
+          
+                      <button type="button" data-intervention="dissociate" class="action-btn px-2.5 py-1.5 rounded-lg bg-[#faf8f5] hover:bg-[#ebe7de] border border-[#dcd7cc] text-xs font-medium text-[#1c1b18] flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-[#b85038]"></span>
+                        Dissociate Cells
+                      </button>
+
+                      <button type="button" data-intervention="bioelectric" class="action-btn px-2.5 py-1.5 rounded-lg bg-[#faf8f5] hover:bg-[#ebe7de] border border-[#dcd7cc] text-xs font-medium text-[#1c1b18] flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-[#39496b]"></span>
+                        Apply ΔV Prompt
+                      </button>
+
+                      <button type="button" data-intervention="substrate" class="action-btn px-2.5 py-1.5 rounded-lg bg-[#faf8f5] hover:bg-[#ebe7de] border border-[#dcd7cc] text-xs font-medium text-[#1c1b18] flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-[#b07d2b]"></span>
+                        Switch Medium
+                      </button>
+
+                      <button type="button" data-intervention="reset" class="action-btn px-2 py-1.5 rounded-lg text-xs text-[#7a766c] hover:text-[#1c1b18] underline underline-offset-2">
+                        Reset
+                      </button>
+                    </div>
+
+                    <div id="intervention-feedback" class="text-xs font-mono-tech text-[#3d6b58] bg-[#faf8f5] px-3 py-1.5 rounded border border-[#dcd7cc]">
+                      Auto-loop active across all four stages
+                    </div>
+                  </div>
+
+                  <!-- Article Integration & GIF Export Bar -->
+                  <div class="bg-[#faf8f5] border-t border-[#dcd7cc] px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-[11px] font-mono-tech text-[#7a766c]">
+                      Export a looping GIF or copy the link to this figure.
+                    </span>
+                    <div class="flex items-center gap-2">
+                      <button type="button" data-action="gif" id="gif-export-btn" class="action-btn px-3 py-1.5 rounded-lg border border-[#dcd7cc] bg-[#f3f0ea] hover:bg-[#ebe7de] text-xs font-medium text-[#1c1b18] flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 text-[#b85038]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        <span id="gif-btn-label">Export Looping GIF</span>
+                      </button>
+
+                      <button type="button" data-action="copy" id="copy-embed-btn" class="action-btn px-3 py-1.5 rounded-lg border border-[#dcd7cc] bg-[#f3f0ea] hover:bg-[#ebe7de] text-xs font-medium text-[#1c1b18] flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 text-[#39496b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <span id="copy-btn-label">Copy figure link</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Academic Figure Caption -->
+                  <figcaption class="px-4 sm:px-6 py-4 bg-[#fcfbf8] border-t border-[#dcd7cc] text-xs sm:text-[13px] leading-relaxed text-[#4e4b43]">
+                    <strong class="font-semibold text-[#1c1b18]">Figure 4. From External Ingress to Immanent Relational Modeling.</strong>
+                    Instead of treating forms as residents of a separate domain (<span class="italic">Stage I</span>), an immanent biology examines how living parts make and remake the couplings through which the whole takes shape and acts (<span class="italic">Stage II</span>). Statistical models trained on these relational state-transitions (<span class="italic">Stage III</span>) infer how local perturbations reorganize global morphology without invoking non-physical causation, revealing structural invariants shared across biological, chemical, and computational media (<span class="italic">Stage IV</span>).
+                  </figcaption>
+                </figure>
+          </div>
+        </template>
+      </div>
     </section>
     </article>
   </main>
