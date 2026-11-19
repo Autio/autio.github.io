@@ -55,6 +55,20 @@
   font-size: 1rem;
 }
 
+.platonic-essay .section-divider {
+  margin: 3rem 0 2rem;
+  border: 0;
+  border-top: 1px solid var(--gray-300);
+}
+
+.platonic-essay #immanent-ai-coda h2 {
+  margin-top: 0;
+}
+
+#immanent-ai-coda iframe {
+  display: block;
+}
+
 .article :is(.vortex, .xenobots, .salamander) {
   margin: 2.4rem 0;
   border: 1px solid var(--gray-300);
