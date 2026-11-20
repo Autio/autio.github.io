@@ -10,6 +10,7 @@
    */
   const canvas = root.getElementById('schematicCanvas');
   const ctx = canvas.getContext('2d');
+  const couplingInput = root.getElementById('regime-input');
 
   const PALETTE = {
     bg: '#fcfbf8',
@@ -28,7 +29,6 @@
     amberLight: 'rgba(176, 125, 43, 0.14)'
   };
 
-  // Concise, non-AI academic prose matching Autio's register
   const STAGES = [
     {
       title: '1. The Split: Separate Residences',
@@ -44,14 +44,14 @@
     },
     {
       title: '3. Relational State-Space Modeling',
-      desc: 'A statistical model wraps the collective as an epistemic instrument, learning how local bioelectric and mechanical shifts reorganize the whole before the tissue traverses that path.',
+      desc: 'Change local coupling, then compare the forecast with the simulated response. The thresholds predict where the boundary will fail, repair itself, or reorganize.',
       badge: 'Prospective Heuristic',
       badgeColor: '#39496b'
     },
     {
-      title: '4. Cross-Medium Structural Invariants',
-      desc: 'Convergence across cellular, chemical, and silicon systems reflects the shared relational constraints required for any differentiated whole to maintain coherence under change.',
-      badge: 'Shared Invariants',
+      title: '4. Concrete Thresholds',
+      desc: 'Determinate negation asks what breaks when a form moves into a new medium. A program executes, a chemical front needs a feed, and a living boundary must be made and remade by the activity it makes possible.',
+      badge: 'Regime Transitions',
       badgeColor: '#b07d2b'
     }
   ];
@@ -59,7 +59,6 @@
   // Simulation & Loop State
   let currentStage = 0;
   let stageTransition = 0;
-  let aiLensAlpha = 0;
   let autoPlay = !reducedMotion.matches;
   const STAGE_DURATION_MS = 4600;
   let stageElapsedMs = 0;
@@ -73,9 +72,63 @@
     if (frame === null) frame = requestAnimationFrame(draw);
   }
 
-  let morphMode = 'embryo'; // 'embryo' | 'xenobot' | 'twoheaded'
-  const SUBSTRATES = ['Cellular', 'Chemical', 'Silicon'];
-  let substrateIdx = 0;
+  const MEDIA = ['Biological', 'Chemical', 'Computational'];
+  const THRESHOLD = { maintenance: 0.55, branching: 0.78, gradient: 0.35 };
+  const TRIALS = {
+    collapse: 'Boundary collapse below the maintenance threshold',
+    recover: 'Repair toward a single boundary',
+    branch: 'Repair into a two-lobed boundary',
+    front: 'A sustained front while the gradient is fed',
+    dissolve: 'Dissolution of the chemical front',
+    execute: 'Execution under an imposed rule'
+  };
+  const clamp = value => Math.max(0, Math.min(1, value));
+  let nextLoopMedium = 0;
+  let model = createModel();
+
+  function createModel(medium = 0, coupling = 0.72, integrity = 0.94) {
+    return { medium, coupling, integrity, gradient: true, branch: 0, cost: 0,
+      previous: coupling, forecast: null, elapsed: 0, observed: false };
+  }
+
+  function predict(state) {
+    if (state.medium === 2) return 'execute';
+    if (state.medium === 1) {
+      return state.gradient && state.coupling >= THRESHOLD.gradient ? 'front' : 'dissolve';
+    }
+    if (state.coupling < THRESHOLD.maintenance) return 'collapse';
+    return state.coupling >= THRESHOLD.branching ? 'branch' : 'recover';
+  }
+
+  function startTrial() {
+    model.forecast = predict(model);
+    model.elapsed = 0;
+    model.observed = false;
+    advanceModel(0);
+  }
+
+  function changeMedium(index) {
+    // Carry the coupling across media and let the new conditions act on the form.
+    model = createModel(index, model.coupling, 0.45);
+    startTrial();
+  }
+
+  function advanceModel(dt) {
+    const outcome = predict(model);
+    const repairs = outcome === 'branch' || outcome === 'recover';
+    const targetIntegrity = repairs || outcome === 'execute' ? 0.94 : outcome === 'front' ? 0.8 : 0;
+    const speed = repairs ? 2.1 : outcome === 'front' ? 1.5 : 1.8;
+    const branchTarget = outcome === 'branch' ? 1 : 0;
+    const flux = repairs ? Math.max(0, targetIntegrity - model.integrity) * speed +
+      0.35 * Math.abs(branchTarget - model.branch) : 0;
+    model.cost = repairs ? 0.04 + flux : 0;
+    model.integrity += (targetIntegrity - model.integrity) * (1 - Math.exp(-speed * dt));
+    model.branch += (branchTarget - model.branch) * (1 - Math.exp(-2.5 * dt));
+    model.elapsed += dt;
+    model.observed = model.elapsed > 0.18 &&
+      Math.abs(targetIntegrity - model.integrity) < 0.10 &&
+      (outcome !== 'branch' || model.branch > 0.85);
+  }
 
   let perturbationWave = { active: false, x: 0, y: 0, radius: 0, alpha: 0, color: PALETTE.indigo };
 
@@ -114,7 +167,7 @@
         const col = i % cols;
         n.targetX = 0.34 + col * 0.064;
         n.targetY = 0.64 + row * 0.068;
-      } else if (morphMode === 'embryo') {
+      } else {
         if (i < 16) {
           const a = (i / 16) * Math.PI * 2 + Math.sin(t * 0.4) * 0.08;
           n.targetX = centerX + Math.cos(a) * 0.17;
@@ -124,24 +177,6 @@
           n.targetX = centerX + Math.cos(innerA) * 0.065;
           n.targetY = centerY + Math.sin(innerA) * 0.055;
         }
-      } else if (morphMode === 'xenobot') {
-        const spin = t * 0.85;
-        const ring = i < 14 ? 0.145 : 0.07;
-        const count = i < 14 ? 14 : 8;
-        const idx = i < 14 ? i : i - 14;
-        const a = (idx / count) * Math.PI * 2 + spin;
-        const orbitX = Math.cos(t * 0.55) * 0.06;
-        const orbitY = Math.sin(t * 0.7) * 0.04;
-        n.targetX = centerX + orbitX + Math.cos(a) * ring;
-        n.targetY = centerY + orbitY + Math.sin(a) * ring;
-      } else if (morphMode === 'twoheaded') {
-        const isLeft = i % 2 === 0;
-        const halfIdx = Math.floor(i / 2);
-        const totalHalf = NUM_NODES / 2;
-        const a = (halfIdx / totalHalf) * Math.PI * 2 + Math.sin(t * 0.5) * 0.1;
-        const poleX = isLeft ? centerX - 0.135 : centerX + 0.135;
-        n.targetX = poleX + Math.cos(a) * 0.095;
-        n.targetY = centerY + Math.sin(a) * 0.11;
       }
     }
   }
@@ -162,14 +197,6 @@
     if (resetTimer) {
       stageElapsedMs = 0;
       root.getElementById('loop-progress-bar').style.width = '0%';
-    }
-
-    // Cycle subtle demonstrative states during Stage IV of the automatic loop
-    if (autoPlay && idx === 3) {
-      substrateIdx = (substrateIdx + 1) % SUBSTRATES.length;
-    } else if (autoPlay && idx === 0) {
-      substrateIdx = 0;
-      morphMode = 'embryo';
     }
 
     for (let i = 0; i < 4; i++) {
@@ -198,14 +225,17 @@
   }
 
   function manualSelectStage(idx) {
+    if (exporting) return;
     setStage(idx, true);
   }
 
   function manualNextStage() {
+    if (exporting) return;
     setStage((currentStage + 1) % STAGES.length, true);
   }
 
   function toggleAutoPlay() {
+    if (exporting) return;
     autoPlay = !autoPlay;
     updatePlayback();
   }
@@ -229,40 +259,35 @@
   }
 
   function triggerIntervention(type) {
-    const w = canvas.clientWidth;
-    const h = canvas.clientHeight;
+    if (exporting) return;
     const feedback = root.getElementById('intervention-feedback');
+    autoPlay = false;
+    updatePlayback();
 
-    if (currentStage === 0 && type !== 'reset') {
-      setStage(2, true);
-    }
-
-    if (type === 'dissociate') {
-      morphMode = 'xenobot';
-      nodes.forEach(n => {
-        n.vx += (Math.random() - 0.5) * 0.035;
-        n.vy += (Math.random() - 0.5) * 0.035;
-      });
-      triggerWave(w * 0.5, h * 0.52, PALETTE.terracotta);
-      feedback.textContent = 'Dissociated: cells remake relations into motile collective';
-    } else if (type === 'bioelectric') {
-      morphMode = morphMode === 'twoheaded' ? 'embryo' : 'twoheaded';
-      nodes.forEach(n => {
-        n.charge = 1 - n.charge;
-      });
-      triggerWave(w * 0.5, h * 0.52, PALETTE.indigo);
-      feedback.textContent = morphMode === 'twoheaded'
-        ? 'ΔV prompt applied: collective settles into bipolar attractor'
-        : 'ΔV prompt applied: native single-axis organization restored';
-    } else if (type === 'substrate') {
-      substrateIdx = (substrateIdx + 1) % SUBSTRATES.length;
-      triggerWave(w * 0.5, h * 0.52, PALETTE.amber);
-      feedback.textContent = `Medium switched to ${SUBSTRATES[substrateIdx]}: invariant coupling preserved`;
-    } else if (type === 'reset') {
-      morphMode = 'embryo';
-      substrateIdx = 0;
+    if (type === 'reset') {
+      model = createModel();
+      nextLoopMedium = 0;
       setStage(0, true);
       feedback.textContent = 'Reset to Stage I';
+      return;
+    }
+
+    if (currentStage < 2) setStage(type === 'substrate' ? 3 : 2, true);
+    if (type === 'substrate') {
+      changeMedium((model.medium + 1) % MEDIA.length);
+      feedback.textContent = `Transferred to ${MEDIA[model.medium]} at the same coupling`;
+    } else if (type === 'gradient') {
+      model.gradient = !model.gradient;
+      model.previous = model.coupling;
+      startTrial();
+      feedback.textContent = model.gradient ? 'External gradient restored' : 'External gradient removed';
+    } else {
+      model.previous = model.coupling;
+      const change = type === 'dissociate' ? -0.32 : type === 'bioelectric' ? 0.18 : -0.08;
+      model.coupling = clamp(Math.round((model.coupling + change) * 100) / 100);
+      if (model.medium !== 2) model.integrity = clamp(model.integrity - (type === 'dissociate' ? 0.38 : 0.26));
+      startTrial();
+      feedback.textContent = `Coupling ${model.previous.toFixed(2)} → ${model.coupling.toFixed(2)}`;
     }
 
     updateTelemetry();
@@ -280,24 +305,72 @@
   }
 
   function updateTelemetry() {
-    const attractorNames = {
-      embryo: 'Native Whole',
-      xenobot: 'Motile Collective',
-      twoheaded: 'Bipolar (2-Axis)'
-    };
-    const couplings = {
-      embryo: '0.84 (Active)',
-      xenobot: '0.91 (Remade)',
-      twoheaded: '0.88 (Bifurcated)'
-    };
-
-    root.getElementById('tel-attractor').textContent = attractorNames[morphMode];
-    root.getElementById('tel-coupling').textContent = currentStage === 0 ? '0.12 (Passive)' : couplings[morphMode];
-    root.getElementById('tel-horizon').textContent = currentStage >= 2 ? 'Prospective (+Δt)' : 'Retrospective';
-    root.getElementById('tel-substrate').textContent = SUBSTRATES[substrateIdx];
+    const panel = root.getElementById('regime-panel');
+    panel.hidden = currentStage < 2;
+    root.getElementById('telemetry-panel').toggleAttribute('data-regime', !panel.hidden);
+    const gradient = root.getElementById('gradient-control');
+    gradient.hidden = panel.hidden || model.medium !== 1;
+    if (!panel.hidden) {
+      gradient.textContent = model.gradient ? 'Remove gradient' : 'Restore gradient';
+      updateRegimeTelemetry();
+      return;
+    }
+    root.getElementById('tel-attractor').textContent = 'Native Whole';
+    root.getElementById('tel-coupling').textContent = currentStage === 0 ? '0.12 (Passive)' : '0.84 (Active)';
+    root.getElementById('tel-horizon').textContent = 'Retrospective';
+    root.getElementById('tel-substrate').textContent = MEDIA[0];
   }
 
+  function updateRegimeTelemetry() {
+    const put = (id, value) => {
+      const field = root.getElementById('regime-' + id);
+      if (field.textContent !== value) field.textContent = value;
+    };
+    const { medium, cost, integrity, coupling, forecast, observed } = model;
+    const autonomy = medium === 0 && cost > 0 ? integrity : 0;
+    const state = autonomy > 0.64 ? 'Self-Determining / Teleological' :
+      (cost > 0 || (medium === 1 && model.gradient && coupling >= THRESHOLD.gradient && integrity > 0.2))
+        ? 'Dissipative / Driven' : 'Mechanism / Passive';
+    put('cost', cost.toFixed(2) + (cost > 0.12 ? ' · repair' : ''));
+    put('autonomy', `${Math.round(autonomy * 100)}% ${autonomy > 0 ? '· internal' : '· imposed or absent'}`);
+    put('state', state);
+    put('medium', MEDIA[medium]);
+    put('coupling', `Coupling ${coupling.toFixed(2)}`);
+    put('thresholds', medium === 0 ? '0.55 maintenance · 0.78 reorganization' :
+      medium === 1 ? '0.35 gradient capture · external feed required' : 'Execution follows the supplied rule');
+    put('forecast', forecast ? 'Prediction · ' + TRIALS[forecast] : '');
+    const shape = medium !== 0 ? '' : model.branch > 0.85 ? ' · two lobes' :
+      integrity < 0.10 ? ' · boundary lost' : '';
+    const measurement = medium === 2 ? 'rule executing' :
+      `boundary integrity ${Math.round(integrity * 100)}%${shape}`;
+    put('observed', `Simulation · ${measurement}${forecast ? (observed ? ' · settled' : ' · evolving') : ''}`);
+
+    root.getElementById('regime-track').hidden = medium === 2;
+    root.getElementById('regime-maintenance-mark').style.left =
+      (medium === 1 ? THRESHOLD.gradient : THRESHOLD.maintenance) * 100 + '%';
+    root.getElementById('regime-branch-mark').hidden = medium !== 0;
+    root.getElementById('regime-branch-mark').style.left = THRESHOLD.branching * 100 + '%';
+    root.getElementById('regime-previous').style.left = model.previous * 100 + '%';
+    if (couplingInput.valueAsNumber !== coupling) couplingInput.value = String(coupling);
+  }
+
+  couplingInput.addEventListener('input', () => {
+    if (exporting) return;
+    autoPlay = false;
+    updatePlayback();
+    model.previous = model.coupling;
+    model.coupling = couplingInput.valueAsNumber;
+    if (model.medium === 0 && model.previous !== model.coupling) model.integrity *= 0.9;
+    startTrial();
+    updateRegimeTelemetry();
+    requestDraw();
+  });
+
   canvas.addEventListener('pointerdown', (e) => {
+    if (currentStage >= 2) {
+      triggerIntervention('local');
+      return;
+    }
     const rect = canvas.getBoundingClientRect();
     const px = e.clientX - rect.left;
     const py = e.clientY - rect.top;
@@ -341,6 +414,95 @@
     ctx.closePath();
   }
 
+  function drawRegime(w, h) {
+    const cx = w * 0.5;
+    const cy = h * 0.48;
+    const radius = Math.min(w * 0.27, h * 0.29);
+    const { medium, integrity, coupling, branch, gradient, cost } = model;
+    ctx.fillStyle = PALETTE.bg;
+    ctx.fillRect(0, 0, w, h);
+
+    if (medium === 2) {
+      const columns = 7;
+      const spacing = radius / 3;
+      const active = Math.floor(time * 8) % 21;
+      ctx.strokeStyle = PALETTE.hairline;
+      ctx.strokeRect(cx - spacing * 3.8, cy - spacing * 1.65, spacing * 7.6, spacing * 3.3);
+      for (let i = 0; i < 21; i++) {
+        const x = cx + (i % columns - 3) * spacing;
+        const y = cy + (Math.floor(i / columns) - 1) * spacing;
+        ctx.globalAlpha = i === active ? 1 : 0.22 + 0.5 * coupling;
+        ctx.fillStyle = PALETTE.indigo;
+        ctx.fillRect(x - 3, y - 3, 6, 6);
+      }
+    } else if (medium === 1) {
+      if (gradient) {
+        const feed = ctx.createLinearGradient(cx - radius * 1.6, 0, cx + radius, 0);
+        feed.addColorStop(0, PALETTE.amberLight);
+        feed.addColorStop(1, PALETTE.bg);
+        ctx.fillStyle = feed;
+        ctx.fillRect(cx - radius * 1.6, cy - radius * 0.82, radius * 2.6, radius * 1.64);
+        ctx.strokeStyle = PALETTE.amber;
+        ctx.beginPath();
+        ctx.moveTo(cx - radius * 1.45, cy);
+        ctx.lineTo(cx - radius * 0.8, cy);
+        ctx.lineTo(cx - radius * 0.9, cy - 5);
+        ctx.moveTo(cx - radius * 0.8, cy);
+        ctx.lineTo(cx - radius * 0.9, cy + 5);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = integrity;
+      ctx.strokeStyle = PALETTE.terracotta;
+      for (let i = 0; i < 5; i++) {
+        const y = cy + (i - 2) * radius * 0.24;
+        ctx.beginPath();
+        ctx.moveTo(cx - radius * 0.63, y);
+        ctx.quadraticCurveTo(cx + radius * 0.34, y - radius * 0.42 * integrity, cx + radius, y);
+        ctx.stroke();
+      }
+    } else {
+      function membrane(angle, scale = 1) {
+        const waist = 1 + branch * 0.48 * Math.cos(2 * angle);
+        return [cx + Math.cos(angle) * radius * waist * scale,
+          cy + Math.sin(angle) * radius * waist * scale * 0.79];
+      }
+      // Integrity is the fraction of membrane segments that still connect.
+      const segments = 64;
+      ctx.strokeStyle = cost > 0.12 ? PALETTE.terracotta : PALETTE.sage;
+      ctx.lineWidth = 1.4 + Math.min(1, cost);
+      for (let i = 0; i < segments; i++) {
+        const connection = ((i * 29) % segments) / segments;
+        if (connection >= integrity) continue;
+        const a = i * Math.PI * 2 / segments;
+        const b = (i + 1.15) * Math.PI * 2 / segments;
+        ctx.beginPath();
+        ctx.moveTo(...membrane(a));
+        ctx.lineTo(...membrane(b));
+        ctx.stroke();
+      }
+      ctx.fillStyle = PALETTE.sage;
+      for (let i = 0; i < NUM_NODES; i++) {
+        const a = i * Math.PI * 2 / NUM_NODES;
+        const scale = 0.72 + (1 - integrity) * (0.25 + (i % 4) * 0.16);
+        ctx.globalAlpha = 0.35 + 0.6 * integrity;
+        ctx.beginPath();
+        ctx.arc(...membrane(a, scale), 2.5 + coupling * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    ctx.globalAlpha = 1;
+    ctx.lineWidth = 1;
+    ctx.fillStyle = PALETTE.inkSoft;
+    ctx.font = '500 11px "JetBrains Mono", monospace';
+    ctx.textAlign = 'center';
+    const label = medium === 2 ? 'Externally specified rule' :
+      medium === 1 ? (gradient ? 'Gradient fed' : 'Gradient removed') :
+        (integrity < 0.12 ? 'Boundary lost' : cost > 0.12 ? 'Repair underway' :
+          branch > 0.6 ? 'Two-lobed boundary' : 'Single boundary');
+    ctx.fillText(label, cx, h * 0.81, w - 24);
+  }
+
   function draw(timestamp) {
     frame = null;
     if (lastFrameTime === null) lastFrameTime = timestamp;
@@ -355,18 +517,28 @@
       const pct = Math.min(100, (stageElapsedMs / STAGE_DURATION_MS) * 100);
       root.getElementById('loop-progress-bar').style.width = `${pct}%`;
       if (stageElapsedMs >= STAGE_DURATION_MS) {
-        setStage((currentStage + 1) % STAGES.length, true);
+        const next = (currentStage + 1) % STAGES.length;
+        if (next === 3) {
+          changeMedium(nextLoopMedium);
+          nextLoopMedium = (nextLoopMedium + 1) % MEDIA.length;
+        }
+        setStage(next, true);
       }
     }
 
     const w = canvas.clientWidth;
     const h = canvas.clientHeight;
 
+    if (currentStage >= 2) {
+      advanceModel(still ? 0.35 : exporting ? 0 : dt / 1000);
+      updateRegimeTelemetry();
+      drawRegime(w, h);
+      if (exporting || (visible && (!still || (model.forecast && !model.observed)))) requestDraw();
+      return;
+    }
+
     const targetSplit = currentStage === 0 ? 0 : 1;
     stageTransition += (targetSplit - stageTransition) * (still ? 1 : 0.07);
-
-    const targetAiAlpha = currentStage >= 2 ? 1 : 0;
-    aiLensAlpha += (targetAiAlpha - aiLensAlpha) * (still ? 1 : 0.07);
 
     updateNodeTargets(time);
 
@@ -487,81 +659,6 @@
       ctx.restore();
     }
 
-    // STAGE III & IV: RELATIONAL MODEL MANIFOLD
-    if (aiLensAlpha > 0.01) {
-      ctx.save();
-      ctx.globalAlpha = aiLensAlpha;
-
-      const cx = w * 0.5;
-      const cy = h * 0.52;
-      const rx = Math.min(w * 0.36, 255);
-      const ry = Math.min(h * 0.34, 150);
-
-      const grad = ctx.createRadialGradient(cx, cy, rx * 0.25, cx, cy, rx * 1.15);
-      grad.addColorStop(0, 'rgba(57, 73, 107, 0.02)');
-      grad.addColorStop(0.7, 'rgba(57, 73, 107, 0.08)');
-      grad.addColorStop(1, 'rgba(57, 73, 107, 0.0)');
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, rx * 1.15, ry * 1.15, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      [0.72, 0.92, 1.08].forEach((scale, idx) => {
-        ctx.beginPath();
-        ctx.ellipse(
-          cx,
-          cy,
-          rx * scale,
-          ry * scale,
-          Math.sin(time * 0.3 + idx) * 0.04,
-          0,
-          Math.PI * 2
-        );
-        ctx.strokeStyle = idx === 1 ? 'rgba(57, 73, 107, 0.32)' : 'rgba(57, 73, 107, 0.16)';
-        ctx.lineWidth = idx === 1 ? 1.3 : 1;
-        ctx.setLineDash([4, 4]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      });
-
-      const numTraj = 6;
-      for (let i = 0; i < numTraj; i++) {
-        const a = (i / numTraj) * Math.PI * 2 + time * 0.25;
-        const x1 = cx + Math.cos(a) * (rx * 0.52);
-        const y1 = cy + Math.sin(a) * (ry * 0.52);
-        const x2 = cx + Math.cos(a + 0.22) * (rx * 0.95);
-        const y2 = cy + Math.sin(a + 0.22) * (ry * 0.95);
-
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.quadraticCurveTo(
-          cx + Math.cos(a + 0.1) * (rx * 0.78),
-          cy + Math.sin(a + 0.1) * (ry * 0.78),
-          x2,
-          y2
-        );
-        ctx.strokeStyle = 'rgba(61, 107, 88, 0.35)';
-        ctx.lineWidth = 1.2;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(x2, y2, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = PALETTE.sage;
-        ctx.fill();
-      }
-
-      ctx.fillStyle = PALETTE.indigo;
-      ctx.font = '600 13px "Newsreader", Georgia, serif';
-      ctx.textAlign = 'left';
-      ctx.fillText('RELATIONAL TRANSITION MODEL (Epistemic Heuristic)', 18, 28);
-
-      ctx.fillStyle = PALETTE.inkSoft;
-      ctx.font = '10px "JetBrains Mono", monospace';
-      ctx.fillText('Maps local coupling shifts to prospective global attractors', 18, 44);
-
-      ctx.restore();
-    }
-
     // STAGE II+ IMMANENT LABELING
     if (stageTransition > 0.15) {
       ctx.save();
@@ -577,15 +674,10 @@
         ctx.fillText('Parts make and remake the relations through which the whole acts', 18, 44);
       }
 
-      const basinLabels = {
-        embryo: 'ACTIVE ATTRACTOR: Coherent Gastrula / Native Whole',
-        xenobot: 'ACTIVE ATTRACTOR: Dissociated Motile Collective',
-        twoheaded: 'ACTIVE ATTRACTOR: Bifurcated Bipolar Organization'
-      };
       ctx.fillStyle = PALETTE.ink;
       ctx.font = '500 11px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(basinLabels[morphMode], w * 0.5, h - 16);
+      ctx.fillText('NATIVE WHOLE', w * 0.5, h - 16);
 
       ctx.restore();
     }
@@ -610,16 +702,8 @@
           ctx.moveTo(x1, y1);
           ctx.lineTo(x2, y2);
 
-          let strokeCol = `rgba(61, 107, 88, ${alpha})`;
-          if (currentStage === 0) {
-            strokeCol = `rgba(138, 133, 122, ${alpha})`;
-          } else if (substrateIdx === 1) {
-            strokeCol = `rgba(184, 80, 56, ${alpha})`;
-          } else if (substrateIdx === 2) {
-            strokeCol = `rgba(57, 73, 107, ${alpha})`;
-          }
-
-          ctx.strokeStyle = strokeCol;
+          ctx.strokeStyle = currentStage === 0
+            ? `rgba(138, 133, 122, ${alpha})` : `rgba(61, 107, 88, ${alpha})`;
           ctx.lineWidth = currentStage === 0 ? 1 : 1.55;
           ctx.stroke();
 
@@ -629,7 +713,7 @@
             const sy = y1 + (y2 - y1) * sigT;
             ctx.beginPath();
             ctx.arc(sx, sy, 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = currentStage >= 2 ? PALETTE.indigo : PALETTE.sage;
+            ctx.fillStyle = PALETTE.sage;
             ctx.fill();
           }
         }
@@ -655,26 +739,10 @@
       ctx.strokeStyle = PALETTE.ink;
       ctx.lineWidth = 1.2;
 
-      if (substrateIdx === 2 && currentStage >= 1) {
-        ctx.beginPath();
-        ctx.rect(nx - pulseR * 0.85, ny - pulseR * 0.85, pulseR * 1.7, pulseR * 1.7);
-        ctx.fill();
-        ctx.stroke();
-      } else if (substrateIdx === 1 && currentStage >= 1) {
-        ctx.beginPath();
-        ctx.moveTo(nx, ny - pulseR * 1.15);
-        ctx.lineTo(nx + pulseR * 1.15, ny);
-        ctx.lineTo(nx, ny + pulseR * 1.15);
-        ctx.lineTo(nx - pulseR * 1.15, ny);
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-      } else {
-        ctx.beginPath();
-        ctx.arc(nx, ny, pulseR, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.stroke();
-      }
+      ctx.beginPath();
+      ctx.arc(nx, ny, pulseR, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
     });
 
     // PERTURBATION WAVE
@@ -840,67 +908,76 @@
   async function exportLoopingGif() {
     if (exporting) return;
     exporting = true;
-    requestDraw();
     const btnLabel = root.getElementById('gif-btn-label');
     const feedback = root.getElementById('intervention-feedback');
-    btnLabel.textContent = 'Rendering Loop...';
-    feedback.textContent = 'Capturing 4-stage loop frames for GIF...';
-
-    const offscreen = document.createElement('canvas');
-    const gifW = 480;
-    const gifH = 270;
-    offscreen.width = gifW;
-    offscreen.height = gifH;
-    const octx = offscreen.getContext('2d');
-
-    const frames = [];
-    const wasPlaying = autoPlay;
-    const savedStage = currentStage;
+    const saved = { model, autoPlay, currentStage, stageElapsedMs, nodes, time,
+      stageTransition, perturbationWave };
     autoPlay = false;
+    model = createModel();
+    initNodes();
+    btnLabel.textContent = 'Rendering loop…';
+    feedback.textContent = 'Capturing the four stages…';
+    requestDraw();
 
-    // Capture 24 frames (6 frames per stage across all 4 stages)
-    const totalFrames = 24;
-    for (let f = 0; f < totalFrames; f++) {
-      const targetStg = Math.floor(f / 6);
-      if (currentStage !== targetStg) {
-        setStage(targetStg, false);
+    try {
+      const offscreen = document.createElement('canvas');
+      const width = 480;
+      const height = 270;
+      offscreen.width = width;
+      offscreen.height = height;
+      const output = offscreen.getContext('2d');
+      const frames = [];
+
+      for (let frameIndex = 0; frameIndex < 24; frameIndex++) {
+        const stage = Math.floor(frameIndex / 6);
+        if (currentStage !== stage) setStage(stage, false);
+        if (stage < 2) {
+          stageTransition += ((stage === 0 ? 0 : 1) - stageTransition) * 0.35;
+        } else if (frameIndex === 13) {
+          model.coupling = 0.90;
+          model.integrity = 0.60;
+          startTrial();
+        } else if (frameIndex === 20) {
+          changeMedium(1);
+        } else if (frameIndex === 21) {
+          model.gradient = false;
+          startTrial();
+        } else if (frameIndex === 22) {
+          changeMedium(2);
+        }
+        if (stage >= 2) advanceModel(0.34);
+
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        output.drawImage(canvas, 0, 0, width, height);
+        output.fillStyle = 'rgba(250, 248, 245, 0.92)';
+        output.fillRect(0, 0, width, 24);
+        output.fillStyle = PALETTE.ink;
+        output.font = '600 11px Georgia, serif';
+        const title = STAGES[stage].title + (stage >= 2 ? ' · ' + MEDIA[model.medium] : '');
+        output.fillText(title, 10, 16);
+        frames.push(output.getImageData(0, 0, width, height).data);
       }
-      // Advance physics slightly for smooth motion in the GIF
-      stageTransition += ((currentStage === 0 ? 0 : 1) - stageTransition) * 0.35;
-      aiLensAlpha += ((currentStage >= 2 ? 1 : 0) - aiLensAlpha) * 0.35;
-      updateNodeTargets(f * 0.28);
-      nodes.forEach(n => {
-        n.x += (n.targetX - n.x) * 0.35;
-        n.y += (n.targetY - n.y) * 0.35;
-      });
 
-      await new Promise(r => requestAnimationFrame(r));
-      octx.drawImage(canvas, 0, 0, gifW, gifH);
-      // Draw stage caption strip at top of GIF frame
-      octx.fillStyle = 'rgba(250, 248, 245, 0.92)';
-      octx.fillRect(0, 0, gifW, 24);
-      octx.fillStyle = '#1c1b18';
-      octx.font = '600 11px Georgia, serif';
-      octx.fillText(STAGES[targetStg].title, 10, 16);
-
-      frames.push(octx.getImageData(0, 0, gifW, gifH).data);
+      const blob = buildLoopingGifBlob(frames, width, height, 24);
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'against-platonic-space-figure-4.gif';
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      feedback.textContent = 'Saved against-platonic-space-figure-4.gif';
+    } catch {
+      feedback.textContent = 'GIF export failed. Try again.';
+    } finally {
+      ({ model, autoPlay, stageElapsedMs, nodes, time, stageTransition } = saved);
+      setStage(saved.currentStage, false);
+      perturbationWave = saved.perturbationWave;
+      exporting = false;
+      btnLabel.textContent = 'Export Looping GIF';
+      requestDraw();
     }
-
-    const blob = buildLoopingGifBlob(frames, gifW, gifH, 24); // 240ms per frame (~5.7s full loop)
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'against-platonic-space-figure-4.gif';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(() => URL.revokeObjectURL(url), 4000);
-
-    setStage(savedStage, true);
-    autoPlay = wasPlaying;
-    exporting = false;
-    btnLabel.textContent = 'Export Looping GIF';
-    feedback.textContent = 'Saved against-platonic-space-figure-4.gif';
   }
 
   async function copyFigureLink() {

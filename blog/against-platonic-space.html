@@ -33,7 +33,7 @@
   <script src="../javascripts/whirlpool.js" defer></script>
   <script src="../javascripts/xenobots.js" defer></script>
   <script src="../javascripts/salamander.js" defer></script>
-  <script src="../javascripts/immanent-ai-figure.js" defer></script>
+  <script src="../javascripts/immanent-ai-figure.js?v=concrete-thresholds" defer></script>
 </head>
 <body>
   <nav class="site-nav scrolled" aria-label="Main">
@@ -287,7 +287,7 @@
 
       <div id="immanent-ai-figure-host">
         <template>
-          <link rel="stylesheet" href="../stylesheets/immanent-ai-figure.css">
+          <link rel="stylesheet" href="../stylesheets/immanent-ai-figure.css?v=concrete-thresholds">
           <div class="paper-surface px-3 sm:px-6 py-4">
             <!-- Concluding Section Transition -->
                 <section class="mb-6 border-b border-[#dcd7cc] pb-4">
@@ -322,7 +322,7 @@
                       </button>
                       <button type="button" data-stage="3" id="tab-3" class="stage-tab text-left px-3 py-2 rounded-lg border border-[#dcd7cc] bg-[#faf8f5] text-xs font-medium leading-snug">
                         <span class="block font-mono-tech text-[10px] opacity-75">STAGE IV</span>
-                        Shared Invariants
+                        Concrete Thresholds
                       </button>
                     </div>
 
@@ -363,6 +363,28 @@
                     </div>
                   </div>
 
+                  <div id="regime-panel" class="regime-panel" hidden>
+                    <dl class="regime-metrics">
+                      <div><dt>Maintenance cost</dt><dd id="regime-cost"></dd></div>
+                      <div><dt>Boundary autonomy</dt><dd id="regime-autonomy"></dd></div>
+                      <div><dt>Regime state</dt><dd id="regime-state"></dd></div>
+                    </dl>
+                    <div class="regime-coupling">
+                      <strong id="regime-medium"></strong>
+                      <span id="regime-coupling"></span>
+                    </div>
+                    <div id="regime-track" class="regime-track" hidden>
+                      <span id="regime-maintenance-mark" class="regime-mark" aria-hidden="true"></span>
+                      <span id="regime-branch-mark" class="regime-mark" aria-hidden="true"></span>
+                      <span id="regime-previous" class="regime-previous" aria-hidden="true"></span>
+                      <input id="regime-input" type="range" min="0" max="1" step="0.01" value="0.72" aria-label="Coupling" aria-describedby="regime-thresholds">
+                    </div>
+                    <p id="regime-thresholds" class="regime-detail"></p>
+                    <p id="regime-forecast" class="regime-trial" role="status"></p>
+                    <p id="regime-observed" class="regime-trial"></p>
+                    <p class="regime-detail">Toy model · normalized values</p>
+                  </div>
+
                   <!-- Interactive Canvas Viewport -->
                   <div class="relative w-full h-[390px] sm:h-[440px] bg-[#fcfbf8] select-none">
                     <canvas id="schematicCanvas" role="img" aria-label="Animated schematic of the selected research stage"></canvas>
@@ -393,7 +415,7 @@
 
                     <!-- Subtle Click Hint on Canvas -->
                     <div class="absolute bottom-3 left-3 pointer-events-none bg-[#faf8f5]/90 border border-[#dcd7cc] px-2.5 py-1 rounded text-[11px] text-[#7a766c] font-mono-tech">
-                      Click any node cluster to perturb local coupling
+                      Click the diagram to disturb the collective
                     </div>
                   </div>
 
@@ -416,6 +438,8 @@
                         <span class="w-2 h-2 rounded-full bg-[#b07d2b]"></span>
                         Switch Medium
                       </button>
+
+                      <button type="button" id="gradient-control" data-intervention="gradient" class="regime-gradient action-btn" hidden>Remove gradient</button>
 
                       <button type="button" data-intervention="reset" class="action-btn px-2 py-1.5 rounded-lg text-xs text-[#7a766c] hover:text-[#1c1b18] underline underline-offset-2">
                         Reset
@@ -452,7 +476,7 @@
                   <!-- Academic Figure Caption -->
                   <figcaption class="px-4 sm:px-6 py-4 bg-[#fcfbf8] border-t border-[#dcd7cc] text-xs sm:text-[13px] leading-relaxed text-[#4e4b43]">
                     <strong class="font-semibold text-[#1c1b18]">Figure 4. From External Ingress to Immanent Relational Modeling.</strong>
-                    Instead of treating forms as residents of a separate domain (<span class="italic">Stage I</span>), an immanent biology examines how living parts make and remake the couplings through which the whole takes shape and acts (<span class="italic">Stage II</span>). Statistical models trained on these relational state-transitions (<span class="italic">Stage III</span>) infer how local perturbations reorganize global morphology without invoking non-physical causation, revealing structural invariants shared across biological, chemical, and computational media (<span class="italic">Stage IV</span>).
+                    Instead of treating forms as residents of a separate domain (<span class="italic">Stage I</span>), an immanent biology examines how living parts make and remake the couplings through which the whole takes shape and acts (<span class="italic">Stage II</span>). Models trained on relational state transitions can forecast how a perturbation will reorganize the whole (<span class="italic">Stage III</span>). Map the substrate constraints, maintenance costs, and coupling thresholds at which passive or driven dynamics give way to self-maintaining agency (<span class="italic">Stage IV</span>). This yields falsifiable predictions from the system’s own relations, which experiments can test without positing a separate realm.
                   </figcaption>
                 </figure>
           </div>
