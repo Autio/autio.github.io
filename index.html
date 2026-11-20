@@ -26,7 +26,7 @@
     "knowsAbout": ["WASH", "SDG 6", "Product Management", "Data Management", "GIS", "AI Strategy", "Responsible AI", "AI-assisted Programming", "Formal Verification"]
   }
   </script>
-  <link rel="stylesheet" href="stylesheets/home.css?v=20261120a">
+  <link rel="stylesheet" href="stylesheets/home.css?v=20261120b">
   <link rel="stylesheet" href="stylesheets/home-editorial-v2.css">
   <script data-goatcounter="https://autio.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -45,20 +45,14 @@
   <header class="home-intro">
     <div class="container intro-grid">
       <div class="intro-copy">
-        <div class="intro-heading">
-          <div class="intro-heading-tools">
-            <p class="eyebrow">Data, AI &amp; institutional capacity</p>
-            <button type="button" class="headline-pause" aria-pressed="false">Pause headlines</button>
-          </div>
-          <h1 class="intro-headline">
-            <span>Operationalising data for global governance</span>
-            <span>Building for scale with product excellence</span>
-          </h1>
-        </div>
+        <p class="eyebrow">Data, AI &amp; institutional capacity</p>
+        <h1 class="intro-headline">
+          <span>Operationalising data for global governance</span>
+          <span>Building for scale with product excellence</span>
+        </h1>
         <p class="intro-text">I work from the problem through to the product: understanding users, setting priorities, working closely with engineers and seeing how the software holds up in use.</p>
         <p class="intro-context">Since 2018, I have led product development at <a href="https://www.mwater.co/">mWater</a>, working with governments, utilities and development partners in different countries.</p>
         <p class="intro-context">I also developed <a href="https://www.solstice.world/">Solstice</a> into a product for other sectors and serve as Venture Lead at <a href="https://stellardata.co">Stellar Data</a>.</p>
-        <p class="intro-context"><strong>My mission</strong><br>Advance people’s self-determination through the strategic use of digital technology that scales, can be sustained, and remains accountable to the people it serves.</p>
         <div class="home-actions"><a class="button-link" href="#work">Explore my work ↓</a><a href="#contact">Get in touch →</a><a href="cv.html">CV →</a></div>
       </div>
       <figure class="intro-portrait"><img src="images/petri-autio.jpg" alt="Petri Autio at his desk with mWater dashboards on screen" width="1000" height="1000" fetchpriority="high"><figcaption>Petri Mikael Autio · Head of Product</figcaption></figure>
@@ -122,7 +116,7 @@
     </div>
   </section>
 
-  <section class="home-section home-about" id="about"><div class="container about-grid"><div><span class="eyebrow">About me</span><h2>How I came to product work</h2></div><div><p>My career began in the private sector at quantitative hedge fund GSA Capital, working on trade reconciliations, treasury automation and risk management. I then developed mapping tools at the British Red Cross and worked on global information systems at WaterAid. Across those roles, I learned to value software that works reliably in practice, with the people and resources available.</p><p>I have done extensive consulting and training through UpBeam Oy, including engagements with WaterAid, the Netherlands Red Cross, and Water For People. My other interests include philosophy, writing and <a id="projects" href="side-projects.html#independent-projects">independent software projects</a>.</p><p class="independent-ai-note" id="ai-science">I bring a deep personal interest in AI to hands-on research and development, especially <a href="ai-work.html">UpBeam Science and my independent AI work →</a>.</p><div class="home-actions"><a href="experience.html">Career and experience →</a><a href="side-projects.html#consulting">Consulting and training →</a><a href="https://stellardata.co">Stellar Data ↗</a></div></div></div></section>
+  <section class="home-section home-about" id="about"><div class="container about-grid"><div><span class="eyebrow">About me</span><h2>How I came to product work</h2></div><div><p>My career began in the private sector at quantitative hedge fund GSA Capital, working on trade reconciliations, treasury automation and risk management. I then developed mapping tools at the British Red Cross and worked on global information systems at WaterAid. Across those roles, I learned to value software that works reliably in practice, with the people and resources available.</p><p>I have done extensive consulting and training through UpBeam Oy, including engagements with WaterAid, the Netherlands Red Cross, and Water For People. My other interests include philosophy, writing and <a id="projects" href="side-projects.html#independent-projects">independent software projects</a>.</p><p class="independent-ai-note" id="ai-science">I bring a deep personal interest in AI to hands-on research and development, especially <a href="ai-work.html">UpBeam Science and my independent AI work →</a>.</p><p><strong>My mission</strong><br>Advance people’s self-determination through the strategic use of digital technology that scales, can be sustained, and remains accountable to the people it serves.</p><div class="home-actions"><a href="experience.html">Career and experience →</a><a href="side-projects.html#consulting">Consulting and training →</a><a href="https://stellardata.co">Stellar Data ↗</a></div></div></div></section>
 
   <section class="home-contact" id="contact"><div class="container contact-inner"><div><span class="eyebrow">Contact</span><h2>Product leadership and collaboration</h2><p>I am interested in product leadership roles and ventures where customer needs, technical decisions and commercial responsibilities meet. I am also available for AI strategy, training and speaking.</p></div><div class="contact-actions"><details class="email-contact"><summary>Reveal email address</summary><a href="mailto:petri.mikael.autio@gmail.com">petri.mikael.autio@gmail.com</a></details><a class="button-link" href="https://www.linkedin.com/in/petriautio/">Connect on LinkedIn ↗</a></div></div></section>
 </main>
@@ -134,13 +128,6 @@ function closeNav() { navLinks.classList.remove('active'); navToggle.setAttribut
 navToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('active'); navToggle.setAttribute('aria-expanded', String(open)); });
 document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', closeNav));
 document.addEventListener('keydown', event => { if (event.key === 'Escape' && navLinks.classList.contains('active')) { closeNav(); navToggle.focus(); } });
-
-const headlinePause = document.querySelector('.headline-pause');
-headlinePause.addEventListener('click', () => {
-  const paused = headlinePause.getAttribute('aria-pressed') === 'true';
-  headlinePause.setAttribute('aria-pressed', String(!paused));
-});
-headlinePause.closest('.intro-heading').classList.add('headline-rotation');
 </script>
 </body>
 </html>
